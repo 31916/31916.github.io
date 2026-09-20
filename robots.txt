@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
 
+Sitemap: https://31916.ch/sitemap.xml
 Sitemap: https://31916.ch/IMELayoutRouter/sitemap.xml

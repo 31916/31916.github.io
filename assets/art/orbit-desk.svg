@@ -1,0 +1,289 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 560" fill="none">
+  <defs>
+    <pattern id="grid" width="28" height="28" patternUnits="userSpaceOnUse">
+      <path d="M28 0H0V28" stroke="#dfe6eb" stroke-width=".8" />
+    </pattern>
+    <pattern id="strings" width="8" height="8" patternUnits="userSpaceOnUse">
+      <path d="M8 0H0V8" stroke="#778b6a" stroke-width="1" />
+    </pattern>
+    <linearGradient id="planet" x1="0" x2="1" y1="0" y2="1">
+      <stop stop-color="#b9d8f8" />
+      <stop offset="1" stop-color="#5f83d5" />
+    </linearGradient>
+  </defs>
+  <rect
+    x="73"
+    y="63"
+    width="466"
+    height="421"
+    rx="110"
+    fill="url(#grid)"
+    opacity=".65"
+  />
+  <ellipse
+    cx="311"
+    cy="276"
+    rx="228"
+    ry="195"
+    transform="rotate(-18 311 276)"
+    stroke="#b7c9e8"
+    stroke-width="1.2"
+    stroke-dasharray="4 8"
+  />
+  <ellipse cx="330" cy="472" rx="192" ry="18" fill="#dce2e6" opacity=".55" />
+  <g transform="rotate(9 444 123)">
+    <circle
+      cx="444"
+      cy="123"
+      r="63"
+      fill="url(#planet)"
+      stroke="#5678b6"
+      stroke-width="2"
+    />
+    <path
+      d="M387 98q53-28 111 10M382 117q64-31 124 12M387 145q59-23 110 14"
+      stroke="#89aee4"
+      stroke-width="9"
+      opacity=".75"
+    />
+    <path
+      d="M386 93q-82 63 51 61 115-2 79-46"
+      stroke="#3d5e9b"
+      stroke-width="2.5"
+    />
+    <path
+      d="M384 92q-30 43 76 26 34-6 47-14"
+      stroke="#cedfff"
+      stroke-width="5"
+    />
+  </g>
+  <g stroke="#4263a2" stroke-width="2" stroke-linecap="round">
+    <path d="M278 56v19m-9-9h18M552 252v18m-9-9h18M106 364v14m-7-7h14" />
+    <path d="m178 89 3 8 8 3-8 3-3 8-3-8-8-3 8-3Z" fill="#dfe8ff" />
+    <path d="m530 393 4 10 10 4-10 4-4 10-4-10-10-4 10-4Z" fill="#e8e9c8" />
+  </g>
+  <circle cx="326" cy="107" r="3" fill="#a5b9df" />
+  <circle cx="108" cy="209" r="4" fill="#bdcabe" />
+  <circle cx="477" cy="443" r="4" fill="#8eabd8" />
+  <g transform="rotate(-9 284 286)">
+    <rect
+      x="151"
+      y="178"
+      width="279"
+      height="201"
+      rx="13"
+      fill="#bbccef"
+      stroke="#3d547a"
+      stroke-width="2.5"
+    />
+    <rect
+      x="162"
+      y="189"
+      width="257"
+      height="173"
+      rx="6"
+      fill="#f9fbff"
+      stroke="#54709b"
+      stroke-width="1.7"
+    />
+    <path d="M163 213h255" stroke="#d5dfef" />
+    <circle cx="176" cy="201" r="3" fill="#c1cfe4" />
+    <circle cx="187" cy="201" r="3" fill="#c1cfe4" />
+    <circle cx="198" cy="201" r="3" fill="#c1cfe4" />
+    <text
+      x="398"
+      y="204"
+      text-anchor="end"
+      font-family="monospace"
+      font-size="8"
+      fill="#8a9bb7"
+    >
+      hello-world.js
+    </text>
+    <text x="187" y="247" font-family="monospace" font-size="12" fill="#8ea0b6">
+      // a little curiosity
+    </text>
+    <text x="187" y="273" font-family="monospace" font-size="14" fill="#385dc2">
+      const harry = {
+    </text>
+    <text x="203" y="297" font-family="monospace" font-size="13" fill="#657888">
+      id:
+      <tspan fill="#4a8b78">'31916'</tspan>
+      ,
+    </text>
+    <text x="203" y="320" font-family="monospace" font-size="13" fill="#657888">
+      always:
+      <tspan fill="#4a8b78">'curious'</tspan>
+    </text>
+    <text x="187" y="342" font-family="monospace" font-size="14" fill="#385dc2">
+      };
+    </text>
+    <path
+      d="m151 378-43 48q-5 8 8 9h337q13-1 8-9l-31-48Z"
+      fill="#dae4f5"
+      stroke="#3d547a"
+      stroke-width="2.5"
+    />
+    <path
+      d="m164 388-14 19h248l-12-19Z"
+      fill="#ecf1fa"
+      stroke="#8ea3c5"
+      stroke-width="1.5"
+    />
+    <path
+      d="M161 398h235m-215-10-4 19m25-19-3 19m25-19-2 19m25-19-1 19m25-19v19m23-19 1 19m22-19 2 19m21-19 3 19m19-19 4 19"
+      stroke="#aebdd5"
+      stroke-width="1.4"
+    />
+    <path d="m243 414-4 12h57l-3-12Z" fill="#eaf0f9" stroke="#a0b4d4" />
+    <path
+      d="M109 431q0 13 19 13h314q18 0 18-13"
+      fill="#a8bce0"
+      stroke="#3d547a"
+      stroke-width="2.5"
+    />
+  </g>
+  <g transform="translate(433 333) rotate(10)">
+    <ellipse cx="33" cy="107" rx="61" ry="14" fill="#bac5c8" opacity=".35" />
+    <path
+      d="M6 20C-30-57-1-84 22 0C19-96 57-85 45 16"
+      fill="#c9cdd3"
+      stroke="#566477"
+      stroke-width="2.5"
+    />
+    <path
+      d="M5-28 16 4M35-36 34 2"
+      stroke="#e6d9de"
+      stroke-width="7"
+      stroke-linecap="round"
+    />
+    <ellipse
+      cx="30"
+      cy="70"
+      rx="42"
+      ry="42"
+      fill="#c9cdd3"
+      stroke="#566477"
+      stroke-width="2.5"
+    />
+    <ellipse
+      cx="26"
+      cy="30"
+      rx="40"
+      ry="32"
+      fill="#d9dce1"
+      stroke="#566477"
+      stroke-width="2.5"
+    />
+    <circle cx="13" cy="26" r="3.5" fill="#344761" />
+    <circle cx="41" cy="26" r="3.5" fill="#344761" />
+    <path
+      d="m23 35 4 4 4-4m-4 4v5m0 0q-5 6-9 0m9 0q5 6 9 0"
+      stroke="#687388"
+      stroke-width="1.5"
+      stroke-linecap="round"
+    />
+    <ellipse
+      cx="5"
+      cy="105"
+      rx="18"
+      ry="9"
+      fill="#d9dce1"
+      stroke="#566477"
+      stroke-width="2"
+    />
+    <ellipse
+      cx="46"
+      cy="107"
+      rx="18"
+      ry="9"
+      fill="#d9dce1"
+      stroke="#566477"
+      stroke-width="2"
+    />
+    <circle
+      cx="74"
+      cy="82"
+      r="13"
+      fill="#eef0f1"
+      stroke="#566477"
+      stroke-width="2"
+    />
+    <path
+      d="M8 66q-2 17 4 20M42 66q2 17-4 20"
+      stroke="#88939f"
+      stroke-width="2"
+      stroke-linecap="round"
+    />
+  </g>
+  <g transform="translate(102 114) rotate(-27)">
+    <ellipse
+      rx="27"
+      ry="37"
+      fill="#e9efc8"
+      stroke="#607258"
+      stroke-width="2.5"
+    />
+    <ellipse rx="21" ry="31" fill="url(#strings)" stroke="#859573" />
+    <path d="M-11 35 0 58 11 35M0 58v35" stroke="#607258" stroke-width="3" />
+    <path
+      d="M0 72v23"
+      stroke="#4664a0"
+      stroke-width="9"
+      stroke-linecap="round"
+    />
+    <path d="m-3 77 6 4m-6 4 6 4" stroke="#b4c6ed" stroke-width="1.5" />
+  </g>
+  <circle
+    cx="111"
+    cy="287"
+    r="18"
+    fill="#d5e580"
+    stroke="#8a9b53"
+    stroke-width="2"
+  />
+  <path
+    d="M99 274q22 12 0 27m24-27q-22 12 0 27"
+    stroke="#f7fadf"
+    stroke-width="2"
+  />
+  <g transform="translate(315 409) rotate(8)">
+    <rect
+      width="87"
+      height="64"
+      rx="3"
+      fill="#f2edcc"
+      stroke="#bdb791"
+      stroke-width="1.2"
+    />
+    <rect
+      x="27"
+      y="-8"
+      width="36"
+      height="15"
+      transform="rotate(-5 45 0)"
+      fill="#dce4e7"
+      opacity=".8"
+    />
+    <text
+      x="43"
+      y="30"
+      text-anchor="middle"
+      font-family="sans-serif"
+      font-size="12"
+      fill="#818166"
+    >
+      stay
+    </text>
+    <text
+      x="43"
+      y="47"
+      text-anchor="middle"
+      font-family="sans-serif"
+      font-size="12"
+      fill="#818166"
+    >
+      curious.
+    </text>
+  </g>
+</svg>
