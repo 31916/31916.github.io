@@ -13,7 +13,7 @@ import tarfile
 ROOT = Path(__file__).resolve().parents[1]
 CURRENT = "IMELayoutRouter"
 LEGACY = "IMELayOutRouter"
-PUBLIC = ("CNAME", "index.html", "assets", "css", "js", CURRENT)
+PUBLIC = ("CNAME", "index.html", "robots.txt", "assets", "css", "js", CURRENT)
 
 
 def redirect(page):
