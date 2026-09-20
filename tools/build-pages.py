@@ -14,7 +14,8 @@ import tarfile
 ROOT = Path(__file__).resolve().parents[1]
 CURRENT = "IMELayoutRouter"
 LEGACY = "IMELayOutRouter"
-PUBLIC = ("CNAME", "index.html", "robots.txt", "assets", "css", "js", CURRENT)
+PUBLIC = ("CNAME", "index.html", "404.html", "robots.txt", "sitemap.xml",
+          "assets", "css", "js", "about", "projects", CURRENT)
 
 
 class ShareMetadata(HTMLParser):
