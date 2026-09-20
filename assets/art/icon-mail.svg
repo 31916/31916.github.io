@@ -1,0 +1,35 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 80 66"
+  stroke="#384b67"
+  stroke-linejoin="round"
+>
+  <rect
+    x="13"
+    y="19"
+    width="56"
+    height="38"
+    rx="5"
+    fill="#e8e1f6"
+    stroke="none"
+  />
+  <rect
+    x="8"
+    y="14"
+    width="56"
+    height="38"
+    rx="5"
+    fill="#fff"
+    stroke-width="2.5"
+  />
+  <path
+    d="m10 17 26 19 26-19M10 49l18-18m34 18L45 32"
+    fill="none"
+    stroke-width="2.5"
+  />
+  <path
+    d="m58 4 3 6 6 1-5 5 1 6-5-3-6 3 1-6-4-5 6-1Z"
+    fill="#dbe7ff"
+    stroke-width="1.5"
+  />
+</svg>

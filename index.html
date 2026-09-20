@@ -1,225 +1,640 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>Resume - Start Bootstrap Theme</title>
-        <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
-        <!-- Font Awesome icons (free version)-->
-        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
-        <!-- Google fonts-->
-        <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet" type="text/css" />
-        <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" type="text/css" />
-        <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="css/styles.css" rel="stylesheet" />
-    </head>
-    <body id="page-top">
-        <!-- Navigation-->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
-            <a class="navbar-brand js-scroll-trigger" href="#page-top">
-                <span class="d-block d-lg-none">Haruto Kitagawa</span>
-                <span class="d-none d-lg-block"><img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="assets/img/profile.jpg" alt="..." /></span>
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">About</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#experience">Experience</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#education">Education</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#qualifications-and-skills">Qualifications and Skills</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#research">Research</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#slides">Slides</a></li>
-                </ul>
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f8f9f7" />
+    <title>Harry / 31916 — Code, curiosity & a little play.</title>
+    <meta
+      name="description"
+      content="Harry（北川温人）のポートフォリオ。31916として制作するソフトウェア、研究と、少しだけ日々のこと。"
+    />
+    <meta name="author" content="Haruto Kitagawa" />
+    <meta
+      property="og:title"
+      content="Harry / 31916 — Code, curiosity & a little play."
+    />
+    <meta
+      property="og:description"
+      content="ソフトウェア、研究と、少しだけ日々のこと。Harryの小さな開発拠点。"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://31916.ch/" />
+    <link rel="canonical" href="https://31916.ch/" />
+    <link rel="icon" href="/assets/art/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/styles.css?v=20260921a" />
+    <script src="/js/scripts.js?v=20260921a" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">本文へスキップ</a>
+    <header class="site-header">
+      <a class="wordmark" href="/" aria-label="31916 ホーム"
+        >31916<span class="wordmark-dot"></span
+      ></a>
+      <span class="header-note">Harry's little corner of the web.</span>
+      <nav aria-label="メインナビゲーション">
+        <a href="/projects/">Projects</a><a href="/about/">About</a
+        ><a href="/#outside">Play</a
+        ><a class="nav-contact" href="/#contact"
+          >Say hello <span aria-hidden="true">↗</span></a
+        >
+      </nav>
+    </header>
+    <main id="main">
+      <section class="hero section-shell" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow">
+            <span class="little-spark" aria-hidden="true">✳</span> HELLO, I'M
+            HARRY.
+          </p>
+          <h1 id="hero-title">
+            A little code.<br />A lot of
+            <span class="curiosity"
+              >curiosity.<svg viewBox="0 0 390 18" aria-hidden="true">
+                <path d="M3 12 Q180 -3 383 9 M55 16 Q220 4 358 14" /></svg
+            ></span>
+          </h1>
+          <p class="hero-name">Haruto Kitagawa <span>北川 温人</span></p>
+          <p class="hero-description">
+            日々の「ちょっと不便」を、つくるきっかけに。<br />ソフトウェア、研究と、少しだけ日々のこと。
+          </p>
+          <div class="hero-actions">
+            <a class="button button-blue" href="#projects"
+              >制作物を見る <span aria-hidden="true">↘</span></a
+            ><a class="text-link" href="/about/"
+              >はじめまして <span aria-hidden="true">↗</span></a
+            >
+          </div>
+          <p class="hero-location">
+            <span class="status-dot" aria-hidden="true"></span> Based in Japan
+            <span class="location-divider">/</span> A soft spot for Switzerland.
+          </p>
+        </div>
+        <div class="hero-art">
+          <span class="art-label">a few things in my orbit</span
+          ><img
+            src="/assets/art/orbit-desk.svg"
+            width="620"
+            height="560"
+            alt="パソコンの周りに、青い惑星、テニスラケット、灰色のうさぎが集まるイラスト"
+          /><span class="art-caption"
+            >made of code & little curiosities
+            <span aria-hidden="true">✦</span></span
+          >
+        </div>
+      </section>
+
+      <nav class="explore-nav section-shell" aria-label="このサイトを探す">
+        <a href="/projects/"
+          ><img
+            class="nav-illustration"
+            src="/assets/art/icon-code.svg"
+            width="80"
+            height="66"
+            alt=""
+          /><span>Things I make<small>制作物をのぞく</small></span
+          ><span class="explore-arrow" aria-hidden="true">↗</span></a
+        >
+        <a href="/about/"
+          ><img
+            class="nav-illustration"
+            src="/assets/art/icon-rabbit.svg"
+            width="80"
+            height="66"
+            alt=""
+          /><span>A little about me<small>Harryってどんな人？</small></span
+          ><span class="explore-arrow" aria-hidden="true">↗</span></a
+        >
+        <a href="#outside"
+          ><img
+            class="nav-illustration"
+            src="/assets/art/icon-tennis.svg"
+            width="80"
+            height="66"
+            alt=""
+          /><span>Outside the screen<small>コードの外のこと</small></span
+          ><span class="explore-arrow" aria-hidden="true">↘</span></a
+        >
+        <a href="#contact"
+          ><img
+            class="nav-illustration"
+            src="/assets/art/icon-mail.svg"
+            width="80"
+            height="66"
+            alt=""
+          /><span>Let's say hello<small>つながる・話す</small></span
+          ><span class="explore-arrow" aria-hidden="true">↗</span></a
+        >
+      </nav>
+
+      <section
+        class="section-shell work-section"
+        id="projects"
+        aria-labelledby="work-title"
+      >
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">01 / THINGS I MAKE</p>
+            <h2 id="work-title">
+              Small ideas, made real<span class="blue-dot">.</span>
+            </h2>
+            <p>自分のためにつくったものが、誰かの役に立ったら。</p>
+          </div>
+          <a class="text-link" href="/projects/"
+            >すべての制作物 <span aria-hidden="true">↗</span></a
+          >
+        </div>
+        <div class="project-grid">
+          <article class="project-card" data-category="software">
+            <a
+              class="project-visual ime-visual"
+              href="/IMELayoutRouter/"
+              aria-label="IMELayoutRouterの紹介・ダウンロード"
+              ><span class="visual-caption"
+                >MAKE YOUR KEYBOARD FEEL AT HOME.</span
+              ><img
+                src="/assets/art/keyboard.svg"
+                alt="あ と A の入力を切り替えるキーボードのイラスト"
+                width="560"
+                height="300"
+                loading="lazy"
+              /><span class="project-index">01 / DESKTOP UTILITY</span
+              ><span class="circle-arrow" aria-hidden="true">↗</span></a
+            >
+            <div class="project-info">
+              <div class="project-meta">
+                <span>WINDOWS · C#</span
+                ><span class="project-status"><span></span>公開中</span>
+              </div>
+              <h3><a href="/IMELayoutRouter/">IMELayoutRouter</a></h3>
+              <p>
+                IMEの直接入力を、使い慣れたWindows入力レイアウトで。日本語簡易版V1と多機能版V2を配布しています。
+              </p>
+              <a class="text-link" href="/IMELayoutRouter/"
+                >紹介・ダウンロード <span aria-hidden="true">↗</span></a
+              >
             </div>
-        </nav>
-        <!-- Page Content-->
-        <div class="container-fluid p-0">
-
-
-            <!-- About-->
-            <section class="resume-section" id="about">
-                <div class="resume-section-content">
-                    <h1 class="mb-0">
-                        <span class="text-primary">Haruto Kitagawa</span>
-                        <br>(北川 温人)</br>
-                    </h1>
-                    <div class="subheading mb-5">
-                        (070) 7562-3869·
-                        <a href="mailto:harutokitagawa8610@gmail.com">harutokitagawa8610@gmail.com</a>
-                    </div>
-                    <p class="lead mb-5">I am an engineering student with experience in programming and problem-solving, and I enjoy improving systems through practical and iterative work. I value collaboration, learning from feedback, and building solutions that are both useful and easy to understand.</p>
-                    <div class="social-icons">
-                        <a class="social-icon" href="#!"><i class="fab fa-linkedin-in"></i></a>
-                        <a class="social-icon" href="https://github.com/31916"><i class="fab fa-github"></i></a>
-                        <a class="social-icon" href="https://x.com/31916_ch"><i class="fab fa-twitter"></i></a>
-                        <a class="social-icon" href="https://www.facebook.com/profile.php?id=61571777716274"><i class="fab fa-facebook-f"></i></a>
-                    </div>
-                </div>
-            </section>
-            <hr class="m-0" />
-            <!-- Experience-->
-            <section class="resume-section" id="experience">
-                <div class="resume-section-content">
-                    <h2 class="mb-5">Experience</h2>
-                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                        <div class="flex-grow-1">
-                            <h3 class="mb-0">Global Business Division Intern</h3>
-                            <div class="subheading mb-3">ClaN Entertainment</div>
-                            <p>Researched overseas Vtuber market cases and competitor activities, and created English presentation materials to support decision-making and team alignment.</p>
-                        </div>
-                        <div class="flex-shrink-0"><span class="text-primary">March 2025 - Present</span></div>
-                    </div>
-                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                        <div class="flex-grow-1">
-                            <h3 class="mb-0">Volunteer Staff</h3>
-                            <div class="subheading mb-3">Fukui Youth Center Sprout</div>
-                            <p>Worked as a volunteer staff member supporting high school students through daily communication, program planning and operation, and basic facility tasks. Also developed a simple reception system as part of efforts to improve staff operations.</p>
-                        </div>
-                        <div class="flex-shrink-0"><span class="text-primary">May 2025 - March 2026</span></div>
-                    </div>
-                </div>
-            </section>
-            <hr class="m-0" />
-
-
-            <!-- Education-->
-            <section class="resume-section" id="education">
-                <div class="resume-section-content">
-                    <h2 class="mb-5">Education</h2>
-
-                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                        <div class="flex-grow-1">
-                            <h3 class="mb-0">University of Fukui</h3>
-                            <div class="subheading mb-3">Bachelor of Information Science</div>
-                            <div>Faculty of Engineering Department of Electrical, Electronic and Computer Engineering,Electronic and Computer</div>
-                            <p>GPA: ---</p>
-                        </div>
-                        <div class="flex-shrink-0"><span class="text-primary">April 2025 - Present</span></div>
-                    </div>
-
-                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                        <div class="flex-grow-1">
-                            <h3 class="mb-0">Kantonsschule Enge, Switzerland</h3>
-                            <div class="subheading mb-3">High School Exchange Program</div>
-                            <p>Participated in a student exchange program in Switzerland.</p>
-                        </div>
-                        <div class="flex-shrink-0"><span class="text-primary">August 2021 - July 2022</span></div>
-                    </div>
-
-                    <div class="d-flex flex-column flex-md-row justify-content-between">
-                        <div class="flex-grow-1">
-                            <h3 class="mb-0">NITTC (Toyota KOSEN)</h3>
-                            <div class="subheading mb-3">DEPARTMENT OF INFORMATION AND COMPUTER ENGINEERING</div>
-                            <p>GPA: ---</p>
-                        </div>
-                        <div class="flex-shrink-0"><span class="text-primary">April 2019 - March 2025</span></div>
-                    </div>
-                </div>
-            </section>
-            <hr class="m-0" />
-
-
-            <!-- Qualifications and Skills-->
-            <section class="resume-section" id="qualifications-and-skills">
-                <div class="resume-section-content">
-                    <h2 class="mb-5">Qualifications & Skills</h2>
-
-                    <div class="subheading mb-3">Qualifications</div>
-                    <ul class="fa-ul mb-4">
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            TOEIC L&amp;R Score: 850
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            Japanese Driver’s License (Automatic Transmission Only)
-                        </li>
-                    </ul>
-
-                    <div class="subheading mb-3">Programming Languages &amp; Tools</div>
-                    <ul class="list-inline dev-icons">
-                        <li class="list-inline-item"><i class="fab fa-html5"></i></li>
-                        <li class="list-inline-item"><i class="fab fa-css3-alt"></i></li>
-                        <li class="list-inline-item"><i class="fab fa-js-square"></i></li>
-                        <li class="list-inline-item"><i class="fab fa-python"></i></li>
-                        <li class="list-inline-item"><i class="fab fa-github"></i></li>
-                        <li class="list-inline-item"><i class="fab fa-git-alt"></i></li>
-                    </ul>
-
-                    <div class="subheading mb-3">Technical Skills</div>
-                    <ul class="fa-ul mb-0">
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            C, Python, JavaScript, HTML, CSS
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            Git / GitHub
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            Google Apps Script
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            Basic system development and workflow improvement
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            English presentation materials and research support
-                        </li>
-                    </ul>
-                </div>
-            </section>
-            <hr class="m-0" />
-            <hr class="m-0" />
-
-
-        <hr class="m-0" />
-
-
-        <!-- Research-->
-        <section class="resume-section" id="research">
-            <div class="resume-section-content">
-                <h2 class="mb-5">Research</h2>
-
-                <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                    <div class="flex-grow-1">
-                        <h3 class="mb-0">---</h3>
-                        <div class="subheading mb-3">University of Fukui</div>
-                        <p>My undergraduate research topic is currently undecided. I am interested in practical software applications, intelligent systems, ADAS, infotainment, image processing, and software reliability.</p>
-                    </div>
-                    <div class="flex-shrink-0"><span class="text-primary">April 2025 - Present</span></div>
-                </div>
-
-                <div class="d-flex flex-column flex-md-row justify-content-between">
-                    <div class="flex-grow-1">
-                        <h3 class="mb-0">JSL Handshape Recognition Using Pose Estimation and ML</h3>
-                        <div class="subheading mb-3">NITTC (Toyota KOSEN)</div>
-                        <p>My graduation research focused on recognizing Japanese Sign Language handshapes using MediaPipe-based pose estimation and machine learning. I collected and labeled handshape data, extracted hand-joint features, and developed a recognition model to evaluate its performance.</p>
-                    </div>
-                    <div class="flex-shrink-0"><span class="text-primary">April 2024 - March 2025</span></div>
-                </div>
+          </article>
+          <article class="project-card" data-category="research">
+            <a
+              class="project-visual research-visual"
+              href="https://github.com/31916/syukei_recognize"
+              aria-label="日本手話の手形認識の研究リポジトリ"
+              ><span class="visual-caption"
+                >UNDERSTANDING THE LANGUAGE OF HANDS.</span
+              ><img
+                src="/assets/art/handshape.svg"
+                alt="手の関節を点と線で捉える、手形認識の概念図"
+                width="560"
+                height="300"
+                loading="lazy"
+              /><span class="project-index">02 / GRADUATION RESEARCH</span
+              ><span class="circle-arrow" aria-hidden="true">↗</span></a
+            >
+            <div class="project-info">
+              <div class="project-meta">
+                <span>PYTHON · MEDIAPIPE · MACHINE LEARNING</span
+                ><span class="project-status"><span></span>研究</span>
+              </div>
+              <h3>
+                <a href="https://github.com/31916/syukei_recognize"
+                  >手のかたちを、読み解く。</a
+                >
+              </h3>
+              <p>
+                日本手話の手形認識に関する卒業研究。手の特徴を抽出し、機械学習による分類と評価に取り組みました。
+              </p>
+              <a
+                class="text-link"
+                href="https://github.com/31916/syukei_recognize"
+                >研究・ソースコード <span aria-hidden="true">↗</span></a
+              >
             </div>
-        </section>
+          </article>
+        </div>
+      </section>
 
+      <section
+        class="about-strip section-shell"
+        id="about"
+        aria-labelledby="about-title"
+      >
+        <div class="profile-note">
+          <div class="profile-photo">
+            <img
+              src="/assets/img/profile.jpg"
+              alt="北川温人のポートレート"
+              width="320"
+              height="320"
+              loading="lazy"
+            />
+          </div>
+          <span class="photo-label"
+            >Hi, I'm Harry! <span aria-hidden="true">↖</span></span
+          ><span class="profile-stamp">JAPAN ↔ SWITZERLAND</span>
+        </div>
+        <div class="about-copy">
+          <p class="eyebrow">02 / THE PERSON BEHIND 31916</p>
+          <h2 id="about-title">
+            つくること。<br />知らない世界に、触れること。
+          </h2>
+          <p>
+            北川温人、海外ではHarryと呼ばれています。<br />福井大学で情報分野を学びながら、ソフトウェアやWebをつくっています。
+          </p>
+          <p>
+            31916は、高専時代から使い続けている開発者ID。<br />スイスで過ごした時間も、ここに並ぶ小さな制作物も、自分をつくっている大切なものです。
+          </p>
+          <div class="interest-tags">
+            <span>Software</span><span>Linux</span><span>Research</span
+            ><span>Japan & Switzerland</span>
+          </div>
+          <a class="text-link" href="/about/"
+            >これまでのこと、これからのこと
+            <span aria-hidden="true">↗</span></a
+          >
+        </div>
+      </section>
 
-        <!---Sliede-->>
-        <section class="resume-section" id="slides">
-            <div class="resume-section-content">
-                <h2 class="mb-5">Slides</h2>
-                <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vTOx2sJ4c-NsUv0ASAZbMVvznOzXZUAb9hrANFhc0ZbkVbyEe9dMW2BeMIJiblsjGrV_mbmKgI6oM_I/pubembed?start=false&loop=true&delayms=3000" 
-                    frameborder="0" 
-                    width="960" height="569" 
-                    allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+      <section
+        class="section-shell experience-section"
+        aria-labelledby="experience-title"
+      >
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">03 / ALONG THE WAY</p>
+            <h2 id="experience-title">
+              Learning, everywhere<span class="blue-dot">.</span>
+            </h2>
+            <p>教室でも、チームの中でも、知らない街でも。</p>
+          </div>
+          <a class="text-link" href="/about/#experience"
+            >経歴を見る <span aria-hidden="true">↗</span></a
+          >
+        </div>
+        <div class="experience-grid">
+          <article>
+            <span class="experience-year">2025 —</span>
+            <h3>University of Fukui</h3>
+            <p>福井大学 工学部で情報分野を学んでいます。</p>
+          </article>
+          <article>
+            <span class="experience-year">2025 —</span>
+            <h3>ClaN Entertainment</h3>
+            <p>海外市場の調査や英語資料の作成を行うインターンシップ。</p>
+          </article>
+          <article>
+            <span class="experience-year">2021 — 2022</span>
+            <h3>A year in Switzerland</h3>
+            <p>留学先はKantonsschule Enge。Harryという呼び名の始まり。</p>
+          </article>
+        </div>
+      </section>
+
+      <section
+        class="outside-section"
+        id="outside"
+        aria-labelledby="outside-title"
+      >
+        <div class="serve-scroll" id="serve-scroll">
+          <div class="serve-sticky">
+            <div class="serve-stage section-shell">
+              <div class="serve-copy">
+                <p class="eyebrow">04 / OUTSIDE THE SCREEN</p>
+                <h2 id="outside-title">
+                  A little <br />less screen. <br /><span>More play.</span>
+                </h2>
+                <p>キーボードから手を離したら、<br />ラケットを握る時間。</p>
+                <div class="tennis-label">
+                  <span class="tennis-dot" aria-hidden="true"></span> TENNIS
+                </div>
+                <p class="scroll-prompt motion-only">
+                  <span aria-hidden="true">↓</span>
+                  スクロールで、ひとつのサーブ。
+                </p>
+                <p class="static-prompt">コートの上でも、少しずつ。</p>
+                <a class="quiet-link" href="#little-things"
+                  >ほかの好きなことへ <span aria-hidden="true">↘</span></a
+                >
+              </div>
+              <div class="serve-canvas">
+                <span class="court-note">TAKE A BREATH. TAKE A SHOT.</span>
+                <svg
+                  id="tennis-scene"
+                  viewBox="0 0 900 560"
+                  role="img"
+                  aria-labelledby="tennis-title tennis-description"
+                >
+                  <title id="tennis-title">右利きのテニスのサーブ</title>
+                  <desc id="tennis-description">
+                    濃紺の人物シルエットが、スクロールに合わせてトス、構え、インパクト、振り抜きの順に動きます。
+                  </desc>
+                  <defs>
+                    <pattern
+                      id="racket-strings"
+                      width="8"
+                      height="8"
+                      patternUnits="userSpaceOnUse"
+                    >
+                      <path
+                        d="M8 0H0V8"
+                        fill="none"
+                        stroke="#2648aa"
+                        stroke-width="1"
+                      />
+                    </pattern>
+                    <linearGradient id="court-fade" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0" stop-color="#dbe6ed" />
+                      <stop offset="1" stop-color="#edf2f0" />
+                    </linearGradient>
+                  </defs>
+                  <text x="88" y="235" class="court-word" aria-hidden="true">
+                    PLAY.
+                  </text>
+                  <path
+                    d="M0 415 570 300 900 405V560H0Z"
+                    fill="url(#court-fade)"
+                  />
+                  <g fill="none" stroke="#fff" stroke-width="3">
+                    <path
+                      d="m-80 510 671-173 357 126M180 560l423-199M497 560l244-160M203 445l592 91M556 351l279 113"
+                    />
+                  </g>
+                  <path
+                    d="m730 287 133 36v141l-133-64Z"
+                    fill="#e8efed"
+                    fill-opacity=".5"
+                    stroke="#a7b9c1"
+                    stroke-width="2"
+                  />
+                  <g stroke="#b6c6cb" stroke-width="1">
+                    <path
+                      d="m730 310 133 36m-133-12 133 36m-133-12 133 36m-133-12 133 36m-104-135v119m29-110v124m29-117v130m29-122v136"
+                    />
+                  </g>
+                  <path
+                    d="M730 287v118m133-82v146"
+                    stroke="#748a99"
+                    stroke-width="5"
+                  />
+                  <ellipse
+                    id="player-shadow"
+                    cx="412"
+                    cy="450"
+                    rx="85"
+                    ry="13"
+                    fill="#243848"
+                    opacity=".12"
+                  />
+                  <path
+                    id="ball-trail"
+                    d="M489 94Q670 130 820 410"
+                    stroke="#b6c44a"
+                    stroke-width="2"
+                    stroke-dasharray="5 8"
+                    fill="none"
+                    opacity="0"
+                  />
+                  <g
+                    id="player"
+                    fill="#1d3049"
+                    stroke="#1d3049"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path
+                      id="leg-back"
+                      d="M400 336 375 376 362 423"
+                      fill="none"
+                      stroke-width="23"
+                    />
+                    <path id="shoe-back" d="M362 423l-20 5" stroke-width="14" />
+                    <path
+                      id="leg-front"
+                      d="M411 337 434 377 440 432"
+                      fill="none"
+                      stroke-width="25"
+                    />
+                    <path id="shoe-front" d="M440 432l21 5" stroke-width="15" />
+                    <path
+                      id="torso"
+                      d="M394 242Q377 264 390 299L391 333Q408 347 426 329L426 297Q430 268 411 245Z"
+                      stroke-width="5"
+                    />
+                    <path
+                      id="shorts"
+                      d="M390 315 427 314 433 344 407 350 399 345 384 343Z"
+                      stroke-width="4"
+                    />
+                    <path id="neck" d="M401 230 402 251" stroke-width="17" />
+                    <g id="head-group" transform="translate(401 211) rotate(8)">
+                      <ellipse rx="16" ry="21" stroke="none" />
+                      <path
+                        d="M-14-10Q-4-28 14-13L22-7H-15Z"
+                        stroke-width="3"
+                      />
+                      <path d="m12-1 8 7-7 3" stroke-width="3" />
+                    </g>
+                    <path
+                      id="arm-toss"
+                      d="M408 250 429 284 420 314"
+                      fill="none"
+                      stroke-width="13"
+                    />
+                    <path
+                      id="arm-racket"
+                      d="M394 246 435 202 466 153"
+                      fill="none"
+                      stroke-width="15"
+                    />
+                  </g>
+                  <g id="racket" transform="translate(466 153) rotate(20)">
+                    <path
+                      d="M0 2v-34m0 8-11-13m11 13 11-13"
+                      fill="none"
+                      stroke="#223b65"
+                      stroke-width="4"
+                      stroke-linecap="round"
+                    />
+                    <ellipse
+                      cy="-61"
+                      rx="22"
+                      ry="31"
+                      fill="url(#racket-strings)"
+                      stroke="#294fbd"
+                      stroke-width="5"
+                    />
+                    <path
+                      d="M0 2v-15"
+                      stroke="#f8f9f7"
+                      stroke-width="6"
+                      stroke-linecap="round"
+                    />
+                  </g>
+                  <g id="tennis-ball" transform="translate(489 94)">
+                    <circle
+                      r="9"
+                      fill="#d4e569"
+                      stroke="#8e9b37"
+                      stroke-width="1.5"
+                    />
+                    <path
+                      d="M-6-6Q4 0-6 6M6-6Q-4 0 6 6"
+                      stroke="#f9ffd8"
+                      stroke-width="1.5"
+                      fill="none"
+                    />
+                  </g>
+                  <g
+                    id="impact-mark"
+                    transform="translate(489 94)"
+                    stroke="#7e9636"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    opacity="0"
+                  >
+                    <path d="m-21-15-8-7m24-1 2-10m14 22 10-2" />
+                  </g>
+                </svg>
+                <div class="serve-controls motion-only">
+                  <div class="serve-steps" aria-label="サーブの段階">
+                    <span data-phase="0" class="active">01 <b>Toss</b></span
+                    ><span data-phase="1">02 <b>Load</b></span
+                    ><span data-phase="2">03 <b>Hit</b></span
+                    ><span data-phase="3">04 <b>Follow</b></span>
+                  </div>
+                  <div class="serve-controls-row">
+                    <label class="sr-only" for="serve-progress"
+                      >サーブの動き（0から100）</label
+                    ><input
+                      id="serve-progress"
+                      type="range"
+                      min="0"
+                      max="100"
+                      value="0"
+                      aria-valuetext="トスの準備"
+                    /><button
+                      id="motion-toggle"
+                      type="button"
+                      aria-pressed="false"
+                    >
+                      動きを止める
+                    </button>
+                  </div>
+                </div>
+              </div>
             </div>
-        </section>
-
-        <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
-    </body>
+          </div>
+        </div>
+        <div class="little-things section-shell" id="little-things">
+          <p class="eyebrow">A FEW OTHER THINGS I LOVE</p>
+          <div class="little-things-grid">
+            <article>
+              <img
+                src="/assets/art/icon-rabbit.svg"
+                alt=""
+                width="80"
+                height="66"
+                loading="lazy"
+              />
+              <div>
+                <h3>A grey little friend.</h3>
+                <p>長く一緒に暮らしている、灰色のうさぎのメリー。</p>
+              </div>
+            </article>
+            <article>
+              <svg viewBox="0 0 80 60" aria-hidden="true">
+                <circle
+                  cx="40"
+                  cy="29"
+                  r="19"
+                  fill="#abc4f0"
+                  stroke="#3657a0"
+                  stroke-width="2"
+                />
+                <ellipse
+                  cx="40"
+                  cy="31"
+                  rx="34"
+                  ry="9"
+                  transform="rotate(-25 40 31)"
+                  fill="none"
+                  stroke="#3657a0"
+                  stroke-width="2"
+                />
+                <path
+                  d="M8 8v8m-4-4h8m53 30v8m-4-4h8"
+                  stroke="#3657a0"
+                  stroke-width="2"
+                />
+              </svg>
+              <div>
+                <h3>A sky full of curiosity.</h3>
+                <p>星や惑星。きれいだな、と思う気持ちを大切に。</p>
+              </div>
+            </article>
+            <article>
+              <svg viewBox="0 0 80 60" aria-hidden="true">
+                <path
+                  d="M5 50 30 8l16 27L56 20l20 30Z"
+                  fill="#dce8e6"
+                  stroke="#577c83"
+                  stroke-width="2"
+                />
+                <path d="m21 24 9-16 11 20-10-6-5 6Z" fill="#fff" />
+                <path d="M57 4v12m-6-6h12" stroke="#4261d6" stroke-width="2" />
+              </svg>
+              <div>
+                <h3>A place close to my heart.</h3>
+                <p>スイスで出会った人たち、過ごした時間と、これから。</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+      <section
+        class="contact-section section-shell"
+        id="contact"
+        aria-labelledby="contact-title"
+      >
+        <div>
+          <p class="eyebrow">05 / KEEP IN TOUCH</p>
+          <h2 id="contact-title">
+            Good things start<br />with a <span>hello.</span
+            ><svg viewBox="0 0 80 65" aria-hidden="true">
+              <path
+                d="M12 30Q-1 6 13 5q8 0 16 19Q20-2 35 4q7 3 11 20Q43 8 54 11q10 2 8 24 18-10 13 5Q60 70 38 61 15 55 12 30Z"
+                fill="#dfe9ff"
+                stroke="#3156bb"
+                stroke-width="2"
+              />
+            </svg>
+          </h2>
+          <p>制作物のこと、開発のこと、気軽に話しましょう。</p>
+        </div>
+        <div class="contact-links">
+          <a href="mailto:harutokitagawa8610@gmail.com"
+            ><span><small>DROP ME A LINE</small>Email</span
+            ><span aria-hidden="true">↗</span></a
+          ><a href="https://github.com/31916"
+            ><span><small>CODE & EXPERIMENTS</small>GitHub</span
+            ><span aria-hidden="true">↗</span></a
+          ><a href="https://x.com/31916_ch"
+            ><span><small>LITTLE UPDATES</small>X / Twitter</span
+            ><span aria-hidden="true">↗</span></a
+          >
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer section-shell">
+      <a class="wordmark" href="/">31916<span class="wordmark-dot"></span></a>
+      <p>© <span data-year>2026</span> Harry / Haruto Kitagawa</p>
+      <a href="#main">Back to top ↑</a>
+    </footer>
+  </body>
 </html>
