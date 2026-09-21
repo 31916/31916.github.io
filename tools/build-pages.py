@@ -1,7 +1,8 @@
 """Package the static site with case-sensitive legacy URL aliases.
 
 Use an archive so this also works on case-insensitive Windows filesystems.
-Only the public files below are included; deployment tools stay private to Git.
+Only the public files below are included; tools remain in the public repository
+but are not served as website content.
 """
 
 import io
@@ -14,8 +15,22 @@ import tarfile
 ROOT = Path(__file__).resolve().parents[1]
 CURRENT = "IMELayoutRouter"
 LEGACY = "IMELayOutRouter"
-PUBLIC = ("CNAME", "index.html", "404.html", "robots.txt", "sitemap.xml",
-          "assets", "css", "js", "about", "projects", CURRENT)
+PUBLIC = (
+    "CNAME", "index.html", "404.html", "robots.txt", "sitemap.xml",
+    "about/index.html", "projects/index.html", "assets/img/favicon.ico",
+    "assets/img/profile.jpg", "css/styles.css", "js/scripts.js",
+    "assets/art/favicon.svg", "assets/art/handshape.svg",
+    "assets/art/icon-code.svg", "assets/art/icon-mail.svg",
+    "assets/art/icon-rabbit.svg", "assets/art/icon-tennis.svg",
+    "assets/art/keyboard.svg", "assets/art/orbit-desk.svg",
+    f"{CURRENT}/index.html", f"{CURRENT}/en.html", f"{CURRENT}/style.css",
+    f"{CURRENT}/app.ico", f"{CURRENT}/sitemap.xml",
+    f"{CURRENT}/social-ja-v1.png", f"{CURRENT}/social-en-v1.png",
+    f"{CURRENT}/social-ja-v2.png", f"{CURRENT}/social-en-v2.png",
+    f"{CURRENT}/downloads/ImeLayoutRouter-V1-1.1.0-Setup.exe",
+    f"{CURRENT}/downloads/ImeLayoutRouter-V2-2.0.0-Setup.exe",
+    f"{CURRENT}/downloads/SHA256SUMS.txt",
+)
 
 
 class ShareMetadata(HTMLParser):
@@ -58,12 +73,15 @@ def redirect(page):
 def build(destination):
     with tarfile.open(destination, "w") as archive:
         for name in PUBLIC:
+            if not (ROOT / name).is_file() or (ROOT / name).is_symlink():
+                raise ValueError(f"Expected a regular public file: {name}")
             archive.add(ROOT / name, arcname=name)
 
         # Old direct installer links keep serving the exact same bytes.
-        for source in sorted((ROOT / CURRENT).rglob("*")):
-            if not source.is_file():
+        for name in PUBLIC:
+            if not name.startswith(f"{CURRENT}/"):
                 continue
+            source = ROOT / name
             relative = source.relative_to(ROOT / CURRENT).as_posix()
             alias = f"{LEGACY}/{relative}"
             if relative in ("index.html", "en.html"):
