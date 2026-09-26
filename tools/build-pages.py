@@ -29,6 +29,8 @@ PUBLIC = (
     f"{CURRENT}/social-ja-v2.png", f"{CURRENT}/social-en-v2.png",
     f"{CURRENT}/downloads/ImeLayoutRouter-V1-1.1.0-Setup.exe",
     f"{CURRENT}/downloads/ImeLayoutRouter-V2-2.0.0-Setup.exe",
+    f"{CURRENT}/downloads/ImeLayoutRouter-1.1.1-Setup.exe",
+    f"{CURRENT}/downloads/ImeLayoutRouter-2.0.1-Setup.exe",
     f"{CURRENT}/downloads/SHA256SUMS.txt",
 )
 
