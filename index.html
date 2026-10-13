@@ -26,11 +26,12 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="/css/styles.css?v=20261013m" />
+    <link rel="stylesheet" href="/css/home.css?v=20261013p" />
     <script src="/js/scripts.js?v=20261013l" defer></script>
     <script type="module" src="/js/identity.js?v=20261013n"></script>
     <script src="/js/i18n.js?v=20261013l" defer></script>
   </head>
-  <body>
+  <body class="home-page">
     <a class="skip-link" href="#main">本文へ移動</a>
     <header class="site-header shell">
       <a class="wordmark" data-site-logo href="/" aria-label="31916 ホーム"
@@ -62,154 +63,96 @@
         </label>
       </div>
     </header>
-    <main id="main">
-      <section class="intro shell" aria-labelledby="intro-title">
+    <main id="main" class="home-main shell">
+      <section class="intro" aria-labelledby="intro-title">
         <div class="intro-copy">
-          <p class="kicker">個人サイト / 31916.CH</p>
-          <h1 id="intro-title">HARRY<span class="name-period">.</span></h1>
-          <p class="full-name">Haruto Kitagawa <span>北川 温人</span></p>
-          <p class="intro-text">
-            福井大学で情報分野を学ぶ、個人開発者。<br />日々の小さな不便を、ソフトウェアで少しずつ。
-          </p>
-          <div class="intro-links">
-            <a
-              class="social-icon"
-              href="https://github.com/31916"
-              aria-label="GitHub"
-              title="GitHub"
-            >
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path
-                  fill="currentColor"
-                  d="M12 .8a11.3 11.3 0 0 0-3.57 22.02c.57.1.77-.25.77-.55v-2.12c-3.16.69-3.83-1.35-3.83-1.35-.52-1.31-1.26-1.66-1.26-1.66-1.03-.7.08-.69.08-.69 1.14.08 1.74 1.17 1.74 1.17 1.01 1.74 2.66 1.24 3.31.95.1-.73.4-1.24.72-1.52-2.52-.29-5.18-1.27-5.18-5.64 0-1.24.45-2.25 1.17-3.04-.12-.28-.51-1.44.11-3 0 0 .96-.31 3.11 1.16a10.86 10.86 0 0 1 5.66 0c2.16-1.47 3.11-1.16 3.11-1.16.62 1.56.23 2.72.12 3 .73.79 1.16 1.8 1.16 3.04 0 4.38-2.66 5.34-5.2 5.62.41.35.77 1.04.77 2.1v3.14c0 .31.2.66.78.55A11.3 11.3 0 0 0 12 .8Z"
-                />
-              </svg>
-            </a>
-            <a
-              class="social-icon"
-              href="https://x.com/31916_ch"
-              aria-label="X"
-              title="X"
-            >
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path
-                  fill="currentColor"
-                  d="M18.9 2H22l-6.8 7.8L23.2 22h-6.3L12 14.6 5.5 22H2.3l7.8-8.9L2 2h6.5l4.4 6.8L18.9 2Zm-1.1 18h1.7L7.5 3.9H5.7L17.8 20Z"
-                />
-              </svg>
-            </a>
-            <a class="profile-link" href="/resume/"
-              >履歴書 <span aria-hidden="true">→</span></a
-            >
+          <div class="home-intro-row">
+            <div>
+              <h1 id="intro-title">Harry<span class="name-period">.</span></h1>
+              <p class="full-name">Haruto Kitagawa <span>北川 温人</span></p>
+            </div>
+            <div class="intro-links">
+              <a
+                class="social-icon"
+                href="https://github.com/31916"
+                aria-label="GitHub"
+                title="GitHub"
+              >
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    fill="currentColor"
+                    d="M12 .8a11.3 11.3 0 0 0-3.57 22.02c.57.1.77-.25.77-.55v-2.12c-3.16.69-3.83-1.35-3.83-1.35-.52-1.31-1.26-1.66-1.26-1.66-1.03-.7.08-.69.08-.69 1.14.08 1.74 1.17 1.74 1.17 1.01 1.74 2.66 1.24 3.31.95.1-.73.4-1.24.72-1.52-2.52-.29-5.18-1.27-5.18-5.64 0-1.24.45-2.25 1.17-3.04-.12-.28-.51-1.44.11-3 0 0 .96-.31 3.11 1.16a10.86 10.86 0 0 1 5.66 0c2.16-1.47 3.11-1.16 3.11-1.16.62 1.56.23 2.72.12 3 .73.79 1.16 1.8 1.16 3.04 0 4.38-2.66 5.34-5.2 5.62.41.35.77 1.04.77 2.1v3.14c0 .31.2.66.78.55A11.3 11.3 0 0 0 12 .8Z"
+                  />
+                </svg>
+              </a>
+              <a
+                class="social-icon"
+                href="https://x.com/31916_ch"
+                aria-label="X"
+                title="X"
+              >
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    fill="currentColor"
+                    d="M18.9 2H22l-6.8 7.8L23.2 22h-6.3L12 14.6 5.5 22H2.3l7.8-8.9L2 2h6.5l4.4 6.8L18.9 2Zm-1.1 18h1.7L7.5 3.9H5.7L17.8 20Z"
+                  />
+                </svg>
+              </a>
+            </div>
           </div>
+          <p class="intro-text">福井大学で情報分野を学ぶ、個人開発者。</p>
         </div>
         <figure class="hero-art" data-site-hero hidden>
           <img width="640" height="640" alt="" />
         </figure>
       </section>
-      <section
-        class="projects-section shell"
-        id="projects"
-        aria-labelledby="projects-title"
-      >
-        <div class="section-heading">
-          <div class="heading-pair">
-            <h2 id="projects-title">制作物</h2>
-            <span>制作物と研究</span>
-          </div>
-          <a class="understated-link" href="/projects/"
-            >一覧を見る <span aria-hidden="true">↗</span></a
-          >
+      <section class="home-projects" aria-labelledby="featured-title">
+        <div class="home-section-heading">
+          <h2 id="featured-title">制作物</h2>
+          <a href="/projects/">一覧を見る <span aria-hidden="true">↗</span></a>
         </div>
-        <div class="project-grid">
-          <article class="project-card" data-category="software">
-            <a class="project-link" href="/IMELayoutRouter/"
-              ><div class="project-image">
-                <img
-                  src="/IMELayoutRouter/social-ja-v2.png"
-                  width="1200"
-                  height="630"
-                  loading="lazy"
-                  alt="IMELayoutRouter — IMEの直接入力を、指定した配列で。Windows用・公式ダウンロード"
-                />
-              </div>
-              <div class="project-caption">
-                <div>
-                  <p class="project-type">
-                    ソフトウェア <span>Windows / C#</span>
-                  </p>
-                  <h3>IMELayoutRouter</h3>
-                </div>
-                <span class="project-arrow" aria-hidden="true">↗</span>
-              </div>
-              <p class="project-description">
-                IMEの直接入力を、使い慣れたWindows入力レイアウトで。
-              </p>
-              <span class="project-destination"
-                >紹介・ダウンロード <span aria-hidden="true">↗</span></span
-              ></a
-            >
-          </article>
-          <article class="project-card" data-category="research">
-            <a
-              class="project-link"
-              href="https://github.com/31916/syukei_recognize"
-              ><div class="project-image research-image">
-                <img
-                  src="/assets/art/handshape.svg"
-                  width="560"
-                  height="300"
-                  loading="lazy"
-                  alt="日本手話の手形認識：手の関節を点と線で捉える概念図"
-                />
-              </div>
-              <div class="project-caption">
-                <div>
-                  <p class="project-type">
-                    研究 <span>Python / MediaPipe</span>
-                  </p>
-                  <h3>日本手話の手形認識</h3>
-                </div>
-                <span class="project-arrow" aria-hidden="true">↗</span>
-              </div>
-              <p class="project-description">
-                手の特徴抽出と機械学習による分類に取り組んだ卒業研究。
-              </p>
-              <span class="project-destination"
-                >研究・ソースコード <span aria-hidden="true">↗</span></span
-              ></a
-            >
-          </article>
+        <div class="featured-grid" data-featured-projects>
+          <!-- featured-projects:start -->
+          <a class="featured-card" href="/IMELayoutRouter/">
+            <img
+              src="/IMELayoutRouter/social-ja-v2.png"
+              width="1200"
+              height="630"
+              loading="eager"
+              alt="IMELayoutRouter — IMEの直接入力を、指定した配列で。Windows用・公式ダウンロード"
+            />
+            <div class="featured-info">
+              <h3>IMELayoutRouter</h3>
+              <p class="featured-type">ソフトウェア</p>
+            </div>
+            <span class="featured-arrow" aria-hidden="true">↗</span>
+          </a>
+          <a
+            class="featured-card"
+            href="https://github.com/31916/syukei_recognize"
+          >
+            <img
+              src="/assets/art/handshape.svg"
+              width="560"
+              height="300"
+              loading="eager"
+              alt="日本手話の手形認識：手の関節を点と線で捉える概念図"
+            />
+            <div class="featured-info">
+              <h3>日本手話の手形認識</h3>
+              <p class="featured-type">研究</p>
+            </div>
+            <span class="featured-arrow" aria-hidden="true">↗</span>
+          </a>
+          <!-- featured-projects:end -->
         </div>
       </section>
-      <section class="resume-preview shell" aria-labelledby="resume-title">
-        <div class="section-heading">
-          <div class="heading-pair">
-            <h2 id="resume-title">履歴書</h2>
-            <span>学歴・職歴・資格</span>
-          </div>
-          <a class="understated-link" href="/resume/"
-            >履歴書を見る <span aria-hidden="true">↗</span></a
-          >
-        </div>
-        <a class="resume-preview-link" href="/resume/"
-          ><p>学歴・職歴・資格</p>
-          <span>福井大学 · 豊田高専 · スイス留学</span
-          ><span class="resume-preview-arrow" aria-hidden="true">↗</span></a
-        >
-      </section>
       <section
-        class="contact-section shell"
+        class="contact-section"
         id="contact"
         aria-labelledby="contact-title"
       >
-        <div>
-          <div class="heading-pair">
-            <h2 id="contact-title">お問い合わせ</h2>
-            <span>連絡先</span>
-          </div>
-          <p>制作物のこと、開発のこと。お気軽に。</p>
-        </div>
+        <h2 id="contact-title" class="sr-only">お問い合わせ</h2>
         <div class="contact-email">
           <div class="email-actions">
             <a class="email-link" href="mailto:harutokitagawa8610@gmail.com"
@@ -241,7 +184,6 @@
     </main>
     <footer class="site-footer shell">
       <p>© <span data-year>2026</span> Harry / Haruto Kitagawa</p>
-      <a href="/#contact">お問い合わせ <span aria-hidden="true">↗</span></a>
     </footer>
   </body>
 </html>
