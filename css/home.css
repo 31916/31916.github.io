@@ -298,6 +298,31 @@
     max-height: 88px;
   }
 }
+@media (max-height: 520px) and (max-width: 519px) {
+  .home-page .site-header {
+    padding-block: 4px;
+    gap: 2px 16px;
+  }
+  .home-page .wordmark img {
+    width: 80px;
+    height: 32px;
+  }
+  .home-page .language-picker select {
+    min-height: 32px;
+    padding-block: 6px;
+  }
+  .home-main {
+    gap: 8px;
+    padding-block: 4px;
+  }
+  .home-page .intro h1 {
+    font-size: 24px;
+  }
+  .home-page .intro-text {
+    font-size: 11px;
+    margin-top: 8px;
+  }
+}
 @media (max-height: 500px) and (min-width: 520px) {
   .home-page .site-header {
     display: flex;
