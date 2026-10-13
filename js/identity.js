@@ -1,6 +1,8 @@
-// A single public configuration controls the optional logo and home illustration.
-// Empty or unavailable images leave the text identity and photo-free layout intact.
+// The build renders the configured logo into HTML before the page is served.
+// Only the optional home illustration needs progressive enhancement at runtime.
 async function applyIdentity() {
+  const artwork = document.querySelector("[data-site-hero]");
+  if (!artwork) return;
   try {
     const response = await fetch("/assets/identity.json", {
       cache: "no-cache",
@@ -14,20 +16,7 @@ async function applyIdentity() {
       ) &&
       !entry.src.split("/").includes("..");
 
-    if (localImage(identity.logo)) {
-      document.querySelectorAll("[data-site-logo]").forEach((link) => {
-        const image = new Image();
-        image.alt = identity.logo.alt || "31916";
-        image.decoding = "async";
-        image.addEventListener("load", () => link.replaceChildren(image), {
-          once: true,
-        });
-        image.src = identity.logo.src;
-      });
-    }
-
-    const artwork = document.querySelector("[data-site-hero]");
-    if (artwork && localImage(identity.hero)) {
+    if (localImage(identity.hero)) {
       const image = artwork.querySelector("img");
       image.alt =
         typeof identity.hero.alt === "string" ? identity.hero.alt : "";
@@ -42,7 +31,7 @@ async function applyIdentity() {
       image.src = identity.hero.src;
     }
   } catch {
-    // Branding is progressive enhancement; navigation never depends on it.
+    // The optional illustration must not affect navigation or the header logo.
   }
 }
 

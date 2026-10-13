@@ -23,7 +23,17 @@ jobs:
           python3 tools/build-pages.py "$RUNNER_TEMP/pages.tar"
           mkdir "$RUNNER_TEMP/site"
           tar -xf "$RUNNER_TEMP/pages.tar" -C "$RUNNER_TEMP/site"
-          cmp index.html "$RUNNER_TEMP/site/index.html"
+          python3 - <<'PY'
+          import os
+          from pathlib import Path
+          import runpy
+          builder = runpy.run_path("tools/build-pages.py")
+          site = Path(os.environ["RUNNER_TEMP"]) / "site"
+          for name in builder["PUBLIC"]:
+              if name.endswith(".html"):
+                  expected = builder["render_public_html"](Path(name).read_bytes())
+                  assert (site / name).read_bytes() == expected, name
+          PY
           cd "$RUNNER_TEMP/site/IMELayoutRouter/downloads"
           sha256sum -c SHA256SUMS.txt
           cd "$RUNNER_TEMP/site/IMELayOutRouter/downloads"

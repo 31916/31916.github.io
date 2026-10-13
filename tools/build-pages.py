@@ -7,6 +7,7 @@ but are not served as website content.
 
 import io
 import json
+from html import escape
 from html.parser import HTMLParser
 from pathlib import Path
 import sys
@@ -57,6 +58,39 @@ class ShareMetadata(HTMLParser):
                 self.tags.append(self.get_starttag_text())
 
 
+class LogoSlots(HTMLParser):
+    """Locate logo link contents without rewriting surrounding HTML."""
+
+    def __init__(self, source):
+        super().__init__(convert_charrefs=False)
+        self.line_offsets = [0]
+        for line in source.split("\n")[:-1]:
+            self.line_offsets.append(self.line_offsets[-1] + len(line) + 1)
+        self.ranges = []
+        self.content_start = None
+        self.feed(source)
+        self.close()
+        if self.content_start is not None:
+            raise ValueError("Unclosed data-site-logo link")
+
+    def source_offset(self):
+        line, column = self.getpos()
+        return self.line_offsets[line - 1] + column
+
+    def handle_starttag(self, tag, attrs):
+        if tag != "a":
+            return
+        if self.content_start is not None:
+            raise ValueError("Nested link inside data-site-logo")
+        if "data-site-logo" in dict(attrs):
+            self.content_start = self.source_offset() + len(self.get_starttag_text())
+
+    def handle_endtag(self, tag):
+        if tag == "a" and self.content_start is not None:
+            self.ranges.append((self.content_start, self.source_offset()))
+            self.content_start = None
+
+
 def redirect(page):
     target = f"/{CURRENT}/" + ("en.html" if page == "en.html" else "")
     language = "en" if page == "en.html" else "ja"
@@ -79,9 +113,10 @@ def redirect(page):
 '''.encode("utf-8")
 
 
-def identity_assets():
+def identity_assets(settings=None):
     """Publish only configured image files, without exposing other repository data."""
-    settings = json.loads((ROOT / "assets/identity.json").read_text(encoding="utf-8"))
+    if settings is None:
+        settings = json.loads((ROOT / "assets/identity.json").read_text(encoding="utf-8"))
     names = []
     for slot in ("logo", "hero"):
         source = settings.get(slot, {}).get("src", "")
@@ -101,12 +136,45 @@ def identity_assets():
     return tuple(dict.fromkeys(names))
 
 
+def render_public_html(content, settings=None):
+    """Render configured header logos into HTML before the first browser paint."""
+    if settings is None:
+        settings = json.loads((ROOT / "assets/identity.json").read_text(encoding="utf-8"))
+    identity_assets(settings)
+    source = content.decode("utf-8")
+    slots = LogoSlots(source)
+    if not slots.ranges:
+        return content
+    logo = settings.get("logo", {})
+    if logo.get("src"):
+        alt = logo.get("alt")
+        if not isinstance(alt, str) or not alt:
+            alt = "31916"
+        markup = (
+            f'<img src="{escape(logo["src"], quote=True)}" '
+            f'alt="{escape(alt, quote=True)}" width="120" height="48" '
+            'loading="eager" fetchpriority="high" />'
+        )
+    else:
+        markup = "31916<span>.</span>"
+    for start, end in reversed(slots.ranges):
+        source = source[:start] + markup + source[end:]
+    return source.encode("utf-8")
+
+
 def build(destination):
+    settings = json.loads((ROOT / "assets/identity.json").read_text(encoding="utf-8"))
     with tarfile.open(destination, "w") as archive:
-        for name in PUBLIC + identity_assets():
+        for name in PUBLIC + identity_assets(settings):
             if not (ROOT / name).is_file() or (ROOT / name).is_symlink():
                 raise ValueError(f"Expected a regular public file: {name}")
-            archive.add(ROOT / name, arcname=name)
+            if name.endswith(".html"):
+                content = render_public_html((ROOT / name).read_bytes(), settings)
+                info = archive.gettarinfo(ROOT / name, arcname=name)
+                info.size = len(content)
+                archive.addfile(info, io.BytesIO(content))
+            else:
+                archive.add(ROOT / name, arcname=name)
 
         # Old direct installer links keep serving the exact same bytes.
         for name in PUBLIC:
