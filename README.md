@@ -4,7 +4,7 @@ Personal portfolio at **https://31916.ch/**. Plain HTML, CSS, JavaScript and ori
 
 ## Pages
 
-- `index.html`: a single-screen home with two selected projects and contact (email/copy button). GitHub and X icons stay above the projects at the right edge.
+- `index.html`: a home with two selected projects and contact (email/copy button). GitHub and X icons stay above the projects at the right edge.
 - `projects/index.html`: project directory with Software / Research filters.
 - `resume/index.html`: separate education and work timelines, a qualifications list, and a technology stack with icons.
 - `about/index.html`: compatibility redirect to Resume.
@@ -14,7 +14,7 @@ Personal portfolio at **https://31916.ch/**. Plain HTML, CSS, JavaScript and ori
 
 Shared portfolio styles are in `css/styles.css`; navigation and project filters are in `js/scripts.js`. Resume adds `css/resume.css`. Header/footer markup is intentionally static in each page. Update the stylesheet/script version query in each page when changing these files.
 
-Only the home body uses the viewport layout in `css/home.css`. Its header uses the same unmodified shared styles as every other portfolio page. Projects, Resume and the blank hobby page keep their existing layouts. Check the home at phone portrait/landscape, tablet and desktop sizes in Japanese, English and German when changing its content.
+The home body fills the viewport when its content fits and scrolls naturally on smaller screens. Selected cards use the same `project-grid` and `project-image` styles as the project catalog, including one card per row on phones. The home header uses the same unmodified shared styles as every other portfolio page. Check the home at phone portrait/landscape, tablet and desktop sizes in Japanese, English and German when changing its content.
 
 ## Selecting the two home projects
 

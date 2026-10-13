@@ -25,8 +25,8 @@
       href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Noto+Sans+JP:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="/css/styles.css?v=20261013m" />
-    <link rel="stylesheet" href="/css/home.css?v=20261013t" />
+    <link rel="stylesheet" href="/css/styles.css?v=20261013u" />
+    <link rel="stylesheet" href="/css/home.css?v=20261013u" />
     <script src="/js/scripts.js?v=20261013l" defer></script>
     <script type="module" src="/js/identity.js?v=20261013n"></script>
     <script src="/js/i18n.js?v=20261013t" defer></script>
@@ -98,16 +98,18 @@
           <h2 id="featured-title">制作物</h2>
           <a href="/projects/">一覧を見る <span aria-hidden="true">↗</span></a>
         </div>
-        <div class="featured-grid" data-featured-projects>
+        <div class="project-grid featured-grid" data-featured-projects>
           <!-- featured-projects:start -->
           <a class="featured-card" href="/IMELayoutRouter/">
-            <img
-              src="/IMELayoutRouter/social-ja-v2.png"
-              width="1200"
-              height="630"
-              loading="eager"
-              alt="IMELayoutRouter — IMEの直接入力を、指定した配列で。Windows用・公式ダウンロード"
-            />
+            <div class="project-image">
+              <img
+                src="/IMELayoutRouter/social-ja-v2.png"
+                width="1200"
+                height="630"
+                loading="eager"
+                alt="IMELayoutRouter — IMEの直接入力を、指定した配列で。Windows用・公式ダウンロード"
+              />
+            </div>
             <div class="featured-info">
               <h3>IMELayoutRouter</h3>
               <p class="featured-type">ソフトウェア</p>
@@ -118,13 +120,15 @@
             class="featured-card"
             href="https://github.com/31916/syukei_recognize"
           >
-            <img
-              src="/assets/art/handshape.svg"
-              width="560"
-              height="300"
-              loading="eager"
-              alt="日本手話の手形認識：手の関節を点と線で捉える概念図"
-            />
+            <div class="project-image research-image">
+              <img
+                src="/assets/art/handshape.svg"
+                width="560"
+                height="300"
+                loading="eager"
+                alt="日本手話の手形認識：手の関節を点と線で捉える概念図"
+              />
+            </div>
             <div class="featured-info">
               <h3>日本手話の手形認識</h3>
               <p class="featured-type">研究</p>
