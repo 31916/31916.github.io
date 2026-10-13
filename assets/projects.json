@@ -1,0 +1,38 @@
+{
+  "featured": ["ime-layout-router", "handshape-recognition"],
+  "projects": [
+    {
+      "id": "ime-layout-router",
+      "category": "software",
+      "type": "ソフトウェア",
+      "tech": "Windows / C#",
+      "title": "IMELayoutRouter",
+      "href": "/IMELayoutRouter/",
+      "description": "IMEの直接入力を、使い慣れたWindows入力レイアウトで。",
+      "destination": "紹介・ダウンロード",
+      "image": {
+        "src": "/IMELayoutRouter/social-ja-v2.png",
+        "width": 1200,
+        "height": 630,
+        "alt": "IMELayoutRouter — IMEの直接入力を、指定した配列で。Windows用・公式ダウンロード"
+      }
+    },
+    {
+      "id": "handshape-recognition",
+      "category": "research",
+      "type": "研究",
+      "tech": "Python / MediaPipe",
+      "title": "日本手話の手形認識",
+      "href": "https://github.com/31916/syukei_recognize",
+      "description": "手の特徴抽出と機械学習による分類に取り組んだ卒業研究。",
+      "destination": "研究・ソースコード",
+      "image": {
+        "src": "/assets/art/handshape.svg",
+        "width": 560,
+        "height": 300,
+        "alt": "日本手話の手形認識：手の関節を点と線で捉える概念図",
+        "class": "research-image"
+      }
+    }
+  ]
+}

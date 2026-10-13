@@ -4,7 +4,7 @@ Personal portfolio at **https://31916.ch/**. Plain HTML, CSS, JavaScript and ori
 
 ## Pages
 
-- `index.html`: minimal home, selected work, personal introduction and a link to Play.
+- `index.html`: a single-screen home with a compact introduction, two selected projects and email contact.
 - `projects/index.html`: project directory with Software / Research filters.
 - `resume/index.html`: separate education and work timelines, a qualifications list, and a technology stack with icons.
 - `about/index.html`: compatibility redirect to Resume.
@@ -13,6 +13,20 @@ Personal portfolio at **https://31916.ch/**. Plain HTML, CSS, JavaScript and ori
 - `404.html`: missing-page recovery.
 
 Shared portfolio styles are in `css/styles.css`; navigation and project filters are in `js/scripts.js`. Resume adds `css/resume.css`. Header/footer markup is intentionally static in each page. Update the stylesheet/script version query in each page when changing these files.
+
+Only the home page uses the viewport layout in `css/home.css`. Projects, Resume and the blank hobby page keep their existing layouts. Check the home at phone portrait/landscape, tablet and desktop sizes in Japanese, English and German when changing its content.
+
+## Selecting the two home projects
+
+Edit `assets/projects.json`. The `projects` array is the full project catalog; `featured` selects exactly two IDs, in display order:
+
+```json
+"featured": ["ime-layout-router", "handshape-recognition"]
+```
+
+To add a project, copy a catalog entry, assign a unique `id`, and update its title, link, description and image. Set `category` to `software` or `research`. Add Japanese/English/German translations for new visible text and image descriptions in `assets/translations.json`. Change an ID in `featured` to show the new project on the home page. The build validates the selection, renders both the home and full project listing into HTML, and automatically includes local project images. No browser-side card replacement occurs.
+
+The checked-in HTML includes the current cards for direct preview. After editing the catalog, preview the generated `tools/build-pages.py` output to see the new selection; deployment always uses the catalog. On Windows, extract current paths only for preview, excluding the case-sensitive `IMELayOutRouter/` aliases to avoid overwriting the current product directory.
 
 The IMELayoutRouter project card uses the existing, uncropped `IMELayoutRouter/social-ja-v2.png` social image and links to `/IMELayoutRouter/`. Product files and downloads remain maintained separately.
 
