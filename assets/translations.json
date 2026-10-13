@@ -81,7 +81,10 @@
     "株式会社ローソン 刈谷寿店 入社（アルバイト）": "株式会社ローソン 刈谷寿店 入社（アルバイト）",
     "TOEIC Listening & Reading スコア850点 取得": "TOEIC Listening & Reading スコア850点 取得",
     "実用英語技能検定2級 合格": "実用英語技能検定2級 合格",
-    "技術スタック": "技術スタック"
+    "技術スタック": "技術スタック",
+    "メールアドレスをコピー": "メールアドレスをコピー",
+    "コピーしました": "コピーしました",
+    "コピーできませんでした。メールアドレスを選択してコピーしてください。": "コピーできませんでした。メールアドレスを選択してコピーしてください。"
   },
   "en": {
     "Harry / 31916 — 個人サイト": "Harry / 31916 — Personal website",
@@ -165,7 +168,10 @@
     "株式会社ローソン 刈谷寿店 入社（アルバイト）": "Joined LAWSON, Kariya Kotobuki branch (part-time)",
     "TOEIC Listening & Reading スコア850点 取得": "TOEIC Listening & Reading — achieved 850 points",
     "実用英語技能検定2級 合格": "Passed EIKEN Grade 2",
-    "技術スタック": "Tech stack"
+    "技術スタック": "Tech stack",
+    "メールアドレスをコピー": "Copy email address",
+    "コピーしました": "Copied",
+    "コピーできませんでした。メールアドレスを選択してコピーしてください。": "Could not copy. Please select and copy the email address."
   },
   "de": {
     "Harry / 31916 — 個人サイト": "Harry / 31916 — Persönliche Website",
@@ -249,6 +255,9 @@
     "株式会社ローソン 刈谷寿店 入社（アルバイト）": "Beginn der Teilzeitbeschäftigung bei LAWSON, Filiale Kariya Kotobuki",
     "TOEIC Listening & Reading スコア850点 取得": "TOEIC Listening & Reading — 850 Punkte erreicht",
     "実用英語技能検定2級 合格": "EIKEN Grade 2 bestanden",
-    "技術スタック": "Technologien"
+    "技術スタック": "Technologien",
+    "メールアドレスをコピー": "E-Mail-Adresse kopieren",
+    "コピーしました": "Kopiert",
+    "コピーできませんでした。メールアドレスを選択してコピーしてください。": "Kopieren nicht möglich. Bitte die E-Mail-Adresse auswählen und kopieren."
   }
 }

@@ -34,3 +34,27 @@ filters.forEach((button) =>
   }),
 );
 document.addEventListener("portfolio:languagechange", updateFilterResult);
+
+const copyEmail = document.querySelector(".copy-email");
+if (copyEmail) {
+  const emailLink = document.querySelector(".email-link");
+  const status = document.querySelector(".copy-status");
+  let message = "";
+  const updateCopyStatus = () => {
+    status.textContent = window.portfolioI18n?.t(message) ?? message;
+  };
+  copyEmail.hidden = false;
+  copyEmail.addEventListener("click", async () => {
+    message = "";
+    updateCopyStatus();
+    try {
+      await navigator.clipboard.writeText(emailLink.textContent.trim());
+      message = "コピーしました";
+    } catch {
+      message =
+        "コピーできませんでした。メールアドレスを選択してコピーしてください。";
+    }
+    updateCopyStatus();
+  });
+  document.addEventListener("portfolio:languagechange", updateCopyStatus);
+}
