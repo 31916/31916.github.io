@@ -6,7 +6,7 @@ Personal portfolio at **https://31916.ch/**. Plain HTML, CSS, JavaScript and ori
 
 - `index.html`: minimal home, selected work, personal introduction and a link to Play.
 - `projects/index.html`: project directory with Software / Research filters.
-- `resume/index.html`: a chronological timeline, qualifications and skills.
+- `resume/index.html`: separate education, work experience and qualifications timelines, with dated factual entries only.
 - `about/index.html`: compatibility redirect to Resume.
 - `play/index.html`: an intentionally blank hobby page; only the shared navigation remains.
 - `IMELayoutRouter/`: existing product website and installer distribution.

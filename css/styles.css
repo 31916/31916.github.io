@@ -1128,8 +1128,7 @@ summary:focus-visible {
   outline-offset: 4px;
 }
 html:lang(de) .intro-text,
-html:lang(de) .project-description,
-html:lang(de) .resume-event-description {
+html:lang(de) .project-description {
   hyphens: auto;
 }
 @media (max-width: 750px) {
