@@ -1,6 +1,6 @@
 # Technology logos
 
-Locally vendored SVGs used to identify the languages and tools listed on the Resume page. These files retain their upstream geometry and colors; they are not loaded from a third-party CDN.
+Locally vendored logos used to identify the languages and tools listed on the Resume page. These files retain their upstream geometry and colors; they are not loaded from a third-party CDN.
 
 ## Devicon
 
@@ -11,7 +11,6 @@ Locally vendored SVGs used to identify the languages and tools listed on the Res
 
 | Local file | Upstream path | viewBox |
 | --- | --- | --- |
-| `c.svg` | `c/c-original.svg` | `0 0 128 128` |
 | `csharp.svg` | `csharp/csharp-original.svg` | `0 0 128 128` |
 | `python.svg` | `python/python-original.svg` | `0 0 128 128` |
 | `javascript.svg` | `javascript/javascript-original.svg` | `0 0 128 128` |
@@ -23,13 +22,13 @@ Locally vendored SVGs used to identify the languages and tools listed on the Res
 
 The simpler upstream Linux variant keeps the small icon lightweight. No logo paths have been redrawn or altered.
 
-## Simple Icons
+`c.svg` uses the blue hexagon and white C from Devicon v2.16.0, pinned to revision `6910f0503efdd315c8f9b858234310c06e04d9c0`. It is an unchanged copy of [c-original.svg](https://raw.githubusercontent.com/devicons/devicon/6910f0503efdd315c8f9b858234310c06e04d9c0/icons/c/c-original.svg), with viewBox `0 0 128 128`, under the same MIT license.
 
-- Project: https://github.com/simple-icons/simple-icons
-- Pinned revision: `4d29a35c954699b389a834aacc97dd6e7e74143c`
-- License: CC0 1.0 Universal; the full notice is preserved in [LICENSE-SIMPLE-ICONS.txt](LICENSE-SIMPLE-ICONS.txt).
-- `google-apps-script.svg` is an unchanged copy of [`icons/googleappsscript.svg`](https://raw.githubusercontent.com/simple-icons/simple-icons/4d29a35c954699b389a834aacc97dd6e7e74143c/icons/googleappsscript.svg).
-- viewBox: `0 0 24 24`.
+## Google Apps Script
+
+- `google-apps-script.png` is the unchanged 96 × 96 color product icon supplied by Google, as linked from the [Apps Script developer site](https://developers.google.com/apps-script).
+- Source: https://www.gstatic.com/images/branding/product/2x/apps_script_48dp.png
+- Retrieved: 2026-10-13. This Google product mark is not covered by the Devicon MIT license.
 
 Product names and logos belong to their respective owners. They identify technologies used; they do not imply endorsement.
 
