@@ -387,6 +387,49 @@ summary:focus-visible {
 .email-link:hover {
   color: var(--accent);
 }
+.contact-email {
+  min-width: 0;
+  max-width: 100%;
+}
+.email-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.email-actions .email-link {
+  display: block;
+  min-width: 0;
+}
+.copy-email {
+  display: grid;
+  place-items: center;
+  flex: 0 0 44px;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  color: var(--accent);
+  background: transparent;
+}
+.copy-email:hover {
+  background: #e8eeff;
+  border-color: #b7c9ef;
+}
+.copy-email svg {
+  width: 19px;
+  height: 19px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.contact-section .copy-status {
+  min-height: 2em;
+  max-width: 320px;
+  margin-top: 6px;
+}
 .site-footer {
   display: flex;
   align-items: center;
