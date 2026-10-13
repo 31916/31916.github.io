@@ -11,19 +11,26 @@ document.querySelectorAll(".site-header nav a").forEach((link) => {
 });
 
 const filters = document.querySelectorAll("[data-filter]");
+function updateFilterResult() {
+  const result = document.getElementById("filter-result");
+  if (!result) return;
+  const count = [...document.querySelectorAll("[data-category]")].filter(
+    (card) => !card.hidden,
+  ).length;
+  result.textContent =
+    window.portfolioI18n?.formatCount(count) ?? `${count}件の制作物を表示`;
+}
 filters.forEach((button) =>
   button.addEventListener("click", () => {
-    let count = 0;
     document.querySelectorAll("[data-category]").forEach((card) => {
       card.hidden =
         button.dataset.filter !== "all" &&
         card.dataset.category !== button.dataset.filter;
-      if (!card.hidden) count += 1;
     });
     filters.forEach((item) =>
       item.setAttribute("aria-pressed", String(item === button)),
     );
-    const result = document.getElementById("filter-result");
-    if (result) result.textContent = `${count}件の制作物を表示`;
+    updateFilterResult();
   }),
 );
+document.addEventListener("portfolio:languagechange", updateFilterResult);

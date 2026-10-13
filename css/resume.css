@@ -11,7 +11,8 @@
 .resume-section-heading {
   display: flex;
   align-items: baseline;
-  gap: 17px;
+  flex-wrap: wrap;
+  gap: 4px 17px;
   margin-bottom: 30px;
 }
 .resume-section-heading h2 {
