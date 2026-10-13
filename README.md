@@ -4,7 +4,7 @@ Personal portfolio at **https://31916.ch/**. Plain HTML, CSS, JavaScript and ori
 
 ## Pages
 
-- `index.html`: a single-screen home with two selected projects and contact (email/copy button plus GitHub and X icons).
+- `index.html`: a single-screen home with two selected projects and contact (email/copy button). GitHub and X icons stay above the projects at the right edge.
 - `projects/index.html`: project directory with Software / Research filters.
 - `resume/index.html`: separate education and work timelines, a qualifications list, and a technology stack with icons.
 - `about/index.html`: compatibility redirect to Resume.
