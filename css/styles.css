@@ -1,10 +1,10 @@
 /* The portfolio is quiet; /play/ has its own independent visual language. */
 :root {
-  --paper: #f7f8f7;
-  --ink: #24302f;
-  --muted: #667270;
-  --line: #dce1df;
-  --accent: #496c77;
+  --paper: #f6f8ff;
+  --ink: #1c2e55;
+  --muted: #637294;
+  --line: #d9e2f4;
+  --accent: #466fd9;
   --serif: "Cormorant Garamond", Georgia, serif;
   --sans: "Noto Sans JP", Arial, sans-serif;
   --width: 1080px;
@@ -76,7 +76,7 @@ summary:focus-visible {
   outline-offset: 6px;
 }
 ::selection {
-  background: #dce7e6;
+  background: #dce7ff;
 }
 .shell {
   width: min(var(--width), calc(100% - 112px));
@@ -143,8 +143,8 @@ summary:focus-visible {
 }
 .site-header nav a:hover,
 .site-header nav a[aria-current="page"] {
-  background: #e8ecea;
-  border-color: #b9c9c3;
+  background: #e8eeff;
+  border-color: #b7c9ef;
 }
 .site-header nav a span {
   padding-left: 5px;
@@ -159,7 +159,7 @@ summary:focus-visible {
 }
 .intro {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 250px;
+  grid-template-columns: minmax(0, 1fr);
   gap: 100px;
   align-items: center;
   padding-top: 68px;
@@ -194,7 +194,7 @@ summary:focus-visible {
   font-size: 13px;
   line-height: 2.1;
   margin-top: 25px;
-  color: #54635e;
+  color: #53698f;
 }
 .intro-links {
   display: flex;
@@ -210,7 +210,7 @@ summary:focus-visible {
   justify-content: center;
   min-height: 39px;
   padding: 9px 17px;
-  border: 1px solid #cbd4cf;
+  border: 1px solid #cad8f0;
   border-radius: 30px;
   font-family: Arial, sans-serif;
   font-size: 11px;
@@ -222,10 +222,10 @@ summary:focus-visible {
   border-color: var(--ink);
 }
 .social-link:hover {
-  background: #dde6e1;
+  background: #dce7ff;
 }
 .social-link:first-child:hover {
-  background: #3c514c;
+  background: #355bb8;
 }
 .profile-link {
   font-family: Arial, sans-serif;
@@ -239,26 +239,7 @@ summary:focus-visible {
 .profile-link:hover {
   color: var(--accent);
 }
-.intro-portrait {
-  position: relative;
-  padding-top: 24px;
-}
-.intro-portrait img {
-  display: block;
-  width: 100%;
-  aspect-ratio: 1;
-  object-fit: cover;
-  filter: saturate(0.68);
-  border-radius: 2px;
-}
-.intro-portrait figcaption {
-  font-family: Arial, sans-serif;
-  font-size: 9px;
-  color: var(--muted);
-  margin-top: 13px;
-  text-align: right;
-  letter-spacing: 0.02em;
-}
+
 .section-heading {
   display: flex;
   align-items: center;
@@ -311,9 +292,9 @@ summary:focus-visible {
 .project-image {
   aspect-ratio: 1200/630;
   overflow: hidden;
-  border: 1px solid #e0e3dc;
+  border: 1px solid #d8e2f6;
   border-radius: 2px;
-  background: #faf8ef;
+  background: #f0f4ff;
   transition: border-color 0.2s;
 }
 .project-image img {
@@ -323,10 +304,10 @@ summary:focus-visible {
   object-fit: contain;
 }
 .research-image {
-  background: #e5ede6;
+  background: #e4ecff;
 }
 .project-link:hover .project-image {
-  border-color: #8eaaa0;
+  border-color: #829eda;
 }
 .project-caption {
   display: flex;
@@ -346,7 +327,7 @@ summary:focus-visible {
   margin-left: 12px;
   font-size: 9px;
   letter-spacing: 0;
-  color: #77827e;
+  color: #7385a9;
 }
 .project-caption h3 {
   font-size: 19px;
@@ -390,19 +371,19 @@ summary:focus-visible {
   gap: 40px;
   padding: 37px 42px;
   min-height: 230px;
-  background: #eef1ed;
-  border: 1px solid #dde4de;
+  background: #edf2ff;
+  border: 1px solid #d4dff5;
   border-radius: 2px;
   overflow: hidden;
   transition: border-color 0.2s;
 }
 .play-invitation:hover {
-  border-color: #91aa98;
+  border-color: #96ade3;
 }
 .play-invitation .kicker {
   font-size: 9px;
   letter-spacing: 0.15em;
-  color: #667b6e;
+  color: #607bae;
 }
 .play-invitation h3 {
   font-family: var(--serif);
@@ -426,7 +407,7 @@ summary:focus-visible {
 .court-preview {
   width: 300px;
   flex: 0 0 300px;
-  color: #8fa997;
+  color: #8da7e1;
   transform: rotate(-8deg);
   transition: transform 0.35s;
 }
@@ -454,7 +435,7 @@ summary:focus-visible {
   align-items: center;
   gap: 34px;
   padding-block: 16px;
-  border-bottom: 1px solid #bac7bf;
+  border-bottom: 1px solid #bdcceb;
   overflow-wrap: anywhere;
 }
 .email-link:hover {
@@ -526,7 +507,7 @@ summary:focus-visible {
   border-color: var(--ink);
 }
 .filter-bar button:hover {
-  border-color: #9bafa4;
+  border-color: #93a9d6;
 }
 .archive-note {
   margin-top: 40px;
@@ -552,7 +533,7 @@ summary:focus-visible {
 .bio-text p {
   font-size: 13px;
   line-height: 2.1;
-  color: #596862;
+  color: #53698f;
   margin-bottom: 20px;
 }
 .text-link {
@@ -563,19 +544,7 @@ summary:focus-visible {
   color: var(--accent);
   padding: 8px 0;
 }
-.bio-portrait img {
-  width: 100%;
-  aspect-ratio: 1;
-  object-fit: cover;
-  filter: saturate(0.68);
-  border-radius: 2px;
-}
-.bio-portrait figcaption {
-  font-family: Arial, sans-serif;
-  font-size: 10px;
-  color: var(--muted);
-  margin-top: 12px;
-}
+
 .detail-section {
   margin-top: 64px;
 }
@@ -630,7 +599,7 @@ summary:focus-visible {
   padding: 0;
   font-family: Arial, sans-serif;
   font-size: 13px;
-  color: #4f6258;
+  color: #4f6490;
 }
 .slides-details {
   margin-top: 18px;
@@ -668,7 +637,7 @@ summary:focus-visible {
   .intro {
     padding-top: 90px;
     padding-bottom: 105px;
-    grid-template-columns: minmax(0, 1fr) 280px;
+    grid-template-columns: minmax(0, 1fr);
   }
   .intro h1 {
     font-size: 158px;
@@ -680,7 +649,7 @@ summary:focus-visible {
   }
   .intro {
     gap: 50px;
-    grid-template-columns: minmax(0, 1fr) 215px;
+    grid-template-columns: minmax(0, 1fr);
     padding-top: 45px;
     padding-bottom: 62px;
   }
@@ -690,9 +659,7 @@ summary:focus-visible {
   .intro-text {
     font-size: 12px;
   }
-  .intro-portrait figcaption {
-    font-size: 8px;
-  }
+
   .play-invitation {
     padding: 32px;
     gap: 20px;
@@ -747,7 +714,7 @@ summary:focus-visible {
     padding-left: 2px;
   }
   .intro {
-    grid-template-columns: minmax(0, 1fr) 155px;
+    grid-template-columns: minmax(0, 1fr);
     gap: 22px;
     padding-top: 38px;
     padding-bottom: 50px;
@@ -791,15 +758,7 @@ summary:focus-visible {
     margin-left: 5px;
     gap: 16px;
   }
-  .intro-portrait {
-    padding-top: 0;
-    align-self: center;
-  }
-  .intro-portrait figcaption {
-    font-size: 7px;
-    line-height: 1.7;
-    text-align: left;
-  }
+
   .section-heading {
     padding-top: 25px;
     margin-bottom: 25px;
@@ -936,7 +895,7 @@ summary:focus-visible {
     font-size: 11px;
   }
   .intro {
-    grid-template-columns: minmax(0, 1fr) 104px;
+    grid-template-columns: minmax(0, 1fr);
     gap: 16px;
     padding-top: 22px;
     padding-bottom: 42px;
@@ -947,21 +906,14 @@ summary:focus-visible {
     margin-top: 16px;
     margin-bottom: 15px;
   }
-  .intro-portrait {
-    align-self: start;
-    padding-top: 34px;
-  }
-  .intro-portrait figcaption {
-    font-size: 7px;
-    line-height: 1.6;
-  }
+
   .intro-text {
     grid-column: 1/-1;
     font-size: 11px;
     max-width: 220px;
   }
   .intro-links {
-    width: calc(100% + 120px);
+    width: 100%;
   }
   .intro .kicker {
     white-space: nowrap;
@@ -1054,12 +1006,7 @@ summary:focus-visible {
     flex-direction: column-reverse;
     gap: 30px;
   }
-  .bio-portrait {
-    max-width: 180px;
-  }
-  .bio-portrait figcaption {
-    font-size: 9px;
-  }
+
   .timeline li {
     grid-template-columns: 1fr;
     gap: 10px;
@@ -1081,18 +1028,16 @@ summary:focus-visible {
 }
 @media (max-width: 350px) {
   .intro {
-    grid-template-columns: minmax(0, 1fr) 90px;
+    grid-template-columns: minmax(0, 1fr);
     gap: 12px;
   }
   .intro h1 {
     font-size: 16vw;
   }
   .intro-links {
-    width: calc(100% + 102px);
+    width: 100%;
   }
-  .intro-portrait {
-    padding-top: 33px;
-  }
+
   .intro-text {
     font-size: 10px;
   }
@@ -1157,5 +1102,133 @@ summary:focus-visible {
   }
   body {
     background: white;
+  }
+}
+
+/* Identity images are optional; edit assets/identity.json to replace the mark or add hero art. */
+.wordmark img {
+  display: block;
+  width: 96px;
+  height: 40px;
+  object-fit: contain;
+}
+.intro {
+  padding-block: 72px 74px;
+}
+.intro-copy {
+  max-width: 740px;
+}
+.intro.has-hero-art {
+  grid-template-columns: minmax(0, 1fr) 250px;
+}
+.hero-art img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  object-fit: contain;
+}
+.intro-text {
+  max-width: 530px;
+}
+.social-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #e6edff;
+  border: 1px solid #c8d6f8;
+  color: #365dc4;
+  transition:
+    background 0.2s,
+    color 0.2s;
+}
+.social-icon svg {
+  width: 20px;
+  height: 20px;
+}
+.social-icon:hover {
+  background: #466fd9;
+  color: white;
+}
+.resume-preview {
+  padding-bottom: 52px;
+}
+.resume-preview-link {
+  position: relative;
+  display: block;
+  padding: 11px 55px 16px 0;
+}
+.resume-preview-link p {
+  font-size: 17px;
+}
+.resume-preview-link > span:not(.resume-preview-arrow) {
+  display: block;
+  margin-top: 8px;
+  font-size: 11px;
+  color: var(--muted);
+}
+.resume-preview-arrow {
+  position: absolute;
+  right: 2px;
+  top: 18px;
+  font-size: 25px;
+  color: var(--accent);
+}
+.resume-preview-link:hover p {
+  color: var(--accent);
+}
+@media (max-width: 650px) {
+  .intro {
+    padding-block: 34px 48px;
+  }
+  .intro h1 {
+    font-size: 90px;
+  }
+  .intro-text {
+    max-width: 410px;
+  }
+  .intro.has-hero-art {
+    grid-template-columns: minmax(0, 1fr) 130px;
+  }
+  .intro.has-hero-art h1 {
+    font-size: 64px;
+  }
+}
+@media (max-width: 480px) {
+  .intro h1 {
+    font-size: 84px;
+  }
+  .intro-text {
+    max-width: 310px;
+    font-size: 12px;
+  }
+  .intro .kicker {
+    font-size: 8px;
+  }
+  .full-name {
+    font-size: 12px;
+  }
+  .full-name > span {
+    font-size: 10px;
+  }
+  .resume-preview-link p {
+    font-size: 15px;
+  }
+  .resume-preview {
+    padding-bottom: 38px;
+  }
+  .intro.has-hero-art {
+    grid-template-columns: 1fr;
+  }
+  .hero-art {
+    max-width: 180px;
+  }
+}
+@media (max-width: 350px) {
+  .intro h1 {
+    font-size: 74px;
   }
 }

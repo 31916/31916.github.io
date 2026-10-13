@@ -6,6 +6,7 @@ but are not served as website content.
 """
 
 import io
+import json
 from html.parser import HTMLParser
 from pathlib import Path
 import sys
@@ -17,8 +18,9 @@ CURRENT = "IMELayoutRouter"
 LEGACY = "IMELayOutRouter"
 PUBLIC = (
     "CNAME", "index.html", "404.html", "robots.txt", "sitemap.xml",
-    "about/index.html", "projects/index.html", "play/index.html", "assets/img/favicon.ico",
-    "assets/img/profile.jpg", "css/styles.css", "js/scripts.js", "css/play.css", "js/play.js",
+    "about/index.html", "resume/index.html", "projects/index.html", "play/index.html", "assets/img/favicon.ico",
+    "css/styles.css", "js/scripts.js", "css/play.css", "js/play.js", "css/resume.css",
+    "assets/identity.json", "js/identity.js",
     "assets/art/favicon.svg", "assets/art/handshape.svg",
     "assets/art/icon-code.svg", "assets/art/icon-mail.svg",
     "assets/art/icon-rabbit.svg", "assets/art/icon-tennis.svg",
@@ -72,9 +74,31 @@ def redirect(page):
 '''.encode("utf-8")
 
 
+def identity_assets():
+    """Publish only configured image files, without exposing other repository data."""
+    settings = json.loads((ROOT / "assets/identity.json").read_text(encoding="utf-8"))
+    names = []
+    for slot in ("logo", "hero"):
+        source = settings.get(slot, {}).get("src", "")
+        if not source:
+            continue
+        if not isinstance(source, str) or not source.startswith("/assets/identity/"):
+            raise ValueError(f"Identity {slot} must use /assets/identity/")
+        if any(character in source for character in ("?", "#", "\\", "%")):
+            raise ValueError(f"Use a plain identity image path without query, fragment or URL escapes: {source}")
+        path = Path(source.lstrip("/"))
+        if ".." in path.parts or path.suffix.lower() not in {".svg", ".png", ".jpg", ".jpeg", ".webp", ".gif", ".avif"}:
+            raise ValueError(f"Invalid identity image: {source}")
+        resolved = (ROOT / path).resolve()
+        if not resolved.is_relative_to((ROOT / "assets/identity").resolve()):
+            raise ValueError(f"Identity image is outside its public directory: {source}")
+        names.append(path.as_posix())
+    return tuple(dict.fromkeys(names))
+
+
 def build(destination):
     with tarfile.open(destination, "w") as archive:
-        for name in PUBLIC:
+        for name in PUBLIC + identity_assets():
             if not (ROOT / name).is_file() or (ROOT / name).is_symlink():
                 raise ValueError(f"Expected a regular public file: {name}")
             archive.add(ROOT / name, arcname=name)

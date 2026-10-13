@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#f7f8f7" />
+    <meta name="theme-color" content="#f6f8ff" />
     <title>Harry / 31916 — Personal website</title>
     <meta
       name="description"
@@ -25,19 +25,19 @@
       href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Noto+Sans+JP:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="/css/styles.css?v=20261013a" />
-    <script src="/js/scripts.js?v=20261013a" defer></script>
+    <link rel="stylesheet" href="/css/styles.css?v=20261013b" />
+    <script src="/js/scripts.js?v=20261013b" defer></script>
+    <script type="module" src="/js/identity.js?v=20261013b"></script>
   </head>
   <body>
     <a class="skip-link" href="#main">本文へ移動</a>
     <header class="site-header shell">
-      <a class="wordmark" href="/" aria-label="31916 ホーム"
+      <a class="wordmark" data-site-logo href="/" aria-label="31916 ホーム"
         >31916<span>.</span></a
       >
       <nav aria-label="メインナビゲーション">
-        <a href="/projects/">Projects</a><a href="/about/">Profile</a
-        ><a href="/play/">Play <span aria-hidden="true">↗</span></a
-        ><a href="/#contact">Contact</a>
+        <a href="/projects/">Project</a><a href="/resume/">Resume</a
+        ><a href="/play/">趣味</a>
       </nav>
     </header>
     <main id="main">
@@ -50,23 +50,39 @@
             福井大学で情報分野を学ぶ、個人開発者。<br />日々の小さな不便を、ソフトウェアで少しずつ。
           </p>
           <div class="intro-links">
-            <a class="social-link" href="https://github.com/31916"
-              >GitHub <span aria-hidden="true">↗</span></a
-            ><a class="social-link" href="https://x.com/31916_ch"
-              >X / Twitter <span aria-hidden="true">↗</span></a
-            ><a class="profile-link" href="/about/"
-              >Profile <span aria-hidden="true">→</span></a
+            <a
+              class="social-icon"
+              href="https://github.com/31916"
+              aria-label="GitHub"
+              title="GitHub"
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  fill="currentColor"
+                  d="M12 .8a11.3 11.3 0 0 0-3.57 22.02c.57.1.77-.25.77-.55v-2.12c-3.16.69-3.83-1.35-3.83-1.35-.52-1.31-1.26-1.66-1.26-1.66-1.03-.7.08-.69.08-.69 1.14.08 1.74 1.17 1.74 1.17 1.01 1.74 2.66 1.24 3.31.95.1-.73.4-1.24.72-1.52-2.52-.29-5.18-1.27-5.18-5.64 0-1.24.45-2.25 1.17-3.04-.12-.28-.51-1.44.11-3 0 0 .96-.31 3.11 1.16a10.86 10.86 0 0 1 5.66 0c2.16-1.47 3.11-1.16 3.11-1.16.62 1.56.23 2.72.12 3 .73.79 1.16 1.8 1.16 3.04 0 4.38-2.66 5.34-5.2 5.62.41.35.77 1.04.77 2.1v3.14c0 .31.2.66.78.55A11.3 11.3 0 0 0 12 .8Z"
+                />
+              </svg>
+            </a>
+            <a
+              class="social-icon"
+              href="https://x.com/31916_ch"
+              aria-label="X"
+              title="X"
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  fill="currentColor"
+                  d="M18.9 2H22l-6.8 7.8L23.2 22h-6.3L12 14.6 5.5 22H2.3l7.8-8.9L2 2h6.5l4.4 6.8L18.9 2Zm-1.1 18h1.7L7.5 3.9H5.7L17.8 20Z"
+                />
+              </svg>
+            </a>
+            <a class="profile-link" href="/resume/"
+              >Resume <span aria-hidden="true">→</span></a
             >
           </div>
         </div>
-        <figure class="intro-portrait">
-          <img
-            src="/assets/img/profile.jpg"
-            width="320"
-            height="320"
-            alt="北川温人（Harry）のポートレート"
-          />
-          <figcaption>Based in Japan. Connected to Switzerland.</figcaption>
+        <figure class="hero-art" data-site-hero hidden>
+          <img width="640" height="640" alt="" />
         </figure>
       </section>
       <section
@@ -76,7 +92,7 @@
       >
         <div class="section-heading">
           <div class="heading-pair">
-            <h2 id="projects-title">Projects</h2>
+            <h2 id="projects-title">Project</h2>
             <span>制作物と研究</span>
           </div>
           <a class="understated-link" href="/projects/"
@@ -142,6 +158,22 @@
           </article>
         </div>
       </section>
+      <section class="resume-preview shell" aria-labelledby="resume-title">
+        <div class="section-heading">
+          <div class="heading-pair">
+            <h2 id="resume-title">Resume</h2>
+            <span>経歴・資格</span>
+          </div>
+          <a class="understated-link" href="/resume/"
+            >View resume <span aria-hidden="true">↗</span></a
+          >
+        </div>
+        <a class="resume-preview-link" href="/resume/"
+          ><p>学びと、これまでの活動。</p>
+          <span>福井大学 · 豊田高専 · スイス留学</span
+          ><span class="resume-preview-arrow" aria-hidden="true">↗</span></a
+        >
+      </section>
       <section
         class="play-section shell"
         id="outside"
@@ -149,8 +181,8 @@
       >
         <div class="section-heading">
           <div class="heading-pair">
-            <h2 id="play-title">Off the clock</h2>
-            <span>好きなこと</span>
+            <h2 id="play-title">趣味</h2>
+            <span>Off the clock</span>
           </div>
         </div>
         <a class="play-invitation" href="/play/"
