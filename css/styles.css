@@ -14,7 +14,7 @@
 html {
   scrollbar-gutter: stable;
   scroll-behavior: smooth;
-  scroll-padding-top: 32px;
+  scroll-padding-top: calc(var(--header-height, 108px) + 16px);
 }
 body {
   margin: 0;
@@ -109,6 +109,11 @@ summary:focus-visible {
   display: none !important;
 }
 .site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  align-self: start;
+  background: var(--paper);
   display: flex;
   align-items: center;
   justify-content: space-between;
