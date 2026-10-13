@@ -1012,9 +1012,10 @@ summary:focus-visible {
 /* Identity images are optional; edit assets/identity.json to replace the mark or add hero art. */
 .wordmark img {
   display: block;
-  width: 96px;
-  height: 40px;
+  width: 120px;
+  height: 48px;
   object-fit: contain;
+  mix-blend-mode: multiply;
 }
 .intro {
   padding-block: 72px 74px;
