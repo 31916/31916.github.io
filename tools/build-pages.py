@@ -21,6 +21,7 @@ PUBLIC = (
     "about/index.html", "resume/index.html", "projects/index.html", "play/index.html", "assets/img/favicon.ico",
     "css/styles.css", "js/scripts.js", "css/resume.css",
     "assets/identity.json", "js/identity.js",
+    "assets/translations.json", "js/i18n.js",
     "assets/art/favicon.svg", "assets/art/handshape.svg",
     "assets/art/icon-code.svg", "assets/art/icon-mail.svg",
     "assets/art/keyboard.svg",
