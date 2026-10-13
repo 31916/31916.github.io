@@ -15,6 +15,17 @@
 .home-projects {
   min-width: 0;
 }
+.home-profile-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+.home-profile-row > .home-socials {
+  margin-bottom: 0;
+  flex-shrink: 0;
+}
 .home-section-heading,
 .home-contact-heading {
   display: flex;
