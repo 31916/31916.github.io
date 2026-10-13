@@ -213,9 +213,12 @@ def render_featured_projects(settings):
     cards = []
     for identifier in settings["featured"]:
         project = projects[identifier]
+        image_class = "project-image"
+        if project["image"].get("class"):
+            image_class += " " + project["image"]["class"]
         cards.append(
             f'<a class="featured-card" href="{escape(project["href"], quote=True)}">\n'
-            f'  {project_image(project, "eager")}\n'
+            f'  <div class="{image_class}">{project_image(project, "eager")}</div>\n'
             '  <div class="featured-info">\n'
             f'    <h3>{escape(project["title"])}</h3>\n'
             f'    <p class="featured-type">{escape(project["type"])}</p>\n'
