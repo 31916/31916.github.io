@@ -17,8 +17,8 @@ CURRENT = "IMELayoutRouter"
 LEGACY = "IMELayOutRouter"
 PUBLIC = (
     "CNAME", "index.html", "404.html", "robots.txt", "sitemap.xml",
-    "about/index.html", "projects/index.html", "assets/img/favicon.ico",
-    "assets/img/profile.jpg", "css/styles.css", "js/scripts.js",
+    "about/index.html", "projects/index.html", "play/index.html", "assets/img/favicon.ico",
+    "assets/img/profile.jpg", "css/styles.css", "js/scripts.js", "css/play.css", "js/play.js",
     "assets/art/favicon.svg", "assets/art/handshape.svg",
     "assets/art/icon-code.svg", "assets/art/icon-mail.svg",
     "assets/art/icon-rabbit.svg", "assets/art/icon-tennis.svg",

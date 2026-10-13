@@ -1,0 +1,1164 @@
+:root {
+  color-scheme: light;
+  --paper: #f3f1e9;
+  --ink: #203333;
+  --muted: #67716a;
+  --lime: #d9ff65;
+  --court: #254d40;
+  --rule: #c9cdc2;
+  --font: "Space Grotesk", "Noto Sans JP", sans-serif;
+  --jp: "Noto Sans JP", sans-serif;
+}
+* {
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 24px;
+}
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font);
+  -webkit-font-smoothing: antialiased;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+button,
+input {
+  font: inherit;
+}
+button,
+a,
+input {
+  -webkit-tap-highlight-color: transparent;
+}
+button {
+  cursor: pointer;
+}
+h1,
+h2,
+p,
+figure {
+  margin: 0;
+}
+svg {
+  display: block;
+  max-width: 100%;
+}
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+  outline: 3px solid #526fd2;
+  outline-offset: 6px;
+}
+a:hover {
+  opacity: 0.75;
+}
+button:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+[hidden] {
+  display: none !important;
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+.skip-link {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 30;
+  background: var(--paper);
+  padding: 16px;
+  transform: translateY(-180%);
+}
+.skip-link:focus {
+  transform: none;
+}
+.play-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  margin: 0 4.5vw;
+  height: 94px;
+  border-bottom: 1px solid var(--rule);
+  font-size: 13px;
+}
+.wordmark {
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: -1.5px;
+}
+.wordmark span {
+  font-size: 10px;
+  margin-left: 4px;
+  vertical-align: top;
+  letter-spacing: 0;
+}
+.play-header nav {
+  display: flex;
+  gap: 32px;
+}
+.play-header nav a {
+  padding: 12px 0;
+}
+.play-header nav [aria-current] {
+  text-decoration: underline;
+  text-underline-offset: 6px;
+}
+.home-link {
+  font-size: 11px;
+}
+.home-link span {
+  margin-left: 25px;
+}
+.play-intro {
+  padding: 36px 4.5vw 0;
+  max-width: 1800px;
+  margin: auto;
+}
+.intro-topline,
+.intro-bottom > a,
+.chapter-nav,
+.court-topline,
+.orbit-topline,
+.section-kicker,
+.serve-caption,
+.serve-steps,
+.controls-row button,
+.orbit-coordinate,
+.planet-caption,
+.merry-art-note,
+.back-home > span {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.09em;
+}
+.intro-topline {
+  display: flex;
+  justify-content: space-between;
+}
+.intro-title-wrap {
+  position: relative;
+  padding: 53px 0 46px;
+}
+h1 {
+  font-size: clamp(76px, 10.4vw, 162px);
+  letter-spacing: -0.075em;
+  line-height: 0.91;
+  font-weight: 500;
+}
+em {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 400;
+  letter-spacing: -0.055em;
+}
+.intro-ball {
+  position: absolute;
+  right: 5.5%;
+  top: 24%;
+  width: clamp(100px, 14vw, 215px);
+  color: #768c51;
+  transform: rotate(-24deg);
+}
+.intro-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 32px;
+}
+.intro-bottom p {
+  font-family: var(--jp);
+  font-size: 13px;
+  line-height: 2.1;
+}
+.intro-bottom > a {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+.intro-bottom > a span {
+  font-size: 27px;
+}
+.chapter-nav {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3vw;
+  padding: 37px 0 28px;
+  margin-top: 35px;
+  border-top: 1px solid var(--rule);
+}
+.chapter-nav a {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  font-size: 13px;
+  letter-spacing: 0;
+}
+.chapter-nav a > span:first-child {
+  color: #737b72;
+  font-size: 10px;
+}
+.chapter-nav a > span:last-child {
+  margin-left: auto;
+  font-size: 21px;
+}
+.tennis-section {
+  background: var(--court);
+  color: var(--paper);
+}
+.serve-scroll {
+  position: relative;
+}
+.serve-sticky {
+  position: relative;
+  min-height: 740px;
+  overflow: hidden;
+}
+.motion-enabled .serve-scroll {
+  height: 260svh;
+}
+.motion-enabled .serve-sticky {
+  height: 100svh;
+  min-height: 650px;
+  position: sticky;
+  top: 0;
+}
+.court-topline {
+  position: absolute;
+  z-index: 4;
+  top: 36px;
+  left: 4.5vw;
+  right: 4.5vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.chapter-number {
+  opacity: 0.5;
+  margin-right: 15px;
+}
+.court-topline a {
+  font-family: var(--jp);
+  font-size: 10px;
+  letter-spacing: 0;
+  display: inline-flex;
+  gap: 24px;
+  align-items: center;
+  min-height: 32px;
+}
+.court-topline a span {
+  font-size: 18px;
+}
+.court-heading {
+  position: absolute;
+  top: 19%;
+  left: 7vw;
+  z-index: 2;
+  pointer-events: none;
+}
+.court-heading h2 {
+  font-size: clamp(64px, 7.5vw, 122px);
+  letter-spacing: -0.065em;
+  font-weight: 500;
+  line-height: 0.93;
+}
+.court-heading h2 em {
+  color: var(--lime);
+}
+.court-heading p {
+  font-family: var(--jp);
+  font-size: 12px;
+  line-height: 2.1;
+  margin-top: 30px;
+  color: #d9dfca;
+}
+.court-watermark {
+  position: absolute;
+  left: 30%;
+  top: 11%;
+  font-size: clamp(180px, 29vw, 440px);
+  font-weight: 700;
+  line-height: 0.8;
+  letter-spacing: -0.095em;
+  color: #315c4b;
+  pointer-events: none;
+}
+.court-scene {
+  position: absolute;
+  top: 5%;
+  bottom: 100px;
+  left: 28%;
+  right: -2%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.court-scene svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+.court-side-note {
+  position: absolute;
+  right: 3vw;
+  top: 43%;
+  writing-mode: vertical-rl;
+  font-size: 8px;
+  letter-spacing: 0.14em;
+  color: #b8c9b3;
+}
+.serve-controls {
+  position: absolute;
+  bottom: 26px;
+  left: 7vw;
+  right: 7vw;
+  z-index: 5;
+}
+.serve-caption {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 18px;
+}
+.phase-counter {
+  color: var(--lime);
+  min-width: 56px;
+}
+.serve-caption p {
+  font-family: var(--jp);
+  font-size: 11px;
+  letter-spacing: 0;
+}
+.scroll-hint {
+  margin-left: auto;
+  font-size: 8px;
+  color: #c0ceb7;
+}
+.serve-steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  color: #aebdab;
+  font-size: 10px;
+  margin-bottom: 7px;
+  letter-spacing: 0;
+}
+.serve-steps span {
+  position: relative;
+  padding: 9px 0 0;
+  border-top: 1px solid #72907a;
+}
+.serve-steps .active {
+  color: var(--lime);
+}
+.serve-steps .active::before {
+  position: absolute;
+  content: "";
+  height: 3px;
+  top: -2px;
+  left: 0;
+  right: 25%;
+  background: var(--lime);
+}
+.controls-row {
+  display: flex;
+  gap: 27px;
+  align-items: center;
+}
+.controls-row input {
+  width: 100%;
+  height: 32px;
+  margin: 0;
+  cursor: ew-resize;
+  accent-color: var(--lime);
+  background: transparent;
+}
+.controls-row button {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  min-height: 40px;
+  border: 1px solid #79927b;
+  background: transparent;
+  color: var(--paper);
+  padding: 8px 15px;
+  font-family: var(--jp);
+  font-size: 10px;
+  letter-spacing: 0;
+  border-radius: 0;
+}
+.controls-row button span {
+  font-family: var(--font);
+  font-size: 12px;
+}
+.controls-row button[aria-pressed="true"] {
+  color: var(--lime);
+  border-color: var(--lime);
+}
+.no-script-note {
+  position: absolute;
+  bottom: 36px;
+  left: 7vw;
+  font-family: var(--jp);
+  font-size: 12px;
+}
+.orbit-section {
+  position: relative;
+  background: #111c30;
+  color: #edf1f3;
+  padding: 42px 4.5vw 60px;
+  overflow: hidden;
+}
+.orbit-topline {
+  display: flex;
+  justify-content: space-between;
+}
+.orbit-topline > span {
+  font-size: 8px;
+  color: #a6b2c9;
+}
+.orbit-layout {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  align-items: center;
+  min-height: 640px;
+  max-width: 1500px;
+  margin: auto;
+}
+.orbit-copy {
+  padding: 60px 0 60px 2.5vw;
+  position: relative;
+  z-index: 1;
+}
+.orbit-copy h2,
+.merry-copy h2 {
+  font-size: clamp(65px, 7.5vw, 110px);
+  font-weight: 500;
+  letter-spacing: -0.065em;
+  line-height: 0.98;
+}
+.orbit-copy h2 em {
+  color: #a6baff;
+}
+.orbit-copy p,
+.merry-copy > p:not(.section-kicker) {
+  font-family: var(--jp);
+  font-size: 13px;
+  line-height: 2.2;
+  margin-top: 30px;
+}
+.orbit-coordinate {
+  display: block;
+  font-size: 8px;
+  color: #93a0b8;
+  margin-top: 55px;
+}
+.planet-window {
+  position: relative;
+}
+.planet-art {
+  width: 100%;
+  will-change: transform;
+}
+.planet-caption {
+  font-size: 8px;
+  color: #93a0b8;
+  display: block;
+  text-align: center;
+  margin-top: -20px;
+}
+.merry-section {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  align-items: center;
+  min-height: 690px;
+  max-width: 1500px;
+  margin: auto;
+  padding: 70px 7vw;
+  gap: 8vw;
+}
+.merry-art-wrap {
+  position: relative;
+}
+.merry-art {
+  width: 100%;
+}
+.merry-art-note {
+  position: absolute;
+  left: 4%;
+  top: 6%;
+  font-size: 8px;
+  writing-mode: vertical-rl;
+  color: #7a8577;
+}
+.merry-signature {
+  display: block;
+  text-align: center;
+  font-family: Georgia, "Times New Roman", serif;
+  font-style: italic;
+  font-size: 42px;
+  letter-spacing: -2px;
+  margin-top: -32px;
+  transform: rotate(-9deg);
+  color: #6e7e6a;
+}
+.merry-copy .section-kicker {
+  margin-bottom: 40px;
+}
+.merry-copy h2 em {
+  color: #71815b;
+}
+.merry-footnote {
+  display: block;
+  margin-top: 30px;
+  color: #707c6d;
+  font-size: 11px;
+}
+.swiss-note {
+  display: flex;
+  gap: 32px;
+  align-items: center;
+  margin: 10px 7vw 80px;
+  padding: 36px 0;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+.swiss-cross {
+  width: 55px;
+  flex-shrink: 0;
+  height: 55px;
+  display: grid;
+  place-items: center;
+  border: 1px solid #b1b6a8;
+  font-size: 42px;
+  font-weight: 400;
+  color: #727e62;
+}
+.swiss-note .section-kicker {
+  font-size: 8px;
+  letter-spacing: 0.07em;
+  color: #737d6e;
+}
+.swiss-note h2 {
+  font-size: 21px;
+  font-weight: 500;
+  letter-spacing: -0.7px;
+  margin-top: 11px;
+}
+.swiss-note div > p:last-child {
+  font-family: var(--jp);
+  font-size: 11px;
+  line-height: 2;
+  margin-top: 12px;
+  color: #687263;
+}
+.swiss-note > a {
+  font-family: var(--jp);
+  font-size: 11px;
+  margin-left: auto;
+  flex-shrink: 0;
+}
+.swiss-note > a span {
+  margin-left: 24px;
+}
+.back-home {
+  padding: 60px 7vw 90px;
+  background: #e5e8d8;
+}
+.back-home > span {
+  font-size: 9px;
+  color: #63705c;
+}
+.back-home > a {
+  display: block;
+  position: relative;
+  font-size: clamp(55px, 7.8vw, 120px);
+  letter-spacing: -0.065em;
+  font-weight: 500;
+  line-height: 1.02;
+  margin-top: 34px;
+}
+.back-home > a > span {
+  position: absolute;
+  right: 1%;
+  top: 0;
+  font-size: 0.8em;
+  font-weight: 400;
+}
+.play-footer {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  padding: 32px 4.5vw;
+  font-size: 10px;
+}
+.play-footer > a:first-child {
+  font-size: 21px;
+  letter-spacing: -1px;
+  font-weight: 600;
+}
+.play-footer p {
+  color: #70796c;
+}
+.play-footer > a:last-child {
+  margin-left: auto;
+  font-size: 10px;
+}
+@media (min-width: 1500px) {
+  .court-scene {
+    right: 1%;
+    left: 30%;
+  }
+  .court-heading {
+    left: 8vw;
+  }
+  .orbit-layout {
+    min-height: 740px;
+  }
+}
+@media (max-width: 1000px) {
+  .play-header {
+    height: 82px;
+  }
+  .intro-title-wrap {
+    padding: 57px 0 38px;
+  }
+  .intro-ball {
+    right: 1%;
+    top: 26%;
+    width: 16vw;
+  }
+  .court-heading {
+    left: 5vw;
+    top: 18%;
+  }
+  .court-heading h2 {
+    font-size: 8vw;
+  }
+  .court-heading p {
+    font-size: 10px;
+  }
+  .court-scene {
+    left: 24%;
+    right: -5%;
+    top: 9%;
+    bottom: 150px;
+  }
+  .court-watermark {
+    left: 29%;
+    top: 18%;
+  }
+  .serve-controls {
+    left: 5vw;
+    right: 5vw;
+  }
+  .court-side-note {
+    display: none;
+  }
+  .orbit-layout {
+    min-height: 540px;
+  }
+  .merry-section {
+    padding: 65px 5vw;
+    gap: 4vw;
+    min-height: 560px;
+  }
+  .merry-copy h2 {
+    font-size: 7.5vw;
+  }
+  .merry-copy .section-kicker {
+    font-size: 8px;
+  }
+  .orbit-copy p,
+  .merry-copy > p:not(.section-kicker) {
+    font-size: 12px;
+  }
+  .swiss-note {
+    margin-inline: 5vw;
+  }
+  .swiss-note > a {
+    font-size: 10px;
+  }
+  .swiss-note h2 {
+    font-size: 18px;
+  }
+}
+@media (max-width: 700px) {
+  .play-header {
+    margin-inline: 6vw;
+    height: 75px;
+    gap: 15px;
+  }
+  .play-header nav {
+    gap: 24px;
+    font-size: 12px;
+  }
+  .wordmark {
+    font-size: 24px;
+  }
+  .home-link {
+    display: none;
+  }
+  .play-intro {
+    padding: 27px 6vw 0;
+  }
+  .intro-topline {
+    font-size: 8px;
+    letter-spacing: 0.07em;
+  }
+  .intro-topline > span:last-child {
+    display: none;
+  }
+  .intro-title-wrap {
+    padding: 40px 0 30px;
+  }
+  h1 {
+    font-size: clamp(63px, 13vw, 92px);
+    letter-spacing: -0.07em;
+  }
+  .intro-ball {
+    width: 18vw;
+    max-width: 115px;
+    top: 4%;
+    right: 0;
+    z-index: -1;
+    opacity: 0.45;
+    transform: rotate(-24deg);
+  }
+  .intro-bottom {
+    gap: 20px;
+    align-items: center;
+  }
+  .intro-bottom p {
+    font-size: 11px;
+    line-height: 2;
+  }
+  .intro-bottom > a {
+    font-size: 7px;
+    letter-spacing: 0.04em;
+    gap: 12px;
+  }
+  .intro-bottom > a span {
+    font-size: 20px;
+  }
+  .chapter-nav {
+    margin-top: 28px;
+    padding: 23px 0;
+    gap: 20px;
+  }
+  .chapter-nav a {
+    font-size: 10px;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .chapter-nav a > span:first-child {
+    font-size: 8px;
+    width: 100%;
+    margin-bottom: 3px;
+  }
+  .chapter-nav a > span:last-child {
+    font-size: 15px;
+  }
+  .motion-enabled .serve-scroll {
+    height: 225svh;
+  }
+  .serve-sticky,
+  .motion-enabled .serve-sticky {
+    min-height: 640px;
+  }
+  .court-topline {
+    top: 24px;
+    left: 6vw;
+    right: 6vw;
+    font-size: 8px;
+  }
+  .court-topline a {
+    font-size: 9px;
+    gap: 12px;
+  }
+  .court-topline .chapter-number {
+    margin-right: 8px;
+  }
+  .court-heading {
+    top: 90px;
+    left: 6vw;
+    display: flex;
+    align-items: flex-end;
+    gap: 8vw;
+    right: 6vw;
+  }
+  .court-heading h2 {
+    font-size: 53px;
+    line-height: 0.91;
+    flex-shrink: 0;
+  }
+  .court-heading p {
+    font-size: 10px;
+    margin-top: 0;
+    margin-bottom: 5px;
+    line-height: 1.9;
+  }
+  .court-watermark {
+    font-size: 45vw;
+    left: 17%;
+    top: 32%;
+  }
+  .court-scene {
+    left: -11%;
+    right: -9%;
+    top: 23%;
+    bottom: 140px;
+  }
+  .court-scene svg {
+    max-width: none;
+  }
+  .serve-controls {
+    left: 6vw;
+    right: 6vw;
+    bottom: 18px;
+  }
+  .serve-caption {
+    font-size: 9px;
+    gap: 15px;
+    margin-bottom: 13px;
+  }
+  .serve-caption p {
+    font-size: 10px;
+  }
+  .phase-counter {
+    min-width: 47px;
+  }
+  .scroll-hint {
+    font-size: 7px;
+    letter-spacing: 0.03em;
+  }
+  .serve-steps {
+    font-size: 9px;
+  }
+  .controls-row {
+    gap: 15px;
+  }
+  .controls-row button {
+    font-size: 9px;
+    gap: 12px;
+    min-height: 40px;
+    padding: 8px 11px;
+  }
+  .orbit-section {
+    padding: 28px 6vw 45px;
+  }
+  .orbit-topline {
+    font-size: 8px;
+  }
+  .orbit-topline > span {
+    font-size: 6px;
+    letter-spacing: 0.05em;
+  }
+  .orbit-layout {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    min-height: 0;
+  }
+  .orbit-copy {
+    padding: 56px 0 0;
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 0 20px;
+    align-items: end;
+  }
+  .orbit-copy h2 {
+    font-size: 64px;
+  }
+  .orbit-copy p {
+    font-size: 10px;
+    margin: 0 0 4px;
+    line-height: 2;
+  }
+  .orbit-coordinate {
+    margin-top: 27px;
+    font-size: 6px;
+    grid-column: 1/-1;
+  }
+  .planet-window {
+    margin: -5px -3vw 0;
+  }
+  .planet-art {
+    max-height: 460px;
+  }
+  .planet-caption {
+    font-size: 7px;
+    margin-top: -15px;
+  }
+  .merry-section {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: stretch;
+    padding: 60px 8vw 50px;
+    gap: 12px;
+    min-height: 0;
+  }
+  .merry-copy .section-kicker {
+    margin-bottom: 27px;
+  }
+  .merry-copy {
+    display: grid;
+    grid-template-columns: 1.15fr 1fr;
+    align-items: end;
+    gap: 0 18px;
+  }
+  .merry-copy .section-kicker {
+    grid-column: 1/-1;
+  }
+  .merry-copy h2 {
+    font-size: 58px;
+  }
+  .merry-copy > p:not(.section-kicker) {
+    font-size: 10px;
+    margin-top: 0;
+    line-height: 2;
+  }
+  .merry-footnote {
+    grid-column: 1/-1;
+    font-size: 9px;
+    margin-top: 25px;
+  }
+  .merry-art-wrap {
+    width: 100%;
+    max-width: 420px;
+    align-self: center;
+  }
+  .merry-art-note {
+    top: 14%;
+    font-size: 6px;
+  }
+  .merry-signature {
+    font-size: 38px;
+    margin-top: -38px;
+  }
+  .swiss-note {
+    flex-wrap: wrap;
+    margin: 15px 8vw 55px;
+    gap: 20px;
+    padding: 28px 0;
+  }
+  .swiss-cross {
+    height: 42px;
+    width: 42px;
+    font-size: 32px;
+  }
+  .swiss-note > div {
+    flex: 1;
+  }
+  .swiss-note h2 {
+    font-size: 16px;
+    margin-top: 9px;
+  }
+  .swiss-note .section-kicker {
+    font-size: 6px;
+  }
+  .swiss-note div > p:last-child {
+    font-size: 10px;
+  }
+  .swiss-note > a {
+    width: 100%;
+    margin-left: 62px;
+    font-size: 10px;
+  }
+  .back-home {
+    padding: 46px 8vw 55px;
+  }
+  .back-home > span {
+    font-size: 7px;
+  }
+  .back-home > a {
+    font-size: 10vw;
+    margin-top: 26px;
+  }
+  .back-home > a > span {
+    right: 0;
+  }
+  .play-footer {
+    padding: 26px 6vw;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+  .play-footer p {
+    font-size: 8px;
+  }
+  .play-footer > a:last-child {
+    font-size: 9px;
+  }
+}
+@media (max-width: 390px) {
+  .play-header nav {
+    gap: 18px;
+  }
+  .intro-bottom > a {
+    font-size: 6px;
+  }
+  .chapter-nav {
+    gap: 12px;
+  }
+  .chapter-nav a {
+    font-size: 9px;
+  }
+  .court-heading h2 {
+    font-size: 46px;
+  }
+  .court-heading {
+    gap: 5vw;
+  }
+  .court-heading p {
+    font-size: 9px;
+  }
+  .serve-caption {
+    gap: 10px;
+  }
+  .serve-caption p {
+    font-size: 9px;
+  }
+  .scroll-hint {
+    font-size: 6px;
+  }
+  .orbit-copy h2 {
+    font-size: 55px;
+  }
+  .orbit-copy {
+    gap: 0 12px;
+  }
+  .orbit-copy p {
+    font-size: 9px;
+  }
+  .merry-copy h2 {
+    font-size: 48px;
+  }
+  .merry-copy > p:not(.section-kicker) {
+    font-size: 9px;
+  }
+  .swiss-note h2 {
+    font-size: 14px;
+  }
+  .swiss-note > a {
+    margin-left: 0;
+  }
+}
+@media (max-width: 700px) {
+  .intro-ball {
+    z-index: 0;
+  }
+  .intro-title-wrap h1 {
+    position: relative;
+    z-index: 1;
+  }
+}
+@media (max-height: 650px) and (min-width: 701px) {
+  .serve-sticky,
+  .motion-enabled .serve-sticky {
+    min-height: 560px;
+  }
+  .court-heading {
+    top: 22%;
+  }
+  .court-heading h2 {
+    font-size: 70px;
+  }
+  .court-heading p {
+    font-size: 10px;
+    margin-top: 22px;
+  }
+  .court-scene {
+    top: 2%;
+    bottom: 130px;
+    left: 33%;
+    right: 2%;
+  }
+  .court-watermark {
+    top: 15%;
+    font-size: 28vw;
+  }
+  .serve-caption {
+    margin-bottom: 10px;
+  }
+  .serve-controls {
+    bottom: 14px;
+  }
+  .court-topline {
+    top: 22px;
+  }
+  .serve-steps {
+    margin-bottom: 2px;
+  }
+}
+@media (max-height: 580px) {
+  .motion-enabled .serve-scroll {
+    height: auto;
+  }
+  .motion-enabled .serve-sticky {
+    position: relative;
+    height: 640px;
+    min-height: 640px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+  .planet-art {
+    will-change: auto;
+  }
+}
+@media print {
+  .play-header,
+  .chapter-nav,
+  .serve-controls,
+  .court-topline a,
+  .back-home,
+  .skip-link {
+    display: none !important;
+  }
+  .motion-enabled .serve-scroll {
+    height: auto;
+  }
+  .motion-enabled .serve-sticky {
+    position: relative;
+    height: 650px;
+    min-height: 0;
+  }
+  .orbit-section,
+  .tennis-section {
+    print-color-adjust: exact;
+  }
+  .play-intro {
+    padding-bottom: 30px;
+  }
+  .orbit-section,
+  .merry-section {
+    break-inside: avoid;
+  }
+  .planet-art {
+    transform: none !important;
+  }
+  .play-footer {
+    border-top: 1px solid var(--rule);
+  }
+}
