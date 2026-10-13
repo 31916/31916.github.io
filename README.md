@@ -30,6 +30,14 @@ The text logo `31916` is the default; the home page has no portrait. To add or r
 
 Run `python -m http.server 8000` from the repository root, then open `http://localhost:8000`. Use a server because asset paths start at the site root.
 
+## Languages
+
+The portfolio supports Japanese, English and German through the header language selector. `assets/translations.json` contains matching dictionaries keyed by normalized source text; `js/i18n.js` applies text, metadata and accessible labels without replacing page markup. When editing source copy, update its dictionary entry too.
+
+A valid `?lang=ja`, `?lang=en` or `?lang=de` takes priority over the saved browser preference. The default is Japanese. Navigation retains the selected language, and explicit selections persist locally when storage is available. Japanese HTML remains usable if scripts or translation loading are unavailable. The hobby page stays empty in all languages.
+
+The separate IMELayoutRouter product site keeps its existing Japanese/English pages; English and German portfolio visitors are linked to its English page and see the existing English social image. Embedded presentation files retain their original language.
+
 ## Publishing
 
 Pushes to `main` deploy through `.github/workflows/pages.yml`. `tools/build-pages.py` builds the public archive, including the case-sensitive `IMELayOutRouter` legacy aliases. Add any new top-level public page/directory to `PUBLIC` in that script. Existing installer checksum checks run during deployment.
