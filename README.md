@@ -18,7 +18,7 @@ The IMELayoutRouter project card uses the existing, uncropped `IMELayoutRouter/s
 
 ## Changing identity images
 
-The text logo `31916` is the default; the home page has no portrait. To add or replace artwork:
+The header uses the owner-supplied `assets/identity/31916.png`; the home page has no portrait. The original uploaded image is preserved unchanged. To add or replace artwork:
 
 1. Put the image in `assets/identity/` (SVG, PNG, JPEG, WebP, GIF or AVIF).
 2. Edit `assets/identity.json`: `logo.src` replaces the header mark everywhere, and `hero.src` adds artwork to the home introduction. Use a path such as `/assets/identity/logo.svg` and set descriptive `alt` text.
