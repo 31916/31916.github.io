@@ -1099,6 +1099,18 @@ summary:focus-visible {
   align-items: center;
   gap: 24px;
 }
+html:lang(ja) .page-intro h1 {
+  font-family: var(--sans);
+  font-size: clamp(38px, 5vw, 56px);
+  line-height: 1.4;
+  letter-spacing: 0.03em;
+}
+html:lang(ja) .heading-pair h2 {
+  font-family: var(--sans);
+  font-size: clamp(24px, 3vw, 30px);
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+}
 .language-picker {
   display: inline-flex;
   align-items: center;
