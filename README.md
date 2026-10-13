@@ -18,13 +18,21 @@ The IMELayoutRouter project card uses the existing, uncropped `IMELayoutRouter/s
 
 ## Changing identity images
 
-The header uses the owner-supplied `assets/identity/31916.png`; the home page has no portrait. The original uploaded image is preserved unchanged. To add or replace artwork:
+The header uses `assets/identity/31916-transparent.png`, a transparent cutout of the owner-supplied logo. The original upload remains unchanged at `assets/identity/31916.png`; the home page has no portrait. To add or replace artwork:
 
 1. Put the image in `assets/identity/` (SVG, PNG, JPEG, WebP, GIF or AVIF).
 2. Edit `assets/identity.json`: `logo.src` replaces the header mark everywhere, and `hero.src` adds artwork to the home introduction. Use a path such as `/assets/identity/logo.svg` and set descriptive `alt` text.
 3. Keep a `src` empty to retain the text mark or hide the home illustration. The build automatically includes exactly the configured image files; no build-manifest edit is needed.
 
 `js/identity.js` keeps the fallback intact when an image cannot load. The former face-photo file has been removed from the current tree and public package. Historical Git commits and the previously requested backup branches still retain their original contents.
+
+### Transparent logo edit
+
+Created with the built-in image generation/editing tool, with transparent output enabled and `assets/identity/31916.png` as the edit target. Final asset: `assets/identity/31916-transparent.png`.
+
+Prompt:
+
+> Use case: background-extraction. Edit target: the attached existing 31916 logo. Remove only its white/off-white background and background texture, including inside the enclosed counters of the digits 9 and 6. Output genuine alpha transparency. Preserve the exact existing custom glyphs spelling 31916, the small blue dot on the right, their shapes, spacing, relative positions, colors, edges, and the original wide aspect ratio and original padding as closely as possible. Do not redesign, retype, stylize or add anything. No shadow, no border, no white rectangle, no checkerboard baked into pixels. This is a precise transparent cutout for the header of a website.
 
 ## Local preview
 
