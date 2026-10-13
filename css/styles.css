@@ -179,6 +179,13 @@ summary:focus-visible {
 .name-period {
   color: var(--accent);
 }
+.profile-heading {
+  font-family: var(--sans);
+  font-size: clamp(38px, 5vw, 56px);
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: 0.03em;
+}
 .full-name {
   font-family: Arial, sans-serif;
   font-size: 13px;
@@ -479,6 +486,9 @@ summary:focus-visible {
   margin-bottom: 16px;
 }
 .page-summary .intro-description {
+  margin-top: 10px;
+}
+.page-summary .profile-heading {
   margin-top: 10px;
 }
 .page-content {
