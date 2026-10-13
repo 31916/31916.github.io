@@ -472,6 +472,15 @@ summary:focus-visible {
   line-height: 2;
   margin-top: 18px;
 }
+.page-summary {
+  padding: 24px 0 28px;
+}
+.page-summary .breadcrumb {
+  margin-bottom: 16px;
+}
+.page-summary .intro-description {
+  margin-top: 10px;
+}
 .page-content {
   padding-bottom: 70px;
 }
