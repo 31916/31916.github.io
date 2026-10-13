@@ -1,5 +1,17 @@
 "use strict";
 
+const siteHeader = document.querySelector(".site-header");
+if (siteHeader) {
+  const updateHeaderHeight = () => {
+    document.documentElement.style.setProperty(
+      "--header-height",
+      `${siteHeader.getBoundingClientRect().height}px`,
+    );
+  };
+  updateHeaderHeight();
+  new ResizeObserver(updateHeaderHeight).observe(siteHeader);
+}
+
 document.querySelectorAll("[data-year]").forEach((node) => {
   node.textContent = String(new Date().getFullYear());
 });
