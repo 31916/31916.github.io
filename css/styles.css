@@ -547,21 +547,6 @@ summary:focus-visible {
   font-size: 13px;
   color: #4f6490;
 }
-.slides-details {
-  margin-top: 18px;
-}
-.slides-details summary {
-  font-size: 11px;
-  padding: 15px 0;
-  color: var(--accent);
-  cursor: pointer;
-}
-.slides-frame {
-  width: 100%;
-  aspect-ratio: 960/569;
-  border: 0;
-  background: #e9edf2;
-}
 .error-page {
   min-height: 65vh;
   padding-block: 90px;

@@ -205,13 +205,6 @@
 .resume-extra .skill-list {
   margin: 0 0 26px;
 }
-.resume-extra .slides-frame {
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  height: auto;
-  border: 1px solid var(--line);
-  margin-bottom: 24px;
-}
 @media (max-width: 950px) {
   .resume-event {
     grid-template-columns: 160px minmax(0, 1fr);

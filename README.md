@@ -6,7 +6,7 @@ Personal portfolio at **https://31916.ch/**. Plain HTML, CSS, JavaScript and ori
 
 - `index.html`: minimal home, selected work, personal introduction and a link to Play.
 - `projects/index.html`: project directory with Software / Research filters.
-- `resume/index.html`: a chronological timeline, qualifications and optional skills/slides.
+- `resume/index.html`: a chronological timeline, qualifications and skills.
 - `about/index.html`: compatibility redirect to Resume.
 - `play/index.html`: an intentionally blank hobby page; only the shared navigation remains.
 - `IMELayoutRouter/`: existing product website and installer distribution.
@@ -36,7 +36,7 @@ The portfolio supports Japanese, English and German through the header language 
 
 A valid `?lang=ja`, `?lang=en` or `?lang=de` takes priority over the saved browser preference. The default is Japanese. Navigation retains the selected language, and explicit selections persist locally when storage is available. Japanese HTML remains usable if scripts or translation loading are unavailable. The hobby page stays empty in all languages.
 
-The separate IMELayoutRouter product site keeps its existing Japanese/English pages; English and German portfolio visitors are linked to its English page and see the existing English social image. Embedded presentation files retain their original language.
+The separate IMELayoutRouter product site keeps its existing Japanese/English pages; English and German portfolio visitors are linked to its English page and see the existing English social image.
 
 ## Publishing
 
