@@ -248,7 +248,6 @@ def render_project_catalog(settings):
             '      <span class="project-arrow" aria-hidden="true">↗</span>\n'
             '    </div>\n'
             f'    <p class="project-description">{escape(project["description"])}</p>\n'
-            f'    <span class="project-destination">{escape(project["destination"])} <span aria-hidden="true">↗</span></span>\n'
             '  </a>\n'
             '</article>'
         )
