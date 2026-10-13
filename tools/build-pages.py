@@ -28,7 +28,7 @@ PUBLIC = (
     "assets/art/favicon.svg", "assets/art/handshape.svg",
     "assets/art/icon-code.svg", "assets/art/icon-mail.svg",
     "assets/art/keyboard.svg",
-    "assets/tech/c.svg", "assets/tech/csharp.svg", "assets/tech/python.svg",
+    "assets/tech/c.svg", "assets/tech/csharp.svg", "assets/tech/python.svg", "assets/tech/matlab.svg",
     "assets/tech/javascript.svg", "assets/tech/html.svg", "assets/tech/css.svg",
     "assets/tech/git.svg", "assets/tech/github.svg", "assets/tech/linux.svg",
     "assets/tech/google-apps-script.png",
