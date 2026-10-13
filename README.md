@@ -4,7 +4,7 @@ Personal portfolio at **https://31916.ch/**. Plain HTML, CSS, JavaScript and ori
 
 ## Pages
 
-- `index.html`: a single-screen home with a compact introduction, two selected projects and email contact.
+- `index.html`: a single-screen home with two selected projects and contact (email/copy button plus GitHub and X icons).
 - `projects/index.html`: project directory with Software / Research filters.
 - `resume/index.html`: separate education and work timelines, a qualifications list, and a technology stack with icons.
 - `about/index.html`: compatibility redirect to Resume.
@@ -14,7 +14,7 @@ Personal portfolio at **https://31916.ch/**. Plain HTML, CSS, JavaScript and ori
 
 Shared portfolio styles are in `css/styles.css`; navigation and project filters are in `js/scripts.js`. Resume adds `css/resume.css`. Header/footer markup is intentionally static in each page. Update the stylesheet/script version query in each page when changing these files.
 
-Only the home page uses the viewport layout in `css/home.css`. Projects, Resume and the blank hobby page keep their existing layouts. Check the home at phone portrait/landscape, tablet and desktop sizes in Japanese, English and German when changing its content.
+Only the home body uses the viewport layout in `css/home.css`. Its header uses the same unmodified shared styles as every other portfolio page. Projects, Resume and the blank hobby page keep their existing layouts. Check the home at phone portrait/landscape, tablet and desktop sizes in Japanese, English and German when changing its content.
 
 ## Selecting the two home projects
 
@@ -35,10 +35,10 @@ The IMELayoutRouter project card uses the existing, uncropped `IMELayoutRouter/s
 The header uses `assets/identity/31916-transparent.png`, a transparent cutout of the owner-supplied logo. The original upload remains unchanged at `assets/identity/31916.png`; the home page has no portrait. To add or replace artwork:
 
 1. Put the image in `assets/identity/` (SVG, PNG, JPEG, WebP, GIF or AVIF).
-2. Edit `assets/identity.json`: the build renders `logo.src` into every portfolio header, and `hero.src` adds artwork to the home introduction. Use a path such as `/assets/identity/logo.svg` and set descriptive `alt` text.
-3. Keep a `src` empty to use the text mark or hide the home illustration. The build automatically includes exactly the configured image files; no build-manifest edit is needed.
+2. Edit `assets/identity.json`: the build renders `logo.src` into every portfolio header. Use a path such as `/assets/identity/logo.svg` and set descriptive `alt` text.
+3. Keep `logo.src` empty to use the text mark. The build automatically includes the configured image file; no build-manifest edit is needed. The former optional `hero` slot is unused by the home page, which contains only Projects and Contact.
 
-The HTML contains the logo image on first render, with reserved dimensions and eager loading; JavaScript never swaps the header logo after loading. `js/identity.js` handles only the optional home illustration. After changing logo settings, preview the extracted output of `tools/build-pages.py` to check the configured header. The checked-in HTML also contains the current logo for direct local preview.
+The HTML contains the logo image on first render, with reserved dimensions and eager loading; JavaScript never swaps the header logo after loading. `js/identity.js` retains support for the former optional illustration but makes no changes to the current home page. After changing logo settings, preview the extracted output of `tools/build-pages.py` to check the configured header. The checked-in HTML also contains the current logo for direct local preview.
 
 The former face-photo file has been removed from the current tree and public package. Historical Git commits and the previously requested backup branches still retain their original contents.
 
