@@ -8,11 +8,11 @@ Personal portfolio at **https://31916.ch/**. Plain HTML, CSS, JavaScript and ori
 - `projects/index.html`: project directory with Software / Research filters.
 - `resume/index.html`: a chronological timeline, qualifications and optional skills/slides.
 - `about/index.html`: compatibility redirect to Resume.
-- `play/index.html`: a separate visual hobby page with tennis, space, Merry and Switzerland.
+- `play/index.html`: an intentionally blank hobby page; only the shared navigation remains.
 - `IMELayoutRouter/`: existing product website and installer distribution.
 - `404.html`: missing-page recovery.
 
-Shared portfolio styles are in `css/styles.css`; navigation and project filters are in `js/scripts.js`. Resume adds `css/resume.css`. Play has its own `css/play.css` and `js/play.js`. Header/footer markup is intentionally static in each page. Update the stylesheet/script version query in each page when changing these files.
+Shared portfolio styles are in `css/styles.css`; navigation and project filters are in `js/scripts.js`. Resume adds `css/resume.css`. Header/footer markup is intentionally static in each page. Update the stylesheet/script version query in each page when changing these files.
 
 The IMELayoutRouter project card uses the existing, uncropped `IMELayoutRouter/social-ja-v2.png` social image and links to `/IMELayoutRouter/`. Product files and downloads remain maintained separately.
 
@@ -29,10 +29,6 @@ The text logo `31916` is the default; the home page has no portrait. To add or r
 ## Local preview
 
 Run `python -m http.server 8000` from the repository root, then open `http://localhost:8000`. Use a server because asset paths start at the site root.
-
-## Tennis motion
-
-The inline SVG on `/play/` is an original right-handed silhouette. The `poses` array in `js/play.js` defines a serve from preparation to follow-through. Scroll position controls the interpolation; a range input also supports keyboard operation. Manual input pauses scroll updates, and the pause button can resume them. `prefers-reduced-motion` uses a static impact pose and removes the extra scroll distance. Short viewports also use the unpinned scene with manual controls. Without JavaScript the illustration and all main links remain usable.
 
 ## Publishing
 

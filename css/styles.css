@@ -1,4 +1,3 @@
-/* The portfolio is quiet; /play/ has its own independent visual language. */
 :root {
   --paper: #f6f8ff;
   --ink: #1c2e55;
@@ -361,59 +360,6 @@ summary:focus-visible {
   margin-top: 15px;
   color: var(--accent);
 }
-.play-section {
-  padding-bottom: 66px;
-}
-.play-invitation {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 40px;
-  padding: 37px 42px;
-  min-height: 230px;
-  background: #edf2ff;
-  border: 1px solid #d4dff5;
-  border-radius: 2px;
-  overflow: hidden;
-  transition: border-color 0.2s;
-}
-.play-invitation:hover {
-  border-color: #96ade3;
-}
-.play-invitation .kicker {
-  font-size: 9px;
-  letter-spacing: 0.15em;
-  color: #607bae;
-}
-.play-invitation h3 {
-  font-family: var(--serif);
-  font-size: 48px;
-  letter-spacing: -0.035em;
-  margin-top: 10px;
-  line-height: 1.1;
-}
-.play-invitation-copy > p:not(.kicker) {
-  font-size: 11px;
-  color: var(--muted);
-  margin-top: 12px;
-}
-.play-enter {
-  display: inline-flex;
-  gap: 28px;
-  align-items: center;
-  margin-top: 22px;
-  font-size: 10px;
-}
-.court-preview {
-  width: 300px;
-  flex: 0 0 300px;
-  color: #8da7e1;
-  transform: rotate(-8deg);
-  transition: transform 0.35s;
-}
-.play-invitation:hover .court-preview {
-  transform: rotate(-4deg);
-}
 .contact-section {
   padding-top: 32px;
   padding-bottom: 60px;
@@ -660,17 +606,6 @@ summary:focus-visible {
     font-size: 12px;
   }
 
-  .play-invitation {
-    padding: 32px;
-    gap: 20px;
-  }
-  .play-invitation h3 {
-    font-size: 42px;
-  }
-  .court-preview {
-    width: 240px;
-    flex-basis: 240px;
-  }
   .bio-grid {
     gap: 40px;
     grid-template-columns: 1fr 205px;
@@ -798,30 +733,6 @@ summary:focus-visible {
   .project-destination {
     font-size: 9px;
     gap: 14px;
-  }
-  .play-invitation {
-    padding: 30px 25px;
-    position: relative;
-    gap: 0;
-  }
-  .play-invitation h3 {
-    font-size: 37px;
-  }
-  .play-invitation-copy {
-    position: relative;
-    z-index: 1;
-  }
-  .play-invitation-copy > p:not(.kicker) {
-    font-size: 10px;
-  }
-  .court-preview {
-    width: 190px;
-    flex-basis: 190px;
-    margin-right: -30px;
-    opacity: 0.5;
-  }
-  .play-enter {
-    font-size: 10px;
   }
   .contact-section {
     align-items: flex-start;
@@ -952,37 +863,6 @@ summary:focus-visible {
   .projects-section {
     padding-bottom: 47px;
   }
-  .play-section {
-    padding-bottom: 46px;
-  }
-  .play-invitation {
-    padding: 29px 22px;
-    min-height: 226px;
-  }
-  .play-invitation h3 {
-    font-size: 38px;
-    max-width: 205px;
-  }
-  .play-invitation .kicker {
-    font-size: 8px;
-  }
-  .play-invitation-copy > p:not(.kicker) {
-    max-width: 207px;
-    line-height: 1.9;
-  }
-  .court-preview {
-    position: absolute;
-    width: 173px;
-    right: -27px;
-    top: 41px;
-    opacity: 0.3;
-  }
-  .play-invitation h3,
-  .play-invitation p,
-  .play-enter {
-    position: relative;
-    z-index: 1;
-  }
   .understated-link {
     font-size: 9px;
     gap: 15px;
@@ -1071,8 +951,7 @@ summary:focus-visible {
     animation: none !important;
     transition: none !important;
   }
-  .project-link:hover .project-arrow,
-  .play-invitation:hover .court-preview {
+  .project-link:hover .project-arrow {
     transform: none;
   }
 }
@@ -1093,9 +972,6 @@ summary:focus-visible {
   .project-card,
   .bio-grid {
     break-inside: avoid;
-  }
-  .play-invitation {
-    background: white;
   }
   .site-footer {
     margin-top: 30px;
