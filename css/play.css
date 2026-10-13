@@ -1,11 +1,11 @@
 :root {
   color-scheme: light;
-  --paper: #f3f1e9;
-  --ink: #203333;
-  --muted: #67716a;
-  --lime: #d9ff65;
-  --court: #254d40;
-  --rule: #c9cdc2;
+  --paper: #f6f8ff;
+  --ink: #1c2e55;
+  --muted: #64728d;
+  --ice: #bed1ff;
+  --court: #24447d;
+  --rule: #d9e1f2;
   --font: "Space Grotesk", "Noto Sans JP", sans-serif;
   --jp: "Noto Sans JP", sans-serif;
 }
@@ -52,7 +52,7 @@ svg {
 a:focus-visible,
 button:focus-visible,
 input:focus-visible {
-  outline: 3px solid #526fd2;
+  outline: 3px solid #466fd9;
   outline-offset: 6px;
 }
 a:hover {
@@ -97,9 +97,18 @@ button:hover {
   font-size: 13px;
 }
 .wordmark {
+  display: inline-flex;
+  align-items: center;
   font-size: 26px;
   font-weight: 700;
   letter-spacing: -1.5px;
+}
+.wordmark img {
+  display: block;
+  width: auto;
+  max-width: 120px;
+  height: 28px;
+  object-fit: contain;
 }
 .wordmark span {
   font-size: 10px;
@@ -170,7 +179,7 @@ em {
   right: 5.5%;
   top: 24%;
   width: clamp(100px, 14vw, 215px);
-  color: #768c51;
+  color: #788cff;
   transform: rotate(-24deg);
 }
 .intro-bottom {
@@ -208,7 +217,7 @@ em {
   letter-spacing: 0;
 }
 .chapter-nav a > span:first-child {
-  color: #737b72;
+  color: #64728d;
   font-size: 10px;
 }
 .chapter-nav a > span:last-child {
@@ -276,14 +285,14 @@ em {
   line-height: 0.93;
 }
 .court-heading h2 em {
-  color: var(--lime);
+  color: var(--ice);
 }
 .court-heading p {
   font-family: var(--jp);
   font-size: 12px;
   line-height: 2.1;
   margin-top: 30px;
-  color: #d9dfca;
+  color: #dce6ff;
 }
 .court-watermark {
   position: absolute;
@@ -293,7 +302,7 @@ em {
   font-weight: 700;
   line-height: 0.8;
   letter-spacing: -0.095em;
-  color: #315c4b;
+  color: #335994;
   pointer-events: none;
 }
 .court-scene {
@@ -318,7 +327,7 @@ em {
   writing-mode: vertical-rl;
   font-size: 8px;
   letter-spacing: 0.14em;
-  color: #b8c9b3;
+  color: #b9ccef;
 }
 .serve-controls {
   position: absolute;
@@ -334,7 +343,7 @@ em {
   margin-bottom: 18px;
 }
 .phase-counter {
-  color: var(--lime);
+  color: var(--ice);
   min-width: 56px;
 }
 .serve-caption p {
@@ -345,12 +354,12 @@ em {
 .scroll-hint {
   margin-left: auto;
   font-size: 8px;
-  color: #c0ceb7;
+  color: #c3d1ed;
 }
 .serve-steps {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  color: #aebdab;
+  color: #bdcdeb;
   font-size: 10px;
   margin-bottom: 7px;
   letter-spacing: 0;
@@ -358,10 +367,10 @@ em {
 .serve-steps span {
   position: relative;
   padding: 9px 0 0;
-  border-top: 1px solid #72907a;
+  border-top: 1px solid #7896c5;
 }
 .serve-steps .active {
-  color: var(--lime);
+  color: var(--ice);
 }
 .serve-steps .active::before {
   position: absolute;
@@ -370,7 +379,7 @@ em {
   top: -2px;
   left: 0;
   right: 25%;
-  background: var(--lime);
+  background: var(--ice);
 }
 .controls-row {
   display: flex;
@@ -382,7 +391,7 @@ em {
   height: 32px;
   margin: 0;
   cursor: ew-resize;
-  accent-color: var(--lime);
+  accent-color: var(--ice);
   background: transparent;
 }
 .controls-row button {
@@ -391,7 +400,7 @@ em {
   align-items: center;
   gap: 24px;
   min-height: 40px;
-  border: 1px solid #79927b;
+  border: 1px solid #8099c6;
   background: transparent;
   color: var(--paper);
   padding: 8px 15px;
@@ -405,8 +414,8 @@ em {
   font-size: 12px;
 }
 .controls-row button[aria-pressed="true"] {
-  color: var(--lime);
-  border-color: var(--lime);
+  color: var(--ice);
+  border-color: var(--ice);
 }
 .no-script-note {
   position: absolute;
@@ -502,7 +511,7 @@ em {
   top: 6%;
   font-size: 8px;
   writing-mode: vertical-rl;
-  color: #7a8577;
+  color: #687b9f;
 }
 .merry-signature {
   display: block;
@@ -513,18 +522,18 @@ em {
   letter-spacing: -2px;
   margin-top: -32px;
   transform: rotate(-9deg);
-  color: #6e7e6a;
+  color: #566f9f;
 }
 .merry-copy .section-kicker {
   margin-bottom: 40px;
 }
 .merry-copy h2 em {
-  color: #71815b;
+  color: #466fd9;
 }
 .merry-footnote {
   display: block;
   margin-top: 30px;
-  color: #707c6d;
+  color: #647697;
   font-size: 11px;
 }
 .swiss-note {
@@ -542,15 +551,15 @@ em {
   height: 55px;
   display: grid;
   place-items: center;
-  border: 1px solid #b1b6a8;
+  border: 1px solid #b8c7e6;
   font-size: 42px;
   font-weight: 400;
-  color: #727e62;
+  color: #5777b4;
 }
 .swiss-note .section-kicker {
   font-size: 8px;
   letter-spacing: 0.07em;
-  color: #737d6e;
+  color: #647697;
 }
 .swiss-note h2 {
   font-size: 21px;
@@ -563,7 +572,7 @@ em {
   font-size: 11px;
   line-height: 2;
   margin-top: 12px;
-  color: #687263;
+  color: #637493;
 }
 .swiss-note > a {
   font-family: var(--jp);
@@ -576,11 +585,11 @@ em {
 }
 .back-home {
   padding: 60px 7vw 90px;
-  background: #e5e8d8;
+  background: #e6edff;
 }
 .back-home > span {
   font-size: 9px;
-  color: #63705c;
+  color: #596f99;
 }
 .back-home > a {
   display: block;
@@ -611,7 +620,7 @@ em {
   font-weight: 600;
 }
 .play-footer p {
-  color: #70796c;
+  color: #64718b;
 }
 .play-footer > a:last-child {
   margin-left: auto;

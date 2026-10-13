@@ -6,14 +6,25 @@ Personal portfolio at **https://31916.ch/**. Plain HTML, CSS, JavaScript and ori
 
 - `index.html`: minimal home, selected work, personal introduction and a link to Play.
 - `projects/index.html`: project directory with Software / Research filters.
-- `about/index.html`: biography, experience, education, research and slides.
+- `resume/index.html`: a chronological timeline, qualifications and optional skills/slides.
+- `about/index.html`: compatibility redirect to Resume.
 - `play/index.html`: a separate visual hobby page with tennis, space, Merry and Switzerland.
 - `IMELayoutRouter/`: existing product website and installer distribution.
 - `404.html`: missing-page recovery.
 
-Shared portfolio styles are in `css/styles.css`; navigation and project filters are in `js/scripts.js`. Play has its own `css/play.css` and `js/play.js`. Header/footer markup is intentionally static in each page. Update the stylesheet/script version query in each page when changing these files.
+Shared portfolio styles are in `css/styles.css`; navigation and project filters are in `js/scripts.js`. Resume adds `css/resume.css`. Play has its own `css/play.css` and `js/play.js`. Header/footer markup is intentionally static in each page. Update the stylesheet/script version query in each page when changing these files.
 
 The IMELayoutRouter project card uses the existing, uncropped `IMELayoutRouter/social-ja-v2.png` social image and links to `/IMELayoutRouter/`. Product files and downloads remain maintained separately.
+
+## Changing identity images
+
+The text logo `31916` is the default; the home page has no portrait. To add or replace artwork:
+
+1. Put the image in `assets/identity/` (SVG, PNG, JPEG, WebP, GIF or AVIF).
+2. Edit `assets/identity.json`: `logo.src` replaces the header mark everywhere, and `hero.src` adds artwork to the home introduction. Use a path such as `/assets/identity/logo.svg` and set descriptive `alt` text.
+3. Keep a `src` empty to retain the text mark or hide the home illustration. The build automatically includes exactly the configured image files; no build-manifest edit is needed.
+
+`js/identity.js` keeps the fallback intact when an image cannot load. The former face-photo file has been removed from the current tree and public package. Historical Git commits and the previously requested backup branches still retain their original contents.
 
 ## Local preview
 
