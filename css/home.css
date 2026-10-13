@@ -20,7 +20,10 @@
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  margin-bottom: 12px;
+  margin-bottom: 0;
+}
+.home-projects > .intro-description {
+  margin: 10px 0 12px;
 }
 .home-profile-row > .home-socials {
   margin-bottom: 0;
