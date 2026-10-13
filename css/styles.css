@@ -1015,7 +1015,6 @@ summary:focus-visible {
   width: 120px;
   height: 48px;
   object-fit: contain;
-  mix-blend-mode: multiply;
 }
 .intro {
   padding-block: 72px 74px;
