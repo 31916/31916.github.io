@@ -35,6 +35,7 @@ PUBLIC = (
     "assets/tech/LICENSE-DEVICON.txt",
     f"{CURRENT}/index.html", f"{CURRENT}/en.html", f"{CURRENT}/style.css",
     f"{CURRENT}/app.ico", f"{CURRENT}/sitemap.xml",
+    f"{CURRENT}/google97bf67731c686ec9.html",  # Keep Search Console ownership verified.
     f"{CURRENT}/social-ja-v1.png", f"{CURRENT}/social-en-v1.png",
     f"{CURRENT}/social-ja-v2.png", f"{CURRENT}/social-en-v2.png",
     f"{CURRENT}/downloads/ImeLayoutRouter-V1-1.1.0-Setup.exe",
