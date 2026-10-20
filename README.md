@@ -36,19 +36,11 @@ The header uses `assets/identity/31916-transparent.png`, a transparent cutout of
 
 1. Put the image in `assets/identity/` (SVG, PNG, JPEG, WebP, GIF or AVIF).
 2. Edit `assets/identity.json`: the build renders `logo.src` into every portfolio header. Use a path such as `/assets/identity/logo.svg` and set descriptive `alt` text.
-3. Keep `logo.src` empty to use the text mark. The build automatically includes the configured image file; no build-manifest edit is needed. The former optional `hero` slot is unused by the home page, which contains only Projects and Contact.
+3. Keep `logo.src` empty to use the text mark. The build automatically includes the configured image file; no build-manifest edit is needed. The home page contains only Projects and Contact.
 
-The HTML contains the logo image on first render, with reserved dimensions and eager loading; JavaScript never swaps the header logo after loading. `js/identity.js` retains support for the former optional illustration but makes no changes to the current home page. After changing logo settings, preview the extracted output of `tools/build-pages.py` to check the configured header. The checked-in HTML also contains the current logo for direct local preview.
+The HTML contains the logo image on first render, with reserved dimensions and eager loading; JavaScript never swaps the header logo after loading. After changing logo settings, preview the extracted output of `tools/build-pages.py` to check the configured header. The checked-in HTML also contains the current logo for direct local preview.
 
-The former face-photo file has been removed from the current tree and public package. Historical Git commits and the previously requested backup branches still retain their original contents.
-
-### Transparent logo edit
-
-Created with the built-in image generation/editing tool, with transparent output enabled and `assets/identity/31916.png` as the edit target. Final asset: `assets/identity/31916-transparent.png`.
-
-Prompt:
-
-> Use case: background-extraction. Edit target: the attached existing 31916 logo. Remove only its white/off-white background and background texture, including inside the enclosed counters of the digits 9 and 6. Output genuine alpha transparency. Preserve the exact existing custom glyphs spelling 31916, the small blue dot on the right, their shapes, spacing, relative positions, colors, edges, and the original wide aspect ratio and original padding as closely as possible. Do not redesign, retype, stylize or add anything. No shadow, no border, no white rectangle, no checkerboard baked into pixels. This is a precise transparent cutout for the header of a website.
+The site uses the configured logo; personal portrait images are not included in the public package.
 
 ## Local preview
 

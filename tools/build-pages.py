@@ -20,14 +20,12 @@ CURRENT = "IMELayoutRouter"
 LEGACY = "IMELayOutRouter"
 PUBLIC = (
     "CNAME", "index.html", "404.html", "robots.txt", "sitemap.xml",
-    "about/index.html", "resume/index.html", "projects/index.html", "play/index.html", "assets/img/favicon.ico",
+    "about/index.html", "resume/index.html", "projects/index.html", "play/index.html",
     "css/styles.css", "js/scripts.js", "css/resume.css",
     "css/home.css", "assets/projects.json",
-    "assets/identity.json", "js/identity.js",
+    "assets/identity.json",
     "assets/translations.json", "js/i18n.js",
     "assets/art/favicon.svg", "assets/art/handshape.svg",
-    "assets/art/icon-code.svg", "assets/art/icon-mail.svg",
-    "assets/art/keyboard.svg",
     "assets/tech/c.svg", "assets/tech/csharp.svg", "assets/tech/python.svg", "assets/tech/matlab.svg",
     "assets/tech/javascript.svg", "assets/tech/html.svg", "assets/tech/css.svg",
     "assets/tech/git.svg", "assets/tech/github.svg", "assets/tech/linux.svg",
@@ -42,6 +40,8 @@ PUBLIC = (
     f"{CURRENT}/downloads/ImeLayoutRouter-V2-2.0.0-Setup.exe",
     f"{CURRENT}/downloads/ImeLayoutRouter-1.1.1-Setup.exe",
     f"{CURRENT}/downloads/ImeLayoutRouter-2.0.1-Setup.exe",
+    f"{CURRENT}/downloads/ImeLayoutRouter-1.1.2-Setup.exe",
+    f"{CURRENT}/downloads/ImeLayoutRouter-2.0.2-Setup.exe",
     f"{CURRENT}/downloads/SHA256SUMS.txt",
 )
 
