@@ -218,7 +218,7 @@ def render_featured_projects(settings):
         if project["image"].get("class"):
             image_class += " " + project["image"]["class"]
         cards.append(
-            f'<a class="featured-card" href="{escape(project["href"], quote=True)}">\n'
+            f'<a class="featured-card" href="{escape(project["href"], quote=True)}" target="_blank" rel="noopener">\n'
             f'  <div class="{image_class}">{project_image(project, "eager")}</div>\n'
             '  <div class="featured-info">\n'
             f'    <h3>{escape(project["title"])}</h3>\n'
@@ -239,7 +239,7 @@ def render_project_catalog(settings):
             image_class += " " + project["image"]["class"]
         cards.append(
             f'<article class="project-card" data-category="{project["category"]}">\n'
-            f'  <a class="project-link" href="{escape(project["href"], quote=True)}">\n'
+            f'  <a class="project-link" href="{escape(project["href"], quote=True)}" target="_blank" rel="noopener">\n'
             f'    <div class="{image_class}">{project_image(project)}</div>\n'
             '    <div class="project-caption">\n'
             '      <div>\n'
