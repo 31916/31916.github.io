@@ -171,7 +171,7 @@ def load_projects(settings=None):
         for dimension in ("width", "height"):
             if type(image.get(dimension)) is not int or image[dimension] <= 0:
                 raise ValueError(f"Project {identifier} image {dimension} must be a positive integer")
-        if image.get("class", "") not in {"", "research-image"}:
+        if image.get("class", "") not in {"", "research-image", "app-icon-image"}:
             raise ValueError(f"Project {identifier} has an unknown image class")
         source = image.get("src")
         if not isinstance(source, str) or not source.startswith(("/assets/", f"/{CURRENT}/")):
