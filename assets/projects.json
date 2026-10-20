@@ -33,6 +33,23 @@
         "alt": "日本手話の手形認識：手の関節を点と線で捉える概念図",
         "class": "research-image"
       }
+    },
+    {
+      "id": "himoparty",
+      "category": "software",
+      "type": "ソフトウェア",
+      "tech": "JavaScript / PWA",
+      "title": "ひもほどき",
+      "href": "/himoparty/",
+      "description": "ひもの端を上下左右の空いた丸へ動かし、からまりをほどくパズル。",
+      "destination": "ブラウザーで遊ぶ",
+      "image": {
+        "src": "/assets/art/himoparty.png",
+        "width": 512,
+        "height": 512,
+        "alt": "ひもほどきのアプリアイコン",
+        "class": "research-image"
+      }
     }
   ]
 }
