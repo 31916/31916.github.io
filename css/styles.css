@@ -154,32 +154,12 @@ summary:focus-visible {
 .site-header nav a span {
   padding-left: 5px;
 }
-.kicker,
-.eyebrow {
+.kicker {
   font-family: Arial, sans-serif;
   font-size: 10px;
   letter-spacing: 0.14em;
   color: var(--muted);
   line-height: 1.6;
-}
-.intro {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  gap: 100px;
-  align-items: center;
-  padding-top: 68px;
-  padding-bottom: 80px;
-}
-.intro-copy {
-  min-width: 0;
-}
-.intro h1 {
-  font-family: var(--serif);
-  font-size: clamp(92px, 11vw, 146px);
-  letter-spacing: -0.04em;
-  line-height: 0.96;
-  font-weight: 400;
-  margin: 16px 0 19px;
 }
 .name-period {
   color: var(--accent);
@@ -190,30 +170,6 @@ summary:focus-visible {
   font-weight: 400;
   line-height: 1.4;
   letter-spacing: 0.03em;
-}
-.full-name {
-  font-family: Arial, sans-serif;
-  font-size: 13px;
-  letter-spacing: 0.035em;
-}
-.full-name > span {
-  font-family: var(--sans);
-  font-size: 10px;
-  margin-left: 18px;
-  color: var(--muted);
-}
-.intro-text {
-  font-size: 13px;
-  line-height: 2.1;
-  margin-top: 25px;
-  color: #53698f;
-}
-.intro-links {
-  display: flex;
-  align-items: center;
-  gap: 9px;
-  margin-top: 24px;
-  flex-wrap: wrap;
 }
 .social-link {
   display: inline-flex;
@@ -238,57 +194,6 @@ summary:focus-visible {
 }
 .social-link:first-child:hover {
   background: #355bb8;
-}
-.profile-link {
-  font-family: Arial, sans-serif;
-  font-size: 11px;
-  margin-left: 13px;
-  display: inline-flex;
-  gap: 25px;
-  align-items: center;
-  padding: 10px 0;
-}
-.profile-link:hover {
-  color: var(--accent);
-}
-
-.section-heading {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 25px;
-  padding-top: 30px;
-  margin-bottom: 28px;
-  border-top: 1px solid var(--line);
-}
-.heading-pair {
-  display: flex;
-  align-items: baseline;
-  gap: 20px;
-}
-.heading-pair h2 {
-  font-family: var(--serif);
-  font-size: 37px;
-  line-height: 1.1;
-  letter-spacing: -0.025em;
-}
-.heading-pair > span {
-  font-size: 10px;
-  color: var(--muted);
-}
-.understated-link {
-  font-size: 10px;
-  font-family: Arial, sans-serif;
-  display: inline-flex;
-  align-items: center;
-  gap: 25px;
-  min-height: 38px;
-}
-.understated-link:hover {
-  color: var(--accent);
-}
-.projects-section {
-  padding-bottom: 64px;
 }
 .project-grid {
   display: grid;
@@ -364,14 +269,6 @@ summary:focus-visible {
   color: var(--muted);
   margin-top: 12px;
   line-height: 1.95;
-}
-.project-destination {
-  display: inline-flex;
-  gap: 22px;
-  align-items: center;
-  font-size: 10px;
-  margin-top: 15px;
-  color: var(--accent);
 }
 .contact-section {
   padding-top: 32px;
@@ -459,24 +356,12 @@ summary:focus-visible {
   gap: 24px;
   padding: 8px 0;
 }
-/* Shared inner-page presentation; existing profile details remain available. */
-.page-intro {
-  padding: 44px 0 43px;
-}
 .breadcrumb {
   display: inline-block;
   font-family: Arial, sans-serif;
   font-size: 11px;
   color: var(--muted);
   margin-bottom: 40px;
-}
-.page-intro h1 {
-  font-family: var(--serif);
-  font-weight: 400;
-  font-size: 83px;
-  letter-spacing: -0.035em;
-  line-height: 1.1;
-  margin-top: 10px;
 }
 .intro-description {
   font-size: 13px;
@@ -530,90 +415,10 @@ summary:focus-visible {
   font-size: 11px;
   color: var(--muted);
 }
-.archive-note a,
-.detail-note a {
+.archive-note a {
   color: var(--accent);
   text-decoration: underline;
   text-underline-offset: 4px;
-}
-.bio-grid {
-  display: grid;
-  grid-template-columns: 1fr 240px;
-  gap: 70px;
-  align-items: start;
-  border-top: 1px solid var(--line);
-  padding-top: 36px;
-}
-.bio-text p {
-  font-size: 13px;
-  line-height: 2.1;
-  color: #53698f;
-  margin-bottom: 20px;
-}
-.text-link {
-  display: inline-flex;
-  align-items: center;
-  font-size: 11px;
-  gap: 16px;
-  color: var(--accent);
-  padding: 8px 0;
-}
-
-.detail-section {
-  margin-top: 64px;
-}
-.detail-section h2 {
-  font-family: var(--serif);
-  font-size: 36px;
-  letter-spacing: -0.025em;
-  margin: 9px 0 25px;
-}
-.timeline {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-.timeline li {
-  display: grid;
-  grid-template-columns: 165px 1fr;
-  gap: 32px;
-  padding: 25px 0;
-  border-top: 1px solid var(--line);
-}
-.timeline li:last-child {
-  border-bottom: 1px solid var(--line);
-}
-.period {
-  font-family: Arial, sans-serif;
-  font-size: 11px;
-  line-height: 1.8;
-  color: var(--muted);
-}
-.timeline h3 {
-  font-size: 15px;
-  line-height: 1.7;
-  margin-bottom: 8px;
-}
-.timeline p {
-  font-size: 12px;
-  line-height: 2;
-  color: var(--muted);
-}
-.detail-note {
-  font-size: 11px;
-  color: var(--muted);
-  margin-top: 20px;
-  line-height: 2;
-}
-.skill-list {
-  display: flex;
-  gap: 10px 24px;
-  flex-wrap: wrap;
-  list-style: none;
-  padding: 0;
-  font-family: Arial, sans-serif;
-  font-size: 13px;
-  color: #4f6490;
 }
 .error-page {
   min-height: 65vh;
@@ -632,36 +437,9 @@ summary:focus-visible {
 .error-page .social-link {
   margin-top: 30px;
 }
-@media (min-width: 1500px) {
-  .intro {
-    padding-top: 90px;
-    padding-bottom: 105px;
-    grid-template-columns: minmax(0, 1fr);
-  }
-  .intro h1 {
-    font-size: 158px;
-  }
-}
 @media (max-width: 950px) {
   .shell {
     width: calc(100% - 64px);
-  }
-  .intro {
-    gap: 50px;
-    grid-template-columns: minmax(0, 1fr);
-    padding-top: 45px;
-    padding-bottom: 62px;
-  }
-  .intro h1 {
-    font-size: clamp(88px, 11vw, 104px);
-  }
-  .intro-text {
-    font-size: 12px;
-  }
-
-  .bio-grid {
-    gap: 40px;
-    grid-template-columns: 1fr 205px;
   }
   .project-caption h3 {
     font-size: 17px;
@@ -701,64 +479,11 @@ summary:focus-visible {
   .site-header nav a span {
     padding-left: 2px;
   }
-  .intro {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 22px;
-    padding-top: 38px;
-    padding-bottom: 50px;
-  }
-  .intro h1 {
-    font-size: clamp(64px, 12.6vw, 83px);
-  }
-  .intro .kicker {
-    font-size: 8px;
-    letter-spacing: 0.1em;
-  }
-  .full-name {
-    font-size: 11px;
-  }
-  .full-name > span {
-    display: block;
-    font-size: 9px;
-    margin-left: 0;
-    margin-top: 5px;
-  }
-  .intro-text {
-    font-size: 11px;
-    line-height: 1.95;
-    margin-top: 20px;
-  }
-  .intro-text br {
-    display: none;
-  }
-  .intro-links {
-    gap: 7px;
-    margin-top: 20px;
-  }
   .social-link {
     min-height: 36px;
     font-size: 10px;
     padding: 8px 12px;
     gap: 15px;
-  }
-  .profile-link {
-    font-size: 10px;
-    margin-left: 5px;
-    gap: 16px;
-  }
-
-  .section-heading {
-    padding-top: 25px;
-    margin-bottom: 25px;
-  }
-  .heading-pair {
-    gap: 14px;
-  }
-  .heading-pair h2 {
-    font-size: 32px;
-  }
-  .heading-pair > span {
-    font-size: 9px;
   }
   .project-grid {
     gap: 24px;
@@ -783,10 +508,6 @@ summary:focus-visible {
   .project-description {
     font-size: 10px;
   }
-  .project-destination {
-    font-size: 9px;
-    gap: 14px;
-  }
   .contact-section {
     align-items: flex-start;
     flex-direction: column;
@@ -800,44 +521,11 @@ summary:focus-visible {
   .site-footer {
     font-size: 9px;
   }
-  .page-intro {
-    padding-top: 28px;
-    padding-bottom: 32px;
-  }
   .breadcrumb {
     margin-bottom: 30px;
   }
-  .page-intro h1 {
-    font-size: 67px;
-  }
   .intro-description {
     font-size: 12px;
-  }
-  .bio-grid {
-    grid-template-columns: 1fr 165px;
-    gap: 30px;
-  }
-  .bio-text p {
-    font-size: 12px;
-  }
-  .timeline li {
-    grid-template-columns: 125px 1fr;
-    gap: 24px;
-  }
-  .timeline h3 {
-    font-size: 14px;
-  }
-  .timeline p {
-    font-size: 11px;
-  }
-  .period {
-    font-size: 10px;
-  }
-  .detail-section {
-    margin-top: 45px;
-  }
-  .detail-section h2 {
-    font-size: 31px;
   }
   .archive-note {
     font-size: 10px;
@@ -858,37 +546,6 @@ summary:focus-visible {
     padding: 10px 8px;
     font-size: 11px;
   }
-  .intro {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 16px;
-    padding-top: 22px;
-    padding-bottom: 42px;
-  }
-  .intro h1 {
-    font-size: clamp(48px, 16vw, 72px);
-    letter-spacing: -0.045em;
-    margin-top: 16px;
-    margin-bottom: 15px;
-  }
-
-  .intro-text {
-    grid-column: 1/-1;
-    font-size: 11px;
-    max-width: 220px;
-  }
-  .intro-links {
-    width: 100%;
-  }
-  .intro .kicker {
-    white-space: nowrap;
-    font-size: 7px;
-  }
-  .full-name {
-    font-size: 10px;
-  }
-  .full-name > span {
-    font-size: 8px;
-  }
   .project-grid {
     grid-template-columns: 1fr;
     gap: 36px;
@@ -907,24 +564,8 @@ summary:focus-visible {
   .project-description {
     font-size: 11px;
   }
-  .project-destination {
-    font-size: 10px;
-  }
   .project-arrow {
     font-size: 22px;
-  }
-  .projects-section {
-    padding-bottom: 47px;
-  }
-  .understated-link {
-    font-size: 9px;
-    gap: 15px;
-  }
-  .heading-pair h2 {
-    font-size: 33px;
-  }
-  .heading-pair > span {
-    font-size: 9px;
   }
   .site-footer {
     gap: 18px;
@@ -934,20 +575,6 @@ summary:focus-visible {
     gap: 13px;
     font-size: 10px;
   }
-  .bio-grid {
-    display: flex;
-    flex-direction: column-reverse;
-    gap: 30px;
-  }
-
-  .timeline li {
-    grid-template-columns: 1fr;
-    gap: 10px;
-    padding: 22px 0;
-  }
-  .timeline h3 {
-    font-size: 14px;
-  }
   .filter-bar {
     gap: 7px;
   }
@@ -955,39 +582,10 @@ summary:focus-visible {
     padding: 10px 20px;
     font-size: 11px;
   }
-  .page-intro h1 {
-    font-size: 62px;
-  }
 }
 @media (max-width: 350px) {
-  .intro {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 12px;
-  }
-  .intro h1 {
-    font-size: 16vw;
-  }
-  .intro-links {
-    width: 100%;
-  }
-
-  .intro-text {
-    font-size: 10px;
-  }
-  .intro .kicker {
-    font-size: 6px;
-  }
   .social-link {
     font-size: 9px;
-  }
-  .profile-link {
-    font-size: 9px;
-  }
-  .heading-pair {
-    gap: 10px;
-  }
-  .heading-pair h2 {
-    font-size: 30px;
   }
   .email-link {
     font-size: 11px;
@@ -1010,20 +608,15 @@ summary:focus-visible {
 }
 @media print {
   .site-header,
-  .intro-links,
-  .skip-link,
-  .filter-bar {
+.skip-link,
+.filter-bar {
     display: none;
   }
   .shell {
     width: 100%;
   }
-  .intro {
-    padding-block: 20px;
-  }
   .project-grid,
-  .project-card,
-  .bio-grid {
+.project-card {
     break-inside: avoid;
   }
   .site-footer {
@@ -1034,31 +627,12 @@ summary:focus-visible {
   }
 }
 
-/* Identity images are optional; edit assets/identity.json to replace the mark or add hero art. */
+/* Header logos are rendered from assets/identity.json during the build. */
 .wordmark img {
   display: block;
   width: 120px;
   height: 48px;
   object-fit: contain;
-}
-.intro {
-  padding-block: 72px 74px;
-}
-.intro-copy {
-  max-width: 740px;
-}
-.intro.has-hero-art {
-  grid-template-columns: minmax(0, 1fr) 250px;
-}
-.hero-art img {
-  display: block;
-  width: 100%;
-  height: auto;
-  aspect-ratio: 1;
-  object-fit: contain;
-}
-.intro-text {
-  max-width: 530px;
 }
 .social-icon {
   display: inline-flex;
@@ -1082,102 +656,11 @@ summary:focus-visible {
   background: #466fd9;
   color: white;
 }
-.resume-preview {
-  padding-bottom: 52px;
-}
-.resume-preview-link {
-  position: relative;
-  display: block;
-  padding: 11px 55px 16px 0;
-}
-.resume-preview-link p {
-  font-size: 17px;
-}
-.resume-preview-link > span:not(.resume-preview-arrow) {
-  display: block;
-  margin-top: 8px;
-  font-size: 11px;
-  color: var(--muted);
-}
-.resume-preview-arrow {
-  position: absolute;
-  right: 2px;
-  top: 18px;
-  font-size: 25px;
-  color: var(--accent);
-}
-.resume-preview-link:hover p {
-  color: var(--accent);
-}
-@media (max-width: 650px) {
-  .intro {
-    padding-block: 34px 48px;
-  }
-  .intro h1 {
-    font-size: 90px;
-  }
-  .intro-text {
-    max-width: 410px;
-  }
-  .intro.has-hero-art {
-    grid-template-columns: minmax(0, 1fr) 130px;
-  }
-  .intro.has-hero-art h1 {
-    font-size: 64px;
-  }
-}
-@media (max-width: 480px) {
-  .intro h1 {
-    font-size: 84px;
-  }
-  .intro-text {
-    max-width: 310px;
-    font-size: 12px;
-  }
-  .intro .kicker {
-    font-size: 8px;
-  }
-  .full-name {
-    font-size: 12px;
-  }
-  .full-name > span {
-    font-size: 10px;
-  }
-  .resume-preview-link p {
-    font-size: 15px;
-  }
-  .resume-preview {
-    padding-bottom: 38px;
-  }
-  .intro.has-hero-art {
-    grid-template-columns: 1fr;
-  }
-  .hero-art {
-    max-width: 180px;
-  }
-}
-@media (max-width: 350px) {
-  .intro h1 {
-    font-size: 74px;
-  }
-}
 
 .header-tools {
   display: flex;
   align-items: center;
   gap: 24px;
-}
-html:lang(ja) .page-intro h1 {
-  font-family: var(--sans);
-  font-size: clamp(38px, 5vw, 56px);
-  line-height: 1.4;
-  letter-spacing: 0.03em;
-}
-html:lang(ja) .heading-pair h2 {
-  font-family: var(--sans);
-  font-size: clamp(24px, 3vw, 30px);
-  line-height: 1.5;
-  letter-spacing: 0.02em;
 }
 .language-picker {
   display: inline-flex;
@@ -1207,7 +690,6 @@ html:lang(ja) .heading-pair h2 {
   outline: 2px solid var(--accent);
   outline-offset: 4px;
 }
-html:lang(de) .intro-text,
 html:lang(de) .project-description {
   hyphens: auto;
 }
@@ -1220,22 +702,6 @@ html:lang(de) .project-description {
   }
 }
 @media (max-width: 650px) {
-  html:not(:lang(ja)) .intro-text br {
-    display: initial;
-  }
-  .section-heading {
-    align-items: flex-start;
-    gap: 16px;
-  }
-  .heading-pair {
-    flex-direction: column;
-    gap: 6px;
-    min-width: 0;
-  }
-  .section-heading .understated-link {
-    flex-shrink: 0;
-    gap: 12px;
-  }
   .site-header {
     display: grid;
     grid-template-columns: auto 1fr;
