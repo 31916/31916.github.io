@@ -46,12 +46,11 @@
     }
   }
   </script>
-  <link rel="stylesheet" href="style.css?v=20261021-footer">
+  <link rel="stylesheet" href="style.css?v=20261021-history">
   <link rel="icon" href="app.ico" type="image/vnd.microsoft.icon">
 </head>
 <body>
 <a class="skip" href="#downloads">ダウンロードへ</a>
-<div class="page-content" tabindex="0" role="region" aria-label="配布ページの内容">
 <header>
   <nav class="language" aria-label="表示言語"><span aria-current="page">日本語</span> ｜ <a href="en.html" lang="en" hreflang="en">English</a></nav>
   <div class="title"><img src="app.ico" width="48" height="48" alt=""><h1>IMELayoutRouter</h1></div>
@@ -80,7 +79,8 @@
     <p class="small centered">変更内容・使い方・動作確認状況は、各バージョンのリンク先をご覧ください。</p>
   </section>
   <section id="history">
-    <h2><span aria-hidden="true">★ </span>更新履歴<span aria-hidden="true"> ★</span></h2>
+    <h2 id="history-title"><span aria-hidden="true">★ </span>更新履歴<span aria-hidden="true"> ★</span></h2>
+    <div class="history-scroll" tabindex="0" role="region" aria-labelledby="history-title">
     <dl class="history">
       <dt><time datetime="2026-10-21">2026/10/21</time></dt><dd><a href="https://github.com/31916/ImeLayoutRouter/blob/V2/docs/releases/v1-1.1.2.md">Ver1.1.2</a>・<a href="https://github.com/31916/ImeLayoutRouter/blob/V2/docs/releases/v2-2.0.2.md">Ver2.0.2</a>：入力欄情報の取得時に終了する不具合を修正。</dd>
       <dt><time datetime="2026-09-26">2026/09/26</time></dt><dd><a href="https://github.com/31916/ImeLayoutRouter/blob/V2/docs/releases/v1-1.1.1.md">Ver1.1.1</a>・<a href="https://github.com/31916/ImeLayoutRouter/blob/V2/docs/releases/v2-2.0.1.md">Ver2.0.1</a>：ブラウザーの入力欄検出を修正。</dd>
@@ -88,10 +88,10 @@
       <dt><time datetime="2026-08-14">2026/08/14</time></dt><dd><a href="https://github.com/31916/ImeLayoutRouter/commit/569637761e661b2b3ce5795334542932d45c5ab5">設定画面と通知領域への常駐機能を追加。</a></dd>
       <dt><time datetime="2026-08-11">2026/08/11</time></dt><dd><a href="https://github.com/31916/ImeLayoutRouter/commit/5e8d9129daa5434048cba49f291764f227d0c17e">初期プロトタイプの双方向切替機能を実装。</a></dd>
     </dl>
+    </div>
     <p class="small centered"><a href="https://github.com/31916/ImeLayoutRouter/blob/V2/docs/releases/history.md">詳しい開発履歴（Gitの記録・日本時間）</a></p>
   </section>
 </main>
-</div>
 <footer>
   <p><a href="https://github.com/31916/ImeLayoutRouter">ソースコード</a> ｜ <a href="https://github.com/31916/ImeLayoutRouter/issues">不具合の報告・要望</a></p>
   <p class="small">IMELayoutRouter — 31916</p>
