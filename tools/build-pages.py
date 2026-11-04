@@ -43,6 +43,8 @@ PUBLIC = (
     f"{CURRENT}/downloads/ImeLayoutRouter-1.1.2-Setup.exe",
     f"{CURRENT}/downloads/ImeLayoutRouter-2.0.2-Setup.exe",
     f"{CURRENT}/downloads/ImeLayoutRouter-3.0.0-Setup.exe",
+    f"{CURRENT}/downloads/ImeLayoutRouter-1.1.3-Setup.exe",
+    f"{CURRENT}/downloads/ImeLayoutRouter-2.0.3-Setup.exe",
     f"{CURRENT}/downloads/SHA256SUMS.txt",
 )
 
