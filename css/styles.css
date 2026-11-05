@@ -207,6 +207,8 @@ summary:focus-visible {
   display: block;
 }
 .project-image {
+  /* Keep the image area at its native ratio, excluding the frame. */
+  box-sizing: content-box;
   aspect-ratio: 1200/630;
   overflow: hidden;
   border: 1px solid #d8e2f6;
