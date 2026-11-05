@@ -15,68 +15,60 @@
   <meta property="og:url" content="https://31916.ch/Design/en.html">
   <meta property="og:locale" content="en_US">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="style.css?v=20261105-bold">
-  <meta name="theme-color" content="#000000">
+  <link rel="stylesheet" href="style.css?v=20261106-minimal">
+  <meta name="theme-color" content="#ffffff">
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
-  <header class="masthead">
-    <div class="site-top shell">
-      <a class="brand" href="/?lang=en">31916</a>
-      <nav aria-label="Site navigation"><a href="/projects/?lang=en">Projects</a></nav>
-      <nav class="language" aria-label="Page language"><a href="./" lang="ja" hreflang="ja">日本語</a><span aria-current="page">English</span></nav>
-    </div>
-    <div class="hero shell">
-      <p class="eyebrow">DESIGN DOWNLOADS / 31916</p>
-      <h1>Design Files</h1>
-      <div class="hero-bottom">
-        <p>Design experiments and assets you can download and use.</p>
-        <a href="#releases">Browse downloads <span aria-hidden="true">↓</span></a>
-      </div>
-    </div>
+  <header class="site-top shell">
+    <a class="brand" href="/?lang=en">31916</a>
+    <h1 aria-label="Design Downloads">DESIGN</h1>
+    <nav aria-label="Site navigation">
+      <a href="/projects/?lang=en">Projects</a>
+      <a href="./" hreflang="ja" aria-label="Japanese edition">JP</a>
+    </nav>
   </header>
-
   <main id="main" class="shell">
-    <section aria-labelledby="releases">
-      <h2 id="releases">Downloads</h2>
+    <section id="releases" aria-label="Downloads">
       <article class="release" id="number-cursors" aria-labelledby="cursor-title">
-        <div class="release-info">
-          <p class="eyebrow">RELEASE 01 / WINDOWS</p>
-          <h3 id="cursor-title">Number Cursors</h3>
-          <p>A Windows cursor set built from numerals. A tilted 4 points, and a spinning 6 turns into a 9 while Windows is busy.</p>
-          <p class="specs">17 cursors · 32, 48, 64 px · #CCCCCC</p>
-          <div id="downloads">
-            <a class="download" href="/NumberCursors/downloads/NumberCursors-1.0.0.zip" download>Download ZIP<span aria-hidden="true">↓</span></a>
-            <p class="file-info">v1.0.0 · 383 KiB · <time datetime="2026-11-05">2026-11-05</time> · <a href="/NumberCursors/downloads/SHA256SUMS.txt">SHA-256</a></p>
-          </div>
-        </div>
-
         <figure id="preview">
-          <a class="artwork" href="/assets/art/number-cursors.png?v=gray"><img src="/assets/art/number-cursors.png?v=gray" width="1120" height="593" alt="All 17 number cursors, with the click point marked at the upper-left tip of the tilted 4."></a>
-          <figcaption>
-            <a href="/assets/art/number-cursors.png?v=gray">Full-size preview</a>
-            <a href="/NumberCursors/media/wait-preview.png?v=gray">Busy animation</a>
-            <a href="/NumberCursors/media/working-preview.png?v=gray">Working animation</a>
-          </figcaption>
+          <a class="artwork" href="/assets/art/number-cursors.png?v=gray" aria-label="Open the preview of all 17 number cursors">
+            <img src="number-cursors.svg" width="900" height="540" alt="A tilted, striped numeral 4 on black.">
+          </a>
         </figure>
 
-        <details id="setup">
-          <summary>Set up in Windows</summary>
-          <div class="instructions">
-            <ol>
-              <li>Extract the ZIP.</li>
-              <li>Press <kbd>Win</kbd> + <kbd>R</kbd>, open <code>main.cpl</code>, and select the Pointers tab.</li>
-              <li>Select a pointer role, choose Browse, and pick its matching file from the <code>cursors</code> folder. The Japanese <code>README.txt</code> lists the roles and files.</li>
-            </ol>
-            <p>To register the full scheme, open PowerShell in the extracted folder and run these commands.</p>
-            <pre><code>Unblock-File -LiteralPath .\Register-Scheme.ps1
+        <div class="release-info">
+          <p class="index" aria-hidden="true">01</p>
+          <h2 id="cursor-title">Number Cursors</h2>
+          <div class="actions" id="downloads">
+            <a class="download" href="/NumberCursors/downloads/NumberCursors-1.0.0.zip" download aria-label="Download the Number Cursors ZIP">
+              <span>ZIP</span><span aria-hidden="true">↓</span>
+            </a>
+            <details id="setup">
+              <summary aria-label="Setup and release details"><span aria-hidden="true">▼</span></summary>
+              <div class="instructions">
+                <p class="file-info">Windows · 17 .cur/.ani · v1.0.0 · 383 KiB · <time datetime="2026-11-05">2026-11-05</time></p>
+                <p class="extra-links">
+                  <a href="/NumberCursors/downloads/SHA256SUMS.txt">SHA-256</a>
+                  <a href="/NumberCursors/media/wait-preview.png?v=gray">Busy animation</a>
+                  <a href="/NumberCursors/media/working-preview.png?v=gray">Working animation</a>
+                </p>
+                <h3>Set up in Windows</h3>
+                <ol>
+                  <li>Extract the ZIP.</li>
+                  <li>Press <kbd>Win</kbd> + <kbd>R</kbd>, open <code>main.cpl</code>, and select the Pointers tab.</li>
+                  <li>Select a pointer role, choose Browse, and pick its matching file from the <code>cursors</code> folder. The Japanese <code>README.txt</code> lists the roles and files.</li>
+                </ol>
+                <p>To register the full scheme, open PowerShell in the extracted folder and run these commands.</p>
+                <pre><code>Unblock-File -LiteralPath .\Register-Scheme.ps1
 powershell.exe -NoProfile -ExecutionPolicy RemoteSigned -File .\Register-Scheme.ps1</code></pre>
-            <p>On the Pointers tab, choose <strong>Number Cursors (#CCCCCC)</strong> under Scheme and select Apply.</p>
+                <p>On the Pointers tab, choose <strong>Number Cursors (#CCCCCC)</strong> under Scheme and select Apply.</p>
+              </div>
+            </details>
           </div>
-        </details>
+        </div>
       </article>
     </section>
   </main>
-  <footer class="shell"><a href="/?lang=en">31916</a><span>DESIGN FILES</span></footer>
 </body>
 </html>
