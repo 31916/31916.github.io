@@ -10,6 +10,7 @@ Personal portfolio at **https://31916.ch/**. Plain HTML, CSS, JavaScript and ori
 - `about/index.html`: compatibility redirect to Resume.
 - `play/index.html`: an intentionally blank hobby page; only the shared navigation remains.
 - `IMELayoutRouter/`: existing product website and installer distribution.
+- `NumberCursors/`: Japanese and English download pages for the Windows cursor pack.
 - `404.html`: missing-page recovery.
 
 Shared portfolio styles are in `css/styles.css`; navigation and project filters are in `js/scripts.js`. Resume adds `css/resume.css`. Header/footer markup is intentionally static in each page. Update the stylesheet/script version query in each page when changing these files.
