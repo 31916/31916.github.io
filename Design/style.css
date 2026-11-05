@@ -113,8 +113,12 @@ details[open] summary span { transform: rotate(180deg); }
   .release figure { width: min(100%, max(360px, 100svh - 160px)); }
 }
 
-@media (721px <= width <= 900px) {
+@media (721px <= width <= 900px), (min-width: 721px) and (max-height: 600px) {
   .release-info { padding-top: 32px; }
+}
+
+@media (min-width: 721px) and (max-height: 600px) {
+  .release-info h2 { margin-bottom: 16px; font-size: clamp(1.9rem, 3.4vw, 3rem); }
 }
 
 @media (max-width: 720px) {
