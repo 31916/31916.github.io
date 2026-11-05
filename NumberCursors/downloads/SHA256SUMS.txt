@@ -1,1 +1,2 @@
 b0ddb994afa0c771aba3e797c09907ddd81a371e8c1bb6e653da0de41c5283b5  NumberCursors-1.0.0.zip
+b2662afa9ae046b01838c77b4b366a06dd77f11c14a0c5a3b2f1da5f5f406243  NumberCursor-4.cur

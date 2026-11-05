@@ -52,7 +52,9 @@ PUBLIC = (
     "NumberCursors/media/wait-preview.png",
     "NumberCursors/media/working-preview.png",
     "NumberCursors/downloads/NumberCursors-1.0.0.zip",
+    "NumberCursors/downloads/NumberCursor-4.cur",
     "NumberCursors/downloads/SHA256SUMS.txt",
+    "assets/art/number-cursors.png",
 )
 
 
@@ -184,8 +186,8 @@ def load_projects(settings=None):
         if image.get("class", "") not in {"", "research-image", "app-icon-image"}:
             raise ValueError(f"Project {identifier} has an unknown image class")
         source = image.get("src")
-        if not isinstance(source, str) or not source.startswith(("/assets/", f"/{CURRENT}/")):
-            raise ValueError(f"Project {identifier} image must use /assets/ or /{CURRENT}/")
+        if not isinstance(source, str) or not source.startswith(("/assets/", f"/{CURRENT}/", "/Design/")):
+            raise ValueError(f"Project {identifier} image must use /assets/, /{CURRENT}/, or /Design/")
         if any(character in source for character in ("?", "#", "\\", "%")):
             raise ValueError(f"Use a plain project image path without query, fragment or URL escapes: {source}")
         path = Path(source.lstrip("/"))

@@ -57,10 +57,10 @@
       "href": "/Design/",
       "destination": "紹介・ダウンロード",
       "image": {
-        "src": "/assets/art/number-cursors.png",
-        "width": 1120,
-        "height": 593,
-        "alt": "Windows用の数字カーソル17種類のプレビュー"
+        "src": "/Design/number-cursors.svg",
+        "width": 900,
+        "height": 540,
+        "alt": "斜めに傾いた数字カーソル「4」"
       }
     }
   ]
