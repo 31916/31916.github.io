@@ -57,8 +57,47 @@ main { padding-block: clamp(26px, 7vw, 94px); }
   scroll-margin-top: 16px;
 }
 .release + .release { margin-top: clamp(36px, 8vw, 100px); }
-.artwork { display: block; border-radius: 20%; }
+.artwork-preview { position: relative; }
+.artwork-stage { perspective: 1250px; }
+.artwork-rotor { position: relative; transform-style: preserve-3d; transition: transform .65s ease-in-out; }
+.artwork-rotor.is-flipped { transform: rotateY(180deg); }
+.artwork { display: block; border-radius: 20%; backface-visibility: hidden; }
 .artwork img { display: block; width: 100%; height: auto; }
+.artwork-back { position: absolute; inset: 0; transform: rotateY(180deg); }
+
+.preview-controls:not([hidden]) {
+  position: absolute;
+  inset: auto auto clamp(9px, 2vw, 22px) 50%;
+  display: flex;
+  transform: translateX(-50%);
+  background: var(--ink);
+  color: #fff;
+  border: 1px solid #696969;
+  border-radius: 5px;
+}
+.preview-controls button {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+.preview-controls button + button { border-left: 1px solid #696969; }
+.preview-controls button:hover { background: #333; }
+.preview-controls button:focus-visible { outline: 2px solid #fff; outline-offset: -4px; }
+.preview-controls [data-preview-flip] { font-size: 1.25rem; }
+.preview-controls .play-icon,
+.preview-controls [data-paused="true"] .pause-icon { display: none; }
+.preview-controls [data-paused="true"] .play-icon { display: initial; }
+
+@media (prefers-reduced-motion: reduce) {
+  .artwork-rotor { transition: none; }
+}
 
 .release-info { padding-top: min(9vw, 136px, 20svh); }
 .index { color: var(--muted); font-size: .8rem; font-variant-numeric: tabular-nums; letter-spacing: .08em; }
