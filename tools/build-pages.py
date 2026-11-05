@@ -46,7 +46,7 @@ PUBLIC = (
     f"{CURRENT}/downloads/ImeLayoutRouter-1.1.3-Setup.exe",
     f"{CURRENT}/downloads/ImeLayoutRouter-2.0.3-Setup.exe",
     f"{CURRENT}/downloads/SHA256SUMS.txt",
-    "Design/index.html", "Design/en.html", "Design/style.css", "Design/field.svg",
+    "Design/index.html", "Design/en.html", "Design/style.css", "Design/favicon.svg",
     "NumberCursors/index.html", "NumberCursors/en.html",
     "NumberCursors/media/wait-preview.png",
     "NumberCursors/media/working-preview.png",
