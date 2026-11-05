@@ -62,7 +62,7 @@
   ]);
   const englishProductPages = new Map([
     ["/IMELayoutRouter/", "/IMELayoutRouter/en.html"],
-    ["/NumberCursors/", "/NumberCursors/en.html"],
+    ["/Design/", "/Design/en.html"],
   ]);
   const socialImages = [
     ...document.querySelectorAll(
