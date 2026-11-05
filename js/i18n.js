@@ -60,10 +60,6 @@
     "/play/",
     "/404.html",
   ]);
-  const englishProductPages = new Map([
-    ["/IMELayoutRouter/", "/IMELayoutRouter/en.html"],
-    ["/Design/", "/Design/en.html"],
-  ]);
   const socialImages = [
     ...document.querySelectorAll(
       'img[src="/IMELayoutRouter/social-ja-v2.png"]',
@@ -106,10 +102,10 @@
       if (portfolioPaths.has(url.pathname)) {
         url.searchParams.set("lang", language);
         node.setAttribute("href", url.pathname + url.search + url.hash);
-      } else if (englishProductPages.has(source)) {
+      } else if (source === "/IMELayoutRouter/") {
         node.setAttribute(
           "href",
-          language === "ja" ? source : englishProductPages.get(source),
+          language === "ja" ? source : "/IMELayoutRouter/en.html",
         );
       }
     });
