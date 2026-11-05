@@ -7,7 +7,7 @@
     </pattern>
   </defs>
   <path d="M0 0h900v540H0z" fill="#111"/>
-  <g transform="translate(287 110) scale(6.45) rotate(-60) translate(-36.4 -5)" clip-path="url(#outline)">
+  <g transform="translate(218 56) scale(9.25) rotate(-60) translate(-36.4 -5)" clip-path="url(#outline)">
     <path d="M0 0h64v64H0z" fill="url(#stripes)"/>
     <use href="#four" fill="none" stroke="#ccc" stroke-width="4.8" stroke-linejoin="round"/>
   </g>
