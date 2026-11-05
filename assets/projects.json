@@ -50,6 +50,22 @@
         "alt": "ひもほどきのアプリアイコン",
         "class": "app-icon-image"
       }
+    },
+    {
+      "id": "number-cursors",
+      "category": "software",
+      "type": "ソフトウェア",
+      "tech": "Windows",
+      "title": "数字カーソル",
+      "href": "/NumberCursors/",
+      "description": "斜めの4と回転する6・9を含む、Windows用の数字カーソル17種類。",
+      "destination": "紹介・ダウンロード",
+      "image": {
+        "src": "/assets/art/number-cursors.png",
+        "width": 1120,
+        "height": 593,
+        "alt": "Windows用の数字カーソル17種類のプレビュー"
+      }
     }
   ]
 }
