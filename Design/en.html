@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Design Downloads | 31916</title>
+  <meta name="description" content="Design experiments and downloadable assets from 31916. The first release is a set of 17 number cursors for Windows.">
+  <link rel="canonical" href="https://31916.ch/Design/en.html">
+  <link rel="alternate" hreflang="ja" href="https://31916.ch/Design/">
+  <link rel="alternate" hreflang="en" href="https://31916.ch/Design/en.html">
+  <link rel="alternate" hreflang="x-default" href="https://31916.ch/Design/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Design Downloads | 31916">
+  <meta property="og:description" content="Design experiments and downloadable assets from 31916. The first release is a set of 17 number cursors for Windows.">
+  <meta property="og:url" content="https://31916.ch/Design/en.html">
+  <meta property="og:locale" content="en_US">
+  <link rel="icon" href="/assets/art/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css?v=20261105">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="top shell">
+    <a class="brand" href="/?lang=en">31916</a>
+    <nav aria-label="Site navigation"><a href="/projects/?lang=en">Projects</a></nav>
+    <nav class="language" aria-label="Page language"><a href="./" lang="ja" hreflang="ja">日本語</a><span aria-current="page">English</span></nav>
+  </header>
+  <main id="main" class="shell">
+    <header class="hero">
+      <p class="eyebrow">31916 / DESIGN</p>
+      <h1>Design Downloads</h1>
+      <p>Design experiments and assets you can download and use.</p>
+    </header>
+
+    <section class="collection" aria-labelledby="releases">
+      <h2 id="releases">Downloads</h2>
+      <article class="release" id="number-cursors" aria-labelledby="cursor-title">
+        <div class="release-info">
+          <p class="eyebrow">Release 01 <span>·</span> Windows</p>
+          <h3 id="cursor-title">Number Cursors</h3>
+          <p>A Windows cursor set built from numerals. A tilted 4 points, and a spinning 6 turns into a 9 while Windows is busy.</p>
+          <ul class="specs" role="list">
+            <li>17 cursors</li>
+            <li>32, 48, 64 px</li>
+            <li>#CCCCCC</li>
+          </ul>
+          <div id="downloads">
+            <a class="download" href="/NumberCursors/downloads/NumberCursors-1.0.0.zip" download>Download ZIP <span aria-hidden="true">↓</span></a>
+            <p class="file-info">v1.0.0 · 383 KiB · <time datetime="2026-11-05">2026-11-05</time> · <a href="/NumberCursors/downloads/SHA256SUMS.txt">SHA-256</a></p>
+          </div>
+        </div>
+
+        <figure id="preview">
+          <a class="artwork" href="/assets/art/number-cursors.png"><img src="/assets/art/number-cursors.png" width="1120" height="593" alt="All 17 number cursors, with the click point marked at the upper-left tip of the tilted 4."></a>
+          <figcaption>
+            <a href="/assets/art/number-cursors.png">Full-size preview</a>
+            <a href="/NumberCursors/media/wait-preview.png">Busy animation</a>
+            <a href="/NumberCursors/media/working-preview.png">Working animation</a>
+          </figcaption>
+        </figure>
+
+        <details id="setup">
+          <summary>Set up in Windows</summary>
+          <div class="instructions">
+            <ol>
+              <li>Extract the ZIP.</li>
+              <li>Press <kbd>Win</kbd> + <kbd>R</kbd>, open <code>main.cpl</code>, and select the Pointers tab.</li>
+              <li>Select a pointer role, choose Browse, and pick its matching file from the <code>cursors</code> folder. The Japanese <code>README.txt</code> lists the roles and files.</li>
+            </ol>
+            <p>To register the full scheme, open PowerShell in the extracted folder and run these commands.</p>
+            <pre><code>Unblock-File -LiteralPath .\Register-Scheme.ps1
+powershell.exe -NoProfile -ExecutionPolicy RemoteSigned -File .\Register-Scheme.ps1</code></pre>
+            <p>On the Pointers tab, choose <strong>Number Cursors (#CCCCCC)</strong> under Scheme and select Apply.</p>
+          </div>
+        </details>
+      </article>
+    </section>
+  </main>
+  <footer class="shell"><a href="/?lang=en">31916</a></footer>
+</body>
+</html>

@@ -3,77 +3,15 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Windows用の数字カーソル17種類をまとめた公式ZIP。色は #CCCCCC。待ち状態では6と9が回転します。">
-  <title>数字カーソル 公式ダウンロード｜31916</title>
-  <link rel="canonical" href="https://31916.ch/NumberCursors/">
-  <link rel="alternate" hreflang="ja" href="https://31916.ch/NumberCursors/">
-  <link rel="alternate" hreflang="en" href="https://31916.ch/NumberCursors/en.html">
-  <link rel="alternate" hreflang="x-default" href="https://31916.ch/NumberCursors/">
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="数字カーソル 公式ダウンロード｜31916">
-  <meta property="og:description" content="Windows用の数字カーソル17種類をまとめた公式ZIP。色は #CCCCCC。待ち状態では6と9が回転します。">
-  <meta property="og:url" content="https://31916.ch/NumberCursors/">
-  <meta property="og:locale" content="ja_JP">
-  <meta property="og:image" content="https://31916.ch/assets/art/number-cursors.png">
-  <meta property="og:image:width" content="1120">
-  <meta property="og:image:height" content="593">
-  <meta property="og:image:alt" content="数字カーソル17種類の一覧と、斜めの4の左上にあるクリック位置">
-  <meta name="twitter:card" content="summary_large_image">
-  <link rel="stylesheet" href="../IMELayoutRouter/style.css?v=20261021-history">
-  <link rel="stylesheet" href="style.css?v=1.0.0">
-  <link rel="icon" href="pointer.png" type="image/png">
+  <title>数字カーソル｜31916</title>
+  <link rel="canonical" href="https://31916.ch/Design/">
+  <script>
+    const section = ["#downloads", "#preview", "#setup"].includes(location.hash) ? location.hash : "#number-cursors";
+    location.replace("/Design/" + location.search + section);
+  </script>
+  <meta http-equiv="refresh" content="0; url=/Design/#number-cursors">
 </head>
 <body>
-<a class="skip" href="#downloads">ダウンロードへ</a>
-<header>
-  <nav class="language" aria-label="表示言語"><span aria-current="page">日本語</span> ｜ <a href="en.html" lang="en" hreflang="en">English</a></nav>
-  <div class="title"><img src="pointer.png" width="44" height="44" alt=""><h1>数字カーソル</h1></div>
-  <p class="intro">数字をモチーフにした Windows 用カーソルセット。通常の選択には斜めの4、待ち状態には6と9が回るアニメーションを使います。</p>
-</header>
-<main>
-  <section id="downloads" tabindex="-1">
-    <h2><span aria-hidden="true">★ </span>公式ダウンロード<span aria-hidden="true"> ★</span></h2>
-    <table class="downloads">
-      <caption>Windows 用・全17種類（.cur／.ani）</caption>
-      <thead><tr><th scope="col">ファイル</th><th scope="col">バージョン</th><th scope="col">公開日</th></tr></thead>
-      <tbody>
-        <tr><td><a href="downloads/NumberCursors-1.0.0.zip" download>数字カーソル (.zip、383 KiB)</a></td><td>Ver1.0.0</td><td><time datetime="2026-11-05">2026/11/05</time></td></tr>
-      </tbody>
-    </table>
-    <p class="small centered"><a href="downloads/SHA256SUMS.txt">ZIPのSHA-256</a></p>
-  </section>
-  <section id="preview">
-    <h2><span aria-hidden="true">★ </span>プレビュー<span aria-hidden="true"> ★</span></h2>
-    <div class="product-content">
-      <p class="centered">すべて #CCCCCC の透過カーソルで、32・48・64 px に対応しています。斜めの4は左上の先端でクリックします。</p>
-      <figure class="cursor-preview">
-        <img src="../assets/art/number-cursors.png" width="1120" height="593" alt="数字カーソル17種類の一覧と、斜めの4の左上にあるクリック位置">
-        <figcaption class="small centered"><a href="../assets/art/number-cursors.png">画像を原寸で表示</a></figcaption>
-      </figure>
-      <p class="preview-links"><a href="media/wait-preview.png">待ち状態のアニメーション</a><a href="media/working-preview.png">作業中のアニメーション</a></p>
-    </div>
-  </section>
-  <section id="setup">
-    <h2><span aria-hidden="true">★ </span>設定方法<span aria-hidden="true"> ★</span></h2>
-    <div class="product-content">
-      <ol class="setup-steps">
-        <li>ZIPを展開します。</li>
-        <li><kbd>Win</kbd> + <kbd>R</kbd> で <code>main.cpl</code> を開き、「ポインター」タブを選びます。</li>
-        <li>設定する項目を選び、「参照」から <code>cursors</code> フォルダー内のファイルを指定します。対応表はZIP内の <code>README.txt</code> にあります。</li>
-      </ol>
-      <details>
-        <summary>17種類をまとめて登録する</summary>
-        <p>展開したフォルダーをPowerShellで開き、次のコマンドを実行します。</p>
-        <pre><code>Unblock-File -LiteralPath .\Register-Scheme.ps1
-powershell.exe -NoProfile -ExecutionPolicy RemoteSigned -File .\Register-Scheme.ps1</code></pre>
-        <p>「ポインター」タブの「デザイン」で <strong>Number Cursors (#CCCCCC)</strong> を選び、「適用」を押します。</p>
-      </details>
-    </div>
-  </section>
-</main>
-<footer>
-  <p><a href="/">31916 トップ</a> ｜ <a href="/projects/">制作物一覧</a></p>
-  <p class="small">数字カーソル — 31916</p>
-</footer>
+  <p><a href="/Design/#number-cursors">デザイン配布の数字カーソルへ</a></p>
 </body>
 </html>

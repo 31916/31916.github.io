@@ -52,13 +52,13 @@
       }
     },
     {
-      "id": "number-cursors",
+      "id": "design-downloads",
       "category": "software",
-      "type": "ソフトウェア",
-      "tech": "Windows",
-      "title": "数字カーソル",
-      "href": "/NumberCursors/",
-      "description": "斜めの4と回転する6・9を含む、Windows用の数字カーソル17種類。",
+      "type": "デザイン",
+      "tech": "Download",
+      "title": "デザイン配布",
+      "href": "/Design/",
+      "description": "デザインの試作と配布素材。第1弾はWindows用の数字カーソル。",
       "destination": "紹介・ダウンロード",
       "image": {
         "src": "/assets/art/number-cursors.png",

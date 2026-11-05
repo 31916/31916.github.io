@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>デザイン配布｜31916</title>
+  <meta name="description" content="31916のデザインアイデアとダウンロード素材。第1弾は、Windows用の数字カーソル17種類です。">
+  <link rel="canonical" href="https://31916.ch/Design/">
+  <link rel="alternate" hreflang="ja" href="https://31916.ch/Design/">
+  <link rel="alternate" hreflang="en" href="https://31916.ch/Design/en.html">
+  <link rel="alternate" hreflang="x-default" href="https://31916.ch/Design/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="デザイン配布｜31916">
+  <meta property="og:description" content="31916のデザインアイデアとダウンロード素材。第1弾は、Windows用の数字カーソル17種類です。">
+  <meta property="og:url" content="https://31916.ch/Design/">
+  <meta property="og:locale" content="ja_JP">
+  <link rel="icon" href="/assets/art/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css?v=20261105">
+</head>
+<body>
+  <a class="skip" href="#main">本文へ移動</a>
+  <header class="top shell">
+    <a class="brand" href="/">31916</a>
+    <nav aria-label="サイト内ナビゲーション"><a href="/projects/">制作物一覧</a></nav>
+    <nav class="language" aria-label="表示言語"><span aria-current="page">日本語</span><a href="en.html" lang="en" hreflang="en">English</a></nav>
+  </header>
+  <main id="main" class="shell">
+    <header class="hero">
+      <p class="eyebrow">DESIGN DOWNLOADS</p>
+      <h1>デザイン配布</h1>
+      <p>試作したデザインや、手元で使える素材を公開していく場所です。</p>
+    </header>
+
+    <section class="collection" aria-labelledby="releases">
+      <h2 id="releases">配布アイテム</h2>
+      <article class="release" id="number-cursors" aria-labelledby="cursor-title">
+        <div class="release-info">
+          <p class="eyebrow">第1弾 <span>·</span> Windows</p>
+          <h3 id="cursor-title">数字カーソル</h3>
+          <p>数字でつくったWindows用カーソル。斜めの4で指し、待ち時間には6と9がくるりと入れ替わります。</p>
+          <ul class="specs" role="list">
+            <li>全17種類</li>
+            <li>32・48・64 px</li>
+            <li>#CCCCCC</li>
+          </ul>
+          <div id="downloads">
+            <a class="download" href="/NumberCursors/downloads/NumberCursors-1.0.0.zip" download>ZIPをダウンロード <span aria-hidden="true">↓</span></a>
+            <p class="file-info">v1.0.0 · 383 KiB · <time datetime="2026-11-05">2026/11/05</time> · <a href="/NumberCursors/downloads/SHA256SUMS.txt">SHA-256</a></p>
+          </div>
+        </div>
+
+        <figure id="preview">
+          <a class="artwork" href="/assets/art/number-cursors.png"><img src="/assets/art/number-cursors.png" width="1120" height="593" alt="数字カーソル17種類の一覧。斜めの4の左上がクリック位置。"></a>
+          <figcaption>
+            <a href="/assets/art/number-cursors.png">原寸プレビュー</a>
+            <a href="/NumberCursors/media/wait-preview.png">待ち状態の動き</a>
+            <a href="/NumberCursors/media/working-preview.png">作業中の動き</a>
+          </figcaption>
+        </figure>
+
+        <details id="setup">
+          <summary>Windowsでの設定方法</summary>
+          <div class="instructions">
+            <ol>
+              <li>ZIPを展開します。</li>
+              <li><kbd>Win</kbd> + <kbd>R</kbd> で <code>main.cpl</code> を開き、「ポインター」タブを選びます。</li>
+              <li>設定する項目を選び、「参照」から <code>cursors</code> フォルダー内の対応ファイルを指定します。対応表はZIP内の <code>README.txt</code> にあります。</li>
+            </ol>
+            <p>まとめて登録する場合は、展開したフォルダーをPowerShellで開き、次のコマンドを実行します。</p>
+            <pre><code>Unblock-File -LiteralPath .\Register-Scheme.ps1
+powershell.exe -NoProfile -ExecutionPolicy RemoteSigned -File .\Register-Scheme.ps1</code></pre>
+            <p>「ポインター」タブの「デザイン」で <strong>Number Cursors (#CCCCCC)</strong> を選び、「適用」を押します。</p>
+          </div>
+        </details>
+      </article>
+    </section>
+  </main>
+  <footer class="shell"><a href="/">31916</a></footer>
+</body>
+</html>
