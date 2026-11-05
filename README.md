@@ -26,7 +26,7 @@ Edit `assets/projects.json`. The `projects` array is the full project catalog; `
 "featured": ["ime-layout-router", "handshape-recognition"]
 ```
 
-To add a project, copy a catalog entry, assign a unique `id`, and update its title, link, description and image. Set `category` to `software` or `research`. Add Japanese/English/German translations for new visible text and image descriptions in `assets/translations.json`. Change an ID in `featured` to show the new project on the home page. The build validates the selection, renders both the home and full project listing into HTML, and automatically includes local project images. No browser-side card replacement occurs.
+To add a project, copy a catalog entry, assign a unique `id`, and update its title, link and image. Set `category` to `software` or `research`. Add Japanese/English/German translations for new visible text and image descriptions in `assets/translations.json`. Change an ID in `featured` to show the new project on the home page. The build validates the selection, renders both the home and full project listing into HTML, and automatically includes local project images. No browser-side card replacement occurs.
 
 The checked-in HTML includes the current cards for direct preview. After editing the catalog, preview the generated `tools/build-pages.py` output to see the new selection; deployment always uses the catalog. On Windows, extract current paths only for preview, excluding the case-sensitive `IMELayOutRouter/` aliases to avoid overwriting the current product directory.
 

@@ -165,7 +165,7 @@ def load_projects(settings=None):
         if identifier in identifiers:
             raise ValueError(f"Duplicate project id: {identifier}")
         identifiers.add(identifier)
-        for field in ("title", "type", "tech", "description", "destination", "href"):
+        for field in ("title", "type", "tech", "destination", "href"):
             if not isinstance(project.get(field), str) or not project[field].strip():
                 raise ValueError(f"Project {identifier} needs nonempty {field}")
         if project.get("category") not in {"software", "research"}:
@@ -258,7 +258,6 @@ def render_project_catalog(settings):
             '      </div>\n'
             '      <span class="project-arrow" aria-hidden="true">↗</span>\n'
             '    </div>\n'
-            f'    <p class="project-description">{escape(project["description"])}</p>\n'
             '  </a>\n'
             '</article>'
         )

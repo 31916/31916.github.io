@@ -8,7 +8,6 @@
       "tech": "Windows / C#",
       "title": "IMELayoutRouter",
       "href": "/IMELayoutRouter/",
-      "description": "IMEの直接入力を、使い慣れたWindows入力レイアウトで。",
       "destination": "紹介・ダウンロード",
       "image": {
         "src": "/IMELayoutRouter/social-ja-v2.png",
@@ -24,7 +23,6 @@
       "tech": "Python / MediaPipe",
       "title": "日本手話の手形認識",
       "href": "https://github.com/31916/syukei_recognize",
-      "description": "手の特徴抽出と機械学習による分類に取り組んだ卒業研究。",
       "destination": "研究・ソースコード",
       "image": {
         "src": "/assets/art/handshape.svg",
@@ -41,7 +39,6 @@
       "tech": "JavaScript / PWA",
       "title": "ひもほどき",
       "href": "/himoparty/",
-      "description": "ひもの端を上下左右の空いた丸へ動かし、からまりをほどくパズル。",
       "destination": "ブラウザーで遊ぶ",
       "image": {
         "src": "/assets/art/himoparty.png",
@@ -58,7 +55,6 @@
       "tech": "Download",
       "title": "デザイン配布",
       "href": "/Design/",
-      "description": "デザインの試作と配布素材。第1弾はWindows用の数字カーソル。",
       "destination": "紹介・ダウンロード",
       "image": {
         "src": "/assets/art/number-cursors.png",
