@@ -12,6 +12,7 @@ Locally vendored logos used to identify the languages and tools listed on the Re
 | Local file | Upstream path | viewBox |
 | --- | --- | --- |
 | `csharp.svg` | `csharp/csharp-original.svg` | `0 0 128 128` |
+| `java.svg` | `java/java-original.svg` | `0 0 128 128` |
 | `python.svg` | `python/python-original.svg` | `0 0 128 128` |
 | `matlab.svg` | `matlab/matlab-original.svg` | `0 0 128 128` |
 | `javascript.svg` | `javascript/javascript-original.svg` | `0 0 128 128` |
@@ -35,6 +36,6 @@ Product names and logos belong to their respective owners. They identify technol
 
 ## Content basis
 
-The original portfolio at Git revision `01b4c4e`, `index.html`, explicitly listed C, Python, JavaScript, HTML, CSS, Git / GitHub, and Google Apps Script. C# is used by the published IMELayoutRouter project; Linux was explicitly listed in the owner's supplied website strategy. MATLAB was added at the owner's explicit request on 2026-10-13. This section does not claim proficiency levels or add technologies from the original Bootstrap template's placeholder examples.
+The original portfolio at Git revision `01b4c4e`, `index.html`, explicitly listed C, Python, JavaScript, HTML, CSS, Git / GitHub, and Google Apps Script. C# is used by the published IMELayoutRouter project; Linux was explicitly listed in the owner's supplied website strategy. MATLAB was added at the owner's explicit request on 2026-10-13. Java was added at the owner's explicit request on 2026-11-06. This section does not claim proficiency levels or add technologies from the original Bootstrap template's placeholder examples.
 
 All SVGs were checked for valid XML, a viewBox, scripts, event handlers, foreign objects, and external resource references when imported.
