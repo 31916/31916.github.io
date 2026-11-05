@@ -15,25 +15,40 @@
   <meta property="og:url" content="https://31916.ch/Design/">
   <meta property="og:locale" content="ja_JP">
   <link rel="icon" href="/assets/art/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="style.css?v=20261105">
+  <link rel="stylesheet" href="style.css?v=20261105-mono">
 </head>
 <body>
   <a class="skip" href="#main">本文へ移動</a>
   <header class="top shell">
     <a class="brand" href="/">31916</a>
+    <span class="top-label" aria-hidden="true">DESIGN / INDEX</span>
     <nav aria-label="サイト内ナビゲーション"><a href="/projects/">制作物一覧</a></nav>
     <nav class="language" aria-label="表示言語"><span aria-current="page">日本語</span><a href="en.html" lang="en" hreflang="en">English</a></nav>
   </header>
   <main id="main" class="shell">
     <header class="hero">
-      <p class="eyebrow">DESIGN DOWNLOADS</p>
-      <h1>デザイン配布</h1>
-      <p>試作したデザインや、手元で使える素材を公開していく場所です。</p>
+      <div class="hero-copy">
+        <p class="eyebrow">デザイン配布 / 31916</p>
+        <h1 aria-label="デザイン配布"><span aria-hidden="true">DESIGN</span><span class="outline" aria-hidden="true">FILES.</span></h1>
+        <div class="hero-intro">
+          <p>試作したデザインや、手元で使える素材を公開していく場所です。</p>
+          <a class="index-link" href="#releases">配布アイテムへ <span aria-hidden="true">↓</span></a>
+        </div>
+      </div>
+      <div class="field" aria-hidden="true">
+        <img src="field.svg" width="640" height="480" alt="">
+        <p><span>FIG. 00</span><span>FOLDED FIELD</span></p>
+      </div>
     </header>
 
     <section class="collection" aria-labelledby="releases">
-      <h2 id="releases">配布アイテム</h2>
+      <header class="collection-head">
+        <p aria-hidden="true">FILE INDEX</p>
+        <h2 id="releases">配布アイテム</h2>
+        <span class="barcode" aria-hidden="true"></span>
+      </header>
       <article class="release" id="number-cursors" aria-labelledby="cursor-title">
+        <div class="release-number" aria-hidden="true"><strong>01</strong><span>RELEASE</span></div>
         <div class="release-info">
           <p class="eyebrow">第1弾 <span>·</span> Windows</p>
           <h3 id="cursor-title">数字カーソル</h3>
@@ -75,6 +90,6 @@ powershell.exe -NoProfile -ExecutionPolicy RemoteSigned -File .\Register-Scheme.
       </article>
     </section>
   </main>
-  <footer class="shell"><a href="/">31916</a></footer>
+  <footer class="shell"><a href="/">31916</a><span>DESIGN FILES</span></footer>
 </body>
 </html>
