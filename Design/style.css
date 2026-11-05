@@ -51,16 +51,16 @@ a { color: inherit; text-underline-offset: .2em; }
 main { padding-block: clamp(26px, 7vw, 94px); }
 .release {
   display: grid;
-  grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
   align-items: start;
   gap: clamp(24px, 6vw, 88px);
   scroll-margin-top: 16px;
 }
 .release + .release { margin-top: clamp(36px, 8vw, 100px); }
-.artwork { display: block; background: var(--ink); }
+.artwork { display: block; border-radius: 20%; }
 .artwork img { display: block; width: 100%; height: auto; }
 
-.release-info { padding-top: min(9vw, 136px); }
+.release-info { padding-top: min(9vw, 136px, 20svh); }
 .index { color: var(--muted); font-size: .8rem; font-variant-numeric: tabular-nums; letter-spacing: .08em; }
 .release-info h2 {
   margin-block: 4px clamp(16px, 3vw, 26px);
@@ -107,6 +107,15 @@ details[open] summary span { transform: rotate(180deg); }
 .file-info { color: var(--muted); }
 .instructions h3 { margin-top: 12px; font-size: .95rem; }
 .instructions ol { margin: 6px 0 12px; padding-left: 1.4em; }
+
+@media (min-width: 721px) {
+  main { padding-block-start: min(7vw, 94px, 10svh); }
+  .release figure { width: min(100%, max(360px, 100svh - 160px)); }
+}
+
+@media (721px <= width <= 900px) {
+  .release-info { padding-top: 32px; }
+}
 
 @media (max-width: 720px) {
   .release { grid-template-columns: minmax(0, 1fr); }
