@@ -15,68 +15,60 @@
   <meta property="og:url" content="https://31916.ch/Design/">
   <meta property="og:locale" content="ja_JP">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="style.css?v=20261105-bold">
-  <meta name="theme-color" content="#000000">
+  <link rel="stylesheet" href="style.css?v=20261106-minimal">
+  <meta name="theme-color" content="#ffffff">
 </head>
 <body>
   <a class="skip" href="#main">本文へ移動</a>
-  <header class="masthead">
-    <div class="site-top shell">
-      <a class="brand" href="/">31916</a>
-      <nav aria-label="サイト内ナビゲーション"><a href="/projects/">制作物一覧</a></nav>
-      <nav class="language" aria-label="表示言語"><span aria-current="page">日本語</span><a href="en.html" lang="en" hreflang="en">English</a></nav>
-    </div>
-    <div class="hero shell">
-      <p class="eyebrow">DESIGN FILES / 31916</p>
-      <h1>デザイン配布</h1>
-      <div class="hero-bottom">
-        <p>デザインの試作と、ダウンロードして使える素材。</p>
-        <a href="#releases">配布アイテムを見る <span aria-hidden="true">↓</span></a>
-      </div>
-    </div>
+  <header class="site-top shell">
+    <a class="brand" href="/">31916</a>
+    <h1 aria-label="デザイン配布">DESIGN</h1>
+    <nav aria-label="サイト内ナビゲーション">
+      <a href="/projects/">制作物</a>
+      <a href="en.html" hreflang="en" aria-label="英語版">EN</a>
+    </nav>
   </header>
-
   <main id="main" class="shell">
-    <section aria-labelledby="releases">
-      <h2 id="releases">配布アイテム</h2>
+    <section id="releases" aria-label="配布アイテム">
       <article class="release" id="number-cursors" aria-labelledby="cursor-title">
-        <div class="release-info">
-          <p class="eyebrow">第1弾 / WINDOWS</p>
-          <h3 id="cursor-title">数字カーソル</h3>
-          <p>数字でつくったWindows用カーソル。斜めの4で指し、待ち時間には6と9がくるりと入れ替わります。</p>
-          <p class="specs">全17種類 · 32・48・64 px · #CCCCCC</p>
-          <div id="downloads">
-            <a class="download" href="/NumberCursors/downloads/NumberCursors-1.0.0.zip" download>ZIPをダウンロード<span aria-hidden="true">↓</span></a>
-            <p class="file-info">v1.0.0 · 383 KiB · <time datetime="2026-11-05">2026/11/05</time> · <a href="/NumberCursors/downloads/SHA256SUMS.txt">SHA-256</a></p>
-          </div>
-        </div>
-
         <figure id="preview">
-          <a class="artwork" href="/assets/art/number-cursors.png?v=gray"><img src="/assets/art/number-cursors.png?v=gray" width="1120" height="593" alt="数字カーソル17種類の一覧。斜めの4の左上がクリック位置。"></a>
-          <figcaption>
-            <a href="/assets/art/number-cursors.png?v=gray">原寸プレビュー</a>
-            <a href="/NumberCursors/media/wait-preview.png?v=gray">待ち状態の動き</a>
-            <a href="/NumberCursors/media/working-preview.png?v=gray">作業中の動き</a>
-          </figcaption>
+          <a class="artwork" href="/assets/art/number-cursors.png?v=gray" aria-label="数字カーソル17種類のプレビューを開く">
+            <img src="number-cursors.svg" width="900" height="540" alt="黒地に、横縞の入った斜めの4。">
+          </a>
         </figure>
 
-        <details id="setup">
-          <summary>Windowsでの設定方法</summary>
-          <div class="instructions">
-            <ol>
-              <li>ZIPを展開します。</li>
-              <li><kbd>Win</kbd> + <kbd>R</kbd> で <code>main.cpl</code> を開き、「ポインター」タブを選びます。</li>
-              <li>設定する項目を選び、「参照」から <code>cursors</code> フォルダー内の対応ファイルを指定します。対応表はZIP内の <code>README.txt</code> にあります。</li>
-            </ol>
-            <p>まとめて登録する場合は、展開したフォルダーをPowerShellで開き、次のコマンドを実行します。</p>
-            <pre><code>Unblock-File -LiteralPath .\Register-Scheme.ps1
+        <div class="release-info">
+          <p class="index" aria-hidden="true">01</p>
+          <h2 id="cursor-title">数字カーソル</h2>
+          <div class="actions" id="downloads">
+            <a class="download" href="/NumberCursors/downloads/NumberCursors-1.0.0.zip" download aria-label="数字カーソルのZIPをダウンロード">
+              <span>ZIP</span><span aria-hidden="true">↓</span>
+            </a>
+            <details id="setup">
+              <summary aria-label="設定方法と配布情報"><span aria-hidden="true">▼</span></summary>
+              <div class="instructions">
+                <p class="file-info">Windows · 17 .cur/.ani · v1.0.0 · 383 KiB · <time datetime="2026-11-05">2026/11/05</time></p>
+                <p class="extra-links">
+                  <a href="/NumberCursors/downloads/SHA256SUMS.txt">SHA-256</a>
+                  <a href="/NumberCursors/media/wait-preview.png?v=gray">待ち状態の動き</a>
+                  <a href="/NumberCursors/media/working-preview.png?v=gray">作業中の動き</a>
+                </p>
+                <h3>Windowsでの設定方法</h3>
+                <ol>
+                  <li>ZIPを展開します。</li>
+                  <li><kbd>Win</kbd> + <kbd>R</kbd> で <code>main.cpl</code> を開き、「ポインター」タブを選びます。</li>
+                  <li>設定する項目を選び、「参照」から <code>cursors</code> フォルダー内の対応ファイルを指定します。対応表はZIP内の <code>README.txt</code> にあります。</li>
+                </ol>
+                <p>まとめて登録する場合は、展開したフォルダーをPowerShellで開き、次のコマンドを実行します。</p>
+                <pre><code>Unblock-File -LiteralPath .\Register-Scheme.ps1
 powershell.exe -NoProfile -ExecutionPolicy RemoteSigned -File .\Register-Scheme.ps1</code></pre>
-            <p>「ポインター」タブの「デザイン」で <strong>Number Cursors (#CCCCCC)</strong> を選び、「適用」を押します。</p>
+                <p>「ポインター」タブの「デザイン」で <strong>Number Cursors (#CCCCCC)</strong> を選び、「適用」を押します。</p>
+              </div>
+            </details>
           </div>
-        </details>
+        </div>
       </article>
     </section>
   </main>
-  <footer class="shell"><a href="/">31916</a><span>DESIGN FILES</span></footer>
 </body>
 </html>
