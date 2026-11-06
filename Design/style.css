@@ -77,40 +77,19 @@ main { padding-block: clamp(26px, 7vw, 94px); }
   line-height: 1.04;
   letter-spacing: -.055em;
 }
-.actions { position: relative; }
-.download, #setup > summary {
-  height: 48px;
-  border: 1px solid var(--ink);
-  font-weight: 700;
-}
 .download {
-  position: absolute;
-  inset: 0 auto auto 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: calc(100% - 58px);
+  height: 48px;
   padding-inline: 14px;
   background: var(--ink);
   color: #fff;
+  font-weight: 700;
   text-decoration: none;
 }
 .download:hover { background: #333; }
 .download span:last-child { font-size: 1.2rem; }
-
-#setup > summary {
-  display: grid;
-  place-items: center;
-  width: 48px;
-  margin-left: auto;
-  background: #fff;
-  list-style: none;
-  cursor: pointer;
-}
-#setup > summary::-webkit-details-marker { display: none; }
-#setup > summary span { font-size: .82rem; }
-#setup > summary:hover, #setup[open] > summary { background: #eee; }
-#setup[open] > summary span { transform: rotate(180deg); }
 
 .instructions { padding-top: 16px; overflow-wrap: anywhere; font-size: .84rem; }
 .instructions details + details { border-top: 1px solid var(--rule); }
