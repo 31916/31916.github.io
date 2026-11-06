@@ -54,10 +54,10 @@
       "type": "アイデアデザイン",
       "tech": "Windows, macOS & Linux",
       "title": "Number Cursors 4",
-      "href": "/Design/",
+      "href": "/IdeaDesigns/",
       "destination": "紹介・ダウンロード",
       "image": {
-        "src": "/Design/number-cursors.svg",
+        "src": "/IdeaDesigns/number-cursors.svg",
         "width": 640,
         "height": 640,
         "alt": "斜めに傾いた数字カーソル「4」",

@@ -42,4 +42,4 @@ Link Select              Hand.cur          Simple 3
 Location Select          Pin.cur           3 with a small 5 at the lower right
 Person Select            Person.cur        3 with a small 5 at the lower right
 
-For macOS and Linux setup, open the Setup section at https://31916.ch/Design/.
+For macOS and Linux setup, choose your OS at https://31916.ch/IdeaDesigns/#setup.

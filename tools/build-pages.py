@@ -18,6 +18,7 @@ import tarfile
 ROOT = Path(__file__).resolve().parents[1]
 CURRENT = "IMELayoutRouter"
 LEGACY = "IMELayOutRouter"
+IDEA_DESIGNS = "IdeaDesigns"
 PUBLIC = (
     "CNAME", "index.html", "404.html", "robots.txt", "sitemap.xml",
     "about/index.html", "resume/index.html", "projects/index.html", "play/index.html",
@@ -46,12 +47,12 @@ PUBLIC = (
     f"{CURRENT}/downloads/ImeLayoutRouter-1.1.3-Setup.exe",
     f"{CURRENT}/downloads/ImeLayoutRouter-2.0.3-Setup.exe",
     f"{CURRENT}/downloads/SHA256SUMS.txt",
-    "Design/index.html", "Design/en.html", "Design/style.css", "Design/favicon.svg",
-    "Design/sitemap.xml",
+    "Design/index.html", "Design/en.html",
     "Design/google97bf67731c686ec9.html",  # Keep Search Console ownership verified.
-    "Design/number-cursors.svg",
-    "Design/cursor-comparison-v2.png", "Design/cursor-comparison-v3.png",
-    "Design/cursor-comparison-v4.png", "Design/preview.js",
+    f"{IDEA_DESIGNS}/index.html", f"{IDEA_DESIGNS}/style.css", f"{IDEA_DESIGNS}/favicon.svg",
+    f"{IDEA_DESIGNS}/sitemap.xml", f"{IDEA_DESIGNS}/number-cursors.svg",
+    f"{IDEA_DESIGNS}/cursor-comparison-v2.png", f"{IDEA_DESIGNS}/cursor-comparison-v3.png",
+    f"{IDEA_DESIGNS}/cursor-comparison-v4.png", f"{IDEA_DESIGNS}/preview.js",
     "NumberCursors/index.html", "NumberCursors/en.html",
     "NumberCursors/media/wait-preview.png",
     "NumberCursors/media/working-preview.png",
@@ -192,8 +193,8 @@ def load_projects(settings=None):
         if image.get("class", "") not in {"", "research-image", "app-icon-image", "cursor-art-image"}:
             raise ValueError(f"Project {identifier} has an unknown image class")
         source = image.get("src")
-        if not isinstance(source, str) or not source.startswith(("/assets/", f"/{CURRENT}/", "/Design/")):
-            raise ValueError(f"Project {identifier} image must use /assets/, /{CURRENT}/, or /Design/")
+        if not isinstance(source, str) or not source.startswith(("/assets/", f"/{CURRENT}/", f"/{IDEA_DESIGNS}/")):
+            raise ValueError(f"Project {identifier} image must use /assets/, /{CURRENT}/, or /{IDEA_DESIGNS}/")
         if any(character in source for character in ("?", "#", "\\", "%")):
             raise ValueError(f"Use a plain project image path without query, fragment or URL escapes: {source}")
         path = Path(source.lstrip("/"))
@@ -329,6 +330,10 @@ def build(destination):
                 archive.addfile(info, io.BytesIO(content))
             else:
                 archive.add(ROOT / name, arcname=name)
+                if name.startswith(f"{IDEA_DESIGNS}/"):
+                    # Keep the previously submitted sitemap and direct asset links working.
+                    relative = name.removeprefix(f"{IDEA_DESIGNS}/")
+                    archive.add(ROOT / name, arcname=f"Design/{relative}")
 
         # Old direct installer links keep serving the exact same bytes.
         for name in PUBLIC:
