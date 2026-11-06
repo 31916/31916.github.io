@@ -5,6 +5,7 @@
   if (!intro) return;
 
   const scene = intro.querySelector(".hurricane-scene");
+  const stickers = [...scene.querySelectorAll(".storm-sticker")];
   const motion = window.matchMedia("(prefers-reduced-motion: reduce)");
   const tau = 2 * Math.PI;
   const clamp = (value) => Math.min(1, Math.max(0, value));
@@ -198,6 +199,21 @@
     }
   }
 
+  function positionStickers(seconds, progress) {
+    stickers.forEach((sticker, index) => {
+      const birth = smooth((seconds - 0.42 - index * 0.07) / 0.83);
+      const peel = smooth((progress - index * 0.018) / 0.8);
+      const sway = seconds * (0.75 + index * 0.09) + index * 1.8;
+      const x = Math.cos(sway) * 8 + (1 - birth) * (index % 2 ? 45 : -45)
+        + peel * width * (index % 2 ? 0.43 : 0.29);
+      const y = Math.sin(sway) * 12 + (1 - birth) * 35 - peel * height * (0.33 + index * 0.04);
+      const tilt = Math.sin(sway * 0.81) * 6 - peel * (22 + index * 5);
+      const scale = (0.59 + birth * 0.41) * (1 - peel * 0.38);
+      sticker.style.opacity = birth * (1 - smooth((peel - 0.33) / 0.61));
+      sticker.style.transform = `translate3d(${x}px, ${y}px, 0) rotate(calc(var(--tilt) + ${tilt}deg)) scale(${scale})`;
+    });
+  }
+
   function requestFrame() {
     if (frameId === null && !document.hidden && !intro.hidden) {
       frameId = window.requestAnimationFrame(render);
@@ -215,12 +231,14 @@
     if (progress >= 0.96) {
       if (!cleared) {
         layers.forEach(({ context }) => context.clearRect(0, 0, width, height));
+        stickers.forEach((sticker) => { sticker.style.opacity = 0; });
         cleared = true;
       }
       return;
     }
     cleared = false;
     layers.forEach((layer) => drawLayer(layer, seconds, progress));
+    positionStickers(seconds, progress);
     requestFrame();
   }
 
