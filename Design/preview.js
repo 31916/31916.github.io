@@ -15,7 +15,7 @@
     stage.classList.toggle("is-interacting", interacting);
     if (!interacting && !document.hidden && !rotor.querySelector(":focus-visible") &&
         comparison.complete && comparison.naturalWidth) {
-      timer = setTimeout(showOtherArtwork, 3000);
+      timer = setTimeout(showOtherArtwork, 6000);
     }
   }
 
