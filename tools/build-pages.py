@@ -47,6 +47,7 @@ PUBLIC = (
     f"{CURRENT}/downloads/ImeLayoutRouter-2.0.3-Setup.exe",
     f"{CURRENT}/downloads/SHA256SUMS.txt",
     "Design/index.html", "Design/en.html", "Design/style.css", "Design/favicon.svg",
+    "Design/google97bf67731c686ec9.html",  # Keep Search Console ownership verified.
     "Design/number-cursors.svg",
     "Design/cursor-comparison-v2.png", "Design/cursor-comparison-v3.png",
     "Design/cursor-comparison-v4.png", "Design/preview.js",
