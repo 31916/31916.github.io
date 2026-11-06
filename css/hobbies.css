@@ -9,7 +9,7 @@
   display: grid;
   place-items: center;
   overflow: hidden;
-  background: #1c1e2f;
+  background: #091a37;
   transition:
     opacity 600ms ease,
     visibility 600ms step-end;
@@ -31,14 +31,14 @@
   letter-spacing: -0.09em;
 }
 .hobby-loader-brand span {
-  color: #ff6940;
+  color: #6fe6ff;
 }
 .hobby-loader-status {
   position: absolute;
   z-index: 1;
   bottom: 13%;
   margin: 0;
-  color: #ffcfba;
+  color: #c7f3ff;
   font-family: Arial, sans-serif;
   font-size: clamp(14px, 1.8vw, 20px);
   font-weight: 700;
@@ -61,8 +61,8 @@
   left: 2%;
   width: clamp(96px, 15vw, 210px);
   aspect-ratio: 1;
-  background: radial-gradient(circle at 30% 24%, #ffe2cf 0 6%, #ff8a69 7% 27%, #db2b39 62%, #82112a 100%);
-  box-shadow: inset -18px -20px 30px rgb(91 8 33 / 48%), 0 18px 28px rgb(0 0 0 / 32%);
+  background: radial-gradient(circle at 30% 24%, #fff 0 6%, #c6f7ff 7% 27%, #48a8ff 62%, #123d9b 100%);
+  box-shadow: inset -18px -20px 30px rgb(5 29 104 / 48%), 0 18px 28px rgb(0 0 0 / 32%);
   animation: hobby-loader-float 2.8s ease-in-out infinite alternate;
 }
 .hobby-loader-orb--small {
@@ -70,8 +70,8 @@
   bottom: 4%;
   width: clamp(58px, 9vw, 126px);
   aspect-ratio: 1;
-  background: radial-gradient(circle at 30% 24%, #fff2cf 0 6%, #ffca5b 8% 28%, #ff5d32 62%, #a11225 100%);
-  box-shadow: inset -12px -14px 22px rgb(113 9 25 / 42%), 0 14px 24px rgb(0 0 0 / 28%);
+  background: radial-gradient(circle at 30% 24%, #fff 0 6%, #dffbff 8% 28%, #68ccff 62%, #1953bd 100%);
+  box-shadow: inset -12px -14px 22px rgb(7 33 110 / 42%), 0 14px 24px rgb(0 0 0 / 28%);
   animation: hobby-loader-float 2.4s -900ms ease-in-out infinite alternate-reverse;
 }
 .hobby-loader-ring {
@@ -79,8 +79,8 @@
   right: 16%;
   width: clamp(82px, 13vw, 176px);
   aspect-ratio: 1;
-  border: clamp(14px, 2vw, 26px) solid #ff6e3b;
-  box-shadow: inset 0 0 0 8px #9a1832, 0 18px 26px rgb(0 0 0 / 28%);
+  border: clamp(14px, 2vw, 26px) solid #8beaff;
+  box-shadow: inset 0 0 0 8px #174ea9, 0 18px 26px rgb(0 0 0 / 28%);
   transform: rotate(-20deg) skewY(-8deg);
   animation: hobby-loader-ring 3.6s ease-in-out infinite alternate;
 }
@@ -115,85 +115,60 @@
   }
 }
 .hobbies-theme {
-  --paper: #18131f;
-  --ink: #fff7ef;
-  --muted: #ffcfba;
-  --line: rgb(255 220 201 / 30%);
-  --accent: #ff6333;
+  --paper: #06152f;
+  --ink: #f7fdff;
+  --muted: #bae9ff;
+  --line: rgb(202 242 255 / 28%);
+  --accent: #76dfff;
   overflow-x: hidden;
   background:
-    radial-gradient(42rem 32rem at 106% -6%, rgb(255 102 36 / 38%), transparent 68%),
-    radial-gradient(38rem 32rem at -10% 100%, rgb(235 38 48 / 35%), transparent 70%),
-    #18131f;
+    radial-gradient(48rem 34rem at 106% -6%, rgb(73 188 255 / 30%), transparent 68%),
+    radial-gradient(40rem 34rem at -10% 100%, rgb(68 91 255 / 24%), transparent 70%),
+    #06152f;
 }
 .hobbies-theme .site-header {
-  color: #3c0b07;
-  background: linear-gradient(100deg, #ffd3b7 0%, #ff8958 100%);
-  border: 2px solid #ff5b34;
+  color: #08204f;
+  background: linear-gradient(100deg, #f6fdff 0%, #9bdfff 100%);
+  border: 2px solid #e8fcff;
   border-top: 0;
   border-radius: 0 0 18px 18px;
-  box-shadow: 8px 8px 0 #ff412b;
+  box-shadow: 8px 8px 0 #1265cf;
 }
 .hobbies-theme .site-header nav a:hover,
 .hobbies-theme .site-header nav a[aria-current="page"] {
-  color: #fff7f0;
-  background: #8f1c10;
-  border-color: #8f1c10;
+  color: #f8feff;
+  background: #0e58bf;
+  border-color: #0e58bf;
 }
 .hobbies-theme .language-picker {
-  color: #642015;
+  color: #12447e;
 }
 .hobbies-theme .language-picker select {
-  color: #3c0b07;
-  border-color: rgb(60 11 7 / 36%);
+  color: #08204f;
+  border-color: rgb(8 32 79 / 34%);
 }
 .hobbies-theme ::selection {
-  color: #3c0b07;
-  background: #ffb18d;
+  color: #06152f;
+  background: #a5e7ff;
+}
+.hurricane-canvas {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
 }
 .hobbies-theme .hobbies-page {
   position: relative;
-  isolation: isolate;
-}
-.hobbies-theme .hobbies-page::before,
-.hobbies-theme .hobbies-page::after {
-  position: fixed;
-  z-index: -1;
-  width: min(146vmax, 1920px);
-  aspect-ratio: 1;
-  content: "";
-  pointer-events: none;
-  will-change: transform;
-}
-.hobbies-theme .hobbies-page::before {
-  top: 48%;
-  left: 61%;
-  background: url("/assets/art/hobby-typhoon.svg") center / contain no-repeat;
-  filter: drop-shadow(0 0 52px rgb(255 63 43 / 34%));
-  opacity: 0.84;
-  transform: translate(-50%, -50%);
-}
-.hobbies-theme .hobbies-page::after {
-  display: none;
+  z-index: 1;
 }
 .hobbies-theme .hobby-section > h2 {
   font-size: 26px;
   font-weight: 800;
   letter-spacing: -0.06em;
-  text-shadow: 2px 2px 0 #3e0712;
-}
-@media (prefers-reduced-motion: no-preference) {
-  .hobbies-theme .hobbies-page::before {
-    animation: hobby-typhoon 20s linear infinite;
-  }
-}
-@keyframes hobby-typhoon {
-  from {
-    transform: translate(-50%, -50%) rotate(0deg);
-  }
-  to {
-    transform: translate(-50%, -50%) rotate(1turn);
-  }
+  text-shadow: 2px 2px 0 #07336c;
 }
 .hobby-section {
   display: grid;
@@ -389,10 +364,6 @@ html:lang(de) .hobby-section-content {
   .hobby-section > h2 {
     font-size: 24px;
     line-height: 1.5;
-  }
-  .hobbies-theme .hobbies-page::before {
-    width: 190vmax;
-    left: 58%;
   }
   .hobby-section + .hobby-section {
     margin-top: 36px;
