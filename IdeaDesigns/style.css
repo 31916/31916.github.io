@@ -79,16 +79,16 @@ main { padding-block: clamp(26px, 7vw, 94px); }
   overflow-wrap: anywhere;
   user-select: all;
 }
-.release-share {
+.release-share:not([hidden]) {
+  display: grid;
+  place-items: center;
   flex: none;
-  min-height: 32px;
-  padding-inline: 10px;
+  inline-size: 36px;
+  block-size: 36px;
+  padding: 0;
   border: 1px solid var(--rule);
   background: #fff;
   color: var(--ink);
-  font: inherit;
-  font-size: .8rem;
-  font-weight: 700;
   cursor: pointer;
 }
 .release-share:hover { background: #eee; }
