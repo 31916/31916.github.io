@@ -12,8 +12,8 @@
   <meta property="og:url" content="https://31916.ch/Design/">
   <meta property="og:locale" content="en_US">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="style.css?v=20261106-platforms">
-  <script src="preview.js?v=20261106-inline" defer></script>
+  <link rel="stylesheet" href="style.css?v=20261106-copy-command">
+  <script src="preview.js?v=20261106-copy-command" defer></script>
   <meta name="theme-color" content="#ffffff">
 </head>
 <body>
@@ -60,7 +60,14 @@
                   <summary>Windows</summary>
                   <ol>
                     <li>Unblock the ZIP in Properties, then extract it.</li>
-                    <li>Open the <code>Windows</code> folder in a terminal and run <code>powershell -ep RemoteSigned -f Register-Scheme.ps1</code>.</li>
+                    <li>
+                      Open the <code>Windows</code> folder in a terminal and run:
+                      <div class="setup-command">
+                        <code id="windows-command">powershell -ep RemoteSigned -f Register-Scheme.ps1</code>
+                        <button id="copy-windows-command" type="button" aria-label="Copy PowerShell command" hidden>Copy</button>
+                      </div>
+                      <p id="copy-windows-status" role="status"></p>
+                    </li>
                     <li>In <code>main.cpl</code> → Pointers, apply <strong>Number Cursors v4 (#CCCCCC)</strong>.</li>
                   </ol>
                 </details>
