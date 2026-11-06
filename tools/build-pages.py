@@ -48,7 +48,7 @@ PUBLIC = (
     f"{CURRENT}/downloads/SHA256SUMS.txt",
     "Design/index.html", "Design/en.html", "Design/style.css", "Design/favicon.svg",
     "Design/number-cursors.svg",
-    "Design/cursor-comparison-v2.png", "Design/preview.js",
+    "Design/cursor-comparison-v2.png", "Design/cursor-comparison-v3.png", "Design/preview.js",
     "NumberCursors/index.html", "NumberCursors/en.html",
     "NumberCursors/media/wait-preview.png",
     "NumberCursors/media/working-preview.png",
