@@ -53,6 +53,66 @@
 .sport-details dd {
   margin: 0;
 }
+.club-disclosure {
+  width: min(100%, 540px);
+}
+.club-disclosure summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  cursor: pointer;
+  list-style: none;
+}
+.club-disclosure summary::-webkit-details-marker {
+  display: none;
+}
+.club-disclosure summary::marker {
+  content: "";
+}
+.club-disclosure summary svg {
+  width: 16px;
+  height: 16px;
+  flex: 0 0 auto;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  transition: transform 180ms ease;
+}
+.club-disclosure[open] summary svg {
+  transform: rotate(180deg);
+}
+.club-history {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+}
+.club-history-heading,
+.club-history li {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) max-content;
+  gap: 24px;
+  align-items: baseline;
+}
+.club-history-heading {
+  margin: 0 0 8px;
+  color: var(--muted);
+  font-size: 11px;
+}
+.club-history ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.club-history li + li {
+  margin-top: 8px;
+}
+.club-history li span:last-child {
+  color: var(--muted);
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
 .hobby-results {
   margin: 0;
   padding-left: 1.3em;
