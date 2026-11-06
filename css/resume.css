@@ -1,6 +1,3 @@
-.resume-page .page-intro {
-  padding-bottom: 54px;
-}
 .resume-content {
   max-width: 980px;
   padding-bottom: 82px;
@@ -133,9 +130,6 @@ html:lang(de) .qualification-entry > span {
   object-fit: contain;
 }
 @media (max-width: 650px) {
-  .resume-page .page-intro {
-    padding-bottom: 40px;
-  }
   .resume-content {
     padding-bottom: 54px;
   }

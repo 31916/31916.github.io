@@ -151,9 +151,6 @@ summary:focus-visible {
   background: #e8eeff;
   border-color: #b7c9ef;
 }
-.site-header nav a span {
-  padding-left: 5px;
-}
 .kicker {
   font-family: Arial, sans-serif;
   font-size: 10px;
@@ -173,7 +170,7 @@ summary:focus-visible {
 }
 .social-link {
   display: inline-flex;
-  gap: 23px;
+  gap: 0.3em;
   align-items: center;
   justify-content: center;
   min-height: 39px;
@@ -184,16 +181,8 @@ summary:focus-visible {
   font-size: 11px;
   transition: background 0.2s;
 }
-.social-link:first-child {
-  background: var(--ink);
-  color: #fff;
-  border-color: var(--ink);
-}
 .social-link:hover {
   background: #dce7ff;
-}
-.social-link:first-child:hover {
-  background: #355bb8;
 }
 .project-grid {
   display: grid;
@@ -263,8 +252,13 @@ summary:focus-visible {
   margin-top: 7px;
   letter-spacing: -0.025em;
 }
+.link-arrow {
+  inline-size: 0.9em;
+  block-size: 0.9em;
+  flex: none;
+  vertical-align: -0.1em;
+}
 .project-arrow {
-  font-family: Arial, sans-serif;
   font-size: 22px;
   margin-right: 4px;
   align-self: flex-end;
@@ -357,6 +351,7 @@ summary:focus-visible {
 }
 .site-footer > a {
   display: inline-flex;
+  align-items: center;
   gap: 24px;
   padding: 8px 0;
 }
@@ -467,8 +462,6 @@ summary:focus-visible {
   .site-header {
     padding-top: 24px;
     padding-bottom: 20px;
-    gap: 18px;
-    flex-wrap: wrap;
   }
   .wordmark {
     font-size: 31px;
@@ -480,14 +473,10 @@ summary:focus-visible {
     font-size: 10px;
     padding: 10px 13px;
   }
-  .site-header nav a span {
-    padding-left: 2px;
-  }
   .social-link {
     min-height: 36px;
     font-size: 10px;
     padding: 8px 12px;
-    gap: 15px;
   }
   .project-grid {
     gap: 24px;

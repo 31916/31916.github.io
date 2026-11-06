@@ -50,7 +50,7 @@ Run `python -m http.server 8000` from the repository root, then open `http://loc
 
 ## Languages
 
-The portfolio supports Japanese, English and German through the header language selector. `assets/translations.json` contains matching dictionaries keyed by normalized Japanese source text; `js/i18n.js` applies text, metadata and accessible labels without replacing page markup. When editing source copy, update its dictionary entry too.
+The portfolio supports Japanese, English and German through the header language selector. `assets/translations.json` stores entries that differ from the normalized Japanese source text. `js/i18n.js` applies them to text, metadata and accessible labels without replacing page markup. When editing source copy, update its translations too.
 
 A valid `?lang=ja`, `?lang=en` or `?lang=de` takes priority over the saved browser preference. The default is Japanese. Navigation retains the selected language, and explicit selections persist locally when storage is available. Japanese HTML remains usable if scripts or translation loading are unavailable. The hobby page stays empty in all languages.
 
