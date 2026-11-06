@@ -1,3 +1,11 @@
+@font-face {
+  font-family: TekitouPoem;
+  src: url("/assets/fonts/TekitouPoem-1.06.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
 .hobbies-theme {
   --paper: #e1e9ee;
   --ink: #252d36;
@@ -77,7 +85,7 @@
     #fcf9ef url("/assets/art/hobby-notebook.png") repeat;
   background-blend-mode: normal, multiply;
   box-shadow: 3px 4px 0 #f5f0df, 4px 6px 0 #cbc9bc, 0 14px 32px rgb(29 47 60 / 14%);
-  font: 400 17px/1.85 Yomogi, "Noto Sans JP", sans-serif;
+  font: 400 17px/1.85 TekitouPoem, Yomogi, "Noto Sans JP", sans-serif;
 }
 html:is(:lang(en), :lang(de)) .hobbies-page {
   font-family: Caveat, Yomogi, "Noto Sans JP", sans-serif;

@@ -25,6 +25,7 @@ PUBLIC = (
     "css/styles.css", "js/scripts.js", "css/resume.css",
     "css/home.css", "css/hobbies.css", "js/hurricane.js", "assets/projects.json",
     "assets/art/hobby-notebook.png",
+    "assets/fonts/TekitouPoem-1.06.woff2", "assets/fonts/TekitouPoem-OFL.txt",
     "assets/identity.json",
     "assets/translations.json", "js/i18n.js",
     "assets/art/favicon.svg", "assets/art/handshape.svg", "assets/art/link-arrow.svg",
