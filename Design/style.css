@@ -78,7 +78,7 @@ main { padding-block: clamp(26px, 7vw, 94px); }
   letter-spacing: -.055em;
 }
 .actions { position: relative; }
-.download, summary {
+.download, #setup > summary {
   height: 48px;
   border: 1px solid var(--ink);
   font-weight: 700;
@@ -98,7 +98,7 @@ main { padding-block: clamp(26px, 7vw, 94px); }
 .download:hover { background: #333; }
 .download span:last-child { font-size: 1.2rem; }
 
-summary {
+#setup > summary {
   display: grid;
   place-items: center;
   width: 48px;
@@ -107,14 +107,14 @@ summary {
   list-style: none;
   cursor: pointer;
 }
-summary::-webkit-details-marker { display: none; }
-summary span { font-size: .82rem; }
-summary:hover, details[open] summary { background: #eee; }
-details[open] summary span { transform: rotate(180deg); }
+#setup > summary::-webkit-details-marker { display: none; }
+#setup > summary span { font-size: .82rem; }
+#setup > summary:hover, #setup[open] > summary { background: #eee; }
+#setup[open] > summary span { transform: rotate(180deg); }
 
 .instructions { padding-top: 16px; overflow-wrap: anywhere; font-size: .84rem; }
-.file-info { color: var(--muted); }
-.instructions h3 { margin-top: 12px; font-size: .95rem; }
+.instructions details + details { border-top: 1px solid var(--rule); }
+.instructions summary { padding-block: 6px; font-weight: 700; cursor: pointer; }
 .instructions ol { margin: 6px 0 12px; padding-left: 1.4em; }
 
 @media (min-width: 721px) {
