@@ -52,6 +52,7 @@
   border-radius: 50%;
   content: "";
   pointer-events: none;
+  will-change: transform;
 }
 .hobbies-theme .hobbies-page::before {
   top: 9rem;
@@ -87,10 +88,10 @@
 }
 @media (prefers-reduced-motion: no-preference) {
   .hobbies-theme .hobbies-page::before {
-    animation: hobby-swirl-forward 28s linear infinite;
+    animation: hobby-swirl-forward 12s linear infinite;
   }
   .hobbies-theme .hobbies-page::after {
-    animation: hobby-swirl-backward 34s linear infinite;
+    animation: hobby-swirl-backward 16s linear infinite;
   }
 }
 @keyframes hobby-swirl-forward {
