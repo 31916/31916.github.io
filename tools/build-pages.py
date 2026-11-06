@@ -23,7 +23,7 @@ PUBLIC = (
     "CNAME", "index.html", "404.html", "robots.txt", "sitemap.xml",
     "about/index.html", "resume/index.html", "projects/index.html", "play/index.html",
     "css/styles.css", "js/scripts.js", "css/resume.css",
-    "css/home.css", "assets/projects.json",
+    "css/home.css", "css/hobbies.css", "assets/projects.json",
     "assets/identity.json",
     "assets/translations.json", "js/i18n.js",
     "assets/art/favicon.svg", "assets/art/handshape.svg", "assets/art/link-arrow.svg",

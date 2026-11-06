@@ -8,7 +8,7 @@ Personal portfolio at **https://31916.ch/**. Plain HTML, CSS, JavaScript and ori
 - `projects/index.html` lists projects with Software, Research and Idea Designs filters.
 - `resume/index.html`: separate education and work timelines, a qualifications list, and a technology stack with icons.
 - `about/index.html`: compatibility redirect to Resume.
-- `play/index.html`: an intentionally blank hobby page; only the shared navigation remains.
+- `play/index.html`: sports with experience, clubs and results, followed by a simple game list. Styles are in `css/hobbies.css`.
 - `IMELayoutRouter/`: existing product website and installer distribution.
 - `IdeaDesigns/` hosts Idea Designs in English. Add each release as its own article with a unique, stable ID. Its Share button uses that ID as the link fragment. `Design/` and `Design/en.html` redirect to Idea Designs.
 - `NumberCursors/`: cursor release assets and redirects from the original download pages.
@@ -52,7 +52,7 @@ Run `python -m http.server 8000` from the repository root, then open `http://loc
 
 The portfolio supports Japanese, English and German through the header language selector. `assets/translations.json` stores entries that differ from the normalized Japanese source text. `js/i18n.js` applies them to text, metadata and accessible labels without replacing page markup. When editing source copy, update its translations too.
 
-A valid `?lang=ja`, `?lang=en` or `?lang=de` takes priority over the saved browser preference. The default is Japanese. Navigation retains the selected language, and explicit selections persist locally when storage is available. Japanese HTML remains usable if scripts or translation loading are unavailable. The hobby page stays empty in all languages.
+A valid `?lang=ja`, `?lang=en` or `?lang=de` takes priority over the saved browser preference. The default is Japanese. Navigation retains the selected language, and explicit selections persist locally when storage is available. Japanese HTML remains usable if scripts or translation loading are unavailable.
 
 The separate IMELayoutRouter product site keeps its existing Japanese/English pages; English and German portfolio visitors are linked to its English page and see the existing English social image.
 
