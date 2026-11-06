@@ -206,7 +206,7 @@ html:lang(de) .hobby-section-content {
     padding-top: 28px;
   }
   .tournament-meta {
-    grid-template-columns: max-content minmax(0, 1fr);
+    grid-template-columns: 166px minmax(0, 1fr);
     column-gap: 28px;
   }
 }
