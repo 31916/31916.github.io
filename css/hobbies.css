@@ -132,9 +132,12 @@
 }
 .tournament-meta {
   display: grid;
-  grid-template-columns: 150px minmax(0, 1fr);
-  column-gap: 88px;
+  grid-template-columns: max-content minmax(0, 1fr);
+  column-gap: 100px;
   margin: 0;
+}
+.tournament-meta span {
+  white-space: nowrap;
 }
 .hobby-results li::marker {
   color: var(--accent);
