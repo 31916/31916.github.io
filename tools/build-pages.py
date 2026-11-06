@@ -55,6 +55,7 @@ PUBLIC = (
     "NumberCursors/media/working-preview.png",
     "NumberCursors/downloads/NumberCursors-1.0.0.zip",
     "NumberCursors/downloads/NumberCursors-v4.zip",
+    "NumberCursors/downloads/Number_Cursors_4.zip",
     "NumberCursors/downloads/NumberCursor-4.cur",
     "NumberCursors/downloads/SHA256SUMS.txt",
     "assets/art/number-cursors.png",
