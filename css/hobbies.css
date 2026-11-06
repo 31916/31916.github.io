@@ -26,10 +26,10 @@
   background: currentColor;
 }
 .hobby-section:nth-of-type(2) > h2 {
-  color: #5d70b6;
+  color: #3d6fc5;
 }
 .interests-section > h2 {
-  color: #8066a8;
+  color: #2f7b9e;
 }
 .interests-section {
   grid-template-columns: 200px minmax(0, 1fr);
