@@ -81,7 +81,8 @@ html:lang(de) .resume-event-name {
   gap: 3px 24px;
   padding-left: 3px;
 }
-.qualification-entry > span {
+.qualification-entry > span,
+.qualification-entry > a {
   min-width: 0;
   overflow-wrap: break-word;
 }
@@ -93,7 +94,8 @@ html:lang(de) .resume-event-name {
   text-align: right;
   white-space: nowrap;
 }
-html:lang(de) .qualification-entry > span {
+html:lang(de) .qualification-entry > span,
+html:lang(de) .qualification-entry > a {
   hyphens: auto;
 }
 .tech-group + .tech-group {
