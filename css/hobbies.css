@@ -1,0 +1,129 @@
+.hobbies-page {
+  padding-top: 38px;
+  padding-bottom: 80px;
+}
+.hobby-section {
+  display: grid;
+  grid-template-columns: 160px minmax(0, 1fr);
+  gap: 40px;
+}
+.hobby-section + .hobby-section {
+  margin-top: 52px;
+  padding-top: 36px;
+  border-top: 1px solid var(--line);
+}
+.hobby-section > h2 {
+  font-size: 20px;
+  line-height: 1.8;
+}
+.sport + .sport {
+  margin-top: 28px;
+  padding-top: 28px;
+  border-top: 1px solid var(--line);
+}
+.sport-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+}
+.sport-heading h3 {
+  font-size: 17px;
+  line-height: 1.8;
+}
+.sport-duration {
+  flex-shrink: 0;
+  color: var(--muted);
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+}
+.sport-details {
+  margin: 20px 0 0;
+  font-size: 13px;
+  line-height: 1.9;
+}
+.sport-details > div + div {
+  margin-top: 18px;
+}
+.sport-details dt {
+  margin-bottom: 6px;
+  color: var(--muted);
+  font-size: 11px;
+}
+.sport-details dd {
+  margin: 0;
+}
+.club-history {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 22px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.club-history li {
+  position: relative;
+  padding-left: 11px;
+}
+.club-history li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.7em;
+  width: 4px;
+  height: 4px;
+  border-top: 1px solid var(--accent);
+  border-right: 1px solid var(--accent);
+  transform: rotate(45deg);
+}
+.hobby-results {
+  margin: 0;
+  padding-left: 1.3em;
+}
+.hobby-results li + li {
+  margin-top: 8px;
+}
+.hobby-results li::marker,
+.game-list li::marker {
+  color: var(--accent);
+}
+.game-list {
+  margin: 0;
+  padding-left: 1.3em;
+  font-size: 14px;
+  line-height: 1.9;
+}
+.game-list li + li {
+  margin-top: 12px;
+}
+html:lang(de) .hobby-section-content,
+html:lang(de) .game-list {
+  hyphens: auto;
+}
+@media (max-width: 750px) {
+  .hobby-section {
+    grid-template-columns: 120px minmax(0, 1fr);
+    gap: 28px;
+  }
+}
+@media (max-width: 650px) {
+  .hobbies-page {
+    padding-top: 24px;
+    padding-bottom: 54px;
+  }
+  .hobby-section {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
+  }
+  .hobby-section > h2 {
+    font-size: 18px;
+  }
+  .hobby-section + .hobby-section {
+    margin-top: 36px;
+    padding-top: 28px;
+  }
+  .club-history {
+    display: grid;
+    gap: 6px;
+  }
+}

@@ -18,8 +18,9 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="/css/styles.css?v=20261106-svg-arrows" />
+    <link rel="stylesheet" href="/css/hobbies.css?v=20261106" />
     <script src="/js/scripts.js?v=20261014a" defer></script>
-    <script src="/js/i18n.js?v=20261106-svg-arrows" defer></script>
+    <script src="/js/i18n.js?v=20261106-hobbies" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main">本文へ移動</a>
@@ -53,6 +54,66 @@
         </label>
       </div>
     </header>
-    <main id="main" aria-label="趣味"></main>
+    <main id="main" class="shell hobbies-page">
+      <h1 class="sr-only">趣味</h1>
+      <section class="hobby-section" aria-labelledby="sports-heading">
+        <h2 id="sports-heading">スポーツ</h2>
+        <div class="hobby-section-content">
+          <article class="sport" aria-labelledby="soft-tennis-heading">
+            <div class="sport-heading">
+              <h3 id="soft-tennis-heading">ソフトテニス</h3>
+              <span class="sport-duration">歴6年</span>
+            </div>
+            <dl class="sport-details">
+              <div>
+                <dt>所属</dt>
+                <dd>
+                  <ol class="club-history">
+                    <li>高浜中学校（2年半）</li>
+                    <li>豊田高専（2年半）</li>
+                    <li>春山クラブ（1年）</li>
+                  </ol>
+                </dd>
+              </div>
+              <div>
+                <dt>成績</dt>
+                <dd>
+                  <ul class="hobby-results">
+                    <li>福井市職域クラブ対抗ソフトテニス大会 2部 春山クラブ準優勝（前衛）</li>
+                    <li>福井県レディース交流大会 混合 2部（エンジョイの部）準優勝（後衛）</li>
+                  </ul>
+                </dd>
+              </div>
+            </dl>
+          </article>
+          <article class="sport" aria-labelledby="badminton-heading">
+            <div class="sport-heading">
+              <h3 id="badminton-heading">バドミントン</h3>
+              <span class="sport-duration">歴2年</span>
+            </div>
+            <dl class="sport-details">
+              <div>
+                <dt>所属</dt>
+                <dd>福井大学バドミントンサークル ポーリュシカポーレ</dd>
+              </div>
+            </dl>
+          </article>
+          <article class="sport" aria-labelledby="pickleball-heading">
+            <div class="sport-heading">
+              <h3 id="pickleball-heading">ピックルボール</h3>
+              <span class="sport-duration">歴半年</span>
+            </div>
+          </article>
+        </div>
+      </section>
+      <section class="hobby-section" aria-labelledby="games-heading">
+        <h2 id="games-heading">ゲーム</h2>
+        <ul class="game-list">
+          <li>マインクラフト</li>
+          <li>イナズマイレブン ビクトリーロード</li>
+          <li>＃コンパス</li>
+        </ul>
+      </section>
+    </main>
   </body>
 </html>
