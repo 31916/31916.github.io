@@ -15,9 +15,29 @@
 .hobby-section > h2 {
   font-size: 20px;
   line-height: 1.8;
+  color: var(--accent);
 }
-.sport + .sport,
-.game-entry + .game-entry {
+.hobby-section > h2::after {
+  content: "";
+  display: block;
+  width: 28px;
+  height: 2px;
+  margin-top: 8px;
+  background: currentColor;
+}
+.hobby-section:nth-of-type(2) > h2 {
+  color: #5d70b6;
+}
+.interests-section > h2 {
+  color: #8066a8;
+}
+.interests-section {
+  grid-template-columns: 200px minmax(0, 1fr);
+}
+.interests-section > h2 {
+  white-space: nowrap;
+}
+.sport + .sport {
   margin-top: 28px;
   padding-top: 28px;
   border-top: 1px solid var(--line);
@@ -30,11 +50,6 @@
 }
 .sport-heading h3 {
   font-size: 17px;
-  line-height: 1.8;
-}
-.game-entry h3 {
-  font-size: 17px;
-  font-weight: 500;
   line-height: 1.8;
 }
 .sport-duration {
@@ -142,6 +157,17 @@
 .hobby-results li::marker {
   color: var(--accent);
 }
+.interest-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.9;
+}
+.interest-list li + li {
+  margin-top: 12px;
+}
 .hobby-link {
   text-decoration: underline;
   text-decoration-color: currentColor;
@@ -156,6 +182,9 @@ html:lang(de) .hobby-section-content {
     grid-template-columns: 120px minmax(0, 1fr);
     gap: 28px;
   }
+  .interests-section {
+    grid-template-columns: 180px minmax(0, 1fr);
+  }
 }
 @media (max-width: 650px) {
   .hobbies-page {
@@ -165,6 +194,9 @@ html:lang(de) .hobby-section-content {
   .hobby-section {
     grid-template-columns: minmax(0, 1fr);
     gap: 24px;
+  }
+  .interests-section {
+    grid-template-columns: minmax(0, 1fr);
   }
   .hobby-section > h2 {
     font-size: 18px;
