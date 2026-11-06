@@ -65,3 +65,32 @@ if (copyWindowsCommand && navigator.clipboard?.writeText) {
     }
   });
 }
+
+const canonical = document.querySelector('link[rel="canonical"]').href;
+for (const button of document.querySelectorAll(".release-share")) {
+  const release = button.closest(".release");
+  const title = release.querySelector("h2").textContent.trim();
+  const status = release.querySelector(".share-status");
+  const url = new URL(canonical);
+  url.hash = release.id;
+
+  button.setAttribute("aria-label", `Share ${title}`);
+  button.hidden = false;
+  button.addEventListener("click", async () => {
+    status.textContent = "";
+    if (navigator.share) {
+      try {
+        await navigator.share({ title, url: url.href });
+        return;
+      } catch (error) {
+        if (error.name === "AbortError") return;
+      }
+    }
+    try {
+      await navigator.clipboard.writeText(url.href);
+      status.textContent = "Link copied.";
+    } catch {
+      status.textContent = url.href;
+    }
+  });
+}
