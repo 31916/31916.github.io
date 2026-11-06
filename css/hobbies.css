@@ -1,6 +1,6 @@
 @font-face {
-  font-family: TekitouPoem;
-  src: url("/assets/fonts/TekitouPoem-1.06.woff2") format("woff2");
+  font-family: Mushin;
+  src: url("/assets/fonts/Mushin-1.04.woff2") format("woff2");
   font-style: normal;
   font-weight: 400;
   font-display: swap;
@@ -84,7 +84,7 @@
 }
 .hobbies-page {
   padding: clamp(18px, 3vw, 32px) var(--outer-padding) clamp(32px, 5vw, 56px) var(--binding);
-  font: 400 17px/1.85 TekitouPoem, Yomogi, "Noto Sans JP", sans-serif;
+  font: 400 17px/1.85 Mushin, Yomogi, "Noto Sans JP", sans-serif;
 }
 html:is(:lang(en), :lang(de)) .hobbies-page {
   font-family: Caveat, Yomogi, "Noto Sans JP", sans-serif;
