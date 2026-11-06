@@ -16,7 +16,8 @@
   font-size: 20px;
   line-height: 1.8;
 }
-.sport + .sport {
+.sport + .sport,
+.game-entry + .game-entry {
   margin-top: 28px;
   padding-top: 28px;
   border-top: 1px solid var(--line);
@@ -29,6 +30,11 @@
 }
 .sport-heading h3 {
   font-size: 17px;
+  line-height: 1.8;
+}
+.game-entry h3 {
+  font-size: 17px;
+  font-weight: 500;
   line-height: 1.8;
 }
 .sport-duration {
@@ -130,18 +136,8 @@
   column-gap: 88px;
   margin: 0;
 }
-.hobby-results li::marker,
-.game-list li::marker {
+.hobby-results li::marker {
   color: var(--accent);
-}
-.game-list {
-  margin: 0;
-  padding-left: 1.3em;
-  font-size: 14px;
-  line-height: 1.9;
-}
-.game-list li + li {
-  margin-top: 12px;
 }
 .hobby-link {
   text-decoration: underline;
@@ -149,8 +145,7 @@
   text-underline-offset: 0.22em;
   text-decoration-thickness: 1px;
 }
-html:lang(de) .hobby-section-content,
-html:lang(de) .game-list {
+html:lang(de) .hobby-section-content {
   hyphens: auto;
 }
 @media (max-width: 750px) {

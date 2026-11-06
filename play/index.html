@@ -18,7 +18,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="/css/styles.css?v=20261106-link-underlines" />
-    <link rel="stylesheet" href="/css/hobbies.css?v=20261106-link-underlines" />
+    <link rel="stylesheet" href="/css/hobbies.css?v=20261106-game-format" />
     <script src="/js/scripts.js?v=20261014a" defer></script>
     <script src="/js/i18n.js?v=20261106-haruyama-name" defer></script>
   </head>
@@ -124,11 +124,15 @@
       </section>
       <section class="hobby-section" aria-labelledby="games-heading">
         <h2 id="games-heading">ゲーム</h2>
-        <ul class="game-list">
-          <li><a class="hobby-link" href="https://www.minecraft.net/ja-jp" target="_blank" rel="noopener noreferrer">マインクラフト</a></li>
-          <li><a class="hobby-link" href="https://www.inazuma.jp/victory-road/" target="_blank" rel="noopener noreferrer">イナズマイレブン 英雄たちのヴィクトリーロード</a></li>
-          <li>
-            <a class="hobby-link" href="https://app.nhn-playart.com/compass/" target="_blank" rel="noopener noreferrer">#コンパス 戦闘摂理解析システム</a>
+        <div class="hobby-section-content">
+          <article class="game-entry" aria-labelledby="minecraft-heading">
+            <h3 id="minecraft-heading"><a class="hobby-link" href="https://www.minecraft.net/ja-jp" target="_blank" rel="noopener noreferrer">マインクラフト</a></h3>
+          </article>
+          <article class="game-entry" aria-labelledby="inazuma-heading">
+            <h3 id="inazuma-heading"><a class="hobby-link" href="https://www.inazuma.jp/victory-road/" target="_blank" rel="noopener noreferrer">イナズマイレブン 英雄たちのヴィクトリーロード</a></h3>
+          </article>
+          <article class="game-entry" aria-labelledby="compass-heading">
+            <h3 id="compass-heading"><a class="hobby-link" href="https://app.nhn-playart.com/compass/" target="_blank" rel="noopener noreferrer">#コンパス 戦闘摂理解析システム</a></h3>
             <dl class="sport-details">
               <div>
                 <dt>成績</dt>
@@ -138,8 +142,8 @@
                 </dd>
               </div>
             </dl>
-          </li>
-        </ul>
+          </article>
+        </div>
       </section>
     </main>
   </body>
