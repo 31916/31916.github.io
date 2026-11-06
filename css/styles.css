@@ -225,6 +225,9 @@ summary:focus-visible {
 .research-image {
   background: #e4ecff;
 }
+.cursor-art-image {
+  background: #111;
+}
 .app-icon-image img {
   width: auto;
   margin-inline: auto;

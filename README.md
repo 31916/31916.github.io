@@ -5,12 +5,12 @@ Personal portfolio at **https://31916.ch/**. Plain HTML, CSS, JavaScript and ori
 ## Pages
 
 - `index.html`: a home with two selected projects and contact (email/copy button). GitHub and X icons stay above the projects at the right edge.
-- `projects/index.html`: project directory with Software / Research filters.
+- `projects/index.html` lists projects with Software, Research and Idea Design filters.
 - `resume/index.html`: separate education and work timelines, a qualifications list, and a technology stack with icons.
 - `about/index.html`: compatibility redirect to Resume.
 - `play/index.html`: an intentionally blank hobby page; only the shared navigation remains.
 - `IMELayoutRouter/`: existing product website and installer distribution.
-- `Design/`: English design downloads. Add each release as its own article. `Design/en.html` redirects to the main download page.
+- `Design/` hosts Idea Design in English. Add each release as its own article. `Design/en.html` redirects to Idea Design.
 - `NumberCursors/`: cursor release assets and redirects from the original download pages.
 - `404.html`: missing-page recovery.
 
@@ -26,7 +26,7 @@ Edit `assets/projects.json`. The `projects` array is the full project catalog; `
 "featured": ["ime-layout-router", "handshape-recognition"]
 ```
 
-To add a project, copy a catalog entry, assign a unique `id`, and update its title, link and image. Set `category` to `software` or `research`. Add Japanese/English/German translations for new visible text and image descriptions in `assets/translations.json`. Change an ID in `featured` to show the new project on the home page. The build validates the selection, renders both the home and full project listing into HTML, and automatically includes local project images. No browser-side card replacement occurs.
+To add a project, copy a catalog entry, assign a unique `id`, and update its title, link and image. Set `category` to `software`, `research` or `idea-design`. Add Japanese/English/German translations for new visible text and image descriptions in `assets/translations.json`. Change an ID in `featured` to show the new project on the home page. The build validates the selection, renders both the home and full project listing into HTML, and automatically includes local project images. No browser-side card replacement occurs.
 
 The checked-in HTML includes the current cards for direct preview. After editing the catalog, preview the generated `tools/build-pages.py` output to see the new selection; deployment always uses the catalog. On Windows, extract current paths only for preview, excluding the case-sensitive `IMELayOutRouter/` aliases to avoid overwriting the current product directory.
 
