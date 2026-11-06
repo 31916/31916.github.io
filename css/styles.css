@@ -222,12 +222,13 @@ summary:focus-visible {
   height: 100%;
   object-fit: contain;
 }
-.research-image,
-.app-icon-image {
+.research-image {
   background: #e4ecff;
 }
 .app-icon-image img {
-  transform: scale(0.65);
+  width: auto;
+  margin-inline: auto;
+  border-radius: 20%;
 }
 .project-link:hover .project-image {
   border-color: #829eda;
