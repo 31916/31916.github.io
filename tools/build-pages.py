@@ -248,7 +248,7 @@ def render_featured_projects(settings):
             f'    <h3>{escape(project["title"])}</h3>\n'
             f'    <p class="featured-type">{escape(project["type"])}</p>\n'
             '  </div>\n'
-            '  <span class="featured-arrow" aria-hidden="true">↗</span>\n'
+            '  <span class="featured-arrow" aria-hidden="true">↗&#xfe0e;</span>\n'
             '</a>'
         )
     return "\n".join(cards)
@@ -270,7 +270,7 @@ def render_project_catalog(settings):
             f'        <p class="project-type">{escape(project["type"])} <span>{escape(project["tech"])}</span></p>\n'
             f'        <h3>{escape(project["title"])}</h3>\n'
             '      </div>\n'
-            '      <span class="project-arrow" aria-hidden="true">↗</span>\n'
+            '      <span class="project-arrow" aria-hidden="true">↗&#xfe0e;</span>\n'
             '    </div>\n'
             '  </a>\n'
             '</article>'
