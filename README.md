@@ -60,7 +60,7 @@ The separate IMELayoutRouter product site keeps its existing Japanese/English pa
 
 Pushes to `main` deploy through `.github/workflows/pages.yml`. `tools/build-pages.py` builds the public archive, including the case-sensitive `IMELayOutRouter` legacy aliases. Add any new top-level public page/directory to `PUBLIC` in that script. Existing installer checksum checks run during deployment.
 
-The fixed public filename for Number Cursors 4 is `NumberCursors/downloads/Number_Cursors_4.zip`. For each update, replace the ZIP at that path and refresh its entry in `NumberCursors/downloads/SHA256SUMS.txt`.
+The fixed public filename for Number Cursors 4 is `NumberCursors/downloads/Number_Cursors_4.zip`. To update it, run `python tools/build-number-cursors.py path/to/windows-source.zip` with the Windows scheme ZIP. This packages the Windows files with the macOS and Linux themes. Refresh its entry in `NumberCursors/downloads/SHA256SUMS.txt`.
 
 The pre-redesign site, including the existing product pages and downloads, is preserved at branch `backup/portfolio-before-redesign-2026-09-21` (commit `01b4c4e`).
 
