@@ -3,23 +3,36 @@
   padding-bottom: 80px;
 }
 .hobbies-theme {
-  --paper: #fff8f4;
-  --ink: #351815;
-  --muted: #8a5b52;
-  --line: #edc5b9;
-  --accent: #d94627;
+  --paper: #310504;
+  --ink: #fff3ea;
+  --muted: #ffc1aa;
+  --line: #7a241b;
+  --accent: #ff7131;
   background:
-    radial-gradient(58rem 32rem at 100% -8%, rgb(255 111 56 / 16%), transparent 62%),
-    radial-gradient(36rem 26rem at 0% 92%, rgb(204 44 28 / 9%), transparent 70%),
-    var(--paper);
+    radial-gradient(70rem 44rem at 96% -18%, rgb(255 100 25 / 76%), transparent 62%),
+    radial-gradient(48rem 38rem at -12% 96%, rgb(218 29 18 / 62%), transparent 66%),
+    linear-gradient(135deg, #270202 0%, #770d08 48%, #280303 100%);
+}
+.hobbies-theme .site-header {
+  color: #3c0b07;
+  background: linear-gradient(100deg, #ffbe9e 0%, #ff7b49 100%);
 }
 .hobbies-theme .site-header nav a:hover,
 .hobbies-theme .site-header nav a[aria-current="page"] {
-  background: #ffe7df;
-  border-color: #efb4a5;
+  color: #fff7f0;
+  background: #8f1c10;
+  border-color: #8f1c10;
+}
+.hobbies-theme .language-picker {
+  color: #642015;
+}
+.hobbies-theme .language-picker select {
+  color: #3c0b07;
+  border-color: rgb(60 11 7 / 36%);
 }
 .hobbies-theme ::selection {
-  background: #ffd6c9;
+  color: #3c0b07;
+  background: #ffb18d;
 }
 .hobby-section {
   display: grid;
