@@ -13,8 +13,7 @@
     clearTimeout(timer);
     const interacting = hovering.size > 0 || pressed.size > 0;
     stage.classList.toggle("is-interacting", interacting);
-    if (!interacting && !document.hidden && !rotor.querySelector(":focus-visible") &&
-        comparison.complete && comparison.naturalWidth) {
+    if (!interacting && !document.hidden && comparison.complete && comparison.naturalWidth) {
       timer = setTimeout(showOtherArtwork, 6000);
     }
   }
@@ -46,8 +45,6 @@
 
   window.addEventListener("pointerup", releasePointer);
   window.addEventListener("pointercancel", releasePointer);
-  rotor.addEventListener("focusin", schedule);
-  rotor.addEventListener("focusout", () => queueMicrotask(schedule));
   document.addEventListener("visibilitychange", schedule);
   comparison.addEventListener("load", schedule, { once: true });
   schedule();
