@@ -5,12 +5,12 @@ Personal portfolio at **https://31916.ch/**. Plain HTML, CSS, JavaScript and ori
 ## Pages
 
 - `index.html`: a home with two selected projects and contact (email/copy button). GitHub and X icons stay above the projects at the right edge.
-- `projects/index.html` lists projects with Software, Research and Idea Design filters.
+- `projects/index.html` lists projects with Software, Research and Idea Designs filters.
 - `resume/index.html`: separate education and work timelines, a qualifications list, and a technology stack with icons.
 - `about/index.html`: compatibility redirect to Resume.
 - `play/index.html`: an intentionally blank hobby page; only the shared navigation remains.
 - `IMELayoutRouter/`: existing product website and installer distribution.
-- `Design/` hosts Idea Design in English. Add each release as its own article. `Design/en.html` redirects to Idea Design.
+- `Design/` hosts Idea Designs in English. Add each release as its own article. `Design/en.html` redirects to Idea Designs.
 - `NumberCursors/`: cursor release assets and redirects from the original download pages.
 - `404.html`: missing-page recovery.
 
