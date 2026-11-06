@@ -70,7 +70,28 @@ main { padding-block: clamp(26px, 7vw, 94px); }
 }
 
 .release-info { padding-top: min(9vw, 136px, 20svh); }
+.release-bar { display: flex; align-items: center; gap: 12px; }
 .index { color: var(--muted); font-size: .8rem; font-variant-numeric: tabular-nums; letter-spacing: .08em; }
+.share-status {
+  margin-inline-start: auto;
+  color: var(--muted);
+  font-size: .75rem;
+  overflow-wrap: anywhere;
+  user-select: all;
+}
+.release-share {
+  flex: none;
+  min-height: 32px;
+  padding-inline: 10px;
+  border: 1px solid var(--rule);
+  background: #fff;
+  color: var(--ink);
+  font: inherit;
+  font-size: .8rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+.release-share:hover { background: #eee; }
 .release-info h2 {
   margin-block: 4px clamp(16px, 3vw, 26px);
   font-size: clamp(1.9rem, 4.5vw, 3.75rem);
