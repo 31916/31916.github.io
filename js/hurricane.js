@@ -5,7 +5,7 @@
   if (!intro) return;
 
   const scene = intro.querySelector(".hurricane-scene");
-  const stickers = [...scene.querySelectorAll(".storm-sticker")];
+  const notebook = document.querySelector(".hobbies-page");
   const motion = window.matchMedia("(prefers-reduced-motion: reduce)");
   const tau = 2 * Math.PI;
   const clamp = (value) => Math.min(1, Math.max(0, value));
@@ -171,8 +171,8 @@
     // The timed entrance, repeating swells, and scroll-driven peel are independent.
     const birth = smooth((seconds - layer.delay) / (0.97 + index * 0.09));
     const loop = seconds * tau / layer.period;
-    const peel = smooth((progress - layer.release) / (0.91 - layer.release));
-    const opacity = birth * (1 - smooth((peel - 0.52) / 0.48));
+    const peel = smooth((progress - layer.release) / (0.95 - layer.release));
+    const opacity = birth * (1 - smooth((peel - 0.64) / 0.36));
     if (opacity <= 0) return;
 
     const radius = Math.hypot(width, height) * (0.75 + Math.sin(loop) * 0.018)
@@ -180,8 +180,8 @@
     const spin = -seconds * 0.16 + Math.sin(loop) * 0.1 + (1 - birth) * 1.18 - peel * 2.2;
     context.save();
     context.translate(
-      width * (0.52 + Math.sin(loop) * 0.023 + peel * (0.76 + index * 0.07)),
-      height * (0.5 + Math.cos(loop) * 0.022 - peel * (0.56 + index * 0.06)),
+      width * (0.52 + Math.sin(loop) * 0.023 + peel * (0.66 + index * 0.07)),
+      height * (0.5 + Math.cos(loop) * 0.022 - peel * (0.53 + index * 0.06)),
     );
     context.rotate(-0.23 - peel * (0.26 + index * 0.08));
     context.scale(1 + peel * 0.7, 1 - peel * 0.46);
@@ -199,21 +199,6 @@
     }
   }
 
-  function positionStickers(seconds, progress) {
-    stickers.forEach((sticker, index) => {
-      const birth = smooth((seconds - 0.42 - index * 0.07) / 0.83);
-      const peel = smooth((progress - index * 0.018) / 0.8);
-      const sway = seconds * (0.75 + index * 0.09) + index * 1.8;
-      const x = Math.cos(sway) * 8 + (1 - birth) * (index % 2 ? 45 : -45)
-        + peel * width * (index % 2 ? 0.43 : 0.29);
-      const y = Math.sin(sway) * 12 + (1 - birth) * 35 - peel * height * (0.33 + index * 0.04);
-      const tilt = Math.sin(sway * 0.81) * 6 - peel * (22 + index * 5);
-      const scale = (0.59 + birth * 0.41) * (1 - peel * 0.38);
-      sticker.style.opacity = birth * (1 - smooth((peel - 0.33) / 0.61));
-      sticker.style.transform = `translate3d(${x}px, ${y}px, 0) rotate(calc(var(--tilt) + ${tilt}deg)) scale(${scale})`;
-    });
-  }
-
   function requestFrame() {
     if (frameId === null && !document.hidden && !intro.hidden) {
       frameId = window.requestAnimationFrame(render);
@@ -227,18 +212,17 @@
     const progress = clamp(
       (scene.getBoundingClientRect().top - intro.getBoundingClientRect().top) / scrollDistance,
     );
-    scene.style.setProperty("--storm-clear", smooth((progress - 0.69) / 0.25));
-    if (progress >= 0.94) {
+    intro.classList.toggle("notebook-visible", notebook.getBoundingClientRect().top < window.innerHeight);
+    scene.style.setProperty("--storm-clear", smooth((progress - 0.76) / 0.20));
+    if (progress >= 0.96) {
       if (!cleared) {
         layers.forEach(({ context }) => context.clearRect(0, 0, width, height));
-        stickers.forEach((sticker) => { sticker.style.opacity = 0; });
         cleared = true;
       }
       return;
     }
     cleared = false;
     layers.forEach((layer) => drawLayer(layer, seconds, progress));
-    positionStickers(seconds, progress);
     requestFrame();
   }
 
