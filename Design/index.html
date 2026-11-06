@@ -13,7 +13,7 @@
   <meta property="og:locale" content="en_US">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="style.css?v=20261106-platforms">
-  <script src="preview.js?v=20261106-6s" defer></script>
+  <script src="preview.js?v=20261106-inline" defer></script>
   <meta name="theme-color" content="#ffffff">
 </head>
 <body>
@@ -31,15 +31,19 @@
         <figure id="preview">
           <div class="artwork-stage">
             <div class="artwork-rotor">
-              <a class="artwork" href="number-cursors.svg?v=3" aria-label="Enlarge the tilted numeral 4 artwork">
+              <div class="artwork">
                 <img src="number-cursors.svg?v=3" width="640" height="640" alt="A tilted, striped numeral 4 on black.">
-              </a>
-              <a class="artwork artwork-back" href="cursor-comparison-v4.png?v=3" aria-label="Enlarge the Windows cursor comparison" inert>
+              </div>
+              <div class="artwork artwork-back" inert>
                 <img src="cursor-comparison-v4.png?v=3" width="1600" height="1600" alt="All 17 cursor roles. Each pair shows Windows Aero on the left and Number Cursors 4 on the right.">
-              </a>
+              </div>
             </div>
           </div>
-          <noscript><a href="cursor-comparison-v4.png?v=3">Cursor comparison</a></noscript>
+          <noscript>
+            <div class="artwork">
+              <img src="cursor-comparison-v4.png?v=3" width="1600" height="1600" alt="All 17 cursor roles. Each pair shows Windows Aero on the left and Number Cursors 4 on the right.">
+            </div>
+          </noscript>
         </figure>
 
         <div class="release-info">
