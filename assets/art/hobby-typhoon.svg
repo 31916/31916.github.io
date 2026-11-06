@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1600" fill="none">
+  <defs>
+    <linearGradient id="arm-a" x1="600" y1="650" x2="1460" y2="1250" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ffdfb0"/>
+      <stop offset=".18" stop-color="#ff8b2b"/>
+      <stop offset=".58" stop-color="#ff3f2c"/>
+      <stop offset="1" stop-color="#c80d3b"/>
+    </linearGradient>
+    <linearGradient id="arm-b" x1="540" y1="700" x2="1450" y2="1290" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ffc06a"/>
+      <stop offset=".4" stop-color="#ff4b2d"/>
+      <stop offset="1" stop-color="#8d0b45"/>
+    </linearGradient>
+    <path id="spiral" d="M800 800C836 770 887 796 878 847C866 919 762 940 701 881C609 792 657 650 790 607C981 545 1110 733 1040 924C955 1158 662 1241 449 1060C177 829 268 394 605 235C1004 47 1379 345 1356 773C1331 1230 881 1512 451 1354"/>
+  </defs>
+  <g stroke-linecap="round">
+    <use href="#spiral" stroke="url(#arm-a)" stroke-width="104"/>
+    <use href="#spiral" transform="rotate(120 800 800)" stroke="url(#arm-b)" stroke-width="104"/>
+    <use href="#spiral" transform="rotate(240 800 800)" stroke="url(#arm-a)" stroke-width="104"/>
+    <use href="#spiral" stroke="#ffbd65" stroke-opacity=".72" stroke-width="18"/>
+    <use href="#spiral" transform="rotate(120 800 800)" stroke="#ffe0ad" stroke-opacity=".54" stroke-width="18"/>
+    <use href="#spiral" transform="rotate(240 800 800)" stroke="#ffb172" stroke-opacity=".6" stroke-width="18"/>
+  </g>
+  <circle cx="800" cy="800" r="116" fill="#18131f"/>
+  <circle cx="800" cy="800" r="77" fill="#35101f" stroke="#ff7840" stroke-width="18"/>
+  <circle cx="800" cy="800" r="28" fill="#ffcf76"/>
+</svg>

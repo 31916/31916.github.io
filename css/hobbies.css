@@ -159,38 +159,22 @@
 .hobbies-theme .hobbies-page::after {
   position: fixed;
   z-index: -1;
-  width: min(56vw, 760px);
+  width: min(146vmax, 1920px);
   aspect-ratio: 1;
-  border-radius: 50%;
   content: "";
   pointer-events: none;
   will-change: transform;
 }
 .hobbies-theme .hobbies-page::before {
-  top: 9rem;
-  right: -28vw;
-  background: repeating-conic-gradient(
-    from 18deg,
-    #ff3d2c 0deg 16deg,
-    #ff8a24 16deg 33deg,
-    #c20e31 33deg 50deg,
-    #ff5d35 50deg 66deg
-  );
-  box-shadow: 0 0 68px rgb(255 73 35 / 52%);
-  opacity: 0.9;
+  top: 48%;
+  left: 61%;
+  background: url("/assets/art/hobby-typhoon.svg") center / contain no-repeat;
+  filter: drop-shadow(0 0 52px rgb(255 63 43 / 34%));
+  opacity: 0.84;
+  transform: translate(-50%, -50%);
 }
 .hobbies-theme .hobbies-page::after {
-  bottom: -20vw;
-  left: -24vw;
-  background: repeating-conic-gradient(
-    from 210deg,
-    #e72c3d 0deg 18deg,
-    #ff6a2d 18deg 36deg,
-    #a90d3b 36deg 54deg,
-    #ff9b27 54deg 72deg
-  );
-  box-shadow: 0 0 72px rgb(235 38 48 / 48%);
-  opacity: 0.72;
+  display: none;
 }
 .hobbies-theme .hobby-section > h2 {
   font-size: 26px;
@@ -200,20 +184,15 @@
 }
 @media (prefers-reduced-motion: no-preference) {
   .hobbies-theme .hobbies-page::before {
-    animation: hobby-swirl-forward 12s linear infinite;
-  }
-  .hobbies-theme .hobbies-page::after {
-    animation: hobby-swirl-backward 16s linear infinite;
+    animation: hobby-typhoon 20s linear infinite;
   }
 }
-@keyframes hobby-swirl-forward {
-  to {
-    transform: rotate(1turn);
+@keyframes hobby-typhoon {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
   }
-}
-@keyframes hobby-swirl-backward {
   to {
-    transform: rotate(-1turn);
+    transform: translate(-50%, -50%) rotate(1turn);
   }
 }
 .hobby-section {
@@ -411,17 +390,9 @@ html:lang(de) .hobby-section-content {
     font-size: 24px;
     line-height: 1.5;
   }
-  .hobbies-theme .hobbies-page::before,
-  .hobbies-theme .hobbies-page::after {
-    width: 78vw;
-  }
   .hobbies-theme .hobbies-page::before {
-    top: 12rem;
-    right: -47vw;
-  }
-  .hobbies-theme .hobbies-page::after {
-    bottom: -38vw;
-    left: -42vw;
+    width: 190vmax;
+    left: 58%;
   }
   .hobby-section + .hobby-section {
     margin-top: 36px;
