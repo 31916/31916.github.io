@@ -13,24 +13,6 @@
   --line: #b9c9d5;
   --accent: #265879;
 }
-.hobbies-theme .site-header {
-  color: #08204f;
-  background: linear-gradient(100deg, #f6fdff, #b2dcf1);
-  border: 1px solid #e8fcff;
-  border-top: 0;
-  border-radius: 0 0 18px 18px;
-  box-shadow: 0 4px 12px rgb(6 27 55 / 14%);
-}
-.hobbies-theme .site-header nav a:hover,
-.hobbies-theme .site-header nav a[aria-current="page"] {
-  color: #f8feff;
-  background: #0e58bf;
-  border-color: #0e58bf;
-}
-.hobbies-theme .language-picker {
-  color: #12447e;
-}
-
 .hurricane-intro {
   height: 235svh;
 }
@@ -62,50 +44,51 @@
 .wave-glaze { z-index: 1; }
 .wave-foam { z-index: 3; }
 .wave-spray { z-index: 5; }
-.hurricane-intro:not([hidden]):not(.notebook-visible) + .site-header {
-  visibility: hidden;
-}
 @media (prefers-reduced-motion: reduce) {
   .hurricane-intro {
     display: none;
   }
 }
 
-.hobbies-page {
+.hobby-notebook {
   --binding: clamp(2rem, 7vw, 6rem);
-  position: relative;
-  isolation: isolate;
+  --outer-padding: clamp(18px, 6vw, 70px);
+  --margin-ink: rgb(160 83 85 / 31%);
   width: min(860px, calc(100% - 32px));
   margin: clamp(24px, 6vw, 76px) auto clamp(40px, 8vw, 100px);
-  padding: clamp(28px, 5vw, 60px) clamp(18px, 6vw, 70px) clamp(32px, 5vw, 56px) var(--binding);
+  scroll-margin-top: calc(-1 * var(--header-height, 108px));
   border: 1px solid #d8d3c6;
   border-radius: 2px 6px 6px 2px;
+  box-shadow: 3px 4px 0 #f5f0df, 4px 6px 0 #cbc9bc, 0 14px 32px rgb(29 47 60 / 14%);
+}
+.hobby-notebook,
+.hobby-notebook .site-header {
   background:
+    radial-gradient(circle at center, #d5e0e7 3px, #c1c8c8 4px, transparent 5px)
+      left calc(var(--binding) * 0.25 - 2px) top 8px / 10px 48px repeat-y,
+    linear-gradient(90deg, var(--margin-ink) 1px, transparent 1px 3px, var(--margin-ink) 3px)
+      left calc(var(--binding) - 14px) top / 4px 100% no-repeat,
     linear-gradient(rgb(255 252 242 / 38%), rgb(255 252 242 / 38%)),
     #fcf9ef url("/assets/art/hobby-notebook.png") repeat;
-  background-blend-mode: normal, multiply;
-  box-shadow: 3px 4px 0 #f5f0df, 4px 6px 0 #cbc9bc, 0 14px 32px rgb(29 47 60 / 14%);
+  background-blend-mode: normal, normal, normal, multiply;
+}
+.hobby-notebook .site-header {
+  padding-inline: var(--binding) var(--outer-padding);
+  border-radius: 1px 5px 0 0;
+}
+.hobby-notebook .site-header nav a:hover,
+.hobby-notebook .site-header nav a[aria-current="page"] {
+  color: var(--accent);
+  background: #e5edf1;
+  border-color: #97acba;
+}
+.hobbies-page {
+  padding: clamp(18px, 3vw, 32px) var(--outer-padding) clamp(32px, 5vw, 56px) var(--binding);
   font: 400 17px/1.85 TekitouPoem, Yomogi, "Noto Sans JP", sans-serif;
 }
 html:is(:lang(en), :lang(de)) .hobbies-page {
   font-family: Caveat, Yomogi, "Noto Sans JP", sans-serif;
   font-size-adjust: 0.49;
-}
-.hobbies-page::before {
-  position: absolute;
-  inset: 0 auto 0 calc(var(--binding) - 14px);
-  z-index: -1;
-  width: 4px;
-  border-inline: 1px solid rgb(160 83 85 / 31%);
-  content: "";
-}
-.hobbies-page::after {
-  position: absolute;
-  inset: 8px auto 8px calc(var(--binding) * 0.25 - 2px);
-  z-index: -1;
-  width: 10px;
-  background: radial-gradient(circle at center, #d5e0e7 3px, #c1c8c8 4px, transparent 5px) 0 0 / 10px 48px repeat-y;
-  content: "";
 }
 .hobbies-page h1,
 .hobby-section > h2,
@@ -276,9 +259,9 @@ html:lang(de) .hobby-section-content {
   font: 12px/1.6 var(--sans);
 }
 @media (max-width: 650px) {
-  .hobbies-page {
+  .hobby-notebook {
+    --outer-padding: 14px;
     width: calc(100% - 20px);
-    padding-right: 14px;
   }
   .sport-heading h3 {
     font-size: 18px;

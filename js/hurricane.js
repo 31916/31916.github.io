@@ -5,7 +5,6 @@
   if (!intro) return;
 
   const scene = intro.querySelector(".hurricane-scene");
-  const notebook = document.querySelector(".hobbies-page");
   const motion = window.matchMedia("(prefers-reduced-motion: reduce)");
   const tau = 2 * Math.PI;
   const clamp = (value) => Math.min(1, Math.max(0, value));
@@ -212,7 +211,6 @@
     const progress = clamp(
       (scene.getBoundingClientRect().top - intro.getBoundingClientRect().top) / scrollDistance,
     );
-    intro.classList.toggle("notebook-visible", notebook.getBoundingClientRect().top < window.innerHeight);
     scene.style.setProperty("--storm-clear", smooth((progress - 0.76) / 0.20));
     if (progress >= 0.96) {
       if (!cleared) {
