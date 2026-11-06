@@ -50,6 +50,7 @@ PUBLIC = (
     "Design/index.html", "Design/en.html",
     "Design/google97bf67731c686ec9.html",  # Keep Search Console ownership verified.
     f"{IDEA_DESIGNS}/index.html", f"{IDEA_DESIGNS}/style.css", f"{IDEA_DESIGNS}/favicon.svg",
+    f"{IDEA_DESIGNS}/social-d.png",
     f"{IDEA_DESIGNS}/sitemap.xml", f"{IDEA_DESIGNS}/number-cursors.svg",
     f"{IDEA_DESIGNS}/cursor-comparison-v2.png", f"{IDEA_DESIGNS}/cursor-comparison-v3.png",
     f"{IDEA_DESIGNS}/cursor-comparison-v4.png", f"{IDEA_DESIGNS}/preview.js",
@@ -113,12 +114,16 @@ class LogoSlots(HTMLParser):
             self.content_start = None
 
 
+def share_metadata(page):
+    metadata = ShareMetadata()
+    metadata.feed((ROOT / page).read_text(encoding="utf-8"))
+    return "\n  ".join(metadata.tags)
+
+
 def redirect(page):
     target = f"/{CURRENT}/" + ("en.html" if page == "en.html" else "")
     language = "en" if page == "en.html" else "ja"
-    metadata = ShareMetadata()
-    metadata.feed((ROOT / CURRENT / page).read_text(encoding="utf-8"))
-    sharing = "\n  ".join(metadata.tags)
+    sharing = share_metadata(f"{CURRENT}/{page}")
     return f'''<!doctype html>
 <html lang="{language}">
 <head>
@@ -289,7 +294,7 @@ def replace_project_slot(source, name, markup):
 
 
 def render_public_html(content, settings=None, projects=None):
-    """Render configured logos and project cards before the first browser paint."""
+    """Render configured logos, project cards and metadata for legacy shares."""
     if settings is None:
         settings = json.loads((ROOT / "assets/identity.json").read_text(encoding="utf-8"))
     identity_assets(settings)
@@ -313,6 +318,8 @@ def render_public_html(content, settings=None, projects=None):
         projects = load_projects(projects)
         source = replace_project_slot(source, "featured-projects", render_featured_projects(projects))
         source = replace_project_slot(source, "project-catalog", render_project_catalog(projects))
+    if "<!-- idea-designs-share -->" in source:
+        source = source.replace("<!-- idea-designs-share -->", share_metadata(f"{IDEA_DESIGNS}/index.html"))
     return source.encode("utf-8")
 
 
