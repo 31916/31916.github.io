@@ -53,29 +53,6 @@
 .sport-details dd {
   margin: 0;
 }
-.club-history {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px 22px;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-.club-history li {
-  position: relative;
-  padding-left: 11px;
-}
-.club-history li::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0.7em;
-  width: 4px;
-  height: 4px;
-  border-top: 1px solid var(--accent);
-  border-right: 1px solid var(--accent);
-  transform: rotate(45deg);
-}
 .hobby-results {
   margin: 0;
   padding-left: 1.3em;
@@ -131,9 +108,5 @@ html:lang(de) .game-list {
   .hobby-section + .hobby-section {
     margin-top: 36px;
     padding-top: 28px;
-  }
-  .club-history {
-    display: grid;
-    gap: 6px;
   }
 }
