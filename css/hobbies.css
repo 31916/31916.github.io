@@ -30,9 +30,7 @@
 .hurricane-scene {
   position: sticky;
   top: var(--header-height, 108px);
-  display: grid;
   height: var(--scene-height);
-  place-items: end center;
   overflow: clip;
   isolation: isolate;
   background: radial-gradient(ellipse at 60% 50%, #174977, #091a36 72%);
@@ -52,23 +50,6 @@
   width: 100%;
   height: 100%;
   pointer-events: none;
-}
-.hurricane-cue {
-  z-index: 2;
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: clamp(16px, 4vh, 32px);
-  padding: 8px 16px;
-  border: 1px solid rgb(204 244 255 / 52%);
-  border-radius: 99px;
-  background: #0b2645;
-  color: #ebfaff;
-  font-size: 13px;
-  text-decoration: none;
-}
-.hurricane-cue:focus-visible {
-  outline-color: #e5faff;
 }
 @media (prefers-reduced-motion: reduce) {
   .hurricane-intro {
@@ -90,7 +71,11 @@
     #fcf9ef url("/assets/art/hobby-notebook.png") repeat;
   background-blend-mode: normal, multiply;
   box-shadow: 3px 4px 0 #f5f0df, 4px 6px 0 #cbc9bc, 0 14px 32px rgb(29 47 60 / 14%);
-  font: 400 17px/1.85 "Klee One", "Noto Sans JP", sans-serif;
+  font: 400 17px/1.85 Yomogi, "Noto Sans JP", sans-serif;
+}
+html:is(:lang(en), :lang(de)) .hobbies-page {
+  font-family: Caveat, Yomogi, "Noto Sans JP", sans-serif;
+  font-size-adjust: 0.49;
 }
 .hobbies-page::before {
   position: absolute;
@@ -288,9 +273,9 @@ html:lang(de) .hobby-section-content {
     font-size: 15px;
   }
   .tournament-meta {
-    grid-template-columns: minmax(0, 1.04fr) minmax(0, 1fr);
+    grid-template-columns: minmax(0, 1.08fr) minmax(0, 1fr);
     gap: 8px;
-    margin-left: -1.3em;
+    margin-inline: -1.3em -8px;
     font-size: 12px;
     line-height: 1.6;
   }
