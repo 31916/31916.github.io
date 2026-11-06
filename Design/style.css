@@ -59,6 +59,7 @@ main { padding-block: clamp(26px, 7vw, 94px); }
 .release + .release { margin-top: clamp(36px, 8vw, 100px); }
 .artwork-stage { perspective: 1250px; }
 .artwork-rotor { position: relative; transform-style: preserve-3d; transition: transform .65s ease-in-out; }
+.artwork-stage.is-interacting .artwork-rotor { transition: none; }
 .artwork-rotor.is-flipped { transform: rotateY(180deg); }
 .artwork { display: block; border-radius: 20%; backface-visibility: hidden; }
 .artwork img { display: block; width: 100%; height: auto; }
