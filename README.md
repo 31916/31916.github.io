@@ -10,7 +10,7 @@ Personal portfolio at **https://31916.ch/**. Plain HTML, CSS, JavaScript and ori
 - `about/index.html`: compatibility redirect to Resume.
 - `play/index.html`: an intentionally blank hobby page; only the shared navigation remains.
 - `IMELayoutRouter/`: existing product website and installer distribution.
-- `Design/` hosts Idea Designs in English. Add each release as its own article. `Design/en.html` redirects to Idea Designs.
+- `IdeaDesigns/` hosts Idea Designs in English. Add each release as its own article. `Design/` and `Design/en.html` redirect to Idea Designs.
 - `NumberCursors/`: cursor release assets and redirects from the original download pages.
 - `404.html`: missing-page recovery.
 
