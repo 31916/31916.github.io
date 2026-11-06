@@ -1,105 +1,143 @@
 "use strict";
 
-const hurricaneCanvas = document.querySelector("[data-hurricane-canvas]");
+(() => {
+  const intro = document.querySelector(".hurricane-intro");
+  if (!intro) return;
 
-if (hurricaneCanvas) {
-  const context = hurricaneCanvas.getContext("2d");
-  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  const scene = intro.querySelector(".hurricane-scene");
+  const canvas = scene.querySelector("canvas");
+  const context = canvas.getContext("2d");
+  if (!context) return;
+
+  const motion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  const tau = Math.PI * 2;
+  const arms = [0, 1.02, 2.35, 3.83, 5.12];
+  const clamp = (value) => Math.min(1, Math.max(0, value));
+  const smooth = (value) => {
+    const t = clamp(value);
+    return t * t * (3 - 2 * t);
+  };
   let width = 0;
   let height = 0;
-  let pixelRatio = 1;
+  let scrollDistance = 1;
+  let frameId = null;
+  let previousProgress = -1;
 
-  const resize = () => {
-    pixelRatio = Math.min(window.devicePixelRatio || 1, 2);
-    width = window.innerWidth;
-    height = window.innerHeight;
-    hurricaneCanvas.width = Math.round(width * pixelRatio);
-    hurricaneCanvas.height = Math.round(height * pixelRatio);
-    hurricaneCanvas.style.width = `${width}px`;
-    hurricaneCanvas.style.height = `${height}px`;
-    context.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
-  };
-
-  const traceWind = (time, arm, layer, color, opacity, lineWidth) => {
-    const centerX = width * 0.62;
-    const centerY = height * 0.52;
-    const maximumRadius = Math.hypot(width, height) * (0.62 + layer * 0.07);
-    const verticalScale = 0.72;
-    const turns = 2.5 + layer * 0.18;
-    const phase = time * (0.000055 + layer * 0.000006) + arm * ((Math.PI * 2) / 9);
-
+  function drawRibbon(radius, phase, breadth, offset, end) {
+    const steps = 88;
     context.beginPath();
-    for (let index = 0; index <= 180; index += 1) {
-      const progress = index / 180;
-      const radius = maximumRadius * (1 - progress) ** 1.05 + 18;
-      const angle = phase + progress * Math.PI * 2 * turns + Math.sin(progress * 9 + arm) * 0.1;
-      const x = centerX + Math.cos(angle) * radius;
-      const y = centerY + Math.sin(angle) * radius * verticalScale;
-      if (index === 0) context.moveTo(x, y);
-      else context.lineTo(x, y);
-    }
-    context.globalAlpha = opacity;
-    context.strokeStyle = color;
-    context.lineWidth = lineWidth;
-    context.stroke();
-  };
-
-  const draw = (time) => {
-    context.clearRect(0, 0, width, height);
-    const centerX = width * 0.62;
-    const centerY = height * 0.52;
-    const radius = Math.hypot(width, height) * 0.34;
-
-    const halo = context.createRadialGradient(centerX, centerY, 0, centerX, centerY, radius);
-    halo.addColorStop(0, "rgba(244, 253, 255, 0.36)");
-    halo.addColorStop(0.18, "rgba(119, 225, 255, 0.2)");
-    halo.addColorStop(0.65, "rgba(39, 119, 255, 0.08)");
-    halo.addColorStop(1, "rgba(8, 29, 79, 0)");
-    context.fillStyle = halo;
-    context.fillRect(0, 0, width, height);
-
-    context.lineCap = "round";
-    context.lineJoin = "round";
-    context.globalCompositeOperation = "screen";
-    context.filter = "blur(13px)";
-    for (let layer = 0; layer < 4; layer += 1) {
-      for (let arm = 0; arm < 9; arm += 1) {
-        traceWind(time, arm, layer, layer % 2 ? "#1d6fd4" : "#76dfff", 0.08, 18 + layer * 7);
+    for (const side of [-1, 1]) {
+      for (let step = 0; step <= steps; step += 1) {
+        const fraction = (side < 0 ? step : steps - step) / steps;
+        const along = 0.045 + fraction * end;
+        const taper = Math.sin(fraction * Math.PI) ** 0.72;
+        const ripple = 0.78 + 0.22 * Math.cos(along * 29 + offset);
+        const distance = radius * (along + side * taper * ripple * breadth);
+        const angle = phase + 6.5 * along ** 0.76 + Math.sin(along * 12 + offset) * 0.12;
+        const x = Math.cos(angle) * distance;
+        const y = Math.sin(angle) * distance * 0.71;
+        if (side < 0 && step === 0) context.moveTo(x, y);
+        else context.lineTo(x, y);
       }
     }
-
-    context.filter = "none";
-    for (let layer = 0; layer < 3; layer += 1) {
-      for (let arm = 0; arm < 9; arm += 1) {
-        traceWind(time, arm, layer, layer === 1 ? "#e7fbff" : "#6edcff", 0.24, 1.5 + layer * 1.4);
-      }
-    }
-
-    const eye = context.createRadialGradient(centerX, centerY, 0, centerX, centerY, 110);
-    eye.addColorStop(0, "rgba(255, 255, 255, 0.98)");
-    eye.addColorStop(0.18, "rgba(203, 248, 255, 0.9)");
-    eye.addColorStop(0.52, "rgba(45, 140, 240, 0.76)");
-    eye.addColorStop(1, "rgba(6, 21, 47, 0)");
-    context.globalAlpha = 0.88;
-    context.fillStyle = eye;
-    context.beginPath();
-    context.arc(centerX, centerY, 110, 0, Math.PI * 2);
+    context.closePath();
     context.fill();
-    context.globalAlpha = 1;
-    context.globalCompositeOperation = "source-over";
-  };
+  }
 
-  const frame = (time) => {
-    draw(time);
-    if (!reducedMotion.matches && !document.hidden) window.requestAnimationFrame(frame);
-  };
+  function draw(time, progress) {
+    const drift = smooth((progress - 0.08) / 0.82);
+    const size = Math.hypot(width, height) * (0.75 - drift * 0.43);
+    const phase = -time * 0.00015 - progress * 2.6;
+    context.clearRect(0, 0, width, height);
+    context.save();
+    context.translate(width * (0.55 + drift * 0.76), height * (0.51 - drift * 0.7));
+    context.rotate(-0.2);
+    context.globalAlpha = 1 - smooth((progress - 0.65) / 0.24);
+    context.globalCompositeOperation = "screen";
 
-  resize();
-  draw(0);
-  if (!reducedMotion.matches) window.requestAnimationFrame(frame);
-  window.addEventListener("resize", resize);
-  reducedMotion.addEventListener("change", () => {
-    draw(0);
-    if (!reducedMotion.matches) window.requestAnimationFrame(frame);
-  });
-}
+    const haze = context.createRadialGradient(0, 0, 0, 0, 0, size * 0.77);
+    haze.addColorStop(0, "rgba(228, 250, 255, 0.78)");
+    haze.addColorStop(0.1, "rgba(130, 218, 255, 0.45)");
+    haze.addColorStop(0.4, "rgba(65, 153, 242, 0.19)");
+    haze.addColorStop(1, "rgba(16, 46, 97, 0)");
+    context.fillStyle = haze;
+    context.fillRect(-size, -size, size * 2, size * 2);
+
+    const cloud = context.createRadialGradient(0, 0, 0, 0, 0, size);
+    cloud.addColorStop(0, "rgba(249, 254, 255, 0.82)");
+    cloud.addColorStop(0.2, "rgba(188, 234, 255, 0.56)");
+    cloud.addColorStop(0.55, "rgba(96, 183, 255, 0.27)");
+    cloud.addColorStop(1, "rgba(67, 140, 235, 0)");
+    arms.forEach((arm, index) => {
+      const angle = phase + arm;
+      const end = 0.81 + (index % 3) * 0.07;
+      context.fillStyle = cloud;
+      drawRibbon(size, angle, 0.072, arm, end);
+      drawRibbon(size, angle + 0.12, 0.032, arm + 3, end);
+      drawRibbon(size, angle - 0.16, 0.014, arm + 8, end * 0.92);
+    });
+
+    context.strokeStyle = "rgba(206, 245, 255, 0.62)";
+    context.lineWidth = 1.25;
+    context.beginPath();
+    for (let index = 0; index < 60; index += 1) {
+      const along = 0.08 + ((index * 23) % 59) / 65;
+      const radius = size * along;
+      const angle = phase * 1.55 + index * 2.39996 + along * 6.5;
+      context.moveTo(Math.cos(angle) * radius, Math.sin(angle) * radius * 0.71);
+      context.lineTo(Math.cos(angle - 0.017) * radius, Math.sin(angle - 0.017) * radius * 0.71);
+    }
+    context.stroke();
+    context.restore();
+  }
+
+  function requestFrame() {
+    if (frameId === null && !document.hidden && !intro.hidden) {
+      frameId = window.requestAnimationFrame(render);
+    }
+  }
+
+  function render(time) {
+    frameId = null;
+    const progress = clamp(
+      (scene.getBoundingClientRect().top - intro.getBoundingClientRect().top) / scrollDistance,
+    );
+    if (progress !== previousProgress) {
+      scene.style.setProperty("--storm-clear", smooth((progress - 0.6) / 0.31));
+      previousProgress = progress;
+    }
+    if (progress < 0.91) {
+      draw(time, progress);
+      requestFrame();
+    } else {
+      context.clearRect(0, 0, width, height);
+    }
+  }
+
+  function resize() {
+    if (intro.hidden) return;
+    width = scene.clientWidth;
+    height = scene.clientHeight;
+    scrollDistance = Math.max(1, intro.offsetHeight - height);
+    const ratio = Math.min(window.devicePixelRatio || 1, 1.5);
+    canvas.width = Math.round(width * ratio);
+    canvas.height = Math.round(height * ratio);
+    context.setTransform(ratio, 0, 0, ratio, 0, 0);
+    requestFrame();
+  }
+
+  function syncMotion() {
+    intro.hidden = motion.matches;
+    if (intro.hidden && frameId !== null) {
+      window.cancelAnimationFrame(frameId);
+      frameId = null;
+    }
+    resize();
+  }
+
+  syncMotion();
+  new ResizeObserver(resize).observe(scene);
+  window.addEventListener("scroll", requestFrame, { passive: true });
+  document.addEventListener("visibilitychange", requestFrame);
+  motion.addEventListener("change", syncMotion);
+})();

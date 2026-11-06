@@ -1,138 +1,17 @@
-.hobbies-page {
-  padding-top: 38px;
-  padding-bottom: 80px;
-}
-.hobby-loader {
-  position: fixed;
-  inset: 0;
-  z-index: 100;
-  display: grid;
-  place-items: center;
-  overflow: hidden;
-  background: #091a37;
-  transition:
-    opacity 600ms ease,
-    visibility 600ms step-end;
-}
-.hobby-loader-stage {
-  position: relative;
-  display: grid;
-  min-width: min(74vw, 780px);
-  min-height: min(44vw, 420px);
-  place-items: center;
-}
-.hobby-loader-brand {
-  position: relative;
-  z-index: 1;
-  color: #fff7ef;
-  font-family: Arial, sans-serif;
-  font-size: clamp(52px, 9vw, 136px);
-  font-weight: 800;
-  letter-spacing: -0.09em;
-}
-.hobby-loader-brand span {
-  color: #6fe6ff;
-}
-.hobby-loader-status {
-  position: absolute;
-  z-index: 1;
-  bottom: 13%;
-  margin: 0;
-  color: #c7f3ff;
-  font-family: Arial, sans-serif;
-  font-size: clamp(14px, 1.8vw, 20px);
-  font-weight: 700;
-}
-.hobby-loader-status span {
-  display: inline-block;
-  width: 1.5em;
-  overflow: hidden;
-  vertical-align: bottom;
-  animation: hobby-loader-dots 900ms steps(4, end) infinite;
-}
-.hobby-loader-orb,
-.hobby-loader-ring {
-  position: absolute;
-  border-radius: 50%;
-  pointer-events: none;
-}
-.hobby-loader-orb--large {
-  top: 2%;
-  left: 2%;
-  width: clamp(96px, 15vw, 210px);
-  aspect-ratio: 1;
-  background: radial-gradient(circle at 30% 24%, #fff 0 6%, #c6f7ff 7% 27%, #48a8ff 62%, #123d9b 100%);
-  box-shadow: inset -18px -20px 30px rgb(5 29 104 / 48%), 0 18px 28px rgb(0 0 0 / 32%);
-  animation: hobby-loader-float 2.8s ease-in-out infinite alternate;
-}
-.hobby-loader-orb--small {
-  right: 5%;
-  bottom: 4%;
-  width: clamp(58px, 9vw, 126px);
-  aspect-ratio: 1;
-  background: radial-gradient(circle at 30% 24%, #fff 0 6%, #dffbff 8% 28%, #68ccff 62%, #1953bd 100%);
-  box-shadow: inset -12px -14px 22px rgb(7 33 110 / 42%), 0 14px 24px rgb(0 0 0 / 28%);
-  animation: hobby-loader-float 2.4s -900ms ease-in-out infinite alternate-reverse;
-}
-.hobby-loader-ring {
-  top: 10%;
-  right: 16%;
-  width: clamp(82px, 13vw, 176px);
-  aspect-ratio: 1;
-  border: clamp(14px, 2vw, 26px) solid #8beaff;
-  box-shadow: inset 0 0 0 8px #174ea9, 0 18px 26px rgb(0 0 0 / 28%);
-  transform: rotate(-20deg) skewY(-8deg);
-  animation: hobby-loader-ring 3.6s ease-in-out infinite alternate;
-}
-.hobbies-ready .hobby-loader {
-  visibility: hidden;
-  opacity: 0;
-}
-.hobbies-pending .site-header,
-.hobbies-pending .hobbies-page {
-  opacity: 0;
-  transform: translateY(22px) scale(0.985);
-}
-.hobbies-theme .site-header,
-.hobbies-theme .hobbies-page {
-  transition:
-    opacity 700ms ease,
-    transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
-}
-@keyframes hobby-loader-float {
-  to {
-    transform: translate3d(0, -20px, 0) rotate(12deg);
-  }
-}
-@keyframes hobby-loader-ring {
-  to {
-    transform: translate3d(-12px, 22px, 0) rotate(24deg) skewY(8deg);
-  }
-}
-@keyframes hobby-loader-dots {
-  to {
-    clip-path: inset(0 0 0 100%);
-  }
-}
 .hobbies-theme {
-  --paper: #06152f;
-  --ink: #f7fdff;
-  --muted: #bae9ff;
-  --line: rgb(202 242 255 / 28%);
-  --accent: #76dfff;
-  overflow-x: hidden;
-  background:
-    radial-gradient(48rem 34rem at 106% -6%, rgb(73 188 255 / 30%), transparent 68%),
-    radial-gradient(40rem 34rem at -10% 100%, rgb(68 91 255 / 24%), transparent 70%),
-    #06152f;
+  --paper: #e1e9ee;
+  --ink: #252d36;
+  --muted: #4f5962;
+  --line: #b9c9d5;
+  --accent: #265879;
 }
 .hobbies-theme .site-header {
   color: #08204f;
-  background: linear-gradient(100deg, #f6fdff 0%, #9bdfff 100%);
-  border: 2px solid #e8fcff;
+  background: linear-gradient(100deg, #f6fdff, #b2dcf1);
+  border: 1px solid #e8fcff;
   border-top: 0;
   border-radius: 0 0 18px 18px;
-  box-shadow: 8px 8px 0 #1265cf;
+  box-shadow: 0 4px 12px rgb(6 27 55 / 14%);
 }
 .hobbies-theme .site-header nav a:hover,
 .hobbies-theme .site-header nav a[aria-current="page"] {
@@ -143,66 +22,120 @@
 .hobbies-theme .language-picker {
   color: #12447e;
 }
-.hobbies-theme .language-picker select {
-  color: #08204f;
-  border-color: rgb(8 32 79 / 34%);
+
+.hurricane-intro {
+  --scene-height: max(12rem, calc(100svh - var(--header-height, 108px)));
+  height: calc(var(--scene-height) + 64svh);
 }
-.hobbies-theme ::selection {
-  color: #06152f;
-  background: #a5e7ff;
+.hurricane-scene {
+  position: sticky;
+  top: var(--header-height, 108px);
+  display: grid;
+  height: var(--scene-height);
+  place-items: end center;
+  overflow: clip;
+  isolation: isolate;
+  background: radial-gradient(ellipse at 60% 50%, #174977, #091a36 72%);
+}
+.hurricane-scene::after {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: var(--paper);
+  opacity: var(--storm-clear, 0);
+  pointer-events: none;
+  content: "";
 }
 .hurricane-canvas {
-  position: fixed;
+  position: absolute;
   inset: 0;
-  z-index: 0;
-  display: block;
   width: 100%;
   height: 100%;
   pointer-events: none;
 }
-.hobbies-theme .hobbies-page {
+.hurricane-cue {
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: clamp(16px, 4vh, 32px);
+  padding: 8px 16px;
+  border: 1px solid rgb(204 244 255 / 52%);
+  border-radius: 99px;
+  background: #0b2645;
+  color: #ebfaff;
+  font-size: 13px;
+  text-decoration: none;
+}
+.hurricane-cue:focus-visible {
+  outline-color: #e5faff;
+}
+@media (prefers-reduced-motion: reduce) {
+  .hurricane-intro {
+    display: none;
+  }
+}
+
+.hobbies-page {
+  --binding: clamp(2rem, 7vw, 6rem);
   position: relative;
-  z-index: 1;
+  isolation: isolate;
+  width: min(860px, calc(100% - 32px));
+  margin: clamp(24px, 6vw, 76px) auto clamp(40px, 8vw, 100px);
+  padding: clamp(28px, 5vw, 60px) clamp(18px, 6vw, 70px) clamp(32px, 5vw, 56px) var(--binding);
+  border: 1px solid #d8d3c6;
+  border-radius: 2px 6px 6px 2px;
+  background:
+    linear-gradient(rgb(255 252 242 / 38%), rgb(255 252 242 / 38%)),
+    #fcf9ef url("/assets/art/hobby-notebook.png") repeat;
+  background-blend-mode: normal, multiply;
+  box-shadow: 3px 4px 0 #f5f0df, 4px 6px 0 #cbc9bc, 0 14px 32px rgb(29 47 60 / 14%);
+  font: 400 17px/1.85 "Klee One", "Noto Sans JP", sans-serif;
 }
-.hobbies-theme .hobby-section > h2 {
-  font-size: 26px;
-  font-weight: 800;
-  letter-spacing: -0.06em;
-  text-shadow: 2px 2px 0 #07336c;
+.hobbies-page::before {
+  position: absolute;
+  inset: 0 auto 0 calc(var(--binding) - 14px);
+  z-index: -1;
+  width: 4px;
+  border-inline: 1px solid rgb(160 83 85 / 31%);
+  content: "";
 }
-.hobby-section {
-  display: grid;
-  grid-template-columns: 160px minmax(0, 1fr);
-  gap: 40px;
+.hobbies-page::after {
+  position: absolute;
+  inset: 8px auto 8px calc(var(--binding) * 0.25 - 2px);
+  z-index: -1;
+  width: 10px;
+  background: radial-gradient(circle at center, #d5e0e7 3px, #c1c8c8 4px, transparent 5px) 0 0 / 10px 48px repeat-y;
+  content: "";
+}
+.hobbies-page h1,
+.hobby-section > h2,
+.sport-heading h3 {
+  font-weight: 600;
+}
+.hobbies-page h1 {
+  margin-bottom: clamp(26px, 5vw, 46px);
+  font-size: clamp(34px, 5vw, 54px);
+  line-height: 1.3;
+  text-decoration: underline;
+  text-decoration-color: #52728b;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.24em;
 }
 .hobby-section + .hobby-section {
-  margin-top: 52px;
-  padding-top: 36px;
+  margin-top: 32px;
+  padding-top: 22px;
   border-top: 1px solid var(--line);
 }
 .hobby-section > h2 {
-  font-size: 22px;
-  font-weight: 700;
-  line-height: 1.6;
+  margin-bottom: 12px;
   color: var(--accent);
-}
-.hobby-section > h2::after {
-  content: "";
-  display: block;
-  width: 28px;
-  height: 2px;
-  margin-top: 8px;
-  background: currentColor;
-}
-.interests-section {
-  grid-template-columns: 200px minmax(0, 1fr);
-}
-.interests-section > h2 {
-  white-space: nowrap;
+  font-size: clamp(23px, 3.2vw, 29px);
+  line-height: 1.6;
 }
 .sport + .sport {
-  margin-top: 28px;
-  padding-top: 28px;
+  margin-top: 20px;
+  padding-top: 14px;
   border-top: 1px solid var(--line);
 }
 .sport-heading {
@@ -212,19 +145,19 @@
   gap: 16px;
 }
 .sport-heading h3 {
-  font-size: 17px;
-  line-height: 1.8;
+  font-size: 20px;
+  line-height: 1.7;
 }
 .sport-duration {
   flex-shrink: 0;
   color: var(--muted);
-  font-size: 12px;
+  font-size: 14px;
   font-variant-numeric: tabular-nums;
 }
 .sport-details {
-  margin: 20px 0 0;
-  font-size: 13px;
-  line-height: 1.9;
+  margin: 12px 0 0;
+  font-size: 16px;
+  line-height: 1.75;
 }
 .sport-details > div + div {
   margin-top: 18px;
@@ -232,7 +165,7 @@
 .sport-details dt {
   margin-bottom: 6px;
   color: var(--muted);
-  font-size: 11px;
+  font-size: 13px;
 }
 .sport-details dd {
   margin: 0;
@@ -310,12 +243,9 @@
 }
 .tournament-meta {
   display: grid;
-  grid-template-columns: 220px minmax(0, 1fr);
-  column-gap: 100px;
+  grid-template-columns: minmax(0, 15rem) minmax(0, 1fr);
+  column-gap: clamp(12px, 5vw, 48px);
   margin: 0;
-}
-.tournament-meta span {
-  white-space: nowrap;
 }
 .hobby-results li::marker {
   color: var(--accent);
@@ -325,11 +255,11 @@
   padding: 0;
   list-style: none;
   color: var(--muted);
-  font-size: 14px;
-  line-height: 1.9;
+  font-size: 17px;
+  line-height: 1.75;
 }
 .interest-list li + li {
-  margin-top: 12px;
+  margin-top: 6px;
 }
 .hobby-link {
   text-decoration: underline;
@@ -340,37 +270,28 @@
 html:lang(de) .hobby-section-content {
   hyphens: auto;
 }
-@media (max-width: 750px) {
-  .hobby-section {
-    grid-template-columns: 120px minmax(0, 1fr);
-    gap: 28px;
-  }
-  .interests-section {
-    grid-template-columns: 180px minmax(0, 1fr);
-  }
+
+.notebook-credit {
+  margin-top: 46px;
+  color: var(--muted);
+  font: 12px/1.6 var(--sans);
 }
 @media (max-width: 650px) {
   .hobbies-page {
-    padding-top: 24px;
-    padding-bottom: 54px;
+    width: calc(100% - 20px);
+    padding-right: 14px;
   }
-  .hobby-section {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 24px;
+  .sport-heading h3 {
+    font-size: 18px;
   }
-  .interests-section {
-    grid-template-columns: minmax(0, 1fr);
-  }
-  .hobby-section > h2 {
-    font-size: 24px;
-    line-height: 1.5;
-  }
-  .hobby-section + .hobby-section {
-    margin-top: 36px;
-    padding-top: 28px;
+  .sport-details {
+    font-size: 15px;
   }
   .tournament-meta {
-    grid-template-columns: 166px minmax(0, 1fr);
-    column-gap: 28px;
+    grid-template-columns: minmax(0, 1.04fr) minmax(0, 1fr);
+    gap: 8px;
+    margin-left: -1.3em;
+    font-size: 12px;
+    line-height: 1.6;
   }
 }

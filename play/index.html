@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#f6f8ff" />
+    <meta name="theme-color" content="#e1e9ee" />
     <title>趣味 — Harry / 31916</title>
     <meta name="author" content="Haruto Kitagawa" />
     <meta property="og:title" content="趣味 — Harry / 31916" />
@@ -14,27 +14,16 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Noto+Sans+JP:wght@400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&family=Noto+Sans+JP:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="/css/styles.css?v=20261106-link-underlines" />
-    <link rel="stylesheet" href="/css/hobbies.css?v=20261106-white-hurricane-canvas" />
+    <link rel="stylesheet" href="/css/hobbies.css?v=20261106-storm-notebook" />
     <script src="/js/scripts.js?v=20261014a" defer></script>
-    <script src="/js/i18n.js?v=20261106-duolingo" defer></script>
-    <script src="/js/hobbies.js?v=20261106-goodpatch-entry" defer></script>
-    <script src="/js/hurricane.js?v=20261106-white-hurricane" defer></script>
+    <script src="/js/i18n.js?v=20261106-storm-notebook" defer></script>
+    <script src="/js/hurricane.js?v=20261106-storm-notebook" defer></script>
   </head>
-  <body class="hobbies-theme hobbies-pending">
-    <div class="hobby-loader" aria-hidden="true">
-      <div class="hobby-loader-stage">
-        <span class="hobby-loader-orb hobby-loader-orb--large"></span>
-        <span class="hobby-loader-orb hobby-loader-orb--small"></span>
-        <span class="hobby-loader-ring"></span>
-        <p class="hobby-loader-brand">31916<span>.</span></p>
-        <p class="hobby-loader-status">Warming up<span>...</span></p>
-      </div>
-    </div>
-    <canvas class="hurricane-canvas" data-hurricane-canvas aria-hidden="true"></canvas>
+  <body class="hobbies-theme">
     <a class="skip-link" href="#main">本文へ移動</a>
     <header class="site-header shell">
       <a class="wordmark" data-site-logo href="/" aria-label="31916 ホーム"
@@ -66,8 +55,19 @@
         </label>
       </div>
     </header>
-    <main id="main" class="shell hobbies-page">
-      <h1 class="sr-only">趣味</h1>
+    <div class="hurricane-intro" hidden>
+      <div class="hurricane-scene">
+        <canvas class="hurricane-canvas" aria-hidden="true"></canvas>
+        <a class="hurricane-cue" href="#main">
+          <span>スクロールしてノートを開く</span>
+          <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+            <path d="M12 4v15m-5-5 5 5 5-5" fill="none" stroke="currentColor" stroke-width="1.5" />
+          </svg>
+        </a>
+      </div>
+    </div>
+    <main id="main" class="hobbies-page" tabindex="-1">
+      <h1>趣味</h1>
       <section class="hobby-section" aria-labelledby="sports-heading">
         <h2 id="sports-heading">スポーツ</h2>
         <div class="hobby-section-content">
@@ -152,6 +152,10 @@
           <li><a class="hobby-link" href="https://7-taizai.net/" target="_blank" rel="noopener noreferrer">七つの大罪</a><span aria-hidden="true"> / </span><a class="hobby-link" href="https://shonenmagazine.com/special_page/mokushiroku/" target="_blank" rel="noopener noreferrer">黙示録の四騎士</a></li>
         </ul>
       </section>
+      <footer class="notebook-credit" lang="en" data-no-translate>
+        Paper texture: <a href="https://www.toptal.com/designers/subtlepatterns/notebook/">Notebook</a>
+        by HQvectors, via Toptal Subtle Patterns · <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a>
+      </footer>
     </main>
   </body>
 </html>
