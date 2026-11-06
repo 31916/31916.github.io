@@ -11,7 +11,7 @@
 body { margin: 0; background: #fff; color: var(--ink); filter: grayscale(1); }
 h1, h2, h3, p, figure { margin: 0; }
 a { color: inherit; text-underline-offset: .2em; }
-:where(a, summary):focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; }
+:where(a, summary, button):focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; }
 ::selection { background: var(--ink); color: #fff; }
 
 .shell { width: min(1160px, calc(100% - clamp(32px, 8vw, 112px))); margin-inline: auto; }
@@ -116,6 +116,28 @@ main { padding-block: clamp(26px, 7vw, 94px); }
 .instructions details + details { border-top: 1px solid var(--rule); }
 .instructions summary { padding-block: 6px; font-weight: 700; cursor: pointer; }
 .instructions ol { margin: 6px 0 12px; padding-left: 1.4em; }
+
+.setup-command {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-block: 4px;
+  padding: 6px 8px;
+  background: #f5f5f5;
+}
+.setup-command code { flex: 1; min-width: 0; user-select: all; }
+.setup-command button {
+  min-height: 36px;
+  padding-inline: 10px;
+  border: 1px solid var(--ink);
+  background: #fff;
+  color: var(--ink);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+.setup-command button:hover { background: #eee; }
+#copy-windows-status { color: var(--muted); }
 
 @media (min-width: 721px) {
   main { padding-block-start: min(7vw, 94px, 10svh); }

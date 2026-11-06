@@ -49,3 +49,19 @@
   comparison.addEventListener("load", schedule, { once: true });
   schedule();
 })();
+
+const copyWindowsCommand = document.querySelector("#copy-windows-command");
+if (copyWindowsCommand && navigator.clipboard?.writeText) {
+  const command = document.querySelector("#windows-command");
+  const status = document.querySelector("#copy-windows-status");
+  copyWindowsCommand.hidden = false;
+  copyWindowsCommand.addEventListener("click", async () => {
+    status.textContent = "";
+    try {
+      await navigator.clipboard.writeText(command.textContent);
+      status.textContent = "Copied.";
+    } catch {
+      status.textContent = "Select the command to copy it manually.";
+    }
+  });
+}
