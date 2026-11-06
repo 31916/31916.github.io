@@ -13,8 +13,9 @@
   border-top: 1px solid var(--line);
 }
 .hobby-section > h2 {
-  font-size: 20px;
-  line-height: 1.8;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.6;
   color: var(--accent);
 }
 .hobby-section > h2::after {
@@ -24,12 +25,6 @@
   height: 2px;
   margin-top: 8px;
   background: currentColor;
-}
-.hobby-section:nth-of-type(2) > h2 {
-  color: #3d6fc5;
-}
-.interests-section > h2 {
-  color: #2f7b9e;
 }
 .interests-section {
   grid-template-columns: 200px minmax(0, 1fr);
@@ -199,7 +194,8 @@ html:lang(de) .hobby-section-content {
     grid-template-columns: minmax(0, 1fr);
   }
   .hobby-section > h2 {
-    font-size: 18px;
+    font-size: 22px;
+    line-height: 1.5;
   }
   .hobby-section + .hobby-section {
     margin-top: 36px;
