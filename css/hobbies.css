@@ -58,7 +58,17 @@
   padding-left: 1.3em;
 }
 .hobby-results li + li {
-  margin-top: 8px;
+  margin-top: 20px;
+}
+.tournament-name {
+  display: inline-block;
+  margin: 0 0 7px;
+}
+.tournament-meta {
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr);
+  column-gap: 88px;
+  margin: 0;
 }
 .hobby-results li::marker,
 .game-list li::marker {
@@ -108,5 +118,9 @@ html:lang(de) .game-list {
   .hobby-section + .hobby-section {
     margin-top: 36px;
     padding-top: 28px;
+  }
+  .tournament-meta {
+    grid-template-columns: max-content minmax(0, 1fr);
+    column-gap: 28px;
   }
 }
