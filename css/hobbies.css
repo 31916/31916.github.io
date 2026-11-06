@@ -2,6 +2,25 @@
   padding-top: 38px;
   padding-bottom: 80px;
 }
+.hobbies-theme {
+  --paper: #fff8f4;
+  --ink: #351815;
+  --muted: #8a5b52;
+  --line: #edc5b9;
+  --accent: #d94627;
+  background:
+    radial-gradient(58rem 32rem at 100% -8%, rgb(255 111 56 / 16%), transparent 62%),
+    radial-gradient(36rem 26rem at 0% 92%, rgb(204 44 28 / 9%), transparent 70%),
+    var(--paper);
+}
+.hobbies-theme .site-header nav a:hover,
+.hobbies-theme .site-header nav a[aria-current="page"] {
+  background: #ffe7df;
+  border-color: #efb4a5;
+}
+.hobbies-theme ::selection {
+  background: #ffd6c9;
+}
 .hobby-section {
   display: grid;
   grid-template-columns: 160px minmax(0, 1fr);
