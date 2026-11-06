@@ -49,18 +49,19 @@
       }
     },
     {
-      "id": "design-downloads",
-      "category": "software",
-      "type": "デザイン",
-      "tech": "Download",
-      "title": "デザイン配布",
+      "id": "number-cursor-4",
+      "category": "idea-design",
+      "type": "アイデアデザイン",
+      "tech": "Windows",
+      "title": "Number Cursor 4",
       "href": "/Design/",
       "destination": "紹介・ダウンロード",
       "image": {
         "src": "/Design/number-cursors.svg",
         "width": 640,
         "height": 640,
-        "alt": "斜めに傾いた数字カーソル「4」"
+        "alt": "斜めに傾いた数字カーソル「4」",
+        "class": "cursor-art-image"
       }
     }
   ]

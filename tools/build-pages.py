@@ -173,8 +173,8 @@ def load_projects(settings=None):
         for field in ("title", "type", "tech", "destination", "href"):
             if not isinstance(project.get(field), str) or not project[field].strip():
                 raise ValueError(f"Project {identifier} needs nonempty {field}")
-        if project.get("category") not in {"software", "research"}:
-            raise ValueError(f"Project {identifier} category must be software or research")
+        if project.get("category") not in {"software", "research", "idea-design"}:
+            raise ValueError(f"Project {identifier} category must be software, research, or idea-design")
         href = project["href"]
         if not (href.startswith("https://") or (href.startswith("/") and not href.startswith("//"))):
             raise ValueError(f"Project {identifier} href must be HTTPS or a site-relative path")
@@ -186,7 +186,7 @@ def load_projects(settings=None):
         for dimension in ("width", "height"):
             if type(image.get(dimension)) is not int or image[dimension] <= 0:
                 raise ValueError(f"Project {identifier} image {dimension} must be a positive integer")
-        if image.get("class", "") not in {"", "research-image", "app-icon-image"}:
+        if image.get("class", "") not in {"", "research-image", "app-icon-image", "cursor-art-image"}:
             raise ValueError(f"Project {identifier} has an unknown image class")
         source = image.get("src")
         if not isinstance(source, str) or not source.startswith(("/assets/", f"/{CURRENT}/", "/Design/")):
