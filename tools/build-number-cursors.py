@@ -14,7 +14,8 @@ import zlib
 
 NAME = "Number Cursors 4"
 STEM = "Number_Cursors_4"
-DOWNLOADS = Path(__file__).resolve().parents[1] / "NumberCursors" / "downloads"
+NUMBER_CURSORS = Path(__file__).resolve().parents[1] / "NumberCursors"
+DOWNLOADS = NUMBER_CURSORS / "downloads"
 SIZES = (32, 48, 64)
 
 # Names used by desktop toolkits, including legacy X11 aliases.
@@ -236,6 +237,7 @@ def write_linux(archive, cursors):
 
 def build(windows_zip):
     windows_files, cursors = read_windows(windows_zip)
+    windows_files[PurePosixPath("README.txt")] = (NUMBER_CURSORS / "README.txt").read_bytes()
     target = DOWNLOADS / f"{STEM}.zip"
     with NamedTemporaryFile(dir=DOWNLOADS, suffix=".zip", delete=False) as temporary:
         pending = Path(temporary.name)
