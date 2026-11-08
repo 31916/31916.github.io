@@ -62,16 +62,16 @@
 html:lang(de) .resume-event-name {
   hyphens: auto;
 }
-.qualification-list {
+.resume-list {
   padding-left: 1.3em;
   margin: 0;
   font-size: 13px;
   line-height: 1.9;
 }
-.qualification-list li + li {
+.resume-list li + li {
   margin-top: 14px;
 }
-.qualification-list li::marker {
+.resume-list li::marker {
   color: var(--accent);
 }
 .qualification-entry {
@@ -156,7 +156,7 @@ html:lang(de) .qualification-entry > a {
     font-size: 12px;
     line-height: 24px;
   }
-  .qualification-list {
+  .resume-list {
     font-size: 12px;
   }
   .qualification-entry {
