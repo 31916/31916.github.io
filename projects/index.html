@@ -25,9 +25,9 @@
       href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Noto+Sans+JP:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="/css/styles.css?v=20261106-link-underlines" />
+    <link rel="stylesheet" href="/css/styles.css?v=20261108-header-line" />
     <script src="/js/scripts.js?v=20261014a" defer></script>
-    <script src="/js/i18n.js?v=20261106-svg-arrows" defer></script>
+    <script src="/js/i18n.js?v=20261108-portfolio" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main">本文へ移動</a>
@@ -69,15 +69,12 @@
         </section>
         <section class="page-content" aria-label="制作物の一覧">
           <div class="filter-bar" role="group" aria-label="制作物を絞り込む">
-            <button data-filter="all" type="button" aria-pressed="true">
-              すべて</button
-            ><button data-filter="software" type="button" aria-pressed="false">
-              ソフトウェア</button
-            ><button data-filter="research" type="button" aria-pressed="false">
-              研究</button
-            ><button data-filter="idea-design" type="button" aria-pressed="false">
-              アイデアデザイン
-            </button>
+            <!-- project-filters:start -->
+            <button data-filter="all" type="button" aria-pressed="true">すべて</button>
+            <button data-filter="software" type="button" aria-pressed="false"><span>ソフトウェア</span><span>（2）</span></button>
+            <button data-filter="research" type="button" aria-pressed="false"><span>研究</span><span>（1）</span></button>
+            <button data-filter="idea-design" type="button" aria-pressed="false"><span>アイデアデザイン</span><span>（1）</span></button>
+            <!-- project-filters:end -->
           </div>
           <p
             class="sr-only"
@@ -115,6 +112,7 @@
                   </div>
                   <svg class="link-arrow project-arrow" aria-hidden="true"><use href="/assets/art/link-arrow.svg#arrow"></use></svg>
                 </div>
+                <p class="project-description">IMEで英数字を入力するときに、使い慣れたキーボード配列で打てるようにするWindows用ソフトです。</p>
               </a>
             </article>
             <article class="project-card" data-category="research">
@@ -142,6 +140,7 @@
                   </div>
                   <svg class="link-arrow project-arrow" aria-hidden="true"><use href="/assets/art/link-arrow.svg#arrow"></use></svg>
                 </div>
+                <p class="project-description">高専時代の卒業研究で、MediaPipeを用いた骨格推定と機械学習（CNN）で手形認識の精度向上を目指しました。</p>
               </a>
             </article>
             <article class="project-card" data-category="software">
@@ -169,6 +168,7 @@
                   </div>
                   <svg class="link-arrow project-arrow" aria-hidden="true"><use href="/assets/art/link-arrow.svg#arrow"></use></svg>
                 </div>
+                <p class="project-description">LASTEさんの「Raspberry Pi Picoでゲームコントローラーを作るロボット工房」向けに、子どもからお年寄りまで楽しめる簡単なパズルゲームを作りました。</p>
               </a>
             </article>
             <article class="project-card" data-category="idea-design">
@@ -196,6 +196,7 @@
                   </div>
                   <svg class="link-arrow project-arrow" aria-hidden="true"><use href="/assets/art/link-arrow.svg#arrow"></use></svg>
                 </div>
+                <p class="project-description">マウスカーソルが数字の4に似ていると思い、デザインしてみました。</p>
               </a>
             </article>
             <!-- project-catalog:end -->

@@ -19,6 +19,11 @@ ROOT = Path(__file__).resolve().parents[1]
 CURRENT = "IMELayoutRouter"
 LEGACY = "IMELayOutRouter"
 IDEA_DESIGNS = "IdeaDesigns"
+PROJECT_CATEGORIES = {
+    "software": "ソフトウェア",
+    "research": "研究",
+    "idea-design": "アイデアデザイン",
+}
 PUBLIC = (
     "CNAME", "index.html", "404.html", "robots.txt", "sitemap.xml",
     "about/index.html", "resume/index.html", "projects/index.html", "play/index.html",
@@ -164,7 +169,7 @@ def identity_assets(settings=None):
 
 
 def load_projects(settings=None):
-    """Validate the shared project catalog and the two home selections."""
+    """Validate the project catalog."""
     if settings is None:
         settings = json.loads((ROOT / "assets/projects.json").read_text(encoding="utf-8"))
     if not isinstance(settings, dict) or not isinstance(settings.get("projects"), list):
@@ -179,10 +184,10 @@ def load_projects(settings=None):
         if identifier in identifiers:
             raise ValueError(f"Duplicate project id: {identifier}")
         identifiers.add(identifier)
-        for field in ("title", "type", "tech", "destination", "href"):
+        for field in ("title", "description", "type", "tech", "destination", "href"):
             if not isinstance(project.get(field), str) or not project[field].strip():
                 raise ValueError(f"Project {identifier} needs nonempty {field}")
-        if project.get("category") not in {"software", "research", "idea-design"}:
+        if project.get("category") not in PROJECT_CATEGORIES:
             raise ValueError(f"Project {identifier} category must be software, research, or idea-design")
         href = project["href"]
         if not (href.startswith("https://") or (href.startswith("/") and not href.startswith("//"))):
@@ -207,13 +212,6 @@ def load_projects(settings=None):
             raise ValueError(f"Invalid project image: {source}")
         if not (ROOT / path).resolve().is_relative_to(ROOT.resolve()):
             raise ValueError(f"Project image is outside the website: {source}")
-    featured = settings.get("featured")
-    if not isinstance(featured, list) or len(featured) != 2 or not all(isinstance(item, str) for item in featured):
-        raise ValueError("featured must contain exactly two project ids")
-    if len(set(featured)) != 2:
-        raise ValueError("featured must contain two distinct project ids")
-    if any(identifier not in identifiers for identifier in featured):
-        raise ValueError("Every featured id must exist in projects")
     return settings
 
 
@@ -223,35 +221,24 @@ def project_assets(settings=None):
     return tuple(dict.fromkeys(project["image"]["src"].lstrip("/") for project in settings["projects"]))
 
 
-def project_image(project, loading="lazy"):
+def project_image(project):
     image = project["image"]
     return (
         f'<img src="{escape(image["src"], quote=True)}" '
         f'width="{image["width"]}" height="{image["height"]}" '
-        f'loading="{loading}" alt="{escape(image["alt"], quote=True)}" />'
+        f'loading="lazy" alt="{escape(image["alt"], quote=True)}" />'
     )
 
 
-def render_featured_projects(settings):
-    """Keep the home cards compact; their full details live in the catalog."""
-    projects = {project["id"]: project for project in settings["projects"]}
-    cards = []
-    for identifier in settings["featured"]:
-        project = projects[identifier]
-        image_class = "project-image"
-        if project["image"].get("class"):
-            image_class += " " + project["image"]["class"]
-        cards.append(
-            f'<a class="featured-card" href="{escape(project["href"], quote=True)}" target="_blank" rel="noopener">\n'
-            f'  <div class="{image_class}">{project_image(project, "eager")}</div>\n'
-            '  <div class="featured-info">\n'
-            f'    <h3>{escape(project["title"])}</h3>\n'
-            f'    <p class="featured-type">{escape(project["type"])}</p>\n'
-            '  </div>\n'
-            '  <svg class="link-arrow featured-arrow" aria-hidden="true"><use href="/assets/art/link-arrow.svg#arrow"></use></svg>\n'
-            '</a>'
+def render_project_filters(settings):
+    categories = [project["category"] for project in settings["projects"]]
+    buttons = ['<button data-filter="all" type="button" aria-pressed="true">すべて</button>']
+    for category, label in PROJECT_CATEGORIES.items():
+        buttons.append(
+            f'<button data-filter="{category}" type="button" aria-pressed="false">'
+            f'<span>{label}</span><span>（{categories.count(category)}）</span></button>'
         )
-    return "\n".join(cards)
+    return "\n".join(buttons)
 
 
 def render_project_catalog(settings):
@@ -272,6 +259,7 @@ def render_project_catalog(settings):
             '      </div>\n'
             '      <svg class="link-arrow project-arrow" aria-hidden="true"><use href="/assets/art/link-arrow.svg#arrow"></use></svg>\n'
             '    </div>\n'
+            f'    <p class="project-description">{escape(project["description"])}</p>\n'
             '  </a>\n'
             '</article>'
         )
@@ -314,9 +302,9 @@ def render_public_html(content, settings=None, projects=None):
         markup = "31916<span>.</span>"
     for start, end in reversed(slots.ranges):
         source = source[:start] + markup + source[end:]
-    if "<!-- featured-projects:" in source or "<!-- project-catalog:" in source:
+    if "<!-- project-filters:" in source or "<!-- project-catalog:" in source:
         projects = load_projects(projects)
-        source = replace_project_slot(source, "featured-projects", render_featured_projects(projects))
+        source = replace_project_slot(source, "project-filters", render_project_filters(projects))
         source = replace_project_slot(source, "project-catalog", render_project_catalog(projects))
     if "<!-- idea-designs-share -->" in source:
         source = source.replace("<!-- idea-designs-share -->", share_metadata(f"{IDEA_DESIGNS}/index.html"))

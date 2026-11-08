@@ -25,10 +25,10 @@
       href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Noto+Sans+JP:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="/css/styles.css?v=20261106-link-underlines" />
-    <link rel="stylesheet" href="/css/home.css?v=20261013y" />
+    <link rel="stylesheet" href="/css/styles.css?v=20261108-header-line" />
+    <link rel="stylesheet" href="/css/home.css?v=20261108-intro" />
     <script src="/js/scripts.js?v=20261014a" defer></script>
-    <script src="/js/i18n.js?v=20261106-svg-arrows" defer></script>
+    <script src="/js/i18n.js?v=20261108-portfolio" defer></script>
   </head>
   <body class="home-page">
     <a class="skip-link" href="#main">本文へ移動</a>
@@ -63,11 +63,20 @@
       </div>
     </header>
     <main id="main" class="home-main shell">
-      <section class="home-projects" aria-labelledby="featured-title">
-        <div class="home-profile-row">
-          <h1 class="profile-heading" data-no-translate>
-            Harry<span class="name-period">．</span>
-          </h1>
+      <section class="home-intro" aria-labelledby="welcome-title">
+        <h1 id="welcome-title">ようこそ、31916.chへ。</h1>
+        <p>Harryです。</p>
+        <p>「31916」を活動名に、ソフトウェアを開発しています。</p>
+        <p>ヨーロッパの文化と食が好きで、いつか海外で働くことが夢です。</p>
+        <p>ここでは、制作物や経歴を紹介しています。どうぞご覧ください。</p>
+      </section>
+      <section
+        class="contact-section"
+        id="contact"
+        aria-labelledby="contact-title"
+      >
+        <div class="home-contact-heading">
+          <h2 id="contact-title">コンタクト</h2>
           <div class="home-socials">
             <a
               class="social-icon"
@@ -96,68 +105,6 @@
               </svg>
             </a>
           </div>
-        </div>
-        <p class="intro-description" data-no-translate>
-          Harry / Harry
-        </p>
-        <div class="home-section-heading">
-          <h2 id="featured-title">制作物</h2>
-          <a href="/projects/">一覧を見る <svg class="link-arrow" aria-hidden="true"><use href="/assets/art/link-arrow.svg#arrow"></use></svg></a>
-        </div>
-        <div class="project-grid featured-grid" data-featured-projects>
-          <!-- featured-projects:start -->
-          <a
-            class="featured-card"
-            href="/IMELayoutRouter/"
-            target="_blank"
-            rel="noopener"
-          >
-            <div class="project-image">
-              <img
-                src="/IMELayoutRouter/social-ja-v2.png"
-                width="1200"
-                height="630"
-                loading="eager"
-                alt="IMELayoutRouter — IMEの直接入力を、指定した配列で。Windows用・公式ダウンロード"
-              />
-            </div>
-            <div class="featured-info">
-              <h3>IMELayoutRouter</h3>
-              <p class="featured-type">ソフトウェア</p>
-            </div>
-            <svg class="link-arrow featured-arrow" aria-hidden="true"><use href="/assets/art/link-arrow.svg#arrow"></use></svg>
-          </a>
-          <a
-            class="featured-card"
-            href="https://github.com/31916/syukei_recognize"
-            target="_blank"
-            rel="noopener"
-          >
-            <div class="project-image research-image">
-              <img
-                src="/assets/art/handshape.svg"
-                width="560"
-                height="300"
-                loading="eager"
-                alt="日本手話の手形認識：手の関節を点と線で捉える概念図"
-              />
-            </div>
-            <div class="featured-info">
-              <h3>日本手話の手形認識</h3>
-              <p class="featured-type">研究</p>
-            </div>
-            <svg class="link-arrow featured-arrow" aria-hidden="true"><use href="/assets/art/link-arrow.svg#arrow"></use></svg>
-          </a>
-          <!-- featured-projects:end -->
-        </div>
-      </section>
-      <section
-        class="contact-section"
-        id="contact"
-        aria-labelledby="contact-title"
-      >
-        <div class="home-contact-heading">
-          <h2 id="contact-title">コンタクト</h2>
         </div>
         <div class="contact-email">
           <div class="email-actions">

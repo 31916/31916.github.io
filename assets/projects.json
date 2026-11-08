@@ -1,5 +1,4 @@
 {
-  "featured": ["ime-layout-router", "handshape-recognition"],
   "projects": [
     {
       "id": "ime-layout-router",
@@ -7,6 +6,7 @@
       "type": "ソフトウェア",
       "tech": "Windows / C#",
       "title": "IMELayoutRouter",
+      "description": "IMEで英数字を入力するときに、使い慣れたキーボード配列で打てるようにするWindows用ソフトです。",
       "href": "/IMELayoutRouter/",
       "destination": "紹介・ダウンロード",
       "image": {
@@ -22,6 +22,7 @@
       "type": "研究",
       "tech": "Python / MediaPipe",
       "title": "日本手話の手形認識",
+      "description": "高専時代の卒業研究で、MediaPipeを用いた骨格推定と機械学習（CNN）で手形認識の精度向上を目指しました。",
       "href": "https://github.com/31916/syukei_recognize",
       "destination": "研究・ソースコード",
       "image": {
@@ -38,6 +39,7 @@
       "type": "ソフトウェア",
       "tech": "JavaScript / PWA",
       "title": "ひもほどき",
+      "description": "LASTEさんの「Raspberry Pi Picoでゲームコントローラーを作るロボット工房」向けに、子どもからお年寄りまで楽しめる簡単なパズルゲームを作りました。",
       "href": "/himoparty/",
       "destination": "ブラウザーで遊ぶ",
       "image": {
@@ -54,6 +56,7 @@
       "type": "アイデアデザイン",
       "tech": "Windows, macOS & Linux",
       "title": "Number Cursors 4",
+      "description": "マウスカーソルが数字の4に似ていると思い、デザインしてみました。",
       "href": "/IdeaDesigns/",
       "destination": "紹介・ダウンロード",
       "image": {

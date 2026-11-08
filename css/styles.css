@@ -126,6 +126,7 @@ summary:focus-visible {
   z-index: 10;
   align-self: start;
   background: var(--paper);
+  border-bottom: 1px solid #bdcce5;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -263,6 +264,12 @@ summary:focus-visible {
   line-height: 1.5;
   margin-top: 7px;
   letter-spacing: -0.025em;
+}
+.project-description {
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.75;
 }
 .link-arrow {
   inline-size: 0.9em;
