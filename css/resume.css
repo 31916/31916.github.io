@@ -74,6 +74,11 @@ html:lang(de) .resume-event-name {
 .resume-list li::marker {
   color: var(--accent);
 }
+.language-entry {
+  display: grid;
+  grid-template-columns: 6em minmax(0, 1fr);
+  column-gap: 1em;
+}
 .qualification-entry {
   display: grid;
   grid-template-columns: minmax(0, 1fr) max-content;
