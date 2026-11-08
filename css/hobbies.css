@@ -4,7 +4,7 @@
 }
 .hobby-section {
   display: grid;
-  grid-template-columns: 160px minmax(0, 1fr);
+  grid-template-columns: 200px minmax(0, 1fr);
   gap: 40px;
 }
 .hobby-section + .hobby-section {
@@ -17,9 +17,6 @@
   font-weight: 700;
   line-height: 1.6;
   color: var(--accent);
-}
-.interests-section {
-  grid-template-columns: 200px minmax(0, 1fr);
 }
 .interests-section > h2 {
   white-space: nowrap;
@@ -205,11 +202,14 @@ html:lang(de) .hobby-section-content {
 }
 @media (max-width: 750px) {
   .hobby-section {
-    grid-template-columns: 120px minmax(0, 1fr);
     gap: 28px;
   }
-  .interests-section {
-    grid-template-columns: 200px minmax(0, 1fr);
+  .tournament-meta {
+    grid-template-columns: minmax(0, 1.04fr) minmax(0, 1fr);
+    column-gap: 12px;
+  }
+  html:lang(ja) .tournament-meta {
+    font-size: 12px;
   }
 }
 @media (max-width: 650px) {
@@ -221,9 +221,6 @@ html:lang(de) .hobby-section-content {
     grid-template-columns: minmax(0, 1fr);
     gap: 24px;
   }
-  .interests-section {
-    grid-template-columns: minmax(0, 1fr);
-  }
   .hobby-section > h2 {
     font-size: 22px;
     line-height: 1.5;
@@ -231,12 +228,5 @@ html:lang(de) .hobby-section-content {
   .hobby-section + .hobby-section {
     margin-top: 36px;
     padding-top: 28px;
-  }
-  .tournament-meta {
-    grid-template-columns: minmax(0, 1.04fr) minmax(0, 1fr);
-    column-gap: 12px;
-  }
-  html:lang(ja) .tournament-meta {
-    font-size: 12px;
   }
 }

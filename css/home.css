@@ -97,6 +97,9 @@
   line-height: 1.5;
 }
 @media (max-width: 650px) {
+  html:lang(ja) .home-intro-invitation {
+    display: block;
+  }
   .home-main {
     gap: 18px;
     padding-block: 8px;
