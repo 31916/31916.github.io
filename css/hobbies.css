@@ -143,11 +143,20 @@
 .tournament-meta {
   display: grid;
   grid-template-columns: 220px minmax(0, 1fr);
-  column-gap: 100px;
+  column-gap: clamp(24px, calc(100% - 380px), 100px);
   margin: 0;
 }
 .tournament-meta span {
-  white-space: nowrap;
+  overflow-wrap: anywhere;
+}
+html:is(:lang(en), :lang(de)) .tournament-meta {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+  column-gap: clamp(12px, 4vw, 40px);
+}
+html:is(:lang(en), :lang(de)) .interests-section > h2 {
+  white-space: normal;
+  overflow-wrap: anywhere;
+  text-wrap: balance;
 }
 .hobby-results li::marker {
   color: var(--accent);
@@ -178,7 +187,7 @@ html:lang(de) .hobby-section-content {
     gap: 28px;
   }
   .interests-section {
-    grid-template-columns: 180px minmax(0, 1fr);
+    grid-template-columns: 200px minmax(0, 1fr);
   }
 }
 @media (max-width: 650px) {
@@ -202,7 +211,10 @@ html:lang(de) .hobby-section-content {
     padding-top: 28px;
   }
   .tournament-meta {
-    grid-template-columns: 166px minmax(0, 1fr);
-    column-gap: 28px;
+    grid-template-columns: minmax(0, 1.04fr) minmax(0, 1fr);
+    column-gap: 12px;
+  }
+  html:lang(ja) .tournament-meta {
+    font-size: 12px;
   }
 }
