@@ -129,9 +129,23 @@
 .hobby-results li + li {
   margin-top: 20px;
 }
+.tournament-heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 2px 12px;
+  margin-bottom: 7px;
+}
 .tournament-name {
-  display: inline-block;
-  margin: 0 0 7px;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.tournament-date {
+  margin-inline-start: auto;
+  color: var(--muted);
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
 }
 .tournament-meta {
   display: grid;
