@@ -96,31 +96,49 @@
   padding-top: 14px;
   border-top: 1px solid var(--line);
 }
-.club-history-heading,
-.club-history li {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) max-content;
-  gap: 24px;
-  align-items: baseline;
+.club-history table {
+  width: 100%;
+  table-layout: fixed;
+  border-spacing: 0;
+  hyphens: manual;
 }
-.club-history-heading {
-  margin: 0 0 8px;
+.club-history caption,
+.club-history th {
+  padding-bottom: 8px;
   color: var(--muted);
   font-size: 11px;
+  font-weight: 400;
 }
-.club-history ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
+.club-history caption,
+.club-history th,
+.club-history td {
+  text-align: left;
 }
-.club-history li + li {
-  margin-top: 8px;
+.club-history th,
+.club-history td {
+  padding-inline-end: 10px;
+  vertical-align: top;
+  overflow-wrap: anywhere;
 }
-.club-history li span:last-child {
+.club-history th:first-child {
+  width: 40%;
+}
+.club-history th:last-child {
+  width: 5em;
+}
+.club-history th:last-child,
+.club-history td:last-child {
+  padding-inline-end: 0;
+  text-align: right;
+  white-space: nowrap;
+}
+.club-history tbody tr + tr td {
+  padding-top: 8px;
+}
+.club-history td:last-child {
   color: var(--muted);
   font-size: 12px;
   font-variant-numeric: tabular-nums;
-  white-space: nowrap;
 }
 .hobby-results {
   margin: 0;

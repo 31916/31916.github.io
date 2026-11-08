@@ -18,9 +18,9 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="/css/styles.css?v=20261108-header-line" />
-    <link rel="stylesheet" href="/css/hobbies.css?v=20261108-tournament-dates" />
+    <link rel="stylesheet" href="/css/hobbies.css?v=20261108-hobby-columns" />
     <script src="/js/scripts.js?v=20261014a" defer></script>
-    <script src="/js/i18n.js?v=20261108-tournament-dates" defer></script>
+    <script src="/js/i18n.js?v=20261108-hobby-columns" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main">本文へ移動</a>
@@ -76,11 +76,16 @@
                       </svg>
                     </summary>
                     <div class="club-history">
-                      <p class="club-history-heading"><span>過去の所属</span><span>在籍期間</span></p>
-                      <ul>
-                        <li><span>高浜中学校</span><span>2年半</span></li>
-                        <li><span>豊田高専</span><span>2年半</span></li>
-                      </ul>
+                      <table>
+                        <caption>過去の所属</caption>
+                        <thead>
+                          <tr><th scope="col">学校名</th><th scope="col">部活名</th><th scope="col">在籍期間</th></tr>
+                        </thead>
+                        <tbody>
+                          <tr><td>高浜中学校</td><td>男子ソフトテニス部</td><td>2年半</td></tr>
+                          <tr><td>豊田高専</td><td>ソフトテニス部</td><td>2年半</td></tr>
+                        </tbody>
+                      </table>
                     </div>
                   </details>
                 </dd>
@@ -128,7 +133,7 @@
           </article>
         </div>
       </section>
-      <section class="hobby-section" aria-labelledby="games-heading">
+      <section class="hobby-section interests-section" aria-labelledby="games-heading">
         <h2 id="games-heading">ゲーム</h2>
         <ul class="interest-list">
           <li><a class="hobby-link" href="https://www.minecraft.net/ja-jp" target="_blank" rel="noopener noreferrer">マインクラフト</a></li>
