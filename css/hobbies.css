@@ -188,8 +188,13 @@ html:is(:lang(en), :lang(de)) .interests-section > h2 {
 .interest-list > li + li {
   margin-top: 12px;
 }
+.series-disclosure {
+  display: inline;
+}
 .series-disclosure > summary {
-  width: fit-content;
+  display: inline-flex;
+  padding: 4px;
+  vertical-align: middle;
 }
 .interest-series {
   margin: 8px 0 0;
