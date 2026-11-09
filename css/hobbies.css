@@ -65,20 +65,20 @@
 .club-disclosure {
   width: min(100%, 540px);
 }
-.club-disclosure summary {
+.hobby-disclosure > summary {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 16px;
   list-style: none;
 }
-.club-disclosure summary::-webkit-details-marker {
+.hobby-disclosure > summary::-webkit-details-marker {
   display: none;
 }
-.club-disclosure summary::marker {
+.hobby-disclosure > summary::marker {
   content: "";
 }
-.club-disclosure summary svg {
+.hobby-disclosure > summary svg {
   width: 16px;
   height: 16px;
   flex: 0 0 auto;
@@ -87,7 +87,7 @@
   stroke-width: 1.5;
   transition: transform 180ms ease;
 }
-.club-disclosure[open] summary svg {
+.hobby-disclosure[open] > summary svg {
   transform: rotate(180deg);
 }
 .club-history {
@@ -187,6 +187,9 @@ html:is(:lang(en), :lang(de)) .interests-section > h2 {
 }
 .interest-list > li + li {
   margin-top: 12px;
+}
+.series-disclosure > summary {
+  width: fit-content;
 }
 .interest-series {
   margin: 8px 0 0;
