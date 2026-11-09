@@ -12,6 +12,36 @@
   padding-block: 12px;
 }
 .home-intro {
+  display: grid;
+  grid-template-columns: clamp(10rem, 22vw, 16rem) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(24px, 5vw, 60px);
+}
+.home-intro-visual {
+  text-align: center;
+}
+.home-intro-icon {
+  aspect-ratio: 1;
+  overflow: hidden;
+  border-radius: 50%;
+}
+.home-intro-icon img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.home-intro-icon-inset {
+  /* The disk occupies 74 pixels of the original 100-pixel canvas. */
+  transform: scale(calc(100 / 74));
+}
+.home-intro-visual figcaption {
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.5;
+}
+.home-intro-copy {
   max-width: 46rem;
   overflow-wrap: anywhere;
 }
@@ -68,6 +98,14 @@
   line-height: 1.5;
 }
 @media (max-width: 650px) {
+  .home-intro {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+  }
+  .home-intro-visual {
+    width: min(42vw, 144px);
+    justify-self: center;
+  }
   html:lang(ja) .home-intro-invitation {
     display: block;
   }
