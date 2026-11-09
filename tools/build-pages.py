@@ -26,6 +26,7 @@ PROJECT_CATEGORIES = {
 }
 PUBLIC = (
     "CNAME", "index.html", "404.html", "robots.txt", "sitemap.xml",
+    "google97bf67731c686ec9.html",  # Search Console ownership verification.
     "about/index.html", "resume/index.html", "projects/index.html", "play/index.html",
     "css/styles.css", "js/scripts.js", "css/resume.css",
     "css/home.css", "css/hobbies.css", "assets/projects.json",
