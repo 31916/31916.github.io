@@ -182,8 +182,16 @@ html:is(:lang(en), :lang(de)) .interests-section > h2 {
   padding: 0;
   list-style: none;
 }
-.interest-list li + li {
+.interest-list > li + li {
   margin-top: 12px;
+}
+.interest-series {
+  margin: 8px 0 0;
+  padding-inline-start: 1.25em;
+  list-style: disc;
+}
+.interest-series li + li {
+  margin-top: 6px;
 }
 .hobby-link {
   text-decoration: underline;
