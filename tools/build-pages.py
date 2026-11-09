@@ -32,7 +32,7 @@ PUBLIC = (
     "css/cursors.css", "assets/cursors/arrow.png", "assets/cursors/hand.png", "assets/cursors/text.png",
     "assets/identity.json",
     "assets/translations.json", "js/i18n.js",
-    "assets/art/favicon.svg", "assets/art/handshape.svg", "assets/art/link-arrow.svg",
+    "assets/art/favicon.svg", "assets/art/handshape.svg", "assets/art/link-arrow.svg", "assets/art/chevron-right.svg",
     "assets/tech/c.svg", "assets/tech/csharp.svg", "assets/tech/python.svg", "assets/tech/matlab.svg",
     "assets/tech/java.svg", "assets/tech/javascript.svg", "assets/tech/html.svg", "assets/tech/css.svg",
     "assets/tech/git.svg", "assets/tech/github.svg", "assets/tech/linux.svg",

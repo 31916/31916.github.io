@@ -146,9 +146,16 @@ summary:focus-visible {
   gap: 9px;
 }
 .site-header nav a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4em;
+  min-height: 44px;
   font-family: Arial, sans-serif;
-  font-size: 12px;
-  border: 1px solid var(--line);
+  font-size: 13px;
+  font-weight: 700;
+  background: #edf2ff;
+  border: 1px solid #a9bce7;
   border-radius: 30px;
   padding: 11px 19px;
   line-height: 1.4;
@@ -156,10 +163,21 @@ summary:focus-visible {
     background 0.2s,
     border-color 0.2s;
 }
+.site-header nav a::after {
+  content: "";
+  flex: 0 0 0.75em;
+  height: 0.75em;
+  background: currentColor;
+  mask: url("/assets/art/chevron-right.svg") center / contain no-repeat;
+}
 .site-header nav a:hover,
+.site-header nav a:focus-visible,
 .site-header nav a[aria-current="page"] {
-  background: #e8eeff;
-  border-color: #b7c9ef;
+  background: #dce7ff;
+  border-color: #809ad2;
+}
+.site-header nav a:focus-visible {
+  outline-offset: 2px;
 }
 .kicker {
   font-family: Arial, sans-serif;
@@ -371,13 +389,6 @@ summary:focus-visible {
   gap: 24px;
   padding: 8px 0;
 }
-.breadcrumb {
-  display: inline-block;
-  font-family: Arial, sans-serif;
-  font-size: 11px;
-  color: var(--muted);
-  margin-bottom: 40px;
-}
 .intro-description {
   font-size: 13px;
   color: var(--muted);
@@ -387,9 +398,6 @@ summary:focus-visible {
 .page-summary {
   padding: 24px 0 28px;
 }
-.page-summary .breadcrumb {
-  margin-bottom: 16px;
-}
 .page-summary .intro-description {
   margin-top: 10px;
 }
@@ -397,7 +405,7 @@ summary:focus-visible {
   margin-top: 10px;
 }
 .page-content {
-  padding-bottom: 70px;
+  padding-block: 24px 70px;
 }
 .filter-bar {
   display: flex;
@@ -481,7 +489,7 @@ summary:focus-visible {
     gap: 6px;
   }
   .site-header nav a {
-    font-size: 10px;
+    font-size: 12px;
     padding: 10px 13px;
   }
   .social-link {
@@ -522,9 +530,6 @@ summary:focus-visible {
   .site-footer {
     font-size: 9px;
   }
-  .breadcrumb {
-    margin-bottom: 30px;
-  }
   .intro-description {
     font-size: 12px;
   }
@@ -544,8 +549,7 @@ summary:focus-visible {
   .site-header nav a {
     flex: 1;
     text-align: center;
-    padding: 10px 8px;
-    font-size: 11px;
+    padding: 10px 7px;
   }
   .project-grid {
     grid-template-columns: 1fr;
@@ -687,7 +691,7 @@ summary:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 4px;
 }
-@media (max-width: 750px) {
+@media (650px < width <= 750px) {
   .header-tools {
     gap: 14px;
   }
