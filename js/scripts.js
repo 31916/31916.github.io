@@ -26,18 +26,15 @@ const filters = document.querySelectorAll("[data-filter]");
 function updateFilterResult() {
   const result = document.getElementById("filter-result");
   if (!result) return;
-  const count = [...document.querySelectorAll("[data-category]")].filter(
-    (card) => !card.hidden,
-  ).length;
+  const count = document.querySelectorAll("[data-category]:not([hidden])").length;
   result.textContent =
     window.portfolioI18n?.formatCount(count) ?? `${count}件の制作物を表示`;
 }
 filters.forEach((button) =>
   button.addEventListener("click", () => {
+    const category = button.dataset.filter;
     document.querySelectorAll("[data-category]").forEach((card) => {
-      card.hidden =
-        button.dataset.filter !== "all" &&
-        card.dataset.category !== button.dataset.filter;
+      card.hidden = category !== "all" && card.dataset.category !== category;
     });
     filters.forEach((item) =>
       item.setAttribute("aria-pressed", String(item === button)),

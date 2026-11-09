@@ -19,6 +19,7 @@ ROOT = Path(__file__).resolve().parents[1]
 CURRENT = "IMELayoutRouter"
 LEGACY = "IMELayOutRouter"
 IDEA_DESIGNS = "IdeaDesigns"
+IMAGE_EXTENSIONS = {".svg", ".png", ".jpg", ".jpeg", ".webp", ".gif", ".avif"}
 PROJECT_CATEGORIES = {
     "software": "ソフトウェア",
     "research": "研究",
@@ -162,7 +163,7 @@ def identity_assets(settings=None):
         if any(character in source for character in ("?", "#", "\\", "%")):
             raise ValueError(f"Use a plain identity image path without query, fragment or URL escapes: {source}")
         path = Path(source.lstrip("/"))
-        if ".." in path.parts or path.suffix.lower() not in {".svg", ".png", ".jpg", ".jpeg", ".webp", ".gif", ".avif"}:
+        if ".." in path.parts or path.suffix.lower() not in IMAGE_EXTENSIONS:
             raise ValueError(f"Invalid identity image: {source}")
         resolved = (ROOT / path).resolve()
         if not resolved.is_relative_to((ROOT / "assets/identity").resolve()):
@@ -187,7 +188,7 @@ def load_projects(settings=None):
         if identifier in identifiers:
             raise ValueError(f"Duplicate project id: {identifier}")
         identifiers.add(identifier)
-        for field in ("title", "description", "type", "tech", "destination", "href"):
+        for field in ("title", "description", "type", "tech", "href"):
             if not isinstance(project.get(field), str) or not project[field].strip():
                 raise ValueError(f"Project {identifier} needs nonempty {field}")
         if project.get("category") not in PROJECT_CATEGORIES:
@@ -211,7 +212,7 @@ def load_projects(settings=None):
         if any(character in source for character in ("?", "#", "\\", "%")):
             raise ValueError(f"Use a plain project image path without query, fragment or URL escapes: {source}")
         path = Path(source.lstrip("/"))
-        if ".." in path.parts or path.suffix.lower() not in {".svg", ".png", ".jpg", ".jpeg", ".webp", ".gif", ".avif"}:
+        if ".." in path.parts or path.suffix.lower() not in IMAGE_EXTENSIONS:
             raise ValueError(f"Invalid project image: {source}")
         if not (ROOT / path).resolve().is_relative_to(ROOT.resolve()):
             raise ValueError(f"Project image is outside the website: {source}")

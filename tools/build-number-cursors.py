@@ -159,12 +159,13 @@ def cape(cursors):
     entries = {}
     for name in sorted(MAC_GRAPHICS.keys() | MAC_ROLES.keys()):
         frames = cursors[name]
-        reference = frames[0][0][64]
-        if any((images[64].x, images[64].y, rate) != (reference.x, reference.y, frames[0][1])
+        first_images, first_rate = frames[0]
+        reference = first_images[64]
+        if any((images[64].x, images[64].y, rate) != (reference.x, reference.y, first_rate)
                for images, rate in frames):
             raise ValueError(f"Mousecape needs a consistent hotspot and duration for {name}")
         entry = {
-            "FrameCount": len(frames), "FrameDuration": frames[0][1] / 60,
+            "FrameCount": len(frames), "FrameDuration": first_rate / 60,
             "PointsWide": 32.0, "PointsHigh": 32.0,
             "HotSpotX": reference.x / 2, "HotSpotY": reference.y / 2,
             # Each representation is a vertical strip of frames at 1x or 2x.

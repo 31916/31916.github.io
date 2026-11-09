@@ -4,7 +4,7 @@ Personal portfolio at **https://31916.ch/**. Plain HTML, CSS, JavaScript and ori
 
 ## Pages
 
-- `index.html`: a home with two selected projects and contact (email/copy button). GitHub and X icons stay above the projects at the right edge.
+- `index.html`: a home with an introduction and contact links to GitHub and X.
 - `projects/index.html` lists projects with Software, Research and Idea Designs filters.
 - `resume/index.html`: separate education and work timelines, a qualifications list, and a technology stack with icons.
 - `about/index.html`: compatibility redirect to Resume.
@@ -16,17 +16,11 @@ Personal portfolio at **https://31916.ch/**. Plain HTML, CSS, JavaScript and ori
 
 Shared portfolio styles are in `css/styles.css`; navigation and project filters are in `js/scripts.js`. Resume adds `css/resume.css`. Header/footer markup is intentionally static in each page. Update the stylesheet/script version query in each page when changing these files.
 
-The home body fills the viewport when its content fits and scrolls naturally on smaller screens. Selected cards use the same `project-grid` and `project-image` styles as the project catalog, including one card per row on phones. The home header uses the same unmodified shared styles as every other portfolio page. Check the home at phone portrait/landscape, tablet and desktop sizes in Japanese, English and German when changing its content.
+The home body fills the viewport when its content fits and scrolls naturally on smaller screens. The home header uses the same shared styles as every other portfolio page. Check the home at phone portrait/landscape, tablet and desktop sizes in Japanese, English and German when changing its content.
 
-## Selecting the two home projects
+## Editing the project catalog
 
-Edit `assets/projects.json`. The `projects` array is the full project catalog; `featured` selects exactly two IDs, in display order:
-
-```json
-"featured": ["ime-layout-router", "handshape-recognition"]
-```
-
-To add a project, copy a catalog entry, assign a unique `id`, and update its title, link and image. Set `category` to `software`, `research` or `idea-design`. Add Japanese/English/German translations for new visible text and image descriptions in `assets/translations.json`. Change an ID in `featured` to show the new project on the home page. The build validates the selection, renders both the home and full project listing into HTML, and automatically includes local project images. No browser-side card replacement occurs.
+To add a project to `assets/projects.json`, copy a catalog entry, assign a unique `id`, and update its title, link and image. Set `category` to `software`, `research` or `idea-design`. Add translations for new visible text and image descriptions in `assets/translations.json`. The build validates the catalog, renders the project listing into HTML, and automatically includes local project images.
 
 The checked-in HTML includes the current cards for direct preview. After editing the catalog, preview the generated `tools/build-pages.py` output to see the new selection; deployment always uses the catalog. On Windows, extract current paths only for preview, excluding the case-sensitive `IMELayOutRouter/` aliases to avoid overwriting the current product directory.
 
@@ -38,7 +32,7 @@ The header uses `assets/identity/31916-transparent.png`, a transparent cutout of
 
 1. Put the image in `assets/identity/` (SVG, PNG, JPEG, WebP, GIF or AVIF).
 2. Edit `assets/identity.json`: the build renders `logo.src` into every portfolio header. Use a path such as `/assets/identity/logo.svg` and set descriptive `alt` text.
-3. Keep `logo.src` empty to use the text mark. The build automatically includes the configured image file; no build-manifest edit is needed. The home page contains only Projects and Contact.
+3. Keep `logo.src` empty to use the text mark. The build automatically includes the configured image file; no build-manifest edit is needed.
 
 The HTML contains the logo image on first render, with reserved dimensions and eager loading; JavaScript never swaps the header logo after loading. After changing logo settings, preview the extracted output of `tools/build-pages.py` to check the configured header. The checked-in HTML also contains the current logo for direct local preview.
 
@@ -61,9 +55,5 @@ The separate IMELayoutRouter product site keeps its existing Japanese/English pa
 Pushes to `main` deploy through `.github/workflows/pages.yml`. `tools/build-pages.py` builds the public archive, including the case-sensitive `IMELayOutRouter` legacy aliases. Add any new top-level public page/directory to `PUBLIC` in that script. Existing installer checksum checks run during deployment.
 
 The fixed public filename for Number Cursors 4 is `NumberCursors/downloads/Number_Cursors_4.zip`. To rebuild it, run `python tools/build-number-cursors.py NumberCursors/windows-source.zip` with the current Windows scheme ZIP. This packages the Windows files with the macOS and Linux themes and includes `NumberCursors/README.txt` as `Windows/README.txt`. Refresh its entry in `NumberCursors/downloads/SHA256SUMS.txt`.
-
-The pre-redesign site, including the existing product pages and downloads, is preserved at branch `backup/portfolio-before-redesign-2026-09-21` (commit `01b4c4e`).
-
-The version before the minimal home and separate Play page is preserved at `backup/before-minimal-refresh-2026-10-13` (commit `d05f2ce`).
 
 The SVG art in `assets/art/` was drawn for this portfolio. No illustrations from reference websites are included.
