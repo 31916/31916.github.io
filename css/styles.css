@@ -47,7 +47,6 @@ a {
 .skip-link,
 .social-link,
 .project-link,
-.email-link,
 .site-footer > a {
   text-decoration: none;
 }
@@ -217,13 +216,6 @@ summary:focus-visible {
 .name-period {
   color: var(--accent);
 }
-.profile-heading {
-  font-family: var(--sans);
-  font-size: clamp(38px, 5vw, 56px);
-  font-weight: 400;
-  line-height: 1.4;
-  letter-spacing: 0.03em;
-}
 .social-link {
   display: inline-flex;
   gap: 0.3em;
@@ -350,62 +342,6 @@ summary:focus-visible {
   color: var(--muted);
   margin-top: 15px;
 }
-.email-link {
-  font-family: Arial, sans-serif;
-  font-size: 13px;
-  display: inline-flex;
-  align-items: center;
-  gap: 34px;
-  padding-block: 16px;
-  border-bottom: 1px solid var(--line);
-  overflow-wrap: anywhere;
-}
-.email-link:hover {
-  color: var(--accent);
-}
-.contact-email {
-  min-width: 0;
-  max-width: 100%;
-}
-.email-actions {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-.email-actions .email-link {
-  display: block;
-  min-width: 0;
-}
-.copy-email {
-  display: grid;
-  place-items: center;
-  flex: 0 0 44px;
-  width: 44px;
-  height: 44px;
-  padding: 0;
-  border: 1px solid var(--line);
-  border-radius: 10px;
-  color: var(--accent);
-  background: var(--peach);
-}
-.copy-email:hover {
-  background: var(--surface-hover);
-  border-color: var(--accent);
-}
-.copy-email svg {
-  width: 19px;
-  height: 19px;
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 1.7;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-.contact-section .copy-status {
-  min-height: 2em;
-  max-width: 320px;
-  margin-top: 6px;
-}
 .site-footer {
   display: flex;
   align-items: center;
@@ -422,21 +358,6 @@ summary:focus-visible {
   align-items: center;
   gap: 24px;
   padding: 8px 0;
-}
-.intro-description {
-  font-size: 13px;
-  color: var(--muted);
-  line-height: 2;
-  margin-top: 18px;
-}
-.page-summary {
-  padding: 24px 0 28px;
-}
-.page-summary .intro-description {
-  margin-top: 10px;
-}
-.page-summary .profile-heading {
-  margin-top: 10px;
 }
 .page-content {
   padding-block: 24px 70px;
@@ -506,10 +427,6 @@ summary:focus-visible {
   .contact-section {
     gap: 20px;
   }
-  .email-link {
-    font-size: 12px;
-    gap: 20px;
-  }
 }
 @media (max-width: 650px) {
   body {
@@ -562,15 +479,8 @@ summary:focus-visible {
     gap: 13px;
     padding-bottom: 40px;
   }
-  .email-link {
-    font-size: 12px;
-    gap: 30px;
-  }
   .site-footer {
     font-size: 9px;
-  }
-  .intro-description {
-    font-size: 12px;
   }
   .archive-note {
     font-size: 10px;
@@ -627,10 +537,6 @@ summary:focus-visible {
 @media (max-width: 350px) {
   .social-link {
     font-size: 9px;
-  }
-  .email-link {
-    font-size: 11px;
-    gap: 14px;
   }
 }
 @media (prefers-reduced-motion: reduce) {

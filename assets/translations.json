@@ -115,11 +115,11 @@
     "初級": "Beginner",
     "表示言語": "Display language",
     "言語を切り替える": "Change language",
-    "Harry（Harry）のポートフォリオ。制作するソフトウェア、研究、経歴と資格。": "Harry (Harry)’s portfolio: software, research, experience and qualifications.",
+    "31916のポートフォリオ。ソフトウェア、研究、経歴と資格を紹介します。": "31916’s portfolio of software, research, experience and qualifications.",
     "学歴": "Education",
     "経歴": "Experience",
     "学歴・経歴・資格": "Education, experience & qualifications",
-    "Harry（Harry）の学歴・経歴・資格。": "Harry (Harry)’s education, experience and qualifications.",
+    "31916の学歴・経歴・資格。": "31916’s education, experience and qualifications.",
     "学歴・経歴": "EDUCATION / EXPERIENCE",
     "2025年6月": "June 2025",
     "2025年4月": "April 2025",
@@ -143,10 +143,7 @@
     "プログラミング言語": "Programming languages",
     "数値計算": "Numerical computing",
     "自動化": "Automation",
-    "開発ツール・環境": "Development tools & environments",
-    "メールアドレスをコピー": "Copy email address",
-    "コピーしました": "Copied",
-    "コピーできませんでした。メールアドレスを選択してコピーしてください。": "Could not copy. Please select and copy the email address."
+    "開発ツール・環境": "Development tools & environments"
   },
   "de": {
     "Harry / 31916 — 個人サイト": "Harry / 31916 — Persönliche Website",
@@ -260,11 +257,11 @@
     "初級": "Grundkenntnisse",
     "表示言語": "Anzeigesprache",
     "言語を切り替える": "Sprache wechseln",
-    "Harry（Harry）のポートフォリオ。制作するソフトウェア、研究、経歴と資格。": "Das Portfolio von Harry (Harry): Software, Forschung, Werdegang und Qualifikationen.",
+    "31916のポートフォリオ。ソフトウェア、研究、経歴と資格を紹介します。": "Das Portfolio von 31916: Software, Forschung, Werdegang und Qualifikationen.",
     "学歴": "Bildung",
     "経歴": "Werdegang",
     "学歴・経歴・資格": "Bildung, Werdegang & Qualifikationen",
-    "Harry（Harry）の学歴・経歴・資格。": "Bildung, Werdegang und Qualifikationen von Harry (Harry).",
+    "31916の学歴・経歴・資格。": "Bildung, Werdegang und Qualifikationen von 31916.",
     "学歴・経歴": "BILDUNG / WERDEGANG",
     "2025年6月": "Juni 2025",
     "2025年4月": "April 2025",
@@ -288,9 +285,6 @@
     "プログラミング言語": "Programmiersprachen",
     "数値計算": "Numerische Berechnungen",
     "自動化": "Automatisierung",
-    "開発ツール・環境": "Entwicklungswerkzeuge & Umgebungen",
-    "メールアドレスをコピー": "E-Mail-Adresse kopieren",
-    "コピーしました": "Kopiert",
-    "コピーできませんでした。メールアドレスを選択してコピーしてください。": "Kopieren nicht möglich. Bitte die E-Mail-Adresse auswählen und kopieren."
+    "開発ツール・環境": "Entwicklungswerkzeuge & Umgebungen"
   }
 }
