@@ -1,9 +1,11 @@
 :root {
-  --paper: #f6f8ff;
-  --ink: #1c2e55;
-  --muted: #637294;
-  --line: #d9e2f4;
-  --accent: #466fd9;
+  --paper: #c6c6b2;
+  --ink: #142a26;
+  --muted: #21342f;
+  --line: rgb(20 42 38 / 30%);
+  --accent: #173830;
+  --surface: #e3e8db;
+  --surface-hover: #d2e3d5;
   --serif: "Cormorant Garamond", Georgia, serif;
   --sans: "Noto Sans JP", Arial, sans-serif;
   --width: 1080px;
@@ -12,13 +14,17 @@
   box-sizing: border-box;
 }
 html {
-  scrollbar-gutter: stable;
+  scrollbar-color: #5f6863 var(--paper);
   scroll-behavior: smooth;
   scroll-padding-top: calc(var(--header-height, 108px) + 16px);
 }
 body {
   margin: 0;
-  background: var(--paper);
+  background-color: var(--paper);
+  background-image:
+    radial-gradient(ellipse at 40% 42%, transparent 25%, rgb(45 52 56 / 13%) 100%),
+    linear-gradient(108deg, #83bdc5 0%, #8ed3b1 24%, #b9c8b0 42%, #cbbfa9 60%, #b9a6bd 86%, #acaeba 100%);
+  background-attachment: fixed;
   color: var(--ink);
   font-family: var(--sans);
   font-size: 14px;
@@ -85,7 +91,8 @@ summary:focus-visible {
   outline-offset: 6px;
 }
 ::selection {
-  background: #dce7ff;
+  color: var(--ink);
+  background: #deefce;
 }
 .shell {
   width: min(var(--width), calc(100% - 112px));
@@ -118,18 +125,23 @@ summary:focus-visible {
   display: none !important;
 }
 .site-header {
+  --ink: #30251b;
+  --muted: #3b2e1d;
+  --line: #826e50;
+  --accent: #513c23;
   position: sticky;
   top: 0;
   z-index: 10;
   align-self: start;
-  background: var(--paper);
-  border-bottom: 1px solid #bdcce5;
+  color: var(--ink);
+  background: linear-gradient(104deg, #aa9777 0%, #d1bd97 31%, #dfcba5 48%, #c2ad86 77%, #ad9a7b 100%);
+  border-bottom: 1px solid var(--line);
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 30px;
-  padding-top: 30px;
-  padding-bottom: 30px;
+  padding-block: 30px;
+  padding-inline: max(56px, calc((100% - var(--width)) / 2));
 }
 .wordmark {
   font-family: var(--serif);
@@ -154,8 +166,8 @@ summary:focus-visible {
   font-family: Arial, sans-serif;
   font-size: 13px;
   font-weight: 700;
-  background: #edf2ff;
-  border: 1px solid #a9bce7;
+  background: rgb(255 246 220 / 35%);
+  border: 1px solid var(--line);
   border-radius: 30px;
   padding: 11px 19px;
   line-height: 1.4;
@@ -173,8 +185,8 @@ summary:focus-visible {
 .site-header nav a:hover,
 .site-header nav a:focus-visible,
 .site-header nav a[aria-current="page"] {
-  background: #dce7ff;
-  border-color: #809ad2;
+  background: #f1e1bc;
+  border-color: var(--accent);
 }
 .site-header nav a:focus-visible {
   outline-offset: 2px;
@@ -203,14 +215,14 @@ summary:focus-visible {
   justify-content: center;
   min-height: 39px;
   padding: 9px 17px;
-  border: 1px solid #cad8f0;
+  border: 1px solid var(--line);
   border-radius: 30px;
   font-family: Arial, sans-serif;
   font-size: 11px;
   transition: background 0.2s;
 }
 .social-link:hover {
-  background: #dce7ff;
+  background: var(--surface-hover);
 }
 .project-grid {
   display: grid;
@@ -228,9 +240,9 @@ summary:focus-visible {
   box-sizing: content-box;
   aspect-ratio: 1200/630;
   overflow: hidden;
-  border: 1px solid #d8e2f6;
+  border: 1px solid var(--line);
   border-radius: 2px;
-  background: #f0f4ff;
+  background: var(--surface);
   transition: border-color 0.2s;
 }
 .project-image img {
@@ -240,7 +252,7 @@ summary:focus-visible {
   object-fit: contain;
 }
 .research-image {
-  background: #e4ecff;
+  background: var(--surface-hover);
 }
 .cursor-art-image {
   background: #111;
@@ -251,7 +263,7 @@ summary:focus-visible {
   border-radius: 20%;
 }
 .project-link:hover .project-image {
-  border-color: #829eda;
+  border-color: var(--accent);
 }
 .project-caption {
   display: flex;
@@ -271,7 +283,7 @@ summary:focus-visible {
   margin-left: 12px;
   font-size: 9px;
   letter-spacing: 0;
-  color: #7385a9;
+  color: var(--muted);
 }
 .project-caption h3 {
   font-size: 19px;
@@ -323,7 +335,7 @@ summary:focus-visible {
   align-items: center;
   gap: 34px;
   padding-block: 16px;
-  border-bottom: 1px solid #bdcceb;
+  border-bottom: 1px solid var(--line);
   overflow-wrap: anywhere;
 }
 .email-link:hover {
@@ -355,8 +367,8 @@ summary:focus-visible {
   background: transparent;
 }
 .copy-email:hover {
-  background: #e8eeff;
-  border-color: #b7c9ef;
+  background: var(--surface-hover);
+  border-color: var(--accent);
 }
 .copy-email svg {
   width: 19px;
@@ -429,7 +441,7 @@ summary:focus-visible {
   border-color: var(--ink);
 }
 .filter-bar button:hover {
-  border-color: #93a9d6;
+  border-color: var(--accent);
 }
 .archive-note {
   margin-top: 40px;
@@ -459,6 +471,9 @@ summary:focus-visible {
   .shell {
     width: calc(100% - 64px);
   }
+  .site-header {
+    padding-inline: 32px;
+  }
   .project-caption h3 {
     font-size: 17px;
   }
@@ -479,8 +494,7 @@ summary:focus-visible {
     width: calc(100% - 40px);
   }
   .site-header {
-    padding-top: 24px;
-    padding-bottom: 20px;
+    padding: 24px 20px 20px;
   }
   .wordmark {
     font-size: 31px;
@@ -643,9 +657,9 @@ summary:focus-visible {
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  background: #e6edff;
-  border: 1px solid #c8d6f8;
-  color: #365dc4;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  color: var(--accent);
   transition:
     background 0.2s,
     color 0.2s;
@@ -655,7 +669,7 @@ summary:focus-visible {
   height: 20px;
 }
 .social-icon:hover {
-  background: #466fd9;
+  background: var(--accent);
   color: white;
 }
 
