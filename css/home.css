@@ -17,10 +17,8 @@
   align-items: center;
   gap: clamp(24px, 5vw, 60px);
 }
-.home-intro-visual {
-  text-align: center;
-}
 .home-intro-icon {
+  display: block;
   aspect-ratio: 1;
   overflow: hidden;
   border-radius: 50%;
@@ -34,12 +32,6 @@
 .home-intro-icon-inset {
   /* The disk occupies 74 pixels of the original 100-pixel canvas. */
   transform: scale(calc(100 / 74));
-}
-.home-intro-visual figcaption {
-  margin-top: 8px;
-  color: var(--muted);
-  font-size: 11px;
-  line-height: 1.5;
 }
 .home-intro-copy {
   max-width: 46rem;
@@ -102,7 +94,7 @@
     grid-template-columns: minmax(0, 1fr);
     gap: 16px;
   }
-  .home-intro-visual {
+  .home-intro-icon {
     width: min(42vw, 144px);
     justify-self: center;
   }
