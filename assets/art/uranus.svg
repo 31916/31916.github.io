@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 264">
+  <defs>
+    <linearGradient id="planet" x2="100%" y2="30%">
+      <stop stop-color="#36c7d3"/>
+      <stop offset=".34" stop-color="#78e7b7"/>
+      <stop offset=".62" stop-color="#e5d9bc"/>
+      <stop offset="1" stop-color="#a38cb6"/>
+    </linearGradient>
+  </defs>
+  <g transform="rotate(-29 160 132)" fill="none">
+    <ellipse cx="160" cy="132" rx="132" ry="45" stroke="#674d68" stroke-width="9"/>
+    <ellipse cx="160" cy="132" rx="132" ry="45" stroke="#f9dca4" stroke-width="5"/>
+    <circle cx="160" cy="132" r="83" fill="url(#planet)" stroke="#674d68" stroke-width="2"/>
+    <path d="M97 104a70 70 0 0 1 52-40" stroke="#f7ffe6" stroke-opacity=".67" stroke-width="3" stroke-linecap="round"/>
+    <path d="M28 132a132 45 0 0 0 264 0" stroke="#674d68" stroke-width="10"/>
+    <path d="M28 132a132 45 0 0 0 264 0" stroke="#ffe9b3" stroke-width="6"/>
+    <path d="M216 99h.1m9 14h.1" stroke="#ff978e" stroke-width="6" stroke-linecap="round"/>
+  </g>
+  <g fill="#fff1c8">
+    <path d="M68 35q0 13 13 13-13 0-13 13 0-13-13-13 13 0 13-13Z"/>
+    <path d="M271 179q0 10 10 10-10 0-10 10 0-10-10-10 10 0 10-10Z"/>
+    <circle cx="246" cy="46" r="4"/>
+  </g>
+  <circle cx="43" cy="201" r="4" fill="#ffb4a7"/>
+</svg>

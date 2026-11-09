@@ -12,13 +12,34 @@
   padding-block: 12px;
 }
 .home-intro {
+  display: grid;
+  align-items: center;
+  gap: clamp(18px, 4vw, 48px);
+}
+.home-intro-copy {
   max-width: 46rem;
+  padding: clamp(18px, 3vw, 34px);
+  border: 1px solid rgb(255 255 255 / 86%);
+  border-radius: 28px;
+  background: var(--panel);
+  box-shadow: var(--panel-shadow);
   overflow-wrap: anywhere;
 }
 .home-intro h1 {
   margin-bottom: 14px;
   font-size: clamp(24px, 3.8vw, 34px);
+  font-weight: 700;
   line-height: 1.4;
+  text-wrap: balance;
+}
+.home-intro h1::after {
+  content: "";
+  display: block;
+  width: 58px;
+  height: 5px;
+  margin-top: 10px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #37bba9, #a0dfb9 45%, #f8aa9c);
 }
 .home-intro p {
   font-size: 15px;
@@ -35,7 +56,7 @@
   margin-bottom: 12px;
 }
 .home-contact-heading h2 {
-  font: 500 18px/1.5 var(--sans);
+  font: 700 18px/1.5 var(--sans);
 }
 .home-page .contact-section {
   display: block;
@@ -95,6 +116,16 @@
 }
 .home-page .site-footer p {
   line-height: 1.5;
+}
+@media screen and (min-width: 751px) {
+  .home-intro {
+    grid-template-columns: minmax(0, 1fr) clamp(180px, 25vw, 310px);
+  }
+  .home-intro::after {
+    content: "";
+    aspect-ratio: 320 / 264;
+    background: url("/assets/art/uranus.svg") center / contain no-repeat;
+  }
 }
 @media (max-width: 650px) {
   html:lang(ja) .home-intro-invitation {
