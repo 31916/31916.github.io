@@ -1,0 +1,13 @@
+/* 32px images and hotspots from the Number Cursors 4 Windows release. */
+:root {
+  cursor: url("/assets/cursors/arrow.png") 4 4, auto;
+}
+
+:where(p, h1, h2, h3, h4, h5, h6, li, dt, dd, th, td, caption, figcaption, pre, code, textarea) {
+  cursor: url("/assets/cursors/text.png") 17 16, text;
+}
+
+:where(a[href], button, select, summary),
+:where(a[href], button, select, summary) * {
+  cursor: url("/assets/cursors/hand.png") 6 5, pointer;
+}

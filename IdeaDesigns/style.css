@@ -89,7 +89,6 @@ main { padding-block: clamp(26px, 7vw, 94px); }
   border: 1px solid var(--rule);
   background: #fff;
   color: var(--ink);
-  cursor: pointer;
 }
 .release-share:hover { background: #eee; }
 .release-info h2 {
@@ -114,7 +113,7 @@ main { padding-block: clamp(26px, 7vw, 94px); }
 
 .instructions { padding-top: 16px; overflow-wrap: anywhere; font-size: .84rem; }
 .instructions details + details { border-top: 1px solid var(--rule); }
-.instructions summary { padding-block: 6px; font-weight: 700; cursor: pointer; }
+.instructions summary { padding-block: 6px; font-weight: 700; }
 .instructions ol { margin: 6px 0 12px; padding-left: 1.4em; }
 
 .setup-command {
@@ -134,7 +133,6 @@ main { padding-block: clamp(26px, 7vw, 94px); }
   color: var(--ink);
   font: inherit;
   font-weight: 700;
-  cursor: pointer;
 }
 .setup-command button:hover { background: #eee; }
 #copy-windows-status { color: var(--muted); }

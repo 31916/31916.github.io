@@ -67,7 +67,6 @@
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  cursor: pointer;
   list-style: none;
 }
 .club-disclosure summary::-webkit-details-marker {

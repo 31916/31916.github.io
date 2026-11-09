@@ -48,9 +48,6 @@ a,
 button {
   touch-action: manipulation;
 }
-button {
-  cursor: pointer;
-}
 img,
 svg {
   max-width: 100%;
@@ -685,7 +682,6 @@ summary:focus-visible {
   background: transparent;
   padding: 10px 2px;
   min-height: 40px;
-  cursor: pointer;
 }
 .language-picker select:focus-visible {
   outline: 2px solid var(--accent);

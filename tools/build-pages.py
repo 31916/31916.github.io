@@ -29,6 +29,7 @@ PUBLIC = (
     "about/index.html", "resume/index.html", "projects/index.html", "play/index.html",
     "css/styles.css", "js/scripts.js", "css/resume.css",
     "css/home.css", "css/hobbies.css", "assets/projects.json",
+    "css/cursors.css", "assets/cursors/arrow.png", "assets/cursors/hand.png", "assets/cursors/text.png",
     "assets/identity.json",
     "assets/translations.json", "js/i18n.js",
     "assets/art/favicon.svg", "assets/art/handshape.svg", "assets/art/link-arrow.svg",
@@ -136,6 +137,7 @@ def redirect(page):
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>IMELayoutRouter</title>
   <link rel="canonical" href="https://31916.ch{target}">
+  <link rel="stylesheet" href="/css/cursors.css?v=1">
   {sharing}
   <script>location.replace("{target}" + location.search + location.hash);</script>
   <meta http-equiv="refresh" content="0; url={target}">
