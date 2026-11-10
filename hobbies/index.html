@@ -8,20 +8,20 @@
     <meta name="author" content="31916" />
     <meta property="og:title" content="趣味 — Harry / 31916" />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://31916.ch/play/" />
-    <link rel="canonical" href="https://31916.ch/play/" />
-    <link rel="icon" href="/assets/art/favicon.svg" type="image/svg+xml" />
+    <meta property="og:url" content="https://31916.ch/hobbies/" />
+    <link rel="canonical" href="https://31916.ch/hobbies/" />
+    <link rel="icon" href="/assets/art/favicon.svg?v=20261111-mist-dot" type="image/svg+xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Noto+Sans+JP:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="/css/styles.css?v=20261111-colorhunt" />
-    <link rel="stylesheet" href="/css/hobbies.css?v=20261110-link-cleanup" />
+    <link rel="stylesheet" href="/css/styles.css?v=20261111-mist-dot" />
+    <link rel="stylesheet" href="/css/hobbies.css?v=20261111-sport-disclosures" />
     <link rel="stylesheet" href="/css/cursors.css?v=3" />
     <script src="/js/scripts.js?v=20261110-cleanup" defer></script>
-    <script src="/js/i18n.js?v=20261110-story-arcs" defer></script>
+    <script src="/js/i18n.js?v=20261111-intro" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main">本文へ移動</a>
@@ -38,7 +38,7 @@
       <div class="header-tools">
         <nav aria-label="メインナビゲーション">
           <a href="/projects/">制作物</a><a href="/resume/">履歴書</a
-          ><a href="/play/">趣味</a>
+          ><a href="/hobbies/">趣味</a>
         </nav>
         <label class="language-picker" hidden>
           <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -61,74 +61,84 @@
         <h2 id="sports-heading">スポーツ</h2>
         <div class="hobby-section-content">
           <article class="sport" aria-labelledby="soft-tennis-heading">
-            <div class="sport-heading">
-              <h3 id="soft-tennis-heading">ソフトテニス</h3>
-              <span class="sport-duration">歴6年</span>
-            </div>
-            <dl class="sport-details">
-              <div>
-                <dt>所属</dt>
-                <dd>
-                  <details class="club-disclosure hobby-disclosure">
-                    <summary>
-                      <span>春山ソフトテニスクラブ</span>
-                      <svg viewBox="0 0 24 24" aria-hidden="true">
-                        <path d="m6 9 6 6 6-6" />
-                      </svg>
-                    </summary>
-                    <div class="club-history">
-                      <table>
-                        <caption>過去の所属</caption>
-                        <thead>
-                          <tr>
-                            <th scope="col"><span class="sr-only">学校名</span></th>
-                            <th scope="col"><span class="sr-only">部活名</span></th>
-                            <th scope="col"><span class="sr-only">在籍期間</span></th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr><td>高浜中学校</td><td>男子ソフトテニス部</td><td>2年半</td></tr>
-                          <tr><td>豊田高専</td><td>ソフトテニス部</td><td>2年半</td></tr>
-                        </tbody>
-                      </table>
-                    </div>
-                  </details>
-                </dd>
-              </div>
-              <div>
-                <dt>成績</dt>
-                <dd>
-                  <ul class="hobby-results">
-                    <li class="tournament-result">
-                      <div class="tournament-heading">
-                        <a class="tournament-name" href="https://softtennis-fukui-city.com/archives/2504" target="_blank" rel="noopener noreferrer">福井市職域クラブ対抗ソフトテニス大会</a>
-                        <time class="tournament-date" datetime="2026-09">2026年9月</time>
+            <details class="hobby-disclosure sport-disclosure">
+              <summary class="sport-heading">
+                <h3 id="soft-tennis-heading">ソフトテニス</h3>
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="m6 9 6 6 6-6" />
+                </svg>
+                <span class="sport-duration">歴6年</span>
+              </summary>
+              <dl class="sport-details">
+                <div>
+                  <dt>所属</dt>
+                  <dd>
+                    <details class="club-disclosure hobby-disclosure">
+                      <summary>
+                        <span>春山ソフトテニスクラブ</span>
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                          <path d="m6 9 6 6 6-6" />
+                        </svg>
+                      </summary>
+                      <div class="club-history">
+                        <table>
+                          <caption>過去の所属</caption>
+                          <thead>
+                            <tr>
+                              <th scope="col"><span class="sr-only">学校名</span></th>
+                              <th scope="col"><span class="sr-only">部活名</span></th>
+                              <th scope="col"><span class="sr-only">在籍期間</span></th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr><td>高浜中学校</td><td>男子ソフトテニス部</td><td>2年半</td></tr>
+                            <tr><td>豊田高専</td><td>ソフトテニス部</td><td>2年半</td></tr>
+                          </tbody>
+                        </table>
                       </div>
-                      <p class="tournament-meta"><span>一般男子2部</span><span>春山クラブ準優勝（前衛）</span></p>
-                    </li>
-                    <li class="tournament-result">
-                      <div class="tournament-heading">
-                        <span class="tournament-name">福井県レディース交流大会</span>
-                        <time class="tournament-date" datetime="2026-10">2026年10月</time>
-                      </div>
-                      <p class="tournament-meta"><span>混合 2部（エンジョイの部）</span><span>準優勝（後衛）</span></p>
-                    </li>
-                  </ul>
-                </dd>
-              </div>
-            </dl>
+                    </details>
+                  </dd>
+                </div>
+                <div>
+                  <dt>成績</dt>
+                  <dd>
+                    <ul class="hobby-results">
+                      <li class="tournament-result">
+                        <div class="tournament-heading">
+                          <a class="tournament-name" href="https://softtennis-fukui-city.com/archives/2504" target="_blank" rel="noopener noreferrer">福井市職域クラブ対抗ソフトテニス大会</a>
+                          <time class="tournament-date" datetime="2026-09">2026年9月</time>
+                        </div>
+                        <p class="tournament-meta"><span>一般男子2部</span><span>春山クラブ準優勝（前衛）</span></p>
+                      </li>
+                      <li class="tournament-result">
+                        <div class="tournament-heading">
+                          <span class="tournament-name">福井県レディース交流大会</span>
+                          <time class="tournament-date" datetime="2026-10">2026年10月</time>
+                        </div>
+                        <p class="tournament-meta"><span>混合 2部（エンジョイの部）</span><span>準優勝（後衛）</span></p>
+                      </li>
+                    </ul>
+                  </dd>
+                </div>
+              </dl>
+            </details>
           </article>
           <article class="sport" aria-labelledby="badminton-heading">
-            <div class="sport-heading">
-              <h3 id="badminton-heading">バドミントン</h3>
-              <span class="sport-duration">歴2年</span>
-            </div>
-            <dl class="sport-details">
-              <div>
-                <dt>所属</dt>
-                <dd><a href="https://www.instagram.com/fukui__badminton/" target="_blank" rel="noopener noreferrer">福井大学バドミントンサークル ポーリュシカポーレ</a></dd>
-              </div>
-            </dl>
+            <details class="hobby-disclosure sport-disclosure">
+              <summary class="sport-heading">
+                <h3 id="badminton-heading">バドミントン</h3>
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="m6 9 6 6 6-6" />
+                </svg>
+                <span class="sport-duration">歴2年</span>
+              </summary>
+              <dl class="sport-details">
+                <div>
+                  <dt>所属</dt>
+                  <dd><a href="https://www.instagram.com/fukui__badminton/" target="_blank" rel="noopener noreferrer">福井大学バドミントンサークル ポーリュシカポーレ</a></dd>
+                </div>
+              </dl>
+            </details>
           </article>
           <article class="sport" aria-labelledby="pickleball-heading">
             <div class="sport-heading">

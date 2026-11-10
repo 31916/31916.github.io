@@ -499,6 +499,24 @@ summary:focus-visible {
   height: 48px;
   object-fit: contain;
 }
+@supports selector(:has(*)) and (mask-image: url("")) {
+  .wordmark:has(> img[src="/assets/identity/31916-transparent.png"]) {
+    position: relative;
+  }
+  /* The transparent gap separates the digits from the dot. */
+  .wordmark > img[src="/assets/identity/31916-transparent.png"] {
+    clip-path: inset(0 12.5% 0 0);
+  }
+  .wordmark:has(> img[src="/assets/identity/31916-transparent.png"])::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--mist);
+    mask: url("/assets/identity/31916-transparent.png") center / contain no-repeat;
+    clip-path: inset(0 0 0 87.5%);
+    pointer-events: none;
+  }
+}
 .social-icon {
   display: inline-flex;
   align-items: center;

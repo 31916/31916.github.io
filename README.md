@@ -8,7 +8,7 @@ Personal portfolio at **https://31916.ch/**. Plain HTML, CSS, JavaScript and ori
 - `projects/index.html` lists projects with Software, Research and Idea Designs filters.
 - `resume/index.html`: separate education and work timelines, a qualifications list, and a technology stack with icons.
 - `about/index.html`: compatibility redirect to Resume.
-- `play/index.html`: sports with experience, clubs and results, followed by a simple game list. Styles are in `css/hobbies.css`.
+- `hobbies/index.html`: sports with experience, clubs and results, games, anime and manga. Styles are in `css/hobbies.css`.
 - `IMELayoutRouter/`: existing product website and installer distribution.
 - `IdeaDesigns/` hosts Idea Designs in English. Add each release as its own article with a unique, stable ID. Its Share button uses that ID as the link fragment. `Design/` and `Design/en.html` redirect to Idea Designs.
 - `NumberCursors/`: cursor release assets and redirects from the original download pages.
