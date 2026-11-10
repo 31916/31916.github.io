@@ -199,12 +199,6 @@ html:is(:lang(en), :lang(de)) .interests-section > h2 {
 .interest-series {
   margin: 8px 0 0;
 }
-.hobby-link {
-  text-decoration: underline;
-  text-decoration-color: currentColor;
-  text-underline-offset: 0.22em;
-  text-decoration-thickness: 1px;
-}
 html:lang(de) .hobby-section-content {
   hyphens: auto;
 }

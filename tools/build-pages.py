@@ -220,12 +220,6 @@ def load_projects(settings=None):
     return settings
 
 
-def project_assets(settings=None):
-    """Include catalog images automatically when new projects are added."""
-    settings = load_projects(settings)
-    return tuple(dict.fromkeys(project["image"]["src"].lstrip("/") for project in settings["projects"]))
-
-
 def project_image(project):
     image = project["image"]
     return (
@@ -319,8 +313,9 @@ def render_public_html(content, settings=None, projects=None):
 def build(destination):
     settings = json.loads((ROOT / "assets/identity.json").read_text(encoding="utf-8"))
     projects = load_projects()
+    project_images = tuple(project["image"]["src"].lstrip("/") for project in projects["projects"])
     with tarfile.open(destination, "w") as archive:
-        for name in dict.fromkeys(PUBLIC + identity_assets(settings) + project_assets(projects)):
+        for name in dict.fromkeys(PUBLIC + identity_assets(settings) + project_images):
             if not (ROOT / name).is_file() or (ROOT / name).is_symlink():
                 raise ValueError(f"Expected a regular public file: {name}")
             if name.endswith(".html"):
