@@ -38,8 +38,8 @@ Diagonal Resize 1        SizeNWSE.cur      Two 7s pointing upper left and lower 
 Diagonal Resize 2        SizeNESW.cur      Two 7s pointing upper right and lower left
 Move                     SizeAll.cur       Four 7s pointing in four directions
 Alternate Select         UpArrow.cur       Upward-pointing 7
-Link Select              Hand.cur          Simple 3
-Location Select          Pin.cur           3 with a small 5 at the lower right
-Person Select            Person.cur        3 with a small 5 at the lower right
+Link Select              Hand.cur          Upright 4
+Location Select          Pin.cur           Upright 4 with a small 3 at the lower right
+Person Select            Person.cur        Upright 4 with a small 5 at the lower right
 
 For macOS and Linux setup, choose your OS at https://31916.ch/IdeaDesigns/#setup.

@@ -9,5 +9,5 @@
 
 :where(a[href], button, select, summary),
 :where(a[href], button, select, summary) * {
-  cursor: url("/assets/cursors/hand.png") 6 5, pointer;
+  cursor: url("/assets/cursors/hand.png?v=2") 16 3, pointer;
 }
