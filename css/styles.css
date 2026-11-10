@@ -1,9 +1,11 @@
 :root {
-  --paper: #f6f8ff;
-  --ink: #1c2e55;
-  --muted: #637294;
-  --line: #d9e2f4;
-  --accent: #466fd9;
+  --paper: #f5efe1;
+  --ink: #30241f;
+  --muted: #66574e;
+  --sand: #e5d3af;
+  --mist: #aec4d4;
+  --line: var(--sand);
+  --accent: #790d16;
   --serif: "Cormorant Garamond", Georgia, serif;
   --sans: "Noto Sans JP", Arial, sans-serif;
   --width: 1080px;
@@ -84,7 +86,7 @@ summary:focus-visible {
   outline-offset: 6px;
 }
 ::selection {
-  background: #dce7ff;
+  background: var(--mist);
 }
 .shell {
   width: min(var(--width), calc(100% - 112px));
@@ -106,7 +108,7 @@ summary:focus-visible {
   top: -80px;
   left: 20px;
   background: var(--ink);
-  color: #fff;
+  color: var(--paper);
   padding: 12px 18px;
   z-index: 20;
 }
@@ -122,7 +124,7 @@ summary:focus-visible {
   z-index: 10;
   align-self: start;
   background: var(--paper);
-  border-bottom: 1px solid #bdcce5;
+  border-bottom: 4px solid var(--accent);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -150,17 +152,17 @@ summary:focus-visible {
   justify-content: center;
   gap: 0.4em;
   min-height: 44px;
-  font-family: Arial, sans-serif;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 700;
-  background: #edf2ff;
-  border: 1px solid #a9bce7;
-  border-radius: 30px;
-  padding: 11px 19px;
+  color: var(--accent);
+  background: var(--mist);
+  border: 2px solid var(--accent);
+  border-radius: 10px;
+  padding: 10px 16px;
   line-height: 1.4;
   transition:
     background 0.2s,
-    border-color 0.2s;
+    color 0.2s;
 }
 .site-header nav a::after {
   content: "";
@@ -170,10 +172,12 @@ summary:focus-visible {
   mask: url("/assets/art/chevron-right.svg") center / contain no-repeat;
 }
 .site-header nav a:hover,
-.site-header nav a:focus-visible,
+.site-header nav a:focus-visible {
+  background: var(--sand);
+}
 .site-header nav a[aria-current="page"] {
-  background: #dce7ff;
-  border-color: #809ad2;
+  color: var(--paper);
+  background: var(--accent);
 }
 .site-header nav a:focus-visible {
   outline-offset: 2px;
@@ -195,14 +199,14 @@ summary:focus-visible {
   justify-content: center;
   min-height: 39px;
   padding: 9px 17px;
-  border: 1px solid #cad8f0;
+  border: 1px solid var(--accent);
   border-radius: 30px;
   font-family: Arial, sans-serif;
   font-size: 11px;
   transition: background 0.2s;
 }
 .social-link:hover {
-  background: #dce7ff;
+  background: var(--sand);
 }
 .project-grid {
   display: grid;
@@ -220,9 +224,9 @@ summary:focus-visible {
   box-sizing: content-box;
   aspect-ratio: 1200/630;
   overflow: hidden;
-  border: 1px solid #d8e2f6;
+  border: 1px solid var(--line);
   border-radius: 2px;
-  background: #f0f4ff;
+  background: var(--sand);
   transition: border-color 0.2s;
 }
 .project-image img {
@@ -232,7 +236,7 @@ summary:focus-visible {
   object-fit: contain;
 }
 .research-image {
-  background: #e4ecff;
+  background: var(--mist);
 }
 .cursor-art-image {
   background: #111;
@@ -243,7 +247,7 @@ summary:focus-visible {
   border-radius: 20%;
 }
 .project-link:hover .project-image {
-  border-color: #829eda;
+  border-color: var(--accent);
 }
 .project-caption {
   display: flex;
@@ -263,7 +267,7 @@ summary:focus-visible {
   margin-left: 12px;
   font-size: 9px;
   letter-spacing: 0;
-  color: #7385a9;
+  color: var(--muted);
 }
 .project-caption h3 {
   font-size: 19px;
@@ -323,7 +327,7 @@ summary:focus-visible {
 .filter-bar button {
   font-family: Arial, sans-serif;
   font-size: 11px;
-  border: 1px solid var(--line);
+  border: 1px solid var(--muted);
   background: transparent;
   color: var(--muted);
   border-radius: 25px;
@@ -331,12 +335,12 @@ summary:focus-visible {
   min-height: 40px;
 }
 .filter-bar button[aria-pressed="true"] {
-  color: #fff;
-  background: var(--ink);
-  border-color: var(--ink);
+  color: var(--paper);
+  background: var(--accent);
+  border-color: var(--accent);
 }
 .filter-bar button:hover {
-  border-color: #93a9d6;
+  border-color: var(--accent);
 }
 .archive-note {
   margin-top: 40px;
@@ -378,19 +382,8 @@ summary:focus-visible {
   .shell {
     width: calc(100% - 40px);
   }
-  .site-header {
-    padding-top: 24px;
-    padding-bottom: 20px;
-  }
   .wordmark {
     font-size: 31px;
-  }
-  .site-header nav {
-    gap: 6px;
-  }
-  .site-header nav a {
-    font-size: 12px;
-    padding: 10px 13px;
   }
   .social-link {
     min-height: 36px;
@@ -425,12 +418,6 @@ summary:focus-visible {
   }
 }
 @media (max-width: 480px) {
-  .site-header nav {
-    gap: 8px;
-  }
-  .site-header nav a {
-    padding: 10px 7px;
-  }
   .project-grid {
     grid-template-columns: 1fr;
     gap: 36px;
@@ -519,9 +506,9 @@ summary:focus-visible {
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  background: #e6edff;
-  border: 1px solid #c8d6f8;
-  color: #365dc4;
+  background: var(--mist);
+  border: 1px solid var(--accent);
+  color: var(--accent);
   transition:
     background 0.2s,
     color 0.2s;
@@ -531,8 +518,8 @@ summary:focus-visible {
   height: 20px;
 }
 .social-icon:hover {
-  background: #466fd9;
-  color: white;
+  background: var(--accent);
+  color: var(--paper);
 }
 
 .header-tools {
@@ -558,7 +545,7 @@ summary:focus-visible {
   font: 12px var(--sans);
   color: var(--ink);
   border: 0;
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1px solid var(--muted);
   background: transparent;
   padding: 10px 2px;
   min-height: 40px;
@@ -567,19 +554,20 @@ summary:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 4px;
 }
-@media (650px < width <= 750px) {
+@media (720px < width <= 810px) {
   .header-tools {
     gap: 14px;
   }
   .site-header nav a {
-    padding-inline: 14px;
+    padding-inline: 12px;
   }
 }
-@media (max-width: 650px) {
+@media (max-width: 720px) {
   .site-header {
     display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 20px;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 12px;
+    padding-block: 14px;
   }
   .header-tools {
     display: contents;
@@ -592,11 +580,24 @@ summary:focus-visible {
   .site-header nav {
     grid-column: 1 / -1;
     grid-row: 2;
-    width: 100%;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 7px;
   }
   .site-header nav a {
-    flex: 1;
+    gap: 4px;
+    min-height: 48px;
+    padding: 8px 5px;
     text-align: center;
+    overflow-wrap: anywhere;
+  }
+}
+@media (max-width: 380px) {
+  .site-header nav a {
+    font-size: 13px;
+    padding-inline: 3px;
+  }
+  .site-header nav a::after {
+    display: none;
   }
 }
