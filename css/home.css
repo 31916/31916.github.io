@@ -29,10 +29,6 @@
   height: 100%;
   object-fit: cover;
 }
-.home-intro-icon-inset {
-  /* The disk occupies 74 pixels of the original 100-pixel canvas. */
-  transform: scale(calc(100 / 74));
-}
 .home-intro-copy {
   max-width: 46rem;
   overflow-wrap: anywhere;
