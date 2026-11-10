@@ -140,7 +140,7 @@ def redirect(page):
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>IMELayoutRouter</title>
   <link rel="canonical" href="https://31916.ch{target}">
-  <link rel="stylesheet" href="/css/cursors.css?v=2">
+  <link rel="stylesheet" href="/css/cursors.css?v=3">
   {sharing}
   <script>location.replace("{target}" + location.search + location.hash);</script>
   <meta http-equiv="refresh" content="0; url={target}">
