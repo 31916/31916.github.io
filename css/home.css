@@ -365,6 +365,17 @@
     padding-top: 6px;
   }
 }
+@media (min-width: 651px) {
+  .home-main {
+    align-content: stretch;
+    grid-template-rows: minmax(min-content, 1fr) auto;
+    gap: 12px;
+    padding-block: 12px;
+  }
+  .home-intro {
+    align-content: center;
+  }
+}
 @media print {
   .home-page {
     display: block;
