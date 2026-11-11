@@ -179,17 +179,6 @@
   }
 }
 @media (max-width: 650px) and (max-height: 740px) {
-  .home-page .site-header {
-    gap: 8px;
-    padding-block: 10px;
-  }
-  .home-page .wordmark img {
-    width: 100px;
-    height: 40px;
-  }
-  .home-page .site-header nav a {
-    min-height: 44px;
-  }
   .home-main {
     --home-spacing: 6px;
     padding-block: 6px;
@@ -260,28 +249,6 @@
   }
 }
 @media (max-height: 500px) and (min-width: 520px) {
-  .home-page .site-header {
-    display: flex;
-    gap: 16px;
-    padding-block: 8px;
-  }
-  .home-page .wordmark img {
-    width: 100px;
-    height: 40px;
-  }
-  .home-page .header-tools {
-    display: flex;
-    gap: 12px;
-  }
-  .home-page .site-header nav {
-    display: flex;
-    width: auto;
-    gap: 6px;
-  }
-  .home-page .site-header nav a {
-    min-height: 44px;
-    padding-inline: 8px;
-  }
   .home-main {
     --home-spacing: 10px;
     padding-block: 4px;
@@ -325,20 +292,6 @@
   }
 }
 @media (max-height: 500px) and (min-width: 520px) and (max-width: 620px) {
-  .home-page .site-header {
-    gap: 8px;
-  }
-  .home-page .wordmark img {
-    width: 90px;
-    height: 36px;
-  }
-  .home-page .header-tools {
-    gap: 8px;
-  }
-  .home-page .site-header nav a {
-    font-size: 12px;
-    padding-inline: 6px;
-  }
   .home-main {
     --home-spacing: 8px;
   }
