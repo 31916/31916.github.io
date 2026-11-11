@@ -50,7 +50,9 @@ if (copyEmailButton) {
   const status = document.querySelector("[data-copy-status]");
   const copyIcon = copyEmailButton.querySelector("[data-copy-icon]");
   const copiedIcon = copyEmailButton.querySelector("[data-copied-icon]");
+  let copyResetTimer;
   const resetCopyState = () => {
+    clearTimeout(copyResetTimer);
     copyIcon.toggleAttribute("hidden", false);
     copiedIcon.toggleAttribute("hidden", true);
     status.textContent = "";
@@ -65,6 +67,7 @@ if (copyEmailButton) {
       copyIcon.toggleAttribute("hidden", true);
       copiedIcon.toggleAttribute("hidden", false);
       message = "メールアドレスをコピーしました";
+      copyResetTimer = setTimeout(resetCopyState, 6000);
     } catch {
       const range = document.createRange();
       range.selectNodeContents(email);
