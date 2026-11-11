@@ -5,10 +5,10 @@
   grid-template-rows: auto minmax(min-content, 1fr) auto;
 }
 .home-main {
+  --home-spacing: clamp(20px, 5dvh, 42px);
   min-height: 0;
   display: grid;
-  align-content: center;
-  gap: clamp(20px, 5dvh, 42px);
+  gap: var(--home-spacing);
   padding-block: 12px;
 }
 .home-intro {
@@ -22,7 +22,6 @@
 }
 .home-intro-icon {
   grid-row: span 2;
-  display: block;
   aspect-ratio: 1;
   overflow: hidden;
   border-radius: 50%;
@@ -98,7 +97,6 @@
   stroke-linejoin: round;
 }
 .home-page .contact-section {
-  display: block;
   padding: 16px 0 0;
   min-width: 0;
   border-top: 1px solid var(--line);
@@ -108,7 +106,6 @@
   align-items: center;
   justify-content: flex-end;
   gap: 8px;
-  flex-shrink: 0;
 }
 .home-page .social-icon {
   width: 34px;
@@ -130,7 +127,6 @@
 @media (max-width: 650px) {
   .home-intro {
     grid-template-columns: minmax(0, 1fr);
-    grid-template-rows: auto auto;
     align-content: center;
     gap: 24px;
   }
@@ -154,9 +150,9 @@
     display: block;
   }
   .home-main {
+    --home-spacing: 18px;
     align-content: stretch;
     grid-template-rows: minmax(min-content, 1fr) auto;
-    gap: 18px;
     padding-block: 8px;
   }
   .home-contact-heading {
@@ -199,7 +195,7 @@
     min-height: 44px;
   }
   .home-main {
-    gap: 12px;
+    --home-spacing: 12px;
     padding-block: 6px;
   }
   .home-intro {
@@ -211,7 +207,6 @@
   .home-intro h1 {
     font-size: 22px;
     line-height: 1.3;
-    margin-bottom: 0;
   }
   .home-intro p {
     font-size: 14px;
@@ -253,7 +248,7 @@
 }
 @media (max-height: 620px) {
   .home-main {
-    gap: 14px;
+    --home-spacing: 14px;
     padding-block: 6px;
   }
 }
@@ -287,14 +282,13 @@
     padding-inline: 8px;
   }
   .home-main {
+    --home-spacing: 10px;
     align-content: center;
     grid-template-rows: none;
-    gap: 10px;
     padding-block: 4px;
   }
   .home-intro {
     grid-template-columns: min(20vw, 120px) minmax(0, 1fr);
-    grid-template-rows: auto auto;
     gap: 0 24px;
   }
   .home-intro-hero {
@@ -347,7 +341,7 @@
     padding-inline: 6px;
   }
   .home-main {
-    gap: 8px;
+    --home-spacing: 8px;
   }
   .home-intro {
     grid-template-columns: 85px minmax(0, 1fr);
@@ -365,15 +359,25 @@
     padding-top: 6px;
   }
 }
-@media (min-width: 651px) {
+@media screen and (width > 650px) {
   .home-main {
-    align-content: stretch;
-    grid-template-rows: minmax(min-content, 1fr) auto;
-    gap: 12px;
-    padding-block: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    padding-block: var(--home-spacing);
+  }
+  .home-main::after {
+    content: "";
+    flex: 1 0 0;
   }
   .home-intro {
+    flex: 1 0 auto;
     align-content: center;
+    margin-bottom: var(--home-spacing);
+  }
+  .home-page .contact-section {
+    flex: none;
+    align-self: stretch;
   }
 }
 @media print {
