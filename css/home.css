@@ -130,8 +130,9 @@
 @media (max-width: 650px) {
   .home-intro {
     grid-template-columns: minmax(0, 1fr);
-    grid-template-rows: minmax(min-content, 1fr) auto;
-    gap: 8px;
+    grid-template-rows: auto auto;
+    align-content: center;
+    gap: 24px;
   }
   .home-intro-hero {
     display: grid;
@@ -202,7 +203,7 @@
     padding-block: 6px;
   }
   .home-intro {
-    gap: 6px;
+    gap: 16px;
   }
   .home-intro-hero {
     gap: 12px;
