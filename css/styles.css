@@ -281,6 +281,7 @@ summary:focus-visible {
   color: var(--muted);
   font-size: 13px;
   line-height: 1.75;
+  white-space: pre-line;
 }
 .link-arrow {
   inline-size: 0.9em;
