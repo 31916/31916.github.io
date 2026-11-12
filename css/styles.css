@@ -8,7 +8,6 @@
   --accent: #790d16;
   --serif: "Cormorant Garamond", Georgia, serif;
   --sans: "Noto Sans JP", Arial, sans-serif;
-  --width: 1080px;
 }
 * {
   box-sizing: border-box;
@@ -89,7 +88,7 @@ summary:focus-visible {
   background: var(--mist);
 }
 .shell {
-  width: min(var(--width), calc(100% - 112px));
+  width: calc(100% - 112px);
   margin-inline: auto;
 }
 .sr-only {
