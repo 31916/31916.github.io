@@ -33,6 +33,7 @@ PUBLIC = (
     "css/home.css", "css/hobbies.css", "assets/projects.json",
     "css/cursors.css", "assets/cursors/arrow.png", "assets/cursors/hand.png", "assets/cursors/text.png",
     "assets/identity.json",
+    "assets/fonts/quicksand-404.woff2", "assets/fonts/OFL-Quicksand.txt",
     "assets/translations.json", "js/i18n.js",
     "assets/art/favicon.svg", "assets/art/handshape.svg", "assets/art/link-arrow.svg", "assets/art/chevron-right.svg",
     "assets/art/home-uranus.png", "assets/art/home-uranus.svg",

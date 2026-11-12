@@ -1,15 +1,16 @@
 .resume-page {
-  padding-top: 2.375rem;
+  padding-top: 38px;
 }
 .resume-content {
-  padding-bottom: 5.125rem;
+  max-width: 980px;
+  padding-bottom: 82px;
 }
 .resume-section + .resume-section {
-  margin-top: 4rem;
+  margin-top: 64px;
 }
 .resume-section-heading {
-  margin-bottom: 1.75rem;
-  font-size: 1.25rem;
+  margin-bottom: 28px;
+  font-size: 20px;
   font-weight: 500;
   letter-spacing: 0.04em;
 }
@@ -21,27 +22,27 @@
 .resume-event {
   position: relative;
   display: grid;
-  grid-template-columns: 6.5rem minmax(0, 1fr);
-  gap: 1.75rem;
-  padding: 0 0 1.625rem 2rem;
+  grid-template-columns: 104px minmax(0, 1fr);
+  gap: 28px;
+  padding: 0 0 26px 32px;
 }
 .resume-event::before {
   content: "";
   position: absolute;
   left: 0;
-  top: 0.5625rem;
-  width: 0.5625rem;
-  height: 0.5625rem;
+  top: 9px;
+  width: 9px;
+  height: 9px;
   border-radius: 50%;
   background: var(--accent);
 }
 .resume-event:not(:last-child)::after {
   content: "";
   position: absolute;
-  left: 0.25rem;
-  top: 1.125rem;
-  bottom: -0.5625rem;
-  width: 0.0625rem;
+  left: 4px;
+  top: 18px;
+  bottom: -9px;
+  width: 1px;
   background: var(--line);
 }
 .resume-event:last-child {
@@ -49,16 +50,16 @@
 }
 .resume-date {
   color: var(--muted);
-  font-size: 0.75rem;
+  font-size: 12px;
   font-variant-numeric: tabular-nums;
-  line-height: 1.75rem;
+  line-height: 28px;
   white-space: nowrap;
 }
 .resume-event-name {
   min-width: 0;
-  font-size: 0.8125rem;
+  font-size: 13px;
   font-weight: 400;
-  line-height: 1.75rem;
+  line-height: 28px;
   overflow-wrap: break-word;
 }
 html:lang(de) .resume-event-name {
@@ -67,11 +68,11 @@ html:lang(de) .resume-event-name {
 .resume-list {
   padding-left: 1.3em;
   margin: 0;
-  font-size: 0.8125rem;
+  font-size: 13px;
   line-height: 1.9;
 }
 .resume-list li + li {
-  margin-top: 0.875rem;
+  margin-top: 14px;
 }
 .resume-list li::marker {
   color: var(--accent);
@@ -85,8 +86,8 @@ html:lang(de) .resume-event-name {
   display: grid;
   grid-template-columns: minmax(0, 1fr) max-content;
   align-items: baseline;
-  gap: 0.1875rem 1.5rem;
-  padding-left: 0.1875rem;
+  gap: 3px 24px;
+  padding-left: 3px;
 }
 .qualification-entry > span,
 .qualification-entry > a {
@@ -96,7 +97,7 @@ html:lang(de) .resume-event-name {
 .qualification-entry time {
   justify-self: end;
   color: var(--muted);
-  font-size: 0.6875rem;
+  font-size: 11px;
   font-variant-numeric: tabular-nums;
   text-align: right;
   white-space: nowrap;
@@ -106,20 +107,20 @@ html:lang(de) .qualification-entry > a {
   hyphens: auto;
 }
 .tech-group + .tech-group {
-  margin-top: 2rem;
+  margin-top: 32px;
 }
 .tech-group h3 {
-  margin: 0 0 1.125rem;
+  margin: 0 0 18px;
   color: var(--muted);
-  font-size: 0.75rem;
+  font-size: 12px;
   font-weight: 500;
   line-height: 1.7;
   overflow-wrap: anywhere;
 }
 .tech-stack {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(8.75rem, 1fr));
-  gap: 1.625rem 2rem;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 26px 32px;
   list-style: none;
   padding: 0;
   margin: 0;
@@ -127,55 +128,55 @@ html:lang(de) .qualification-entry > a {
 .tech-stack li {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 12px;
   min-width: 0;
-  font-size: 0.8125rem;
+  font-size: 13px;
   line-height: 1.6;
 }
 .tech-stack img {
   flex-shrink: 0;
-  width: 1.75rem;
-  height: 1.75rem;
+  width: 28px;
+  height: 28px;
   object-fit: contain;
 }
 @media (max-width: 650px) {
   .resume-content {
-    padding-bottom: 3.375rem;
+    padding-bottom: 54px;
   }
   .resume-section + .resume-section {
-    margin-top: 2.75rem;
+    margin-top: 44px;
   }
   .resume-section-heading {
-    font-size: 1.125rem;
-    margin-bottom: 1.375rem;
+    font-size: 18px;
+    margin-bottom: 22px;
   }
   .resume-event {
     grid-template-columns: 1fr;
-    gap: 0.1875rem;
-    padding-left: 1.5625rem;
-    padding-bottom: 1.5rem;
+    gap: 3px;
+    padding-left: 25px;
+    padding-bottom: 24px;
   }
   .resume-date {
-    font-size: 0.6875rem;
-    line-height: 1.625rem;
+    font-size: 11px;
+    line-height: 26px;
   }
   .resume-event-name {
-    font-size: 0.75rem;
-    line-height: 1.5rem;
+    font-size: 12px;
+    line-height: 24px;
   }
   .resume-list {
-    font-size: 0.75rem;
+    font-size: 12px;
   }
   .qualification-entry {
-    column-gap: 0.75rem;
+    column-gap: 12px;
   }
   .tech-stack {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1.5rem 1.25rem;
+    gap: 24px 20px;
   }
   .tech-stack li {
-    gap: 0.625rem;
-    font-size: 0.75rem;
+    gap: 10px;
+    font-size: 12px;
   }
 }
 @media print {
