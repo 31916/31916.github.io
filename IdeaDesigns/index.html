@@ -99,7 +99,9 @@
                 <summary>Linux</summary>
                 <ol>
                   <li>Extract the ZIP. Copy <code>Linux/Number_Cursors_4</code> into <code>~/.local/share/icons/</code>. Create the <code>icons</code> folder if needed.</li>
+                  <li>For X11 and XWayland applications, create <code>~/.icons</code> and, if <code>~/.icons/Number_Cursors_4</code> does not exist, run <code>ln -s ~/.local/share/icons/Number_Cursors_4 ~/.icons/Number_Cursors_4</code>.</li>
                   <li>In KDE Plasma, open System Settings → Cursors and apply <strong>Number Cursors 4</strong>. In GNOME, run <code>gsettings set org.gnome.desktop.interface cursor-theme 'Number_Cursors_4'</code>.</li>
+                  <li>Fully quit and reopen applications that still show the previous cursor. If the desktop panel still shows it, log out and back in.</li>
                 </ol>
               </details>
             </div>
