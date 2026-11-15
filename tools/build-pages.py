@@ -29,6 +29,8 @@ PUBLIC = (
     "CNAME", "index.html", "404.html", "robots.txt", "sitemap.xml",
     "google97bf67731c686ec9.html",  # Search Console ownership verification.
     "about/index.html", "resume/index.html", "projects/index.html", "hobbies/index.html",
+    "google-forms-profile/index.html", "google-forms-profile/style.css",
+    "google-forms-profile/article.js", "google-forms-profile/sample.gs",
     "css/styles.css", "js/scripts.js", "css/resume.css",
     "css/home.css", "css/hobbies.css", "assets/projects.json",
     "css/cursors.css", "assets/cursors/arrow.png", "assets/cursors/hand.png", "assets/cursors/text.png",
