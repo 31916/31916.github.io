@@ -224,6 +224,8 @@ def scalable(frames):
 
 def write_linux(archive, cursors):
     theme = f"Linux/{STEM}"
+    archive.writestr("Linux/install.sh", (NUMBER_CURSORS / "linux-install.sh").read_bytes())
+    archive.writestr("Linux/README.txt", (NUMBER_CURSORS / "Linux-README.txt").read_bytes())
     archive.writestr(f"{theme}/index.theme", f"[Icon Theme]\nName={NAME}\nComment=Number cursors by 31916\nInherits=Adwaita\n")
     for name, aliases in LINUX_NAMES.items():
         bitmap = xcursor(cursors[name])
