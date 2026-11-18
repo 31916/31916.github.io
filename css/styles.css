@@ -218,8 +218,15 @@ summary:focus-visible {
 }
 .project-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 2.1875rem;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 2.25rem;
+}
+/* Two 18rem cards and their 2.1875rem gap must fit the catalog itself. */
+@container project-catalog (min-width: 38.25rem) {
+  .project-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2.1875rem;
+  }
 }
 .project-card {
   min-width: 0;
@@ -325,6 +332,7 @@ summary:focus-visible {
   padding: 0.5rem 0;
 }
 .page-content {
+  container: project-catalog / inline-size;
   padding-block: 1.5rem 4.375rem;
 }
 .filter-bar {
@@ -392,9 +400,6 @@ summary:focus-visible {
     font-size: 0.625rem;
     padding: 0.5rem 0.75rem;
   }
-  .project-grid {
-    gap: 1.5rem;
-  }
   .project-caption {
     margin-top: 1.0625rem;
   }
@@ -417,10 +422,6 @@ summary:focus-visible {
   }
 }
 @media (max-width: 480px) {
-  .project-grid {
-    grid-template-columns: 1fr;
-    gap: 2.25rem;
-  }
   .project-type > span {
     display: inline-block;
     margin: 0 0 0 0.75rem;
