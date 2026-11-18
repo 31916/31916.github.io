@@ -351,13 +351,6 @@ summary:focus-visible {
 .filter-bar button:hover {
   border-color: var(--accent);
 }
-.archive-note {
-  margin-top: 2.5rem;
-  padding-top: 1.625rem;
-  border-top: 0.0625rem solid var(--line);
-  font-size: 0.6875rem;
-  color: var(--muted);
-}
 .error-page {
   min-height: 65vh;
   padding-block: 5.625rem;
@@ -421,9 +414,6 @@ summary:focus-visible {
   }
   .site-footer {
     font-size: 0.5625rem;
-  }
-  .archive-note {
-    font-size: 0.625rem;
   }
 }
 @media (max-width: 480px) {

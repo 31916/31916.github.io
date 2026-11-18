@@ -135,7 +135,7 @@
       translate("{count}件の制作物を表示").replace("{count}", String(count)),
   };
 
-  fetch("/assets/translations.json?v=20261117-resume-future")
+  fetch("/assets/translations.json?v=20261118-remove-repo-note")
     .then((response) => {
       if (!response.ok) throw new Error("Translations unavailable");
       return response.json();
