@@ -130,14 +130,20 @@
     "開発ツール・環境": "Development tools & environments",
     "投稿": "Posts",
     "技術投稿": "Technical post",
-    "投稿を読む": "Read post",
-    "開発の背景や実装方法をまとめています。": "Notes on development background and implementation.",
-    "Googleフォーム応募情報の自動整理": "Automating applicant profiles from Google Forms",
     "Harry / 31916の制作物・研究・投稿。ソフトウェアや研究に加え、開発背景と実装方法をまとめた技術投稿を紹介します。": "Projects, research and posts by Harry / 31916. Explore software, research and technical posts on development background and implementation.",
     "投稿 — Harry / 31916": "Posts — Harry / 31916",
     "Harry / 31916の投稿一覧。開発の背景や実装方法をまとめた技術投稿を紹介します。": "Posts by Harry / 31916. Technical writing on development background and implementation.",
     "フォームの応募情報から履歴書とPDFを自動作成し、Gmailでコピーを送信。無料テンプレートと実際の画面で、導入手順を紹介します。": "Automatically create resumes and PDFs from Google Forms responses and email copies through Gmail. Follow the setup with free templates and actual screenshots.",
-    "GoogleスプレッドシートからGmailを経由する矢印と、Googleドキュメント・履歴書のアイコン": "Google Sheets and Gmail icons connected by arrows to Google Docs and a resume icon"
+    "GoogleスプレッドシートからGmailを経由する矢印と、Googleドキュメント・履歴書のアイコン": "Google Sheets and Gmail icons connected by arrows to Google Docs and a resume icon",
+    "IT・技術": "IT & technology",
+    "投稿を絞り込む": "Filter posts",
+    "投稿の一覧": "Post list",
+    "この分類の投稿はまだありません。": "There are no posts in this category yet.",
+    "{count}件の投稿を表示": "Showing {count} posts",
+    "1件の投稿を表示": "Showing 1 post",
+    "Googleフォームで履歴書を自動作成し、メールで送る方法": "How to create resumes from Google Forms and email copies",
+    "Harry / 31916の投稿一覧。IT・技術、言語、資格に関する記事をまとめています。": "Posts by Harry / 31916 on IT, technology, languages and qualifications.",
+    "SNS": "Social links"
   },
   "de": {
     "2027年3月": "März 2027",
@@ -267,13 +273,19 @@
     "開発ツール・環境": "Entwicklungswerkzeuge & Umgebungen",
     "投稿": "Beiträge",
     "技術投稿": "Technischer Beitrag",
-    "投稿を読む": "Beitrag lesen",
-    "開発の背景や実装方法をまとめています。": "Beiträge über Entwicklungshintergründe und Umsetzung.",
-    "Googleフォーム応募情報の自動整理": "Bewerbungsdaten aus Google Forms automatisch aufbereiten",
     "Harry / 31916の制作物・研究・投稿。ソフトウェアや研究に加え、開発背景と実装方法をまとめた技術投稿を紹介します。": "Projekte, Forschung und Beiträge von Harry / 31916. Software, Forschung und technische Beiträge über Entwicklungshintergründe und Umsetzung.",
     "投稿 — Harry / 31916": "Beiträge — Harry / 31916",
     "Harry / 31916の投稿一覧。開発の背景や実装方法をまとめた技術投稿を紹介します。": "Beiträge von Harry / 31916. Technische Texte über Entwicklungshintergründe und Umsetzung.",
     "フォームの応募情報から履歴書とPDFを自動作成し、Gmailでコピーを送信。無料テンプレートと実際の画面で、導入手順を紹介します。": "Aus Formularantworten automatisch Lebensläufe und PDFs erstellen und Kopien mit Gmail versenden. Kostenlose Vorlagen und echte Bildschirmfotos zeigen die Einrichtung.",
-    "GoogleスプレッドシートからGmailを経由する矢印と、Googleドキュメント・履歴書のアイコン": "Symbole für Google Sheets und Gmail mit Pfeilen zu Google Docs und einem Lebenslauf-Symbol"
+    "GoogleスプレッドシートからGmailを経由する矢印と、Googleドキュメント・履歴書のアイコン": "Symbole für Google Sheets und Gmail mit Pfeilen zu Google Docs und einem Lebenslauf-Symbol",
+    "IT・技術": "IT & Technik",
+    "投稿を絞り込む": "Beiträge filtern",
+    "投稿の一覧": "Beitragsübersicht",
+    "この分類の投稿はまだありません。": "In dieser Kategorie gibt es noch keine Beiträge.",
+    "{count}件の投稿を表示": "{count} Beiträge angezeigt",
+    "1件の投稿を表示": "1 Beitrag angezeigt",
+    "Googleフォームで履歴書を自動作成し、メールで送る方法": "Lebensläufe aus Google Forms automatisch erstellen und per E-Mail versenden",
+    "Harry / 31916の投稿一覧。IT・技術、言語、資格に関する記事をまとめています。": "Beiträge von Harry / 31916 über IT, Technik, Sprachen und Qualifikationen.",
+    "SNS": "Soziale Profile"
   }
 }

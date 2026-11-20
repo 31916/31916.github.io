@@ -1,27 +1,60 @@
 "use strict";
 
 (() => {
-  const button = document.querySelector("[data-copy-code]");
-  const code = document.getElementById("sample-code");
-  const status = document.getElementById("copy-status");
-  if (!button || !code || !status) return;
+  const contents = document.querySelector(".guide-contents");
+  const narrow = window.matchMedia("(max-width: 1100px)");
+  const updateContents = () => { if (contents) contents.open = !narrow.matches; };
+  updateContents();
+  narrow.addEventListener("change", updateContents);
+  contents?.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => { if (narrow.matches) contents.open = false; });
+  });
 
-  button.hidden = false;
-  button.addEventListener("click", async () => {
-    button.disabled = true;
-    status.textContent = "";
-    try {
-      await navigator.clipboard.writeText(code.textContent);
-      status.textContent = "サンプルコードをコピーしました。";
-    } catch {
-      const range = document.createRange();
-      range.selectNodeContents(code);
-      const selection = window.getSelection();
-      selection.removeAllRanges();
-      selection.addRange(range);
-      status.textContent = "コードを選択しました。コピーするか、ダウンロードをご利用ください。";
-    } finally {
-      button.disabled = false;
-    }
+  const viewer = document.querySelector(".image-viewer");
+  if (!viewer || typeof viewer.showModal !== "function") return;
+  const image = viewer.querySelector("img");
+  const title = viewer.querySelector("#image-viewer-title");
+  const zoom = viewer.querySelector("[data-image-zoom]");
+  const close = viewer.querySelector("[data-image-close]");
+  const original = viewer.querySelector("[data-image-original]");
+  const viewport = viewer.querySelector(".image-viewer-content");
+  let opener;
+
+  function resetZoom() {
+    viewer.classList.remove("is-zoomed");
+    zoom.setAttribute("aria-pressed", "false");
+    zoom.textContent = "等倍で見る";
+    viewport.scrollTo(0, 0);
+  }
+  document.querySelectorAll(".guide-screenshot a").forEach((link) => {
+    link.addEventListener("click", (event) => {
+      if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+      event.preventDefault();
+      const preview = link.querySelector("img");
+      opener = link;
+      image.src = preview.currentSrc || preview.src;
+      image.alt = preview.alt;
+      title.textContent = preview.alt;
+      original.href = link.href;
+      resetZoom();
+      viewer.showModal();
+      document.documentElement.classList.add("image-viewer-open");
+      close.focus();
+    });
+  });
+  zoom.addEventListener("click", () => {
+    const expanded = viewer.classList.toggle("is-zoomed");
+    zoom.setAttribute("aria-pressed", String(expanded));
+    zoom.textContent = expanded ? "全体を見る" : "等倍で見る";
+    viewport.scrollTo(0, 0);
+  });
+  close.addEventListener("click", () => viewer.close());
+  viewer.addEventListener("click", (event) => {
+    const rect = viewer.getBoundingClientRect();
+    if (event.target === viewer && (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom)) viewer.close();
+  });
+  viewer.addEventListener("close", () => {
+    document.documentElement.classList.remove("image-viewer-open");
+    opener?.focus({ preventScroll: true });
   });
 })();

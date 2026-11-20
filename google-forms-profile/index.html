@@ -17,10 +17,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400..600&family=Noto+Sans+JP:wght@400..600&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="/css/styles.css?v=20261121-posts" />
+    <link rel="stylesheet" href="/css/styles.css?v=20261121-responsive" />
     <link rel="stylesheet" href="/css/cursors.css?v=3" />
-    <link rel="stylesheet" href="/google-forms-profile/style.css?v=20261121-workflow" />
-    <script src="/js/scripts.js?v=20261111-copy-reset" defer></script>
+    <link rel="stylesheet" href="/google-forms-profile/style.css?v=20261121-responsive" />
+    <script src="/js/scripts.js?v=20261121-responsive" defer></script>
+    <script src="/google-forms-profile/article.js?v=20261121-responsive" defer></script>
+    <link rel="stylesheet" href="/css/footer.css?v=20261121-responsive" />
   </head>
   <body>
     <a class="skip-link" href="#main">本文へ移動</a>
@@ -36,14 +38,20 @@
       <article aria-labelledby="article-title">
         <header class="guide-hero">
           <a class="guide-back-link" href="/posts/">投稿一覧へ</a>
-          <p class="guide-eyebrow">技術投稿 / Google Apps Script</p>
-          <h1 id="article-title"><span>Googleフォームの応募情報を、</span><span>履歴書風の資料に自動整理する方法</span></h1>
-          <p class="guide-summary">応募が届くたびに、回答内容を読みやすいGoogleドキュメントへ。無料テンプレートをコピーして、履歴書・PDFの自動作成からGmailでのコピー送信まで。実際の画面とともに導入手順を紹介します。</p>
+          <p class="guide-eyebrow">IT・技術 / Google Apps Script</p>
+          <h1 id="article-title">Googleフォームから履歴書を自動作成し、メールで送る方法</h1>
+          <p class="guide-summary">無料テンプレートをコピーして、初期設定を行い、フォームから送信する。履歴書とPDFの作成からメールの受信まで、実際の画面で説明します。</p>
           <div class="guide-meta"><span>文・開発：31916</span><time datetime="2026-11-15">2026年11月15日</time><span>無料テンプレート配布</span><span>更新：2026年11月21日</span></div>
         </header>
+        <div class="guide-start" aria-label="導入の流れ">
+          <p>まずは、この4つの操作から。</p>
+          <ol><li>テンプレートをコピー</li><li>初期設定を実行</li><li>フォームから送信</li><li>届いたメールを確認</li></ol>
+          <a href="#templates">無料テンプレートへ</a>
+        </div>
         <div class="guide-layout">
           <nav class="guide-toc" aria-label="この記事の目次">
-            <p>この記事の内容</p>
+            <details class="guide-contents" open>
+            <summary>目次<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
             <ol>
               <li><a href="#background">開発の背景</a></li>
               <li><a href="#how-it-works">仕組み</a></li>
@@ -52,8 +60,9 @@
               <li><a href="#verification">動作確認</a></li>
               <li><a href="#email">Gmailでコピーを送る</a></li>
               <li><a href="#operation">調整と運用</a></li>
-              <li><a href="#contact">導入のご相談</a></li>
+              <li><a href="#consultation">業務に合わせた調整</a></li>
             </ol>
+            </details>
           </nav>
           <div class="guide-article">
             <section id="background" class="guide-section" aria-labelledby="background-title">
@@ -61,7 +70,7 @@
               <p>Googleフォームは、採用やオーディションの応募受付にも使えます。回答をスプレッドシートに集められる一方で、自己紹介や志望動機などの長文が横に並ぶと、一人ひとりの情報を読むためにスクロールや転記が必要になります。</p>
               <p>そこで、<strong>応募が届くたびに、回答を履歴書風のGoogleドキュメントへ自動整理する仕組み</strong>を開発しました。担当者が確認したい順番に情報をまとめ、資料を作る作業を減らすことが目的です。</p>
               <p>この記事では、その仕組みを自分のGoogleアカウントで試せるテンプレートを無料で配布します。フォームの回答から履歴書とPDFを作り、<strong>回答者へGmailでコピーを送るところまで</strong>設定できます。コードの書き方を学ばなくても、コピーと初期設定で試せる構成です。</p>
-              <aside class="guide-note">掲載している画面は、この記事のために新しく作成したフォーム・スプレッドシート・Googleドキュメントを実際に操作して撮影しました。応募情報は架空です。業務で使用した応募者情報や社内テンプレートは含めていません。</aside>
+              <aside class="guide-note">掲載している画面は、この記事のために新しく作成したフォーム・スプレッドシート・Googleドキュメントを実際に操作して撮影しました。応募情報は架空です。業務で使用した応募者情報や社内テンプレートは含めていません。画像は操作する箇所を切り出しており、押すと拡大できます。</aside>
             </section>
             <section id="how-it-works" class="guide-section" aria-labelledby="mechanism-title">
               <h2 id="mechanism-title">回答を受け取り、履歴書のコピーをメールで返す。</h2>
@@ -77,8 +86,8 @@
               <p>回答者は届いたPDFをそのまま確認できます。Googleドキュメントのリンクからは、閲覧と自分のDriveへのコピーができます。元のテンプレートを回答者全員で編集する形にはしません。</p>
               <p>今回配布する履歴書は、「基本情報」「学歴・職歴とスキル」「自己PR・志望動機」の3つの表で構成しています。スプレッドシートは標準の表示を使い、履歴書には項目を区切る枠線を付けています。</p>
               <figure class="guide-figure guide-screenshot">
-                <a href="/google-forms-profile/screenshots/01-resume-template.jpg" target="_blank" rel="noopener" aria-label="Googleドキュメントで作成した、枠付きの履歴書テンプレート（画像を拡大）"><img src="/google-forms-profile/screenshots/01-resume-template.jpg" alt="Googleドキュメントで作成した、枠付きの履歴書テンプレート" width="1853" height="871" loading="lazy" decoding="async" /></a>
-                <figcaption>実際のGoogleドキュメント。右側の差し込み欄へ、フォームの回答が入ります。 画像を押すと拡大できます。</figcaption>
+                <a href="/google-forms-profile/screenshots/01-resume-template.jpg" target="_blank" rel="noopener" aria-label="Googleドキュメントで作成した、枠付きの履歴書テンプレート（画像を拡大）"><img src="/google-forms-profile/screenshots/previews/01-resume-template.webp" alt="Googleドキュメントで作成した、枠付きの履歴書テンプレート" width="558" height="512" loading="lazy" decoding="async" /><span class="guide-image-action" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5M7.5 10.5h6m-3-3v6"/></svg>拡大</span></a>
+                <figcaption>実際のGoogleドキュメント。右側の差し込み欄へ、フォームの回答が入ります。</figcaption>
               </figure>
             </section>
             <section id="templates" class="guide-section" aria-labelledby="templates-title">
@@ -102,33 +111,33 @@
                 </tbody></table>
               </div>
               <figure class="guide-figure guide-screenshot">
-                <a href="/google-forms-profile/screenshots/02-spreadsheet-settings.jpg" target="_blank" rel="noopener" aria-label="白背景とグリッド線の標準表示で開いた設定シート（画像を拡大）"><img src="/google-forms-profile/screenshots/02-spreadsheet-settings.jpg" alt="白背景とグリッド線の標準表示で開いた設定シート" width="1853" height="871" loading="lazy" decoding="async" /></a>
-                <figcaption>今回の動作確認で使用した設定シート。入力するのはB6〜B8です。B10以降は初期設定とテストで自動更新されます。 画像を押すと拡大できます。</figcaption>
+                <a href="/google-forms-profile/screenshots/02-spreadsheet-settings.jpg" target="_blank" rel="noopener" aria-label="白背景とグリッド線の標準表示で開いた設定シート（画像を拡大）"><img src="/google-forms-profile/screenshots/previews/02-spreadsheet-settings.webp" alt="白背景とグリッド線の標準表示で開いた設定シート" width="648" height="89" loading="lazy" decoding="async" /><span class="guide-image-action" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5M7.5 10.5h6m-3-3v6"/></svg>拡大</span></a>
+                <figcaption>今回の動作確認で使用した設定シート。入力するのはB6〜B8です。B10以降は初期設定とテストで自動更新されます。</figcaption>
               </figure>
               <h3>2. 「拡張機能」からApps Scriptを開く</h3>
               <p>スプレッドシートの上部にある「拡張機能 → Apps Script」を選びます。英語表示の場合は「Extensions → Apps Script」です。コードは入力済みなので、貼り付けや書き換えは不要です。</p>
               <figure class="guide-figure guide-screenshot">
-                <a href="/google-forms-profile/screenshots/03-open-apps-script.jpg" target="_blank" rel="noopener" aria-label="スプレッドシートのExtensionsメニューからApps Scriptを開く画面（画像を拡大）"><img src="/google-forms-profile/screenshots/03-open-apps-script.jpg" alt="スプレッドシートのExtensionsメニューからApps Scriptを開く画面" width="1853" height="871" loading="lazy" decoding="async" /></a>
-                <figcaption>「拡張機能（Extensions）」から「Apps Script」を選びます。 画像を押すと拡大できます。</figcaption>
+                <a href="/google-forms-profile/screenshots/03-open-apps-script.jpg" target="_blank" rel="noopener" aria-label="スプレッドシートのExtensionsメニューからApps Scriptを開く画面（画像を拡大）"><img src="/google-forms-profile/screenshots/previews/03-open-apps-script.webp" alt="スプレッドシートのExtensionsメニューからApps Scriptを開く画面" width="433" height="232" loading="lazy" decoding="async" /><span class="guide-image-action" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5M7.5 10.5h6m-3-3v6"/></svg>拡大</span></a>
+                <figcaption>「拡張機能（Extensions）」から「Apps Script」を選びます。</figcaption>
               </figure>
               <h3>3. 初期設定を1回だけ実行する</h3>
               <p>Apps Script上部の関数選択で<strong>setupAutomation</strong>を選び、「実行（Run）」を押します。初回はGoogleの認証画面が開くため、使用するアカウントと表示された権限の内容を確認して承認します。ファイルの作成・編集、フォーム、Gmail、自動実行の権限が使われます。</p>
               <p>実行ログに完了が表示されたら、スプレッドシートへ戻ります。B10の「初期設定の結果」が「初期設定済み」になり、フォームや保存先のURLが入力されます。</p>
               <figure class="guide-figure guide-screenshot">
-                <a href="/google-forms-profile/screenshots/04-run-setup.jpg" target="_blank" rel="noopener" aria-label="setupAutomationを選択し、実行完了のログが表示されたApps Script（画像を拡大）"><img src="/google-forms-profile/screenshots/04-run-setup.jpg" alt="setupAutomationを選択し、実行完了のログが表示されたApps Script" width="1853" height="871" loading="lazy" decoding="async" /></a>
-                <figcaption>初期設定はsetupAutomationを選んで実行します。画面は設定済みの環境で再実行し、完了を確認したものです。 画像を押すと拡大できます。</figcaption>
+                <a href="/google-forms-profile/screenshots/04-run-setup.jpg" target="_blank" rel="noopener" aria-label="setupAutomationを選択し、実行完了のログが表示されたApps Script（画像を拡大）"><img src="/google-forms-profile/screenshots/previews/04-run-setup.webp" alt="setupAutomationを選択し、実行完了のログが表示されたApps Script" width="1000" height="655" loading="lazy" decoding="async" /><span class="guide-image-action" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5M7.5 10.5h6m-3-3v6"/></svg>拡大</span></a>
+                <figcaption>初期設定はsetupAutomationを選んで実行します。画面は設定済みの環境で再実行し、完了を確認したものです。</figcaption>
               </figure>
               <p>この操作で、応募フォーム、回答先シート、自分用の履歴書テンプレート、「生成された履歴書」フォルダ、フォーム送信時の自動実行設定が作成されます。自分用のテンプレートは、B14の「使用中のテンプレートURL」から開けます。</p>
               <p>自動実行設定を確認する場合は、Apps Script左側の「トリガー（Triggers）」を開きます。「onFormSubmit」「スプレッドシートから・フォーム送信時」が1件表示されれば設定済みです。手動で追加する必要はありません。</p>
               <figure class="guide-figure guide-screenshot">
-                <a href="/google-forms-profile/screenshots/04b-created-trigger.jpg" target="_blank" rel="noopener" aria-label="フォーム送信時のonFormSubmitトリガーが1件作成された画面（画像を拡大）"><img src="/google-forms-profile/screenshots/04b-created-trigger.jpg" alt="フォーム送信時のonFormSubmitトリガーが1件作成された画面" width="1853" height="871" loading="lazy" decoding="async" /></a>
-                <figcaption>初期設定によって作成された、フォーム送信時のトリガー。 画像を押すと拡大できます。</figcaption>
+                <a href="/google-forms-profile/screenshots/04b-created-trigger.jpg" target="_blank" rel="noopener" aria-label="フォーム送信時のonFormSubmitトリガーが1件作成された画面（画像を拡大）"><img src="/google-forms-profile/screenshots/previews/04b-created-trigger.webp" alt="フォーム送信時のonFormSubmitトリガーが1件作成された画面" width="1040" height="85" loading="lazy" decoding="async" /><span class="guide-image-action" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5M7.5 10.5h6m-3-3v6"/></svg>拡大</span></a>
+                <figcaption>初期設定によって作成された、フォーム送信時のトリガー。</figcaption>
               </figure>
               <h3>4. 作成された応募フォームを確認する</h3>
               <p>設定シートB11の「応募フォーム編集URL」を開きます。氏名、ふりがな、メールアドレス、生年月日、居住地、希望職種、学歴・職歴、資格・スキル、活動リンク、自己PR、志望動機の11項目が用意されています。</p>
               <figure class="guide-figure guide-screenshot">
-                <a href="/google-forms-profile/screenshots/05-created-form.jpg" target="_blank" rel="noopener" aria-label="氏名やメールアドレスの質問が用意されたGoogleフォームの編集画面（画像を拡大）"><img src="/google-forms-profile/screenshots/05-created-form.jpg" alt="氏名やメールアドレスの質問が用意されたGoogleフォームの編集画面" width="1853" height="871" loading="lazy" decoding="async" /></a>
-                <figcaption>実際に作成されたGoogleフォームの編集画面。テーマや配色は標準のままです。 画像を押すと拡大できます。</figcaption>
+                <a href="/google-forms-profile/screenshots/05-created-form.jpg" target="_blank" rel="noopener" aria-label="氏名やメールアドレスの質問が用意されたGoogleフォームの編集画面（画像を拡大）"><img src="/google-forms-profile/screenshots/previews/05-created-form.webp" alt="氏名やメールアドレスの質問が用意されたGoogleフォームの編集画面" width="855" height="730" loading="lazy" decoding="async" /><span class="guide-image-action" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5M7.5 10.5h6m-3-3v6"/></svg>拡大</span></a>
+                <figcaption>実際に作成されたGoogleフォームの編集画面。テーマや配色は標準のままです。</figcaption>
               </figure>
               <p>フォームのタイトルや説明文は、受付する内容に合わせて変更できます。まずは質問名を変えずにテストしてください。質問名と履歴書の差し込み欄が対応しているため、質問の追加や名称変更には連携側の調整も必要です。</p>
             </section>
@@ -137,22 +146,22 @@
               <p>設定シートB12の「回答フォームURL」を開き、架空の応募情報を入力します。メールアドレスには、<strong>自分で受信を確認できるアドレス</strong>を指定して送信してください。</p>
               <p>Apps Scriptで「onFormSubmit」を直接実行する操作ではテストできません。フォームの回答画面にある送信ボタンから送信します。</p>
               <figure class="guide-figure guide-screenshot">
-                <a href="/google-forms-profile/screenshots/06-form-submitted.jpg" target="_blank" rel="noopener" aria-label="履歴書作成フォームの送信を受け付けた確認画面（画像を拡大）"><img src="/google-forms-profile/screenshots/06-form-submitted.jpg" alt="履歴書作成フォームの送信を受け付けた確認画面" width="1853" height="871" loading="lazy" decoding="async" /></a>
-                <figcaption>回答画面から実際に送信したあとの確認画面。 画像を押すと拡大できます。</figcaption>
+                <a href="/google-forms-profile/screenshots/06-form-submitted.jpg" target="_blank" rel="noopener" aria-label="履歴書作成フォームの送信を受け付けた確認画面（画像を拡大）"><img src="/google-forms-profile/screenshots/previews/06-form-submitted.webp" alt="履歴書作成フォームの送信を受け付けた確認画面" width="680" height="285" loading="lazy" decoding="async" /><span class="guide-image-action" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5M7.5 10.5h6m-3-3v6"/></svg>拡大</span></a>
+                <figcaption>回答画面から実際に送信したあとの確認画面。</figcaption>
               </figure>
               <p>スプレッドシートの「フォームの回答 1」タブを開き、回答が追加されていることを確認します。右側の管理列に履歴書とPDFのURLが入り、「処理状態」が「送信済み」になれば、メール送信まで完了しています。</p>
               <figure class="guide-figure guide-screenshot">
-                <a href="/google-forms-profile/screenshots/07-response-status.jpg" target="_blank" rel="noopener" aria-label="回答シートの履歴書URL・PDF URL・送信済みの管理列（画像を拡大）"><img src="/google-forms-profile/screenshots/07-response-status.jpg" alt="回答シートの履歴書URL・PDF URL・送信済みの管理列" width="530" height="170" loading="lazy" decoding="async" /></a>
-                <figcaption>実際の回答シートの管理列。表の紫色はGoogleフォーム連携で自動作成された標準デザインです。 画像を押すと拡大できます。</figcaption>
+                <a href="/google-forms-profile/screenshots/07-response-status.jpg" target="_blank" rel="noopener" aria-label="回答シートの履歴書URL・PDF URL・送信済みの管理列（画像を拡大）"><img src="/google-forms-profile/screenshots/previews/07-response-status.webp" alt="回答シートの履歴書URL・PDF URL・送信済みの管理列" width="530" height="170" loading="lazy" decoding="async" /><span class="guide-image-action" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5M7.5 10.5h6m-3-3v6"/></svg>拡大</span></a>
+                <figcaption>実際の回答シートの管理列。表の紫色はGoogleフォーム連携で自動作成された標準デザインです。</figcaption>
               </figure>
               <p>設定シートB13の「生成済みフォルダURL」を開くと、GoogleドキュメントとPDFが保存されています。回答の文章が対応する欄に入り、長い文章や改行も読める状態かを確認してください。</p>
               <figure class="guide-figure guide-screenshot">
-                <a href="/google-forms-profile/screenshots/08-generated-resume.jpg" target="_blank" rel="noopener" aria-label="架空の応募内容が表の中に転記されたGoogleドキュメント（画像を拡大）"><img src="/google-forms-profile/screenshots/08-generated-resume.jpg" alt="架空の応募内容が表の中に転記されたGoogleドキュメント" width="1853" height="871" loading="lazy" decoding="async" /></a>
-                <figcaption>フォームの回答から作成した履歴書の複製。メール欄のみ撮影用に匿名化しています。 画像を押すと拡大できます。</figcaption>
+                <a href="/google-forms-profile/screenshots/08-generated-resume.jpg" target="_blank" rel="noopener" aria-label="架空の応募内容が表の中に転記されたGoogleドキュメント（画像を拡大）"><img src="/google-forms-profile/screenshots/previews/08-generated-resume.webp" alt="架空の応募内容が表の中に転記されたGoogleドキュメント" width="558" height="572" loading="lazy" decoding="async" /><span class="guide-image-action" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5M7.5 10.5h6m-3-3v6"/></svg>拡大</span></a>
+                <figcaption>フォームの回答から作成した履歴書の複製。メール欄のみ撮影用に匿名化しています。</figcaption>
               </figure>
               <figure class="guide-figure guide-screenshot">
-                <a href="/google-forms-profile/screenshots/09-output-folder.jpg" target="_blank" rel="noopener" aria-label="履歴書とPDFの保存先を拡大"><img src="/google-forms-profile/screenshots/09-output-folder.jpg" alt="Google Driveの生成された履歴書フォルダに保存されたドキュメントとPDF" width="1853" height="871" loading="lazy" decoding="async" /></a>
-                <figcaption>実際の保存先フォルダ。2件のテスト回答から、それぞれドキュメントとPDFが作成されています。画像を押すと拡大できます。</figcaption>
+                <a href="/google-forms-profile/screenshots/09-output-folder.jpg" target="_blank" rel="noopener" aria-label="履歴書とPDFの保存先を拡大"><img src="/google-forms-profile/screenshots/previews/09-output-folder.webp" alt="Google Driveの生成された履歴書フォルダに保存されたドキュメントとPDF" width="770" height="395" loading="lazy" decoding="async" /><span class="guide-image-action" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5M7.5 10.5h6m-3-3v6"/></svg>拡大</span></a>
+                <figcaption>実際の保存先フォルダ。2件のテスト回答から、それぞれドキュメントとPDFが作成されています。</figcaption>
               </figure>
               <p>スクリーンショットの履歴書は、実際に生成したドキュメントを撮影用に複製したものです。受信確認に使ったメールアドレスの欄だけを、<code>applicant@example.com</code>へ変更しています。</p>
             </section>
@@ -161,8 +170,8 @@
               <p>メール送信を「有効」にすると、フォームの「メールアドレス」欄に入力した宛先へ、履歴書のコピーが自動送信されます。送信元は、初期設定と認証を行ったGoogleアカウントです。</p>
               <p>メールには<strong>履歴書のPDFを添付</strong>し、本文には<strong>Googleドキュメントのリンク</strong>を記載します。PDFは受信したメールから保存でき、ドキュメントはGoogleアカウントで開いて自分のDriveへコピーできます。</p>
               <figure class="guide-figure guide-screenshot">
-                <a href="/google-forms-profile/screenshots/10-gmail-received.jpg" target="_blank" rel="noopener" aria-label="Gmailで受信した履歴書のコピーと、Googleドキュメントのリンク・PDF添付（画像を拡大）"><img src="/google-forms-profile/screenshots/10-gmail-received.jpg" alt="Gmailで受信した履歴書のコピーと、Googleドキュメントのリンク・PDF添付" width="1050" height="375" loading="lazy" decoding="async" /></a>
-                <figcaption>実際に受信したメールの本文とPDF添付。 画像を押すと拡大できます。</figcaption>
+                <a href="/google-forms-profile/screenshots/10-gmail-received.jpg" target="_blank" rel="noopener" aria-label="Gmailで受信した履歴書のコピーと、Googleドキュメントのリンク・PDF添付（画像を拡大）"><img src="/google-forms-profile/screenshots/previews/10-gmail-received.webp" alt="Gmailで受信した履歴書のコピーと、Googleドキュメントのリンク・PDF添付" width="710" height="375" loading="lazy" decoding="async" /><span class="guide-image-action" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5M7.5 10.5h6m-3-3v6"/></svg>拡大</span></a>
+                <figcaption>実際に受信したメールの本文とPDF添付。</figcaption>
               </figure>
               <p>上の画面は、テスト回答を送信したあと、実際にGmailで受信したメールです。送受信者情報を含むヘッダーとサイドバーを省き、本文と添付部分を切り出して掲載しています。</p>
               <p>ドキュメントの閲覧権限は、回答者のメールアドレスへ個別に付与します。保存先フォルダや全員分の履歴書を公開する設定にはしません。別のGoogleアカウントで確認する場合は、回答に入力したアドレスのアカウントで開いてください。</p>
@@ -177,29 +186,50 @@
               <p>応募が集中する用途では、メールの送信数や処理時間などの<a href="https://developers.google.com/apps-script/guides/services/quotas" target="_blank" rel="noopener">Google Apps Scriptの利用上限</a>も確認してください。学校・企業のアカウントでは、管理者による共有やGASの制限が適用される場合があります。</p>
               <p class="preview-note">設定用コードを別途保存したい場合は、<a href="/google-forms-profile/setup.gs" download="resume-automation-setup.gs">GASファイルをダウンロード</a>できます。通常の導入では、配布スプレッドシートに同梱されたものを使えます。</p>
             </section>
-            <section id="contact" class="guide-section" aria-labelledby="contact-title">
-              <h2 id="contact-title">フォームの回答整理や、資料作成の自動化をご相談ください。</h2>
-              <p>今回の仕組みは、応募者プロフィールの作成に加え、申込情報の整理や面談前の確認資料などにも応用できます。</p>
-              <p>例えば、次のような調整が可能です。</p>
-              <ul>
-                <li>既存のGoogleフォームと帳票レイアウトに合わせる</li>
-                <li>確認したい項目を、読みやすい順番に配置する</li>
-                <li>作成した資料のURLを管理表へ記録する</li>
-                <li>既存のメール文面や担当者への通知に合わせる</li>
-              </ul>
-              <div class="guide-contact">
-                <p>ご相談の際は、現在のフォーム項目、作成したい資料の見本、毎月のおおよその回答件数をお知らせください。業務の流れを伺い、必要な自動化の範囲をご提案します。</p>
-                <a class="contact-link" href="mailto:harry@31916.ch">メールで相談する <svg class="link-arrow" aria-hidden="true"><use href="/assets/art/link-arrow.svg#arrow"></use></svg></a>
-                <p class="preview-note"><a href="mailto:harry@31916.ch">harry@31916.ch</a></p>
-              </div>
+            <section id="consultation" class="guide-section guide-consultation" aria-labelledby="consultation-title">
+              <p class="guide-eyebrow">導入・カスタマイズ</p>
+              <h2 id="consultation-title">業務に合わせた仕組みに。</h2>
+              <p>既存のフォームや帳票に合わせた導入、質問項目の追加、通知の調整も承っています。</p>
+              <p>ご相談の際は、現在のフォーム項目、作りたい資料の見本、おおよその回答件数をお知らせください。</p>
             </section>
           </div>
         </div>
       </article>
     </main>
-    <footer class="site-footer shell">
-      <p>Copyright <span data-year>2026</span> 31916</p>
-      <a href="/#contact">お問い合わせ <svg class="link-arrow" aria-hidden="true"><use href="/assets/art/link-arrow.svg#arrow"></use></svg></a>
+    <footer class="site-footer shell" id="contact">
+      <div class="footer-main">
+        <div class="footer-contact">
+          <h2 class="footer-label">コンタクト</h2>
+          <div class="footer-email-group">
+            <a class="footer-email" data-contact-email href="mailto:harry@31916.ch">harry@31916.ch</a>
+            <button class="copy-email" type="button" data-copy-email aria-label="メールアドレスをコピー" title="メールアドレスをコピー">
+              <svg viewBox="0 0 24 24" aria-hidden="true" data-copy-icon><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v1"/></svg>
+              <svg viewBox="0 0 24 24" aria-hidden="true" data-copied-icon hidden><path d="m5 12 4 4L19 6"/></svg>
+            </button>
+            <span class="sr-only" role="status" data-copy-status></span>
+          </div>
+        </div>
+        <nav class="footer-socials" aria-label="SNS">
+          <a href="https://github.com/31916" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href="https://x.com/31916_ch" target="_blank" rel="noopener noreferrer">X</a>
+          <a href="https://mastodon.social/@31916" target="_blank" rel="me noopener noreferrer">Mastodon</a>
+        </nav>
+      </div>
+      <div class="footer-bottom">
+        <p>Copyright <span data-year>2026</span> 31916</p>
+        <a href="/">31916.ch</a>
+      </div>
     </footer>
+    <dialog class="image-viewer" aria-labelledby="image-viewer-title">
+      <div class="image-viewer-bar">
+        <p id="image-viewer-title">画面を拡大</p>
+        <div class="image-viewer-actions">
+          <a data-image-original href="#" target="_blank" rel="noopener">元の画面</a>
+          <button type="button" data-image-zoom aria-pressed="false">等倍で見る</button>
+          <button type="button" data-image-close aria-label="画像を閉じる"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg></button>
+        </div>
+      </div>
+      <div class="image-viewer-content"><img alt="" /></div>
+    </dialog>
   </body>
 </html>

@@ -59,3 +59,10 @@ footer p { margin: 5px 0; }
   .history-scroll { max-height: none; overflow: visible; }
   footer { position: static; }
 }
+
+/* Keep the shared contact footer in the normal page flow. */
+body { height: auto; min-height: calc(100dvh - 16px); display: flex; flex-direction: column; }
+main { display: block; flex: 1 0 auto; }
+#history { display: block; }
+.history-scroll { max-height: 22rem; }
+footer.site-footer { bottom: auto; background: transparent; }

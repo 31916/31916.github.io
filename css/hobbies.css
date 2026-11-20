@@ -40,7 +40,7 @@
 .sport-duration {
   flex-shrink: 0;
   color: var(--muted);
-  font-size: 0.75rem;
+  font-size: 0.875rem;
   font-variant-numeric: tabular-nums;
 }
 .sport-details {
@@ -48,7 +48,7 @@
 }
 .sport-details,
 .interest-series {
-  font-size: 0.8125rem;
+  font-size: 1rem;
   line-height: 1.9;
 }
 .sport-details > div + div {
@@ -57,7 +57,7 @@
 .sport-details dt {
   margin-bottom: 0.375rem;
   color: var(--muted);
-  font-size: 0.6875rem;
+  font-size: 0.875rem;
 }
 .sport-details dd {
   margin: 0;
@@ -111,12 +111,12 @@
 .club-history caption {
   padding-bottom: 0.5rem;
   color: var(--muted);
-  font-size: 0.6875rem;
+  font-size: 0.875rem;
   text-align: left;
 }
 .club-history th {
   padding: 0;
-  font-size: 0.6875rem;
+  font-size: 0.875rem;
 }
 .club-history td {
   padding-inline-end: 0.625rem;
@@ -136,7 +136,7 @@
 .club-history td:last-child {
   padding-inline-end: 0;
   color: var(--muted);
-  font-size: 0.75rem;
+  font-size: 0.875rem;
   font-variant-numeric: tabular-nums;
   text-align: right;
   white-space: nowrap;
@@ -162,7 +162,7 @@
 .tournament-date {
   margin-inline-start: auto;
   color: var(--muted);
-  font-size: 0.6875rem;
+  font-size: 0.875rem;
   font-variant-numeric: tabular-nums;
   white-space: nowrap;
 }
@@ -218,10 +218,10 @@ html:lang(de) .hobby-section-content {
     column-gap: 0.75rem;
   }
   html:lang(ja) .tournament-meta {
-    font-size: 0.75rem;
+    font-size: 0.875rem;
   }
 }
-@media (max-width: 650px) {
+@media (max-width: 900px) {
   .hobbies-page {
     padding-top: 1.5rem;
     padding-bottom: 3.375rem;

@@ -132,11 +132,11 @@
 
   window.portfolioI18n = {
     translate,
-    formatCount: (count) =>
-      translate("{count}件の制作物を表示").replace("{count}", String(count)),
+    formatCount: (count, posts = false) =>
+      translate(posts ? "{count}件の投稿を表示" : "{count}件の制作物を表示").replace("{count}", String(count)),
   };
 
-  fetch("/assets/translations.json?v=20261121-posts")
+  fetch("/assets/translations.json?v=20261121-responsive")
     .then((response) => {
       if (!response.ok) throw new Error("Translations unavailable");
       return response.json();

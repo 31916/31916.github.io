@@ -1,0 +1,41 @@
+.site-footer {
+  --footer-line: var(--line, var(--rule, #d8d8d8));
+  position: static;
+  display: block;
+  line-height: 1.6;
+  flex: none;
+  inline-size: min(var(--width, 72.5rem), calc(100% - 2 * var(--gutter, 1.5rem)));
+  margin: 0 auto;
+  padding-block: 2rem max(1.25rem, env(safe-area-inset-bottom));
+  border-top: 1px solid var(--footer-line);
+  color: var(--ink, #30241f);
+  font-family: var(--sans, system-ui, sans-serif);
+  text-align: left;
+}
+.footer-main { display: flex; align-items: end; justify-content: space-between; gap: 1.5rem 3rem; }
+.footer-label { background: transparent; padding: 0; text-align: left; margin: 0 0 .5rem; font-size: .875rem; font-weight: 500; line-height: 1.6; color: var(--muted, #66574e); }
+.footer-email-group { display: flex; align-items: center; gap: .5rem; }
+.footer-email { font-size: clamp(1.125rem, 2.25vw, 1.5rem); font-weight: 500; line-height: 1.5; text-decoration: none; }
+.footer-email:hover { text-decoration: underline; text-underline-offset: .2em; }
+.copy-email { display: inline-flex; align-items: center; justify-content: center; width: 2.75rem; height: 2.75rem; flex: none; padding: .75rem; border: 0; border-radius: .25rem; background: transparent; color: inherit; cursor: pointer; }
+.copy-email:hover { background: var(--sand, #eee); }
+.copy-email svg { width: 1.125rem; height: 1.125rem; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+.site-footer [hidden] { display: none !important; }
+.footer-socials { display: flex; flex-wrap: wrap; gap: .5rem 1.5rem; }
+.footer-socials a { display: inline-flex; align-items: center; min-height: 2.75rem; font-size: .875rem; text-decoration: none; }
+.footer-socials a:hover { text-decoration: underline; text-underline-offset: .2em; }
+.footer-bottom { display: flex; justify-content: space-between; flex-wrap: wrap; align-items: center; gap: .5rem 1.5rem; margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--footer-line); color: var(--muted, #66574e); font-size: .8125rem; }
+.footer-bottom p { margin: 0; line-height: 1.7; }
+.footer-bottom a { text-decoration: none; }
+.footer-resources { font-size: .875rem; margin-block: 1rem; }
+.site-footer .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+.site-footer :is(a, button):focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+@media (max-width: 600px) {
+  .site-footer { padding-top: 1.5rem; }
+  .footer-main { align-items: start; flex-direction: column; gap: .75rem; }
+  .footer-socials { gap: .5rem 1.5rem; }
+  .footer-bottom { margin-top: 1rem; }
+}
+@media print { .copy-email { display: none; } }
+
+.site-footer a { color: inherit; }

@@ -6,7 +6,7 @@ Personal portfolio at **https://31916.ch/**. Plain HTML, CSS, JavaScript and ori
 
 - `index.html`: a home with an introduction and contact links to GitHub and X.
 - `projects/index.html` lists projects with Software, Research, Idea Designs and Posts filters. Technical posts also appear in this catalog.
-- `posts/index.html` is the independent Posts navigation page, with a Technical Posts section. Its reading list uses the same catalog entries.
+- `posts/index.html` is the independent Posts navigation page, with IT & technology, Languages and Qualifications filters. It uses the same linked cards and arrows as Projects, without a visible introduction block.
 - `google-forms-profile/` explains applicant-profile automation with Google Apps Script, links to copyable native Google templates, and provides `setup.gs`. Actual screenshots cover setup, generated documents, PDF output and Gmail delivery. Its search indexing remains disabled.
 - `resume/index.html`: separate education and work timelines, a qualifications list, and a technology stack with icons.
 - `about/index.html`: compatibility redirect to Resume.
@@ -16,13 +16,13 @@ Personal portfolio at **https://31916.ch/**. Plain HTML, CSS, JavaScript and ori
 - `NumberCursors/`: cursor release assets and redirects from the original download pages.
 - `404.html`: missing-page recovery.
 
-Shared portfolio styles are in `css/styles.css`; navigation and project filters are in `js/scripts.js`. Resume adds `css/resume.css`. Header/footer markup is intentionally static in each page. Update the stylesheet/script version query in each page when changing these files.
+Shared portfolio styles are in `css/styles.css`; navigation and project filters are in `js/scripts.js`. Resume adds `css/resume.css`. Header markup is static in each page. The build renders `assets/footer.html` into every active portfolio and product page; `css/footer.css` keeps contact information and copyright in the normal document flow. Update the stylesheet/script version query in each page when changing these files.
 
 The home body fills the viewport when its content fits and scrolls naturally on smaller screens. The home header uses the same shared styles as every other portfolio page. Check the home at phone portrait/landscape, tablet and desktop sizes in Japanese, English and German when changing its content.
 
 ## Editing the project catalog
 
-To add a project to `assets/projects.json`, copy a catalog entry, assign a unique `id`, and update its title, link and image. Set `category` to `software`, `research`, `idea-design` or `post`. Entries in `post` also populate the Posts page; use `type` to label their subject, such as technical posts. Add translations for new visible text and image descriptions in `assets/translations.json`. The build validates the catalog, renders both listings into HTML, and automatically includes local project images. Page-specific catalog and post styles are in `css/projects.css`.
+To add a project to `assets/projects.json`, copy a catalog entry, assign a unique `id`, and update its title, link and image. Set `category` to `software`, `research`, `idea-design` or `post`. Entries in `post` also populate the Posts page. Set `topic` to `technology`, `languages`, or `qualifications`; filter counts are derived from the catalog. Add translations for new visible text and image descriptions in `assets/translations.json`. The build validates the catalog, renders both listings into HTML, and automatically includes local project images. Page-specific catalog and post styles are in `css/projects.css`.
 
 The checked-in HTML includes the current cards for direct preview. After editing the catalog, preview the generated `tools/build-pages.py` output to see the new selection; deployment always uses the catalog. On Windows, extract current paths only for preview, excluding the case-sensitive `IMELayOutRouter/` aliases to avoid overwriting the current product directory.
 
@@ -58,4 +58,4 @@ Pushes to `main` deploy through `.github/workflows/pages.yml`. `tools/build-page
 
 The fixed public filename for Number Cursors 4 is `NumberCursors/downloads/Number_Cursors_4.zip`. To rebuild it, run `python tools/build-number-cursors.py NumberCursors/windows-source.zip` with the current Windows scheme ZIP. This packages the Windows files with the macOS and Linux themes and includes `NumberCursors/README.txt` as `Windows/README.txt`. Refresh its entry in `NumberCursors/downloads/SHA256SUMS.txt`.
 
-Most SVG art in `assets/art/` was drawn for this portfolio. The Google Forms article thumbnail uses sourced Google service logos and the Bootstrap resume icon; sources and licensing are recorded in `assets/art/google-forms-profile-icons-LICENSE.txt`. Article screenshots are actual Google Workspace captures using fictional applicant details. The displayed resume is a duplicate with its email field anonymized, and the Gmail screenshot omits the sender header and sidebar.
+Most SVG art in `assets/art/` was drawn for this portfolio. The Google Forms article thumbnail uses sourced Google service logos and the Bootstrap resume icon; sources and licensing are recorded in `assets/art/google-forms-profile-icons-LICENSE.txt`. Article screenshots are actual Google Workspace captures using fictional applicant details. The displayed resume is a duplicate with its email field anonymized, and the Gmail screenshot omits the sender header and sidebar. `tools/build-article-previews.py` produces lossless crops of the actual screenshots; the article viewer supports fitting, natural-size viewing and opening the original capture. No UI is redrawn.

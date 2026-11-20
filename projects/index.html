@@ -25,11 +25,12 @@
       href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400..600&family=Noto+Sans+JP:wght@400..600&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="/css/styles.css?v=20261121-posts" />
+    <link rel="stylesheet" href="/css/styles.css?v=20261121-responsive" />
     <link rel="stylesheet" href="/css/cursors.css?v=3" />
-    <link rel="stylesheet" href="/css/projects.css?v=20261121-posts" />
-    <script src="/js/scripts.js?v=20261111-copy-reset" defer></script>
-    <script src="/js/i18n.js?v=20261121-posts" defer></script>
+    <link rel="stylesheet" href="/css/projects.css?v=20261121-responsive" />
+    <script src="/js/scripts.js?v=20261121-responsive" defer></script>
+    <script src="/js/i18n.js?v=20261121-responsive" defer></script>
+    <link rel="stylesheet" href="/css/footer.css?v=20261121-responsive" />
   </head>
   <body>
     <a class="skip-link" href="#main">本文へ移動</a>
@@ -87,139 +88,99 @@
           </p>
           <div class="project-grid" data-project-catalog>
             <!-- project-catalog:start -->
-            <article class="project-card" data-category="software">
-              <a
-                class="project-link"
-                href="/IMELayoutRouter/"
-                target="_blank"
-                rel="noopener"
-              >
-                <div class="project-image">
-                  <img
-                    src="/IMELayoutRouter/social-ja-v2.png"
-                    width="1200"
-                    height="630"
-                    loading="lazy"
-                    alt="IMELayoutRouter — IMEの直接入力を、指定した配列で。Windows用・公式ダウンロード"
-                  />
-                </div>
-                <div class="project-caption">
-                  <div>
-                    <p class="project-type">
-                      ソフトウェア <span>Windows / C#</span>
-                    </p>
-                    <h3>IMELayoutRouter</h3>
-                  </div>
-                  <svg class="link-arrow project-arrow" aria-hidden="true"><use href="/assets/art/link-arrow.svg#arrow"></use></svg>
-                </div>
-                <p class="project-description">IMEで英数字を入力するときに、使い慣れたキーボード配列で打てるようにするWindows用ソフトです。</p>
-              </a>
-            </article>
-            <article class="project-card" data-category="research">
-              <a
-                class="project-link"
-                href="https://github.com/31916/syukei_recognize"
-                target="_blank"
-                rel="noopener"
-              >
-                <div class="project-image research-image">
-                  <img
-                    src="/assets/art/handshape.svg"
-                    width="560"
-                    height="300"
-                    loading="lazy"
-                    alt="日本手話の手形認識：手の関節を点と線で捉える概念図"
-                  />
-                </div>
-                <div class="project-caption">
-                  <div>
-                    <p class="project-type">
-                      研究 <span>Python / MediaPipe</span>
-                    </p>
-                    <h3>日本手話の手形認識</h3>
-                  </div>
-                  <svg class="link-arrow project-arrow" aria-hidden="true"><use href="/assets/art/link-arrow.svg#arrow"></use></svg>
-                </div>
-                <p class="project-description">高専時代の卒業研究で、MediaPipeを用いた骨格推定と機械学習（CNN）で手形認識の精度向上を目指しました。</p>
-              </a>
-            </article>
-            <article class="project-card" data-category="software">
-              <a
-                class="project-link"
-                href="/himoparty/"
-                target="_blank"
-                rel="noopener"
-              >
-                <div class="project-image app-icon-image">
-                  <img
-                    src="/assets/art/himoparty.png"
-                    width="512"
-                    height="512"
-                    loading="lazy"
-                    alt="ひもほどきのアプリアイコン"
-                  />
-                </div>
-                <div class="project-caption">
-                  <div>
-                    <p class="project-type">
-                      ソフトウェア <span>JavaScript / PWA</span>
-                    </p>
-                    <h3>ひもほどき</h3>
-                  </div>
-                  <svg class="link-arrow project-arrow" aria-hidden="true"><use href="/assets/art/link-arrow.svg#arrow"></use></svg>
-                </div>
-                <p class="project-description">LASTEさんの「Raspberry Pi Picoでゲームコントローラーを作るロボット工房」向けに、子どもからお年寄りまで楽しめる簡単なパズルゲームを作りました。</p>
-              </a>
-            </article>
-            <article class="project-card" data-category="idea-design">
-              <a
-                class="project-link"
-                href="/IdeaDesigns/"
-                target="_blank"
-                rel="noopener"
-              >
-                <div class="project-image cursor-art-image">
-                  <img
-                    src="/IdeaDesigns/number-cursors.svg"
-                    width="640"
-                    height="640"
-                    loading="lazy"
-                    alt="斜めに傾いた数字カーソル「4」"
-                  />
-                </div>
-                <div class="project-caption">
-                  <div>
-                    <p class="project-type">
-                      アイデアデザイン <span>Windows, macOS &amp; Linux</span>
-                    </p>
-                    <h3>Number Cursors 4</h3>
-                  </div>
-                  <svg class="link-arrow project-arrow" aria-hidden="true"><use href="/assets/art/link-arrow.svg#arrow"></use></svg>
-                </div>
-                <p class="project-description">マウスカーソルが数字の4に似ていると思い、デザインしてみました。</p>
-              </a>
-            </article>
-            <article class="project-card project-post-card" data-category="post">
-              <a class="project-link" href="/google-forms-profile/">
-                <div class="project-image"><img src="/assets/art/google-forms-profile.svg" width="1200" height="630" loading="lazy" alt="GoogleスプレッドシートからGmailを経由する矢印と、Googleドキュメント・履歴書のアイコン" /></div>
-                <div class="project-caption">
-                  <div>
-                    <p class="project-type">技術投稿 <span>Google Apps Script</span></p>
-                    <h3>Googleフォーム応募情報の自動整理</h3>
-                  </div>
-                </div>
-                <p class="project-description">フォームの応募情報から履歴書とPDFを自動作成し、Gmailでコピーを送信。無料テンプレートと実際の画面で、導入手順を紹介します。</p>
-                <p class="project-read-label">投稿を読む</p>
-              </a>
-            </article>
-            <!-- project-catalog:end -->
+<article class="project-card" data-category="software">
+  <a class="project-link" href="/IMELayoutRouter/" target="_blank" rel="noopener">
+    <div class="project-image"><img src="/IMELayoutRouter/social-ja-v2.png" width="1200" height="630" loading="lazy" alt="IMELayoutRouter — IMEの直接入力を、指定した配列で。Windows用・公式ダウンロード" /></div>
+    <div class="project-caption">
+      <div>
+        <p class="project-type">ソフトウェア <span>Windows / C#</span></p>
+        <h3>IMELayoutRouter</h3>
+      </div>
+      <svg class="link-arrow project-arrow" aria-hidden="true"><use href="/assets/art/link-arrow.svg#arrow"></use></svg>
+    </div>
+    <p class="project-description">IMEで英数字を入力するときに、使い慣れたキーボード配列で打てるようにするWindows用ソフトです。</p>
+  </a>
+</article>
+<article class="project-card" data-category="research">
+  <a class="project-link" href="https://github.com/31916/syukei_recognize" target="_blank" rel="noopener">
+    <div class="project-image research-image"><img src="/assets/art/handshape.svg" width="560" height="300" loading="lazy" alt="日本手話の手形認識：手の関節を点と線で捉える概念図" /></div>
+    <div class="project-caption">
+      <div>
+        <p class="project-type">研究 <span>Python / MediaPipe</span></p>
+        <h3>日本手話の手形認識</h3>
+      </div>
+      <svg class="link-arrow project-arrow" aria-hidden="true"><use href="/assets/art/link-arrow.svg#arrow"></use></svg>
+    </div>
+    <p class="project-description">高専時代の卒業研究で、MediaPipeを用いた骨格推定と機械学習（CNN）で手形認識の精度向上を目指しました。</p>
+  </a>
+</article>
+<article class="project-card" data-category="software">
+  <a class="project-link" href="/himoparty/" target="_blank" rel="noopener">
+    <div class="project-image app-icon-image"><img src="/assets/art/himoparty.png" width="512" height="512" loading="lazy" alt="ひもほどきのアプリアイコン" /></div>
+    <div class="project-caption">
+      <div>
+        <p class="project-type">ソフトウェア <span>JavaScript / PWA</span></p>
+        <h3>ひもほどき</h3>
+      </div>
+      <svg class="link-arrow project-arrow" aria-hidden="true"><use href="/assets/art/link-arrow.svg#arrow"></use></svg>
+    </div>
+    <p class="project-description">LASTEさんの「Raspberry Pi Picoでゲームコントローラーを作るロボット工房」向けに、子どもからお年寄りまで楽しめる簡単なパズルゲームを作りました。</p>
+  </a>
+</article>
+<article class="project-card" data-category="idea-design">
+  <a class="project-link" href="/IdeaDesigns/" target="_blank" rel="noopener">
+    <div class="project-image cursor-art-image"><img src="/IdeaDesigns/number-cursors.svg" width="640" height="640" loading="lazy" alt="斜めに傾いた数字カーソル「4」" /></div>
+    <div class="project-caption">
+      <div>
+        <p class="project-type">アイデアデザイン <span>Windows, macOS &amp; Linux</span></p>
+        <h3>Number Cursors 4</h3>
+      </div>
+      <svg class="link-arrow project-arrow" aria-hidden="true"><use href="/assets/art/link-arrow.svg#arrow"></use></svg>
+    </div>
+    <p class="project-description">マウスカーソルが数字の4に似ていると思い、デザインしてみました。</p>
+  </a>
+</article>
+<article class="project-card" data-category="post">
+  <a class="project-link" href="/google-forms-profile/">
+    <div class="project-image"><img src="/assets/art/google-forms-profile.svg" width="1200" height="630" loading="lazy" alt="GoogleスプレッドシートからGmailを経由する矢印と、Googleドキュメント・履歴書のアイコン" /></div>
+    <div class="project-caption">
+      <div>
+        <p class="project-type">IT・技術 <span>Google Apps Script</span></p>
+        <h3>Googleフォームで履歴書を自動作成し、メールで送る方法</h3>
+      </div>
+      <svg class="link-arrow project-arrow" aria-hidden="true"><use href="/assets/art/link-arrow.svg#arrow"></use></svg>
+    </div>
+    <p class="project-description">フォームの応募情報から履歴書とPDFを自動作成し、Gmailでコピーを送信。無料テンプレートと実際の画面で、導入手順を紹介します。</p>
+  </a>
+</article>
+<!-- project-catalog:end -->
           </div>
         </section>
       </div>
     </main>
-    <footer class="site-footer shell">
-      <p>Copyright <span data-year>2026</span> 31916</p>
-      <a href="/#contact">お問い合わせ <svg class="link-arrow" aria-hidden="true"><use href="/assets/art/link-arrow.svg#arrow"></use></svg></a>
+    <footer class="site-footer shell" id="contact">
+      <div class="footer-main">
+        <div class="footer-contact">
+          <h2 class="footer-label">コンタクト</h2>
+          <div class="footer-email-group">
+            <a class="footer-email" data-contact-email href="mailto:harry@31916.ch">harry@31916.ch</a>
+            <button class="copy-email" type="button" data-copy-email aria-label="メールアドレスをコピー" title="メールアドレスをコピー">
+              <svg viewBox="0 0 24 24" aria-hidden="true" data-copy-icon><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v1"/></svg>
+              <svg viewBox="0 0 24 24" aria-hidden="true" data-copied-icon hidden><path d="m5 12 4 4L19 6"/></svg>
+            </button>
+            <span class="sr-only" role="status" data-copy-status></span>
+          </div>
+        </div>
+        <nav class="footer-socials" aria-label="SNS">
+          <a href="https://github.com/31916" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href="https://x.com/31916_ch" target="_blank" rel="noopener noreferrer">X</a>
+          <a href="https://mastodon.social/@31916" target="_blank" rel="me noopener noreferrer">Mastodon</a>
+        </nav>
+      </div>
+      <div class="footer-bottom">
+        <p>Copyright <span data-year>2026</span> 31916</p>
+        <a href="/">31916.ch</a>
+      </div>
     </footer>
   </body>
 </html>

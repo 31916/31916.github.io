@@ -50,16 +50,16 @@
 }
 .resume-date {
   color: var(--muted);
-  font-size: 0.75rem;
+  font-size: 0.875rem;
   font-variant-numeric: tabular-nums;
-  line-height: 1.75rem;
+  line-height: 1.9;
   white-space: nowrap;
 }
 .resume-event-name {
   min-width: 0;
-  font-size: 0.8125rem;
+  font-size: 1rem;
   font-weight: 400;
-  line-height: 1.75rem;
+  line-height: 1.9;
   overflow-wrap: break-word;
 }
 html:lang(de) .resume-event-name {
@@ -68,7 +68,7 @@ html:lang(de) .resume-event-name {
 .resume-list {
   padding-left: 1.3em;
   margin: 0;
-  font-size: 0.8125rem;
+  font-size: 1rem;
   line-height: 1.9;
 }
 .resume-list li + li {
@@ -97,7 +97,7 @@ html:lang(de) .resume-event-name {
 .qualification-entry time {
   justify-self: end;
   color: var(--muted);
-  font-size: 0.6875rem;
+  font-size: 0.875rem;
   font-variant-numeric: tabular-nums;
   text-align: right;
   white-space: nowrap;
@@ -112,7 +112,7 @@ html:lang(de) .qualification-entry > a {
 .tech-group h3 {
   margin: 0 0 1.125rem;
   color: var(--muted);
-  font-size: 0.75rem;
+  font-size: 0.875rem;
   font-weight: 500;
   line-height: 1.7;
   overflow-wrap: anywhere;
@@ -130,7 +130,7 @@ html:lang(de) .qualification-entry > a {
   align-items: center;
   gap: 0.75rem;
   min-width: 0;
-  font-size: 0.8125rem;
+  font-size: 1rem;
   line-height: 1.6;
 }
 .tech-stack img {
@@ -157,15 +157,15 @@ html:lang(de) .qualification-entry > a {
     padding-bottom: 1.5rem;
   }
   .resume-date {
-    font-size: 0.6875rem;
+    font-size: 0.875rem;
     line-height: 1.625rem;
   }
   .resume-event-name {
-    font-size: 0.75rem;
-    line-height: 1.5rem;
+    font-size: 0.875rem;
+    line-height: 1.9;
   }
   .resume-list {
-    font-size: 0.75rem;
+    font-size: 0.875rem;
   }
   .qualification-entry {
     column-gap: 0.75rem;
@@ -176,7 +176,7 @@ html:lang(de) .qualification-entry > a {
   }
   .tech-stack li {
     gap: 0.625rem;
-    font-size: 0.75rem;
+    font-size: 0.875rem;
   }
 }
 @media print {

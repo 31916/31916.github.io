@@ -17,7 +17,8 @@ document.querySelectorAll("[data-year]").forEach((node) => {
 });
 
 document.querySelectorAll(".site-header nav a").forEach((link) => {
-  if (link.getAttribute("href") === window.location.pathname) {
+  const path = window.location.pathname.startsWith("/google-forms-profile/") ? "/posts/" : window.location.pathname;
+  if (link.getAttribute("href") === path) {
     link.setAttribute("aria-current", "page");
   }
 });
@@ -27,8 +28,9 @@ function updateFilterResult() {
   const result = document.getElementById("filter-result");
   if (!result) return;
   const count = document.querySelectorAll("[data-category]:not([hidden])").length;
-  result.textContent =
-    window.portfolioI18n?.formatCount(count) ?? `${count}件の制作物を表示`;
+  const posts = Boolean(document.querySelector("[data-post-catalog]"));
+  result.textContent = window.portfolioI18n?.formatCount(count, posts) ?? `${count}件の${posts ? "投稿" : "制作物"}を表示`;
+  document.querySelectorAll("[data-filter-empty]").forEach((message) => { message.hidden = count > 0; });
 }
 filters.forEach((button) =>
   button.addEventListener("click", () => {
@@ -46,7 +48,7 @@ document.addEventListener("portfolio:languagechange", updateFilterResult);
 
 const copyEmailButton = document.querySelector("[data-copy-email]");
 if (copyEmailButton) {
-  const email = document.querySelector(".home-contact-email");
+  const email = document.querySelector("[data-contact-email]");
   const status = document.querySelector("[data-copy-status]");
   const copyIcon = copyEmailButton.querySelector("[data-copy-icon]");
   const copiedIcon = copyEmailButton.querySelector("[data-copied-icon]");
@@ -66,7 +68,7 @@ if (copyEmailButton) {
       await navigator.clipboard.writeText(email.textContent.trim());
       copyIcon.toggleAttribute("hidden", true);
       copiedIcon.toggleAttribute("hidden", false);
-      message = "メールアドレスをコピーしました";
+      message = document.documentElement.lang === "en" ? "Email address copied" : "メールアドレスをコピーしました";
       copyResetTimer = setTimeout(resetCopyState, 6000);
     } catch {
       const range = document.createRange();
@@ -74,7 +76,7 @@ if (copyEmailButton) {
       const selection = window.getSelection();
       selection.removeAllRanges();
       selection.addRange(range);
-      message = "コピーできませんでした。メールアドレスを選択しました。";
+      message = document.documentElement.lang === "en" ? "Could not copy. The email address is selected." : "コピーできませんでした。メールアドレスを選択しました。";
     } finally {
       copyEmailButton.disabled = false;
     }

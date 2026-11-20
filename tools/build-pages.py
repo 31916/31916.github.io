@@ -26,6 +26,11 @@ PROJECT_CATEGORIES = {
     "idea-design": "アイデアデザイン",
     "post": "投稿",
 }
+POST_CATEGORIES = {
+    "technology": "IT・技術",
+    "languages": "言語",
+    "qualifications": "資格",
+}
 PUBLIC = (
     "CNAME", "index.html", "404.html", "robots.txt", "sitemap.xml",
     "google97bf67731c686ec9.html",  # Search Console ownership verification.
@@ -44,7 +49,18 @@ PUBLIC = (
     "google-forms-profile/screenshots/09-output-folder.jpg",
     "google-forms-profile/screenshots/10-gmail-received.jpg",
     "assets/art/google-forms-profile-icons-LICENSE.txt",
-    "css/styles.css", "js/scripts.js", "css/resume.css", "css/projects.css",
+    "google-forms-profile/screenshots/previews/01-resume-template.webp",
+    "google-forms-profile/screenshots/previews/02-spreadsheet-settings.webp",
+    "google-forms-profile/screenshots/previews/03-open-apps-script.webp",
+    "google-forms-profile/screenshots/previews/04-run-setup.webp",
+    "google-forms-profile/screenshots/previews/04b-created-trigger.webp",
+    "google-forms-profile/screenshots/previews/05-created-form.webp",
+    "google-forms-profile/screenshots/previews/06-form-submitted.webp",
+    "google-forms-profile/screenshots/previews/07-response-status.webp",
+    "google-forms-profile/screenshots/previews/08-generated-resume.webp",
+    "google-forms-profile/screenshots/previews/09-output-folder.webp",
+    "google-forms-profile/screenshots/previews/10-gmail-received.webp",
+    "css/styles.css", "css/footer.css", "js/scripts.js", "css/resume.css", "css/projects.css",
     "css/home.css", "css/hobbies.css", "assets/projects.json",
     "css/cursors.css", "assets/cursors/arrow.png", "assets/cursors/hand.png", "assets/cursors/text.png",
     "assets/identity.json",
@@ -210,6 +226,8 @@ def load_projects(settings=None):
                 raise ValueError(f"Project {identifier} needs nonempty {field}")
         if project.get("category") not in PROJECT_CATEGORIES:
             raise ValueError(f"Project {identifier} category must be one of {', '.join(PROJECT_CATEGORIES)}")
+        if project["category"] == "post" and project.get("topic", "technology") not in POST_CATEGORIES:
+            raise ValueError(f"Post {identifier} has an unknown topic")
         href = project["href"]
         if not (href.startswith("https://") or (href.startswith("/") and not href.startswith("//"))):
             raise ValueError(f"Project {identifier} href must be HTTPS or a site-relative path")
@@ -256,23 +274,23 @@ def render_project_filters(settings):
     return "\n".join(buttons)
 
 
-def render_project_catalog(settings):
-    """Use the existing project-page markup and styling for every catalog entry."""
+def render_project_catalog(settings, *, posts_only=False):
+    """Use the same linked card and arrow in the project and post catalogs."""
     cards = []
     for project in settings["projects"]:
         is_post = project["category"] == "post"
-        card_class = "project-card project-post-card" if is_post else "project-card"
+        if posts_only and not is_post:
+            continue
+        category = project.get("topic", "technology") if posts_only else project["category"]
         target = '' if is_post else ' target="_blank" rel="noopener"'
         link_hint = (
-            '' if is_post else
             '      <svg class="link-arrow project-arrow" aria-hidden="true"><use href="/assets/art/link-arrow.svg#arrow"></use></svg>\n'
         )
-        read_label = '    <p class="project-read-label">投稿を読む</p>\n' if is_post else ''
         image_class = "project-image"
         if project["image"].get("class"):
             image_class += " " + project["image"]["class"]
         cards.append(
-            f'<article class="{card_class}" data-category="{project["category"]}">\n'
+            f'<article class="project-card" data-category="{category}">\n'
             f'  <a class="project-link" href="{escape(project["href"], quote=True)}"{target}>\n'
             f'    <div class="{image_class}">{project_image(project)}</div>\n'
             '    <div class="project-caption">\n'
@@ -283,7 +301,6 @@ def render_project_catalog(settings):
             f'{link_hint}'
             '    </div>\n'
             f'    <p class="project-description">{escape(project["description"])}</p>\n'
-            f'{read_label}'
             '  </a>\n'
             '</article>'
         )
@@ -291,20 +308,18 @@ def render_project_catalog(settings):
 
 
 def render_post_list(settings):
-    """Give posts a dedicated reading list while reusing their catalog entries."""
-    posts = []
-    for project in settings["projects"]:
-        if project["category"] != "post":
-            continue
-        posts.append(
-            '<article class="post-entry">\n'
-            f'  <p class="post-entry-type">{escape(project["type"])} <span>{escape(project["tech"])}</span></p>\n'
-            f'  <h3><a href="{escape(project["href"], quote=True)}">{escape(project["title"])}</a></h3>\n'
-            f'  <p class="post-entry-description">{escape(project["description"])}</p>\n'
-            f'  <a class="post-entry-read" href="{escape(project["href"], quote=True)}">投稿を読む</a>\n'
-            '</article>'
+    return render_project_catalog(settings, posts_only=True)
+
+
+def render_post_filters(settings):
+    topics = [project.get("topic", "technology") for project in settings["projects"] if project["category"] == "post"]
+    buttons = ['<button data-filter="all" type="button" aria-pressed="true">すべて</button>']
+    for category, label in POST_CATEGORIES.items():
+        buttons.append(
+            f'<button data-filter="{category}" type="button" aria-pressed="false">'
+            f'<span>{label}</span><span>（{topics.count(category)}）</span></button>'
         )
-    return "\n".join(posts)
+    return "\n".join(buttons)
 
 
 def replace_project_slot(source, name, markup):
@@ -343,11 +358,20 @@ def render_public_html(content, settings=None, projects=None):
         markup = "31916<span>.</span>"
     for start, end in reversed(slots.ranges):
         source = source[:start] + markup + source[end:]
-    if any(f"<!-- {slot}:" in source for slot in ("project-filters", "project-catalog", "post-list")):
+    if any(f"<!-- {slot}:" in source for slot in ("project-filters", "project-catalog", "post-list", "post-filters")):
         projects = load_projects(projects)
         source = replace_project_slot(source, "project-filters", render_project_filters(projects))
         source = replace_project_slot(source, "project-catalog", render_project_catalog(projects))
         source = replace_project_slot(source, "post-list", render_post_list(projects))
+        source = replace_project_slot(source, "post-filters", render_post_filters(projects))
+    if '<footer class="site-footer shell" id="contact">' in source:
+        footer = (ROOT / "assets/footer.html").read_text(encoding="utf-8").strip()
+        if '<html lang="en">' in source:
+            footer = footer.replace("コンタクト", "Contact").replace("メールアドレスをコピー", "Copy email address")
+        resources = re.search(r'<div class="footer-resources">(.*?)</div>', source, flags=re.S)
+        if resources:
+            footer = footer.replace('<div class="footer-bottom">', f'<div class="footer-resources">{resources[1]}</div>\n      <div class="footer-bottom">')
+        source = re.sub(r'<footer class="site-footer shell" id="contact">.*?</footer>', lambda _: footer, source, flags=re.S)
     if "<!-- idea-designs-share -->" in source:
         source = source.replace("<!-- idea-designs-share -->", share_metadata(f"{IDEA_DESIGNS}/index.html"))
     return source.encode("utf-8")
