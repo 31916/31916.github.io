@@ -43,12 +43,12 @@ function refreshPanel(reload = false) {
 function openSection(id, trigger) {
   if (!entered || dialog.open) return;
   selected = id; lastTrigger = trigger;
-  universe?.resetView();
   document.querySelector('.panel-loading').hidden = false;
   document.querySelector('.panel-loading').textContent = translate('読み込んでいます。');
   refreshPanel(true);
   document.body.classList.add('panel-open');
   dialog.showModal();
+  universe?.resetView();
 }
 for (const button of document.querySelectorAll('[data-section]')) {
   button.addEventListener('click', () => openSection(button.dataset.section, button));
@@ -58,6 +58,7 @@ function closeSection() {
   dialog.close();
   selected = null;
   document.body.classList.remove('panel-open');
+  universe?.resetView();
   lastTrigger?.focus({ preventScroll: true });
 }
 document.querySelector('.close-panel').addEventListener('click', closeSection);
@@ -81,7 +82,6 @@ const frameStyles = `
   .project-card { background: #b1d4c306 !important; border-color: #99b8aa28 !important; }
   .project-card:hover { background: #b1d4c30e !important; }
   .project-card img { border-radius: 8px; }
-  .resume-content { max-width: none !important; }
   .tech-stack img:is([src='/assets/tech/github.svg'], [src='/assets/tech/linux.svg']) { background: #f4f0dd; border-radius: 4px; padding: 3px; }
   @media (max-width: 500px) { main.shell { padding: 22px !important; } }
 `;
@@ -93,6 +93,9 @@ frame.addEventListener('load', () => {
     const style = doc.createElement('style');
     style.textContent = frameStyles;
     doc.head.append(style);
+    const contentWidth = getComputedStyle(doc.documentElement).getPropertyValue('--width').trim();
+    if (contentWidth) document.documentElement.style.setProperty('--panel-content-width', contentWidth);
+    document.documentElement.style.setProperty('--panel-scrollbar', `${doc.defaultView.innerWidth - doc.documentElement.clientWidth}px`);
     doc.querySelectorAll('a[href]').forEach(link => {
       const url = new URL(link.href);
       if (url.protocol === 'http:' || url.protocol === 'https:') {
@@ -131,7 +134,7 @@ function showFallback() {
   document.querySelector('#render-status').textContent = translate('この環境では3Dを表示できません。各項目はそのまま開けます。');
 }
 async function loadUniverse() {
-  const [{ createUniverse }] = await Promise.all([import('./universe.js?v=20261121-posts-performance'), initializeLanguage()]);
+  const [{ createUniverse }] = await Promise.all([import('./universe.js?v=20261121-panel-layout'), initializeLanguage()]);
   universe = await createUniverse({
     canvas, sections: sectionInfo,
     getState: () => ({ paused: reducedMotion.matches, selected, entered, reduced: reducedMotion.matches }),

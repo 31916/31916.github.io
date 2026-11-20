@@ -451,6 +451,7 @@ export async function createUniverse({ canvas, sections, getState, onOpen, onTop
   const controls = new ViewControls(camera, dragSurface);
   const projected = new THREE.Vector3();
   const languagePicker = document.querySelector('.masthead');
+  const contentPanel = document.querySelector('.content-panel');
   let languageBounds;
   for (const moon of moons) moon.labelNudge = new THREE.Vector2();
   function measureLabels() {
@@ -460,9 +461,10 @@ export async function createUniverse({ canvas, sections, getState, onOpen, onTop
     }
     languageBounds = languagePicker.getBoundingClientRect();
   }
-  const labelObserver = new ResizeObserver(() => { measureLabels(); resizePending = true; });
-  labelObserver.observe(languagePicker);
-  for (const moon of moons) labelObserver.observe(moon.button);
+  const layoutObserver = new ResizeObserver(() => { resizePending = true; });
+  layoutObserver.observe(languagePicker);
+  layoutObserver.observe(contentPanel);
+  for (const moon of moons) layoutObserver.observe(moon.button);
   controls.addEventListener('start', () => {
     userControlled = true; interacting = true;
   });
@@ -475,19 +477,22 @@ export async function createUniverse({ canvas, sections, getState, onOpen, onTop
     userControlled = false;
     interacting = false;
     viewReturnStart = performance.now();
+    resizePending = true;
   }
 
   const fitCamera = new THREE.PerspectiveCamera();
   const fitPoint = new THREE.Vector3();
   function fitOrbit() {
-    const margin = Math.max(24, Math.min(48, width * .06));
+    const sectionOpen = !mobile && contentPanel.open && !contentPanel.classList.contains('introduction-panel');
+    const viewWidth = sectionOpen ? Math.max(1, contentPanel.getBoundingClientRect().left) : width;
+    const margin = Math.max(24, Math.min(48, viewWidth * .06));
     const headerBottom = document.querySelector('.masthead').getBoundingClientRect().bottom;
     const top = Math.min(height * .4, headerBottom + 20);
     const availableHeight = Math.max(1, height - top - margin);
     const centerY = top + availableHeight / 2;
-    camera.setViewOffset(width, height, 0, height / 2 - centerY, width, height);
+    camera.setViewOffset(width, height, (width - viewWidth) / 2, height / 2 - centerY, width, height);
     const halfFov = THREE.MathUtils.degToRad(camera.fov / 2);
-    const usableRatio = Math.min((width - margin * 2) / height, availableHeight / height);
+    const usableRatio = Math.min(Math.max(1, viewWidth - margin * 2) / height, availableHeight / height);
     const halfAngle = Math.atan(Math.tan(halfFov) * usableRatio);
     fitCamera.projectionMatrix.copy(camera.projectionMatrix);
     orbitalPlane.updateWorldMatrix(true, false);
@@ -497,7 +502,8 @@ export async function createUniverse({ canvas, sections, getState, onOpen, onTop
     ));
     let near = 8;
     let far = (ORBIT * system.scale.x + radius + system.position.length()) / Math.sin(halfAngle) + 12;
-    const edgeX = 1 - margin * 2 / width;
+    const leftX = margin * 2 / width - 1;
+    const rightX = (viewWidth - margin) * 2 / width - 1;
     const bottomY = margin * 2 / height - 1;
     const topY = 1 - top * 2 / height;
     for (let iteration = 0; iteration < 18; iteration++) {
@@ -509,7 +515,8 @@ export async function createUniverse({ canvas, sections, getState, onOpen, onTop
         fitPoint.copy(position).project(fitCamera);
         const depth = Math.max(1, distance - position.z - radius);
         const padding = radius / (depth * Math.tan(halfFov));
-        return Math.abs(fitPoint.x) + padding / camera.aspect <= edgeX &&
+        return fitPoint.x - padding / camera.aspect >= leftX &&
+          fitPoint.x + padding / camera.aspect <= rightX &&
           fitPoint.y - padding >= bottomY && fitPoint.y + padding <= topY;
       });
       if (fits) far = distance;
