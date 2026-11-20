@@ -6,10 +6,10 @@
     <meta name="theme-color" content="#f5efe1" />
     <meta name="robots" content="noindex, follow" />
     <title>Googleフォームの応募情報を資料に自動整理する方法 — 31916</title>
-    <meta name="description" content="Googleフォームの応募情報を、GASで履歴書風のGoogleドキュメントへ自動整理する仕組み。開発背景、導入手順、無料のサンプルコードを紹介します。" />
+    <meta name="description" content="Googleフォームの応募情報を、GASで履歴書風のGoogleドキュメントへ自動整理する仕組み。開発背景、無料テンプレートの導入手順、Gmailで履歴書のコピーを送る方法を実画面付きで紹介します。" />
     <meta name="author" content="31916" />
     <meta property="og:title" content="Googleフォームの応募情報を、履歴書風の資料に自動整理する方法" />
-    <meta property="og:description" content="GASを使った応募者プロフィール資料の自動作成。開発背景・導入手順・サンプルコードを公開しています。" />
+    <meta property="og:description" content="GASを使った応募者プロフィール資料の自動作成。無料テンプレートで、履歴書・PDFの自動作成とGmail送信を設定する手順を実画面付きで公開しています。" />
     <meta property="og:type" content="article" />
     <meta property="og:url" content="https://31916.ch/google-forms-profile/" />
     <link rel="canonical" href="https://31916.ch/google-forms-profile/" />
@@ -19,9 +19,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400..600&family=Noto+Sans+JP:wght@400..600&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="/css/styles.css?v=20261121-posts" />
     <link rel="stylesheet" href="/css/cursors.css?v=3" />
-    <link rel="stylesheet" href="/google-forms-profile/style.css?v=20261121-posts" />
+    <link rel="stylesheet" href="/google-forms-profile/style.css?v=20261121-workflow" />
     <script src="/js/scripts.js?v=20261111-copy-reset" defer></script>
-    <script src="/google-forms-profile/article.js?v=20261115" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main">本文へ移動</a>
@@ -39,8 +38,8 @@
           <a class="guide-back-link" href="/posts/">投稿一覧へ</a>
           <p class="guide-eyebrow">技術投稿 / Google Apps Script</p>
           <h1 id="article-title"><span>Googleフォームの応募情報を、</span><span>履歴書風の資料に自動整理する方法</span></h1>
-          <p class="guide-summary">応募が届くたびに、回答内容を読みやすいGoogleドキュメントへ。GASを使った仕組みと導入手順を、無料のサンプルコードとともに紹介します。</p>
-          <div class="guide-meta"><span>文・開発：31916</span><time datetime="2026-11-15">2026年11月15日</time><span>サンプルコード公開</span></div>
+          <p class="guide-summary">応募が届くたびに、回答内容を読みやすいGoogleドキュメントへ。無料テンプレートをコピーして、履歴書・PDFの自動作成からGmailでのコピー送信まで。実際の画面とともに導入手順を紹介します。</p>
+          <div class="guide-meta"><span>文・開発：31916</span><time datetime="2026-11-15">2026年11月15日</time><span>無料テンプレート配布</span><span>更新：2026年11月21日</span></div>
         </header>
         <div class="guide-layout">
           <nav class="guide-toc" aria-label="この記事の目次">
@@ -48,244 +47,135 @@
             <ol>
               <li><a href="#background">開発の背景</a></li>
               <li><a href="#how-it-works">仕組み</a></li>
+              <li><a href="#templates">無料テンプレート</a></li>
               <li><a href="#setup">導入手順</a></li>
-              <li><a href="#sample">サンプルコード</a></li>
-              <li><a href="#verification">動作確認と運用</a></li>
+              <li><a href="#verification">動作確認</a></li>
+              <li><a href="#email">Gmailでコピーを送る</a></li>
+              <li><a href="#operation">調整と運用</a></li>
               <li><a href="#contact">導入のご相談</a></li>
             </ol>
           </nav>
           <div class="guide-article">
             <section id="background" class="guide-section" aria-labelledby="background-title">
               <h2 id="background-title">応募情報を、確認しやすい形に。</h2>
-              <p>Googleフォームは、採用やオーディションの応募受付にも使えます。回答をスプレッドシートに集められる一方で、自己紹介や志望動機などの長文、SNSや動画のリンクが並ぶと、応募者一人ひとりの情報を確認するための工夫が必要になります。</p>
-              <p>そこで、Google Apps Script（GAS）を使って、<strong>応募が届くたびに、回答内容を履歴書風のGoogleドキュメントへ自動整理する仕組み</strong>を開発しました。</p>
-              <p>この記事では、開発の背景と仕組み、自分の環境で試すための導入手順を紹介します。</p>
-              <figure class="guide-figure">
-                <div class="comparison">
-                  <div class="comparison-panel">
-                    <p class="comparison-label"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="1" /><path d="M3 10h18M3 15h18M10 4v16" /></svg>回答先スプレッドシート</p>
-                    <div class="sheet-preview" tabindex="0" role="region" aria-label="架空のフォーム回答一覧。横にスクロールできます。">
-                      <table><thead><tr><th scope="col">Your Name</th><th scope="col">Nick Name</th><th scope="col">Country of residence</th><th scope="col">Motivation</th></tr></thead><tbody><tr><td>Sample Applicant</td><td>Sample</td><td>Japan</td><td>配信を通じて、さまざまな人と交流できる活動に取り組みたいです。</td></tr></tbody></table>
-                    </div>
-                    <p class="preview-note">一人分の情報が、複数の列に横並びで記録されます。</p>
-                  </div>
-                  <div class="comparison-panel">
-                    <p class="comparison-label"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h8l4 4v14H6zM14 3v5h4M9 12h6M9 16h6" /></svg>自動作成する資料</p>
-                    <div class="document-preview">
-                      <p class="document-title">応募者プロフィール</p>
-                      <dl>
-                        <div><dt>氏名</dt><dd>Sample Applicant</dd></div>
-                        <div><dt>ニックネーム</dt><dd>Sample</dd></div>
-                        <div><dt>居住国</dt><dd>Japan</dd></div>
-                        <div><dt>YouTube</dt><dd><span class="example-link">https://example.com/channel</span></dd></div>
-                        <div><dt>自己紹介動画</dt><dd><span class="example-link">https://example.com/video</span></dd></div>
-                        <div><dt>志望動機</dt><dd>配信を通じて、さまざまな人と交流できる活動に取り組みたいです。</dd></div>
-                      </dl>
-                    </div>
-                  </div>
-                </div>
-                <figcaption>架空データによる表示例です。資料の構成を示すイメージで、実際の応募情報や業務用テンプレートは使用していません。</figcaption>
-              </figure>
-              <p>開発の目的は、応募情報を履歴書のように読みやすく整理し、担当者が確認しやすい状態を作ることです。</p>
-              <p>応募情報には、氏名や居住国などの基本情報に加え、活動経験、得意分野、志望動機、SNS、自己紹介動画など、さまざまな種類の情報が含まれます。これらを、担当者が確認したい順番に並べた資料へ自動転記できれば、応募者ごとの情報をまとめる作業を減らせます。</p>
-              <p>今回の実装では、あらかじめGoogleドキュメントでテンプレートを作り、回答を所定の場所へ書き込む方法を採用しました。元の実装では、3つの表に情報を分けています。</p>
-              <div class="table-scroll" tabindex="0" role="region" aria-label="元の実装の資料構成">
-                <table class="guide-table"><thead><tr><th scope="col">資料の構成</th><th scope="col">主な内容</th></tr></thead><tbody>
-                  <tr><th scope="row">基本情報・活動先</th><td>氏名、ニックネーム、居住国、SNS、自己紹介、志望動機</td></tr>
-                  <tr><th scope="row">スキル・経験</th><td>語学、特技、経歴、配信経験</td></tr>
-                  <tr><th scope="row">活動条件・補足</th><td>契約状況、配信環境、活動予定、その他の回答</td></tr>
-                </tbody></table>
-              </div>
-              <p>自由記述は、応募者が入力した文章をそのまま転記します。SNSや動画のURLにはリンクを設定し、資料から開けるようにしています。</p>
+              <p>Googleフォームは、採用やオーディションの応募受付にも使えます。回答をスプレッドシートに集められる一方で、自己紹介や志望動機などの長文が横に並ぶと、一人ひとりの情報を読むためにスクロールや転記が必要になります。</p>
+              <p>そこで、<strong>応募が届くたびに、回答を履歴書風のGoogleドキュメントへ自動整理する仕組み</strong>を開発しました。担当者が確認したい順番に情報をまとめ、資料を作る作業を減らすことが目的です。</p>
+              <p>この記事では、その仕組みを自分のGoogleアカウントで試せるテンプレートを無料で配布します。フォームの回答から履歴書とPDFを作り、<strong>回答者へGmailでコピーを送るところまで</strong>設定できます。コードの書き方を学ばなくても、コピーと初期設定で試せる構成です。</p>
+              <aside class="guide-note">掲載している画面は、この記事のために新しく作成したフォーム・スプレッドシート・Googleドキュメントを実際に操作して撮影しました。応募情報は架空です。業務で使用した応募者情報や社内テンプレートは含めていません。</aside>
             </section>
             <section id="how-it-works" class="guide-section" aria-labelledby="mechanism-title">
-              <h2 id="mechanism-title">フォーム送信から、資料の保存まで。</h2>
-              <p>フォーム送信から資料の保存までを、Googleのサービス内でつなぎます。</p>
-              <figure class="guide-figure">
-                <ol class="guide-flow" aria-label="処理の流れ">
-                  <li>Googleフォームへ回答</li>
-                  <li>回答先スプレッドシートに記録</li>
-                  <li>フォーム送信トリガーでGASを実行</li>
-                  <li>Googleドキュメントのテンプレートをコピー</li>
-                  <li>回答を転記してリンクを設定</li>
-                  <li>指定したGoogle Driveフォルダへ保存</li>
-                </ol>
+              <h2 id="mechanism-title">回答を受け取り、履歴書のコピーをメールで返す。</h2>
+              <p>Googleフォーム、スプレッドシート、Googleドキュメント、GmailをGASでつなぎます。初期設定を済ませると、以降はフォームへの回答をきっかけに処理が動きます。</p>
+              <ol class="guide-flow" aria-label="処理の流れ">
+                <li>Googleフォームに応募情報を入力</li>
+                <li>スプレッドシートに回答を記録</li>
+                <li>枠付きの履歴書テンプレートへ回答を転記</li>
+                <li>履歴書とPDFを自分のDriveへ保存</li>
+                <li>回答者へPDFとドキュメントのリンクをメール送信</li>
+                <li>回答シートへ資料のURLと送信結果を記録</li>
+              </ol>
+              <p>回答者は届いたPDFをそのまま確認できます。Googleドキュメントのリンクからは、閲覧と自分のDriveへのコピーができます。元のテンプレートを回答者全員で編集する形にはしません。</p>
+              <p>今回配布する履歴書は、「基本情報」「学歴・職歴とスキル」「自己PR・志望動機」の3つの表で構成しています。スプレッドシートは標準の表示を使い、履歴書には項目を区切る枠線を付けています。</p>
+              <figure class="guide-figure guide-screenshot">
+                <a href="/google-forms-profile/screenshots/01-resume-template.jpg" target="_blank" rel="noopener" aria-label="Googleドキュメントで作成した、枠付きの履歴書テンプレート（画像を拡大）"><img src="/google-forms-profile/screenshots/01-resume-template.jpg" alt="Googleドキュメントで作成した、枠付きの履歴書テンプレート" width="1853" height="871" loading="lazy" decoding="async" /></a>
+                <figcaption>実際のGoogleドキュメント。右側の差し込み欄へ、フォームの回答が入ります。 画像を押すと拡大できます。</figcaption>
               </figure>
-              <p>処理の入口は、<code>onFormSubmit(e)</code>という関数です。</p>
-              <p>回答先スプレッドシートのフォーム送信トリガーから実行すると、<code>e.values</code>から回答内容、<code>e.range</code>から回答が記録された行などを取得できます。<a href="https://developers.google.com/apps-script/guides/triggers/events">Google公式のイベント仕様</a>で、受け取れる情報を確認できます。</p>
-              <p>回答の取得には、スプレッドシートのヘッダーを使っています。例えば、<code>Your Name</code>を含むヘッダーを探し、その列の回答を氏名欄へ転記します。</p>
-              <p>列番号を直接書く方法に比べて、質問と処理の対応が読み取りやすくなります。ただし、質問名を変更した場合は、コード側の検索キーワードも確認する必要があります。</p>
+            </section>
+            <section id="templates" class="guide-section" aria-labelledby="templates-title">
+              <h2 id="templates-title">最初に、配布テンプレートを開く。</h2>
+              <p>Googleアカウントを用意し、次のスプレッドシートを自分のDriveへコピーしてください。自動化に必要なGASは、スプレッドシートに同梱しています。</p>
+              <div class="guide-downloads">
+                <a href="https://docs.google.com/spreadsheets/d/1ScwfJs-5uB75VL1dhs6qbyTiysjtZSldqZU6d_aCD7E/copy" target="_blank" rel="noopener"><strong>設定用スプレッドシートをコピー</strong><span>ここから始めます。フォーム・保存先・自動実行を初期設定します。</span></a>
+                <a href="https://docs.google.com/document/d/1vokek-JRURHA0WHqzKWlOyjFC3I96xDzQuU6lFx1FQM/edit" target="_blank" rel="noopener"><strong>枠付きの履歴書テンプレートを見る</strong><span>初期設定時に、自分専用のコピーが作成されます。</span></a>
+              </div>
+              <p class="preview-note">設定用シートにはテスト回答を含めていません。フォーム、回答シート、資料の保存先は、自分のコピーで初期設定を実行すると作成されます。</p>
             </section>
             <section id="setup" class="guide-section" aria-labelledby="setup-title">
-              <h2 id="setup-title">6項目の簡易版で、導入してみる。</h2>
-              <p>元の実装は専用テンプレートの表構造に合わせているため、この記事では、新しく作ったフォームとテンプレートで試せるサンプルを紹介します。</p>
-              <p>準備するものは、Googleフォーム、回答先スプレッドシート、Googleドキュメントのテンプレート、保存先フォルダの4つです。</p>
-              <h3>1. Googleフォームを作る</h3>
-              <p>次の6つの質問を用意します。サンプルコードでは、この英語の質問名を検索します。自己紹介動画とYouTubeチャンネルには、<code>https://</code>から始まるURLを入力してください。</p>
-              <div class="table-scroll" tabindex="0" role="region" aria-label="簡易版のフォーム質問一覧">
-                <table class="guide-table"><thead><tr><th scope="col">フォームの質問名</th><th scope="col">入力する内容</th></tr></thead><tbody>
-                  <tr><th scope="row"><code>Your Name</code></th><td>氏名</td></tr>
-                  <tr><th scope="row"><code>Nick Name</code></th><td>ニックネーム</td></tr>
-                  <tr><th scope="row"><code>Country of residence</code></th><td>居住国</td></tr>
-                  <tr><th scope="row"><code>YouTube channel</code></th><td>YouTubeチャンネルのURL</td></tr>
-                  <tr><th scope="row"><code>Self-Introduction</code></th><td>自己紹介動画のURL</td></tr>
-                  <tr><th scope="row"><code>Motivation</code></th><td>志望動機</td></tr>
+              <h2 id="setup-title">コピーしたシートから、初期設定をする。</h2>
+              <h3>1. 保存先フォルダとメール送信を設定する</h3>
+              <p>Google Driveに作業用フォルダを1つ作り、そのURLをコピーします。設定用スプレッドシートの「設定」タブを開き、次の3項目を確認してください。以降の操作は、同じGoogleアカウントで行います。</p>
+              <div class="table-scroll" tabindex="0" role="region" aria-label="設定シートの入力項目">
+                <table class="guide-table"><thead><tr><th scope="col">セル・項目</th><th scope="col">入力する内容</th></tr></thead><tbody>
+                  <tr><th scope="row">B6：作業フォルダURL</th><td>先ほど作った、自分の保存先フォルダのURL。空欄の場合は初期設定時に新しいフォルダを作成します。</td></tr>
+                  <tr><th scope="row">B7：テンプレートURL</th><td>配布テンプレートのURLが入力済みです。まずはそのまま使えます。</td></tr>
+                  <tr><th scope="row">B8：メール送信</th><td>回答者へコピーを送る場合は「有効」のままにします。「無効」にすると、資料の保存までで止まります。</td></tr>
                 </tbody></table>
               </div>
-              <h3>2. 回答先スプレッドシートを設定する</h3>
-              <p>Googleフォームの「回答」から、回答の保存先となるスプレッドシートを設定します。以降、GASはこのスプレッドシートから開きます。</p>
-              <h3>3. Googleドキュメントでテンプレートを作る</h3>
-              <p>単一タブのドキュメントに、セルを結合せず、<strong>2列6行の表</strong>を1つ作ります。見出し行は追加しません。</p>
-              <p>左列には、上から「氏名」「ニックネーム」「居住国」「YouTube」「自己紹介動画」「志望動機」と入力し、右列は回答欄として空けておきます。資料の見出しや表の幅、文字サイズなどは、Googleドキュメント上で調整できます。</p>
-              <h3>4. 保存先フォルダとGASを設定する</h3>
-              <p>Google Driveに資料の保存先フォルダを作ります。</p>
-              <p>回答先スプレッドシートの「拡張機能」から「Apps Script」を開き、<a href="#sample">サンプルコード</a>を貼り付けます。<code>TEMPLATE_DOC_ID</code>と<code>SAVE_FOLDER_ID</code>は、自分のテンプレートとフォルダのIDへ変更してください。</p>
-              <p>ドキュメントIDはURLの<code>/document/d/</code>と<code>/edit</code>の間、フォルダIDは<code>/folders/</code>の後ろにある文字列です。URLに<code>?</code>以降のパラメーターがある場合、その部分は含めません。</p>
-              <h3>5. フォーム送信トリガーを追加する</h3>
-              <p>コードを保存したら、Apps Scriptの「トリガー」から追加します。</p>
-              <div class="table-scroll" tabindex="0" role="region" aria-label="フォーム送信トリガーの設定">
-                <table class="guide-table"><thead><tr><th scope="col">設定項目</th><th scope="col">選ぶ内容</th></tr></thead><tbody>
-                  <tr><th scope="row">実行する関数</th><td><code>onFormSubmit</code></td></tr>
-                  <tr><th scope="row">イベントのソース</th><td>スプレッドシートから</td></tr>
-                  <tr><th scope="row">イベントの種類</th><td>フォーム送信時</td></tr>
-                </tbody></table>
-              </div>
-              <p>保存時に表示される認証画面で、使用するアカウントと権限を確認して承認します。</p>
-              <aside class="guide-note">この設定は、<strong>回答先スプレッドシート側のフォーム送信トリガー</strong>を使います。Googleフォーム側のトリガーとは、受け取るイベント情報が異なります。</aside>
-              <p>インストール型トリガーは作成者のアカウントで動くため、そのアカウントがテンプレートをコピーでき、保存先にファイルを作成できる必要があります。<a href="https://developers.google.com/apps-script/guides/triggers/installable">Google公式のトリガー説明</a>も参照してください。</p>
-            </section>
-            <section id="sample" class="guide-section" aria-labelledby="sample-title">
-              <h2 id="sample-title">サンプルコード</h2>
-              <p>6項目の簡易版のコードです。コピーするか、ファイルをダウンロードしてApps Scriptに貼り付けてください。</p>
-              <div class="code-panel">
-                <div class="code-toolbar">
-                  <span>sample.gs / Google Apps Script</span>
-                  <div class="code-actions">
-                    <button type="button" data-copy-code hidden><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="12" rx="1" /><path d="M6 16H4V3h11v3" /></svg>コピー</button>
-                    <a href="/google-forms-profile/sample.gs" download="form-profile-sample.gs"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m-5-5 5 5 5-5M4 16v5h16v-5" /></svg>ダウンロード</a>
-                  </div>
-                </div>
-                <pre tabindex="0" aria-label="応募者プロフィール自動作成のサンプルコード"><code id="sample-code">function onFormSubmit(e) {
-  const TEMPLATE_DOC_ID = &#x27;YOUR_TEMPLATE_DOC_ID&#x27;;
-  const SAVE_FOLDER_ID = &#x27;YOUR_SAVE_FOLDER_ID&#x27;;
-
-  if (!e || !e.range || !e.values) {
-    throw new Error(
-      &#x27;回答先スプレッドシートのフォーム送信トリガーから実行してください。&#x27;
-    );
-  }
-
-  const sheet = e.range.getSheet();
-  const header = sheet
-    .getRange(1, 1, 1, sheet.getLastColumn())
-    .getDisplayValues()[0];
-  const rowData = e.values;
-
-  // キーワードに該当する質問を探し、回答を取得する
-  function getPartial(keyword) {
-    const matches = [];
-
-    for (let i = 0; i &lt; header.length; i++) {
-      if (header[i].toLowerCase().includes(keyword.toLowerCase())) {
-        matches.push(i);
-      }
-    }
-
-    if (matches.length !== 1) {
-      throw new Error(&#x27;質問を一意に特定できません: &#x27; + keyword);
-    }
-
-    return String(rowData[matches[0]] || &#x27;&#x27;);
-  }
-
-  // 配列の順番と、テンプレートの行の順番をそろえる
-  const fields = [
-    { keyword: &#x27;Your Name&#x27;, link: false },
-    { keyword: &#x27;Nick Name&#x27;, link: false },
-    { keyword: &#x27;Country of residence&#x27;, link: false },
-    { keyword: &#x27;YouTube channel&#x27;, link: true },
-    { keyword: &#x27;Self-Introduction&#x27;, link: true },
-    { keyword: &#x27;Motivation&#x27;, link: false }
-  ];
-
-  const answers = fields.map(function (field) {
-    return getPartial(field.keyword);
-  });
-
-  // 先頭行をヘッダーとして、回答行からファイル名を作る
-  const numberStr = String(e.range.getRow() - 1).padStart(3, &#x27;0&#x27;);
-
-  const copiedFile = DriveApp.getFileById(TEMPLATE_DOC_ID).makeCopy(
-    &#x27;data&#x27; + numberStr,
-    DriveApp.getFolderById(SAVE_FOLDER_ID)
-  );
-
-  const doc = DocumentApp.openById(copiedFile.getId());
-
-  try {
-    const table = doc.getBody().getTables()[0];
-
-    if (!table || table.getNumRows() !== fields.length) {
-      throw new Error(
-        &#x27;テンプレートの先頭に2列6行の表を用意してください。&#x27;
-      );
-    }
-
-    for (let row = 0; row &lt; fields.length; row++) {
-      if (table.getRow(row).getNumCells() !== 2) {
-        throw new Error(
-          &#x27;表の各行はセルを結合せず2列にしてください。&#x27;
-        );
-      }
-    }
-
-    fields.forEach(function (field, row) {
-      const value = answers[row];
-      const cell = table.getCell(row, 1);
-
-      cell.setText(value);
-
-      if (value) {
-        const text = cell.editAsText();
-        text.setBold(true);
-
-        if (field.link &amp;&amp; /^https?:\/\//i.test(value)) {
-          text.setLinkUrl(value);
-        }
-      }
-    });
-  } finally {
-    doc.saveAndClose();
-  }
-
-  Logger.log(&#x27;作成したドキュメントURL: &#x27; + copiedFile.getUrl());
-}
-</code></pre>
-              </div>
-              <p class="copy-status" id="copy-status" role="status" aria-live="polite"></p>
-              <p>表への転記では、<code>getCell(row, 1)</code>で各行の右側のセルを指定しています。行と列は0から数えるため、列番号の<code>1</code>は2列目です。</p>
-              <p>セルへ文章を設定したあと、<code>editAsText()</code>で文字列を操作し、太字やリンクを設定しています。各メソッドは、<a href="https://developers.google.com/apps-script/reference/document/table-cell">Google公式のTableCellリファレンス</a>で確認できます。</p>
+              <figure class="guide-figure guide-screenshot">
+                <a href="/google-forms-profile/screenshots/02-spreadsheet-settings.jpg" target="_blank" rel="noopener" aria-label="白背景とグリッド線の標準表示で開いた設定シート（画像を拡大）"><img src="/google-forms-profile/screenshots/02-spreadsheet-settings.jpg" alt="白背景とグリッド線の標準表示で開いた設定シート" width="1853" height="871" loading="lazy" decoding="async" /></a>
+                <figcaption>今回の動作確認で使用した設定シート。入力するのはB6〜B8です。B10以降は初期設定とテストで自動更新されます。 画像を押すと拡大できます。</figcaption>
+              </figure>
+              <h3>2. 「拡張機能」からApps Scriptを開く</h3>
+              <p>スプレッドシートの上部にある「拡張機能 → Apps Script」を選びます。英語表示の場合は「Extensions → Apps Script」です。コードは入力済みなので、貼り付けや書き換えは不要です。</p>
+              <figure class="guide-figure guide-screenshot">
+                <a href="/google-forms-profile/screenshots/03-open-apps-script.jpg" target="_blank" rel="noopener" aria-label="スプレッドシートのExtensionsメニューからApps Scriptを開く画面（画像を拡大）"><img src="/google-forms-profile/screenshots/03-open-apps-script.jpg" alt="スプレッドシートのExtensionsメニューからApps Scriptを開く画面" width="1853" height="871" loading="lazy" decoding="async" /></a>
+                <figcaption>「拡張機能（Extensions）」から「Apps Script」を選びます。 画像を押すと拡大できます。</figcaption>
+              </figure>
+              <h3>3. 初期設定を1回だけ実行する</h3>
+              <p>Apps Script上部の関数選択で<strong>setupAutomation</strong>を選び、「実行（Run）」を押します。初回はGoogleの認証画面が開くため、使用するアカウントと表示された権限の内容を確認して承認します。ファイルの作成・編集、フォーム、Gmail、自動実行の権限が使われます。</p>
+              <p>実行ログに完了が表示されたら、スプレッドシートへ戻ります。B10の「初期設定の結果」が「初期設定済み」になり、フォームや保存先のURLが入力されます。</p>
+              <figure class="guide-figure guide-screenshot">
+                <a href="/google-forms-profile/screenshots/04-run-setup.jpg" target="_blank" rel="noopener" aria-label="setupAutomationを選択し、実行完了のログが表示されたApps Script（画像を拡大）"><img src="/google-forms-profile/screenshots/04-run-setup.jpg" alt="setupAutomationを選択し、実行完了のログが表示されたApps Script" width="1853" height="871" loading="lazy" decoding="async" /></a>
+                <figcaption>初期設定はsetupAutomationを選んで実行します。画面は設定済みの環境で再実行し、完了を確認したものです。 画像を押すと拡大できます。</figcaption>
+              </figure>
+              <p>この操作で、応募フォーム、回答先シート、自分用の履歴書テンプレート、「生成された履歴書」フォルダ、フォーム送信時の自動実行設定が作成されます。自分用のテンプレートは、B14の「使用中のテンプレートURL」から開けます。</p>
+              <p>自動実行設定を確認する場合は、Apps Script左側の「トリガー（Triggers）」を開きます。「onFormSubmit」「スプレッドシートから・フォーム送信時」が1件表示されれば設定済みです。手動で追加する必要はありません。</p>
+              <figure class="guide-figure guide-screenshot">
+                <a href="/google-forms-profile/screenshots/04b-created-trigger.jpg" target="_blank" rel="noopener" aria-label="フォーム送信時のonFormSubmitトリガーが1件作成された画面（画像を拡大）"><img src="/google-forms-profile/screenshots/04b-created-trigger.jpg" alt="フォーム送信時のonFormSubmitトリガーが1件作成された画面" width="1853" height="871" loading="lazy" decoding="async" /></a>
+                <figcaption>初期設定によって作成された、フォーム送信時のトリガー。 画像を押すと拡大できます。</figcaption>
+              </figure>
+              <h3>4. 作成された応募フォームを確認する</h3>
+              <p>設定シートB11の「応募フォーム編集URL」を開きます。氏名、ふりがな、メールアドレス、生年月日、居住地、希望職種、学歴・職歴、資格・スキル、活動リンク、自己PR、志望動機の11項目が用意されています。</p>
+              <figure class="guide-figure guide-screenshot">
+                <a href="/google-forms-profile/screenshots/05-created-form.jpg" target="_blank" rel="noopener" aria-label="氏名やメールアドレスの質問が用意されたGoogleフォームの編集画面（画像を拡大）"><img src="/google-forms-profile/screenshots/05-created-form.jpg" alt="氏名やメールアドレスの質問が用意されたGoogleフォームの編集画面" width="1853" height="871" loading="lazy" decoding="async" /></a>
+                <figcaption>実際に作成されたGoogleフォームの編集画面。テーマや配色は標準のままです。 画像を押すと拡大できます。</figcaption>
+              </figure>
+              <p>フォームのタイトルや説明文は、受付する内容に合わせて変更できます。まずは質問名を変えずにテストしてください。質問名と履歴書の差し込み欄が対応しているため、質問の追加や名称変更には連携側の調整も必要です。</p>
             </section>
             <section id="verification" class="guide-section" aria-labelledby="verification-title">
-              <h2 id="verification-title">フォームから送信して、動作を確認する。</h2>
-              <p>設定後は、実際にフォームからテスト回答を送信します。</p>
-              <p>Apps Scriptのエディタで<code>onFormSubmit</code>を直接実行すると、フォーム送信時の情報である<code>e</code>が渡されません。動作確認は、フォームの回答画面から行ってください。</p>
-              <p>最初は架空の情報を入力し、次の点を確認します。</p>
-              <ul>
-                <li>回答がスプレッドシートに記録される</li>
-                <li>指定フォルダにドキュメントが作成される</li>
-                <li>右側の回答欄に、対応する内容が入っている</li>
-                <li>YouTubeと自己紹介動画のリンクが開ける</li>
-                <li>長い志望動機でも、読みやすいレイアウトになっている</li>
-              </ul>
-              <p>回答シートの2行目に記録された回答なら、ファイル名は<code>data001</code>になります。これは回答行に基づく番号なので、行の削除や並べ替えを行う運用では、別の採番方法を検討してください。</p>
-              <p>資料が作成されない場合は、Apps Scriptの実行履歴を確認します。質問名の不一致、テンプレートの行・列数、ファイルID、アクセス権限が主な確認箇所です。</p>
-              <h3>実際の業務へ導入する場合</h3>
-              <p>このサンプルでは、フォーム回答からGoogleドキュメントを作成し、指定フォルダへ保存します。</p>
-              <p>業務で継続利用する場合は、作成した資料のURLを回答シートへ記録する、処理済みかどうかを管理する、エラー時に再処理できるようにする、といった機能も役立ちます。</p>
-              <p>サンプルには重複作成を防ぐ処理がないため、同じ回答を再処理するとコピーが追加されます。また、テンプレートの構造に誤りがある場合は、転記途中のコピーが残ることがあります。</p>
-              <p>生年月日から年齢を計算する機能を追加する場合は、日付形式と基準日を明確にして確認します。応募が集中する用途では、Apps Scriptの実行時間や<a href="https://developers.google.com/apps-script/guides/services/quotas">利用上限</a>も確認が必要です。</p>
-              <p>扱う情報に合わせて、生成資料と保存先フォルダを共有する範囲も設定してください。</p>
+              <h2 id="verification-title">フォームから送信して、保存結果を確認する。</h2>
+              <p>設定シートB12の「回答フォームURL」を開き、架空の応募情報を入力します。メールアドレスには、<strong>自分で受信を確認できるアドレス</strong>を指定して送信してください。</p>
+              <p>Apps Scriptで「onFormSubmit」を直接実行する操作ではテストできません。フォームの回答画面にある送信ボタンから送信します。</p>
+              <figure class="guide-figure guide-screenshot">
+                <a href="/google-forms-profile/screenshots/06-form-submitted.jpg" target="_blank" rel="noopener" aria-label="履歴書作成フォームの送信を受け付けた確認画面（画像を拡大）"><img src="/google-forms-profile/screenshots/06-form-submitted.jpg" alt="履歴書作成フォームの送信を受け付けた確認画面" width="1853" height="871" loading="lazy" decoding="async" /></a>
+                <figcaption>回答画面から実際に送信したあとの確認画面。 画像を押すと拡大できます。</figcaption>
+              </figure>
+              <p>スプレッドシートの「フォームの回答 1」タブを開き、回答が追加されていることを確認します。右側の管理列に履歴書とPDFのURLが入り、「処理状態」が「送信済み」になれば、メール送信まで完了しています。</p>
+              <figure class="guide-figure guide-screenshot">
+                <a href="/google-forms-profile/screenshots/07-response-status.jpg" target="_blank" rel="noopener" aria-label="回答シートの履歴書URL・PDF URL・送信済みの管理列（画像を拡大）"><img src="/google-forms-profile/screenshots/07-response-status.jpg" alt="回答シートの履歴書URL・PDF URL・送信済みの管理列" width="530" height="170" loading="lazy" decoding="async" /></a>
+                <figcaption>実際の回答シートの管理列。表の紫色はGoogleフォーム連携で自動作成された標準デザインです。 画像を押すと拡大できます。</figcaption>
+              </figure>
+              <p>設定シートB13の「生成済みフォルダURL」を開くと、GoogleドキュメントとPDFが保存されています。回答の文章が対応する欄に入り、長い文章や改行も読める状態かを確認してください。</p>
+              <figure class="guide-figure guide-screenshot">
+                <a href="/google-forms-profile/screenshots/08-generated-resume.jpg" target="_blank" rel="noopener" aria-label="架空の応募内容が表の中に転記されたGoogleドキュメント（画像を拡大）"><img src="/google-forms-profile/screenshots/08-generated-resume.jpg" alt="架空の応募内容が表の中に転記されたGoogleドキュメント" width="1853" height="871" loading="lazy" decoding="async" /></a>
+                <figcaption>フォームの回答から作成した履歴書の複製。メール欄のみ撮影用に匿名化しています。 画像を押すと拡大できます。</figcaption>
+              </figure>
+              <figure class="guide-figure guide-screenshot">
+                <a href="/google-forms-profile/screenshots/09-output-folder.jpg" target="_blank" rel="noopener" aria-label="履歴書とPDFの保存先を拡大"><img src="/google-forms-profile/screenshots/09-output-folder.jpg" alt="Google Driveの生成された履歴書フォルダに保存されたドキュメントとPDF" width="1853" height="871" loading="lazy" decoding="async" /></a>
+                <figcaption>実際の保存先フォルダ。2件のテスト回答から、それぞれドキュメントとPDFが作成されています。画像を押すと拡大できます。</figcaption>
+              </figure>
+              <p>スクリーンショットの履歴書は、実際に生成したドキュメントを撮影用に複製したものです。受信確認に使ったメールアドレスの欄だけを、<code>applicant@example.com</code>へ変更しています。</p>
+            </section>
+            <section id="email" class="guide-section" aria-labelledby="email-title">
+              <h2 id="email-title">Gmailで、回答者に履歴書のコピーを届ける。</h2>
+              <p>メール送信を「有効」にすると、フォームの「メールアドレス」欄に入力した宛先へ、履歴書のコピーが自動送信されます。送信元は、初期設定と認証を行ったGoogleアカウントです。</p>
+              <p>メールには<strong>履歴書のPDFを添付</strong>し、本文には<strong>Googleドキュメントのリンク</strong>を記載します。PDFは受信したメールから保存でき、ドキュメントはGoogleアカウントで開いて自分のDriveへコピーできます。</p>
+              <figure class="guide-figure guide-screenshot">
+                <a href="/google-forms-profile/screenshots/10-gmail-received.jpg" target="_blank" rel="noopener" aria-label="Gmailで受信した履歴書のコピーと、Googleドキュメントのリンク・PDF添付（画像を拡大）"><img src="/google-forms-profile/screenshots/10-gmail-received.jpg" alt="Gmailで受信した履歴書のコピーと、Googleドキュメントのリンク・PDF添付" width="1050" height="375" loading="lazy" decoding="async" /></a>
+                <figcaption>実際に受信したメールの本文とPDF添付。 画像を押すと拡大できます。</figcaption>
+              </figure>
+              <p>上の画面は、テスト回答を送信したあと、実際にGmailで受信したメールです。送受信者情報を含むヘッダーとサイドバーを省き、本文と添付部分を切り出して掲載しています。</p>
+              <p>ドキュメントの閲覧権限は、回答者のメールアドレスへ個別に付与します。保存先フォルダや全員分の履歴書を公開する設定にはしません。別のGoogleアカウントで確認する場合は、回答に入力したアドレスのアカウントで開いてください。</p>
+              <p>メールが見つからないときは、迷惑メール、入力した宛先、回答シートの「処理状態」「エラー内容」を確認します。「送信中」のまま止まった場合は、Gmailの送信済みも確認してから対応してください。確認せずに再送すると、同じメールが重なることがあります。</p>
+              <p>フォームから履歴書を作ってメールで返す活用例として、<a href="https://note.com/t_koshigoe/n/n3e6a58d56f98" target="_blank" rel="noopener">Toshiki Koshigoeさんの開発記録</a>も参考になります。この記事は、配布テンプレートを使った導入操作を中心にまとめています。</p>
+            </section>
+            <section id="operation" class="guide-section" aria-labelledby="operation-title">
+              <h2 id="operation-title">レイアウトを調整して、実際の運用へ。</h2>
+              <p>履歴書の見た目を変える場合は、設定シートB14から自分用のテンプレートを開きます。表の枠、列の幅、文字サイズ、見出しをGoogleドキュメント上で調整できます。<code>{{氏名}}</code>などの差し込み欄は、文字を変更せずに残してください。変更は、次に作成する履歴書から反映されます。</p>
+              <p>長文の回答ではページが増えることがあるため、受付前に想定する長さの文章でもテストします。メールを止めて確認したい場合は、設定シートB8を「無効」にしてから、新しいテスト回答を送ってください。</p>
+              <p>自動実行は設定した人のアカウントで動きます。担当者の交代やアカウント変更がある場合は、ファイルの権限と自動実行設定を引き継ぎます。詳しくは<a href="https://developers.google.com/apps-script/guides/triggers/installable" target="_blank" rel="noopener">Google公式のトリガー説明</a>を参照してください。</p>
+              <p>応募が集中する用途では、メールの送信数や処理時間などの<a href="https://developers.google.com/apps-script/guides/services/quotas" target="_blank" rel="noopener">Google Apps Scriptの利用上限</a>も確認してください。学校・企業のアカウントでは、管理者による共有やGASの制限が適用される場合があります。</p>
+              <p class="preview-note">設定用コードを別途保存したい場合は、<a href="/google-forms-profile/setup.gs" download="resume-automation-setup.gs">GASファイルをダウンロード</a>できます。通常の導入では、配布スプレッドシートに同梱されたものを使えます。</p>
             </section>
             <section id="contact" class="guide-section" aria-labelledby="contact-title">
               <h2 id="contact-title">フォームの回答整理や、資料作成の自動化をご相談ください。</h2>
@@ -295,7 +185,7 @@
                 <li>既存のGoogleフォームと帳票レイアウトに合わせる</li>
                 <li>確認したい項目を、読みやすい順番に配置する</li>
                 <li>作成した資料のURLを管理表へ記録する</li>
-                <li>PDF出力や担当者への通知を追加する</li>
+                <li>既存のメール文面や担当者への通知に合わせる</li>
               </ul>
               <div class="guide-contact">
                 <p>ご相談の際は、現在のフォーム項目、作成したい資料の見本、毎月のおおよその回答件数をお知らせください。業務の流れを伺い、必要な自動化の範囲をご提案します。</p>

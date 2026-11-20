@@ -133,11 +133,11 @@
     "投稿を読む": "Read post",
     "開発の背景や実装方法をまとめています。": "Notes on development background and implementation.",
     "Googleフォーム応募情報の自動整理": "Automating applicant profiles from Google Forms",
-    "応募情報を履歴書風の資料へ自動整理する仕組みを開発しました。開発背景と、公開用サンプルによる導入手順を紹介します。": "I built a workflow that turns application responses into resume-style profiles. This post explains the background and setup using a public sample.",
-    "フォームの回答一覧から、応募者ごとのプロフィール資料を作成する仕組みの概念図": "Diagram of a workflow that turns form responses into individual applicant profiles",
     "Harry / 31916の制作物・研究・投稿。ソフトウェアや研究に加え、開発背景と実装方法をまとめた技術投稿を紹介します。": "Projects, research and posts by Harry / 31916. Explore software, research and technical posts on development background and implementation.",
     "投稿 — Harry / 31916": "Posts — Harry / 31916",
-    "Harry / 31916の投稿一覧。開発の背景や実装方法をまとめた技術投稿を紹介します。": "Posts by Harry / 31916. Technical writing on development background and implementation."
+    "Harry / 31916の投稿一覧。開発の背景や実装方法をまとめた技術投稿を紹介します。": "Posts by Harry / 31916. Technical writing on development background and implementation.",
+    "フォームの応募情報から履歴書とPDFを自動作成し、Gmailでコピーを送信。無料テンプレートと実際の画面で、導入手順を紹介します。": "Automatically create resumes and PDFs from Google Forms responses and email copies through Gmail. Follow the setup with free templates and actual screenshots.",
+    "GoogleスプレッドシートからGmailを経由する矢印と、Googleドキュメント・履歴書のアイコン": "Google Sheets and Gmail icons connected by arrows to Google Docs and a resume icon"
   },
   "de": {
     "2027年3月": "März 2027",
@@ -270,10 +270,10 @@
     "投稿を読む": "Beitrag lesen",
     "開発の背景や実装方法をまとめています。": "Beiträge über Entwicklungshintergründe und Umsetzung.",
     "Googleフォーム応募情報の自動整理": "Bewerbungsdaten aus Google Forms automatisch aufbereiten",
-    "応募情報を履歴書風の資料へ自動整理する仕組みを開発しました。開発背景と、公開用サンプルによる導入手順を紹介します。": "Ich habe einen Ablauf entwickelt, der Bewerbungsdaten automatisch zu Profilen im Lebenslaufformat aufbereitet. Der Beitrag erläutert die Hintergründe und die Einrichtung anhand eines öffentlichen Beispiels.",
-    "フォームの回答一覧から、応募者ごとのプロフィール資料を作成する仕組みの概念図": "Schematische Darstellung eines Ablaufs, der aus Formularantworten einzelne Bewerberprofile erstellt",
     "Harry / 31916の制作物・研究・投稿。ソフトウェアや研究に加え、開発背景と実装方法をまとめた技術投稿を紹介します。": "Projekte, Forschung und Beiträge von Harry / 31916. Software, Forschung und technische Beiträge über Entwicklungshintergründe und Umsetzung.",
     "投稿 — Harry / 31916": "Beiträge — Harry / 31916",
-    "Harry / 31916の投稿一覧。開発の背景や実装方法をまとめた技術投稿を紹介します。": "Beiträge von Harry / 31916. Technische Texte über Entwicklungshintergründe und Umsetzung."
+    "Harry / 31916の投稿一覧。開発の背景や実装方法をまとめた技術投稿を紹介します。": "Beiträge von Harry / 31916. Technische Texte über Entwicklungshintergründe und Umsetzung.",
+    "フォームの応募情報から履歴書とPDFを自動作成し、Gmailでコピーを送信。無料テンプレートと実際の画面で、導入手順を紹介します。": "Aus Formularantworten automatisch Lebensläufe und PDFs erstellen und Kopien mit Gmail versenden. Kostenlose Vorlagen und echte Bildschirmfotos zeigen die Einrichtung.",
+    "GoogleスプレッドシートからGmailを経由する矢印と、Googleドキュメント・履歴書のアイコン": "Symbole für Google Sheets und Gmail mit Pfeilen zu Google Docs und einem Lebenslauf-Symbol"
   }
 }

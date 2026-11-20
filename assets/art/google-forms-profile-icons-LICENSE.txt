@@ -1,0 +1,56 @@
+Icon sources for google-forms-profile.svg
+
+The thumbnail is an original layout assembled from the following real source icons.
+No AI-generated image or simulated application screenshot is used.
+
+Google Sheets logo (Google):
+https://commons.wikimedia.org/wiki/File:Google_Sheets_2020_Logo.svg
+Original SVG: https://upload.wikimedia.org/wikipedia/commons/a/ae/Google_Sheets_2020_Logo.svg
+Wikimedia Commons identifies this simple-geometric logo as public domain (PD-shape).
+
+Gmail logo (Google):
+https://commons.wikimedia.org/wiki/File:Gmail_icon_(2020).svg
+Original SVG: https://upload.wikimedia.org/wikipedia/commons/7/7e/Gmail_icon_%282020%29.svg
+Wikimedia Commons identifies this logo as public domain (PD-textlogo).
+
+Google Docs logo (Google):
+https://commons.wikimedia.org/wiki/File:Google_Docs_2020_Logo.svg
+Original SVG: https://upload.wikimedia.org/wikipedia/commons/6/66/Google_Docs_2020_Logo.svg
+Wikimedia Commons identifies this logo as public domain (PD-textlogo / PD-shape).
+
+Google product logos are used to identify the services discussed. Google retains
+its relevant trademark rights. This is an independently authored tutorial.
+
+Resume icon: Bootstrap Icons, file-earmark-person.
+https://icons.getbootstrap.com/icons/file-earmark-person/
+https://github.com/twbs/icons/blob/main/icons/file-earmark-person.svg
+The source icon is tagged cv/resume by Bootstrap Icons and licensed under MIT.
+Only scaling, position and inherited foreground color are changed.
+
+The MIT License (MIT)
+
+Copyright (c) 2019-2024 The Bootstrap Authors
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+
+Source SVG SHA-256 values:
+sheets.svg 9103d588a7ded0f124aa8e5406fef9c23c8f7d8129cad6970ba280b4c38ed9b8
+gmail.svg de129dff939c341be6bb561765719c95362f021db936e88a7455762e6887fb05
+docs.svg d733975d6599ae6409d361044f4179abdff55edaebb3dfb05a78602d3797aa09
+resume.svg cab641b96335680f4a142c90d3941a497ba76e320e9a596e675f88bb93e8bb8b

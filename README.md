@@ -7,7 +7,7 @@ Personal portfolio at **https://31916.ch/**. Plain HTML, CSS, JavaScript and ori
 - `index.html`: a home with an introduction and contact links to GitHub and X.
 - `projects/index.html` lists projects with Software, Research, Idea Designs and Posts filters. Technical posts also appear in this catalog.
 - `posts/index.html` is the independent Posts navigation page, with a Technical Posts section. Its reading list uses the same catalog entries.
-- `google-forms-profile/` explains applicant-profile automation with Google Apps Script and provides a public sample. Its search indexing remains disabled.
+- `google-forms-profile/` explains applicant-profile automation with Google Apps Script, links to copyable native Google templates, and provides `setup.gs`. Actual screenshots cover setup, generated documents, PDF output and Gmail delivery. Its search indexing remains disabled.
 - `resume/index.html`: separate education and work timelines, a qualifications list, and a technology stack with icons.
 - `about/index.html`: compatibility redirect to Resume.
 - `hobbies/index.html`: sports with experience, clubs and results, games, anime and manga. Styles are in `css/hobbies.css`.
@@ -58,4 +58,4 @@ Pushes to `main` deploy through `.github/workflows/pages.yml`. `tools/build-page
 
 The fixed public filename for Number Cursors 4 is `NumberCursors/downloads/Number_Cursors_4.zip`. To rebuild it, run `python tools/build-number-cursors.py NumberCursors/windows-source.zip` with the current Windows scheme ZIP. This packages the Windows files with the macOS and Linux themes and includes `NumberCursors/README.txt` as `Windows/README.txt`. Refresh its entry in `NumberCursors/downloads/SHA256SUMS.txt`.
 
-The SVG art in `assets/art/` was drawn for this portfolio. No illustrations from reference websites are included.
+Most SVG art in `assets/art/` was drawn for this portfolio. The Google Forms article thumbnail uses sourced Google service logos and the Bootstrap resume icon; sources and licensing are recorded in `assets/art/google-forms-profile-icons-LICENSE.txt`. Article screenshots are actual Google Workspace captures using fictional applicant details. The displayed resume is a duplicate with its email field anonymized, and the Gmail screenshot omits the sender header and sidebar.
