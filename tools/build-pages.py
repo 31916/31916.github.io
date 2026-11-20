@@ -5,6 +5,7 @@ Only the public files below are included; tools remain in the public repository
 but are not served as website content.
 """
 
+import base64
 import io
 import json
 import re
@@ -186,7 +187,7 @@ def redirect(page):
     target = f"/{CURRENT}/" + ("en.html" if page == "en.html" else "")
     language = "en" if page == "en.html" else "ja"
     sharing = share_metadata(f"{CURRENT}/{page}")
-    return f'''<!doctype html>
+    return inline_cursor_styles(f'''<!doctype html>
 <html lang="{language}">
 <head>
   <meta charset="utf-8">
@@ -200,7 +201,7 @@ def redirect(page):
 </head>
 <body><p><a href="{target}">IME Layout Router — 新しいページ / New page</a></p></body>
 </html>
-'''.encode("utf-8")
+''').encode("utf-8")
 
 
 def identity_assets(settings=None):
@@ -364,6 +365,26 @@ def replace_project_slot(source, name, markup):
     return source[:start] + "\n" + markup + "\n" + source[end:]
 
 
+def inline_cursor_styles(source):
+    """Make the unoutlined cursors available before external resources load."""
+    stylesheet = r'[ \t]*<link\b[^>]*href="/css/cursors\.css(?:\?[^\"]*)?"[^>]*>\s*'
+    if not re.search(stylesheet, source):
+        return source
+    css = (ROOT / "css/cursors.css").read_text(encoding="utf-8")
+    for name in ("arrow", "hand", "text"):
+        encoded = base64.b64encode((ROOT / f"assets/cursors/{name}.png").read_bytes()).decode("ascii")
+        css, count = re.subn(
+            rf'url\("/assets/cursors/{name}\.png(?:\?[^\"]*)?"\)',
+            f'url("data:image/png;base64,{encoded}")', css)
+        if count != 1:
+            raise ValueError(f"Expected one {name} cursor in the shared stylesheet")
+    source = re.sub(stylesheet, "", source)
+    charset = re.search(r'<meta\s+charset="utf-8"\s*/?>', source, re.I)
+    if not charset:
+        raise ValueError("Expected a UTF-8 declaration before the cursor styles")
+    return source[:charset.end()] + f'\n<style id="site-cursors">\n{css}</style>' + source[charset.end():]
+
+
 def render_public_html(content, settings=None, projects=None):
     """Render configured logos, project cards and metadata for legacy shares."""
     if settings is None:
@@ -410,7 +431,7 @@ def render_public_html(content, settings=None, projects=None):
         source = re.sub(r'<footer class="site-footer shell" id="contact">.*?</footer>', lambda _: footer, source, flags=re.S)
     if "<!-- idea-designs-share -->" in source:
         source = source.replace("<!-- idea-designs-share -->", share_metadata(f"{IDEA_DESIGNS}/index.html"))
-    return source.encode("utf-8")
+    return inline_cursor_styles(source).encode("utf-8")
 
 
 def build(destination):
