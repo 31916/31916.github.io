@@ -39,13 +39,14 @@ export const getLanguage = () => language;
 export const translate = source => messages[language]?.[source] ?? source;
 
 export async function initializeLanguage() {
+  window.portfolioI18n = { translate };
   const normalize = value => value.replace(/\s+/g, ' ').trim();
   const records = [];
   const attributes = [];
   const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
   while (walker.nextNode()) {
     const node = walker.currentNode;
-    if (node.parentElement.closest('script, style, select, [data-no-translate], [data-i18n-dynamic]')) continue;
+    if (node.parentElement.closest('script, style, select, [data-no-translate], [data-i18n-dynamic], [data-year]')) continue;
     const source = normalize(node.textContent);
     if (source) records.push({ node, source, prefix: node.textContent.match(/^\s*/)[0], suffix: node.textContent.match(/\s*$/)[0] });
   }

@@ -65,9 +65,21 @@ svg { fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round
 .content-panel.introduction-panel { inset: 0; width: min(620px, calc(100% - 40px)); height: max-content; max-height: calc(100dvh - 40px); margin: auto; }
 .content-panel.introduction-panel[open] { grid-template-rows: auto minmax(0, 1fr); }
 .panel-introduction { min-height: 0; overflow: auto; padding: 28px 32px 36px; }
-.panel-introduction p { margin: 0; color: var(--muted); font-size: 16px; line-height: 1.9; }
-.panel-introduction p:first-child { color: var(--paper); }
-.panel-introduction p + p { margin-top: 14px; }
+.panel-introduction > p { margin: 0; color: var(--muted); font-size: 16px; line-height: 1.9; }
+.panel-introduction > p:first-child { color: var(--paper); }
+.panel-introduction > p + p { margin-top: 14px; }
+.panel-introduction .site-footer {
+  --paper: #0b121c;
+  --ink: #f4f0dd;
+  --sand: #1c2b3c;
+  --mist: #24384b;
+  --accent: #b7d3cb;
+  --line: #91a6bc35;
+  inline-size: 100%;
+  margin-top: 24px;
+  padding-block: 16px 0;
+}
+.panel-introduction .footer-socials svg { stroke: none; }
 .panel-header { display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 27px 32px 23px; border-bottom: 1px solid #9eafc023; }
 .panel-header h2 { font-size: 23px; font-weight: 500; margin: 0; letter-spacing: .08em; }
 .panel-controls { display: flex; align-items: center; gap: 18px; }
@@ -93,7 +105,8 @@ svg { fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round
   .satellite-label { font-size: 12px; gap: 5px; }
   .content-panel { inset: 9px; width: calc(100% - 18px); height: calc(100dvh - 18px); border-radius: 15px; }
   .panel-header { padding: 22px; }
-  .panel-introduction { padding: 22px; }
+  .panel-introduction { padding: 22px 16px; }
+  .content-panel.introduction-panel { width: calc(100% - 18px); max-height: calc(100dvh - 18px); }
   .panel-header h2 { font-size: 20px; }
   .panel-controls { gap: 10px; }
 
@@ -106,4 +119,9 @@ svg { fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round
 body.scene-visible:not(.panel-open) { touch-action: none; user-select: none; }
 #universe, .satellite { touch-action: none; }
 #universe[data-over-planet='true'], #universe:active { cursor: url("/assets/cursors/hand.png?v=3") 16 3, pointer; }
-@media (max-width: 380px) { .panel-header { padding-inline: 18px; gap: 12px; } .panel-controls { gap: 8px; } .close-panel span { display: none; } }
+@media (max-width: 380px) {
+  .panel-header { padding-inline: 18px; gap: 12px; }
+  .panel-controls { gap: 8px; }
+  .close-panel span { display: none; }
+  .panel-introduction { padding-inline: 12px; }
+}

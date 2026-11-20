@@ -7,10 +7,12 @@
     <meta name="theme-color" content="#02050a" />
     <title>Harry / 31916</title>
     <link rel="icon" href="/assets/art/favicon.svg" type="image/svg+xml" />
-    <link rel="stylesheet" href="/space/space.css" />
+    <link rel="stylesheet" href="/css/footer.css?v=20261121-one-row-footer" />
+    <link rel="stylesheet" href="/space/space.css?v=20261121-intro-contact" />
     <link rel="stylesheet" href="/css/cursors.css?v=3" />
     <script type="importmap">{"imports":{"three":"/space/vendor/three.module.min.js"}}</script>
-    <script type="module" src="/space/space.js"></script>
+    <script src="/js/scripts.js?v=20261121-responsive" defer></script>
+    <script type="module" src="/space/space.js?v=20261121-intro-contact"></script>
   </head>
   <body>
     <canvas id="universe" aria-hidden="true"></canvas>
@@ -65,7 +67,10 @@
           <button class="close-panel" aria-label="宇宙に戻る"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18" /></svg><span>戻る</span></button>
         </div>
       </header>
-      <div id="intro-copy" class="panel-introduction" hidden><!-- home-introduction --></div>
+      <div id="intro-copy" class="panel-introduction" hidden>
+        <!-- home-introduction -->
+        <!-- site-footer -->
+      </div>
       <div class="panel-body"><p class="panel-loading" role="status">読み込んでいます。</p><iframe id="content-frame" title="選択した項目" tabindex="0"></iframe></div>
       <a class="full-page-link" target="_blank" rel="noopener" href="/projects/" aria-label="ページを別タブで開く"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M4 4h8v8" /></svg></a>
     </dialog>

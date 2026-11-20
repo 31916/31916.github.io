@@ -1,4 +1,4 @@
-import { initializeLanguage, getLanguage, translate } from './language.js';
+import { initializeLanguage, getLanguage, translate } from './language.js?v=20261121-intro-contact';
 
 const sectionInfo = {
   projects: { title: '制作物', path: '/projects/', size: .31, color: '#cbbc99' },
@@ -118,6 +118,7 @@ document.addEventListener('portfolio:languagechange', () => {
   const language = getLanguage();
   simpleLink.href = `/?lang=${language}`;
   document.querySelector('#return-top').href = `/?lang=${language}`;
+  document.querySelector('#contact .footer-bottom a').href = simpleLink.href;
   refreshPanel(true);
 });
 function reveal() {

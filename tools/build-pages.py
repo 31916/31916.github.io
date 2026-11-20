@@ -393,15 +393,16 @@ def render_public_html(content, settings=None, projects=None):
         source = replace_project_slot(source, "project-catalog", render_project_catalog(projects))
         source = replace_project_slot(source, "post-list", render_post_list(projects))
         source = replace_project_slot(source, "post-filters", render_post_filters(projects))
-    if '<footer class="site-footer shell" id="contact">' in source:
+    if '<!-- site-footer -->' in source or '<footer class="site-footer shell" id="contact">' in source:
         footer = (ROOT / "assets/footer.html").read_text(encoding="utf-8").strip()
         if '<html lang="en">' in source:
             footer = footer.replace("コンタクト", "Contact").replace("メールアドレスをコピー", "Copy email address")
         resources = re.search(r'<div class="footer-resources">(.*?)</div>', source, flags=re.S)
-        footer_start = source.index('<footer class="site-footer shell" id="contact">')
-        if resources and resources.start() > footer_start:
+        footer_start = source.find('<footer class="site-footer shell" id="contact">')
+        if resources and footer_start >= 0 and resources.start() > footer_start:
             source = source[:resources.start()] + source[resources.end():]
             source = source.replace('</main>', resources[0] + '\n</main>', 1)
+        source = source.replace('<!-- site-footer -->', footer)
         source = re.sub(r'<footer class="site-footer shell" id="contact">.*?</footer>', lambda _: footer, source, flags=re.S)
     if "<!-- idea-designs-share -->" in source:
         source = source.replace("<!-- idea-designs-share -->", share_metadata(f"{IDEA_DESIGNS}/index.html"))
