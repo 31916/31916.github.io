@@ -31,7 +31,24 @@ POST_CATEGORIES = {
     "languages": "言語",
     "qualifications": "資格",
 }
+SPACE_FILES = (
+    "index.html", "simple-view.css", "simple-view.js", "space.css", "space.js",
+    "launch-scene.js", "launch-art.svg", "universe.js", "language.js", "view-controls.js",
+    "celestial.js", "solar-system.js", "solar-orbits.js", "ASSETS.md",
+    "vendor/three.module.min.js", "vendor/THREE-LICENSE.txt",
+    *(f"vendor/addons/postprocessing/{name}.js" for name in (
+        "EffectComposer", "MaskPass", "OutputPass", "Pass", "RenderPass", "ShaderPass", "UnrealBloomPass",
+    )),
+    *(f"vendor/addons/shaders/{name}.js" for name in ("CopyShader", "LuminosityHighPassShader", "OutputShader")),
+    "textures/uranus-clouds.webp", "textures/deep-space.webp",
+    *(f"textures/moon-{moon}-{layer}.webp" for moon in range(4) for layer in ("color", "height", "normal")),
+    *(f"textures/solar/{body}.{ext}" for body in (
+        "sun", "mercury", "venus", "mars", "jupiter", "saturn", "neptune",
+    ) for ext in ("bin", "webp")),
+    "textures/solar/earth.webp", "textures/solar/saturn-rings.png",
+)
 PUBLIC = (
+    *(f"space/{name}" for name in SPACE_FILES),
     "CNAME", "index.html", "404.html", "robots.txt", "sitemap.xml",
     "google97bf67731c686ec9.html",  # Search Console ownership verification.
     "about/index.html", "resume/index.html", "projects/index.html", "posts/index.html", "hobbies/index.html",
@@ -349,6 +366,12 @@ def render_public_html(content, settings=None, projects=None):
         settings = json.loads((ROOT / "assets/identity.json").read_text(encoding="utf-8"))
     identity_assets(settings)
     source = content.decode("utf-8")
+    if "<!-- home-introduction -->" in source:
+        home = (ROOT / "index.html").read_text(encoding="utf-8")
+        intro = re.search(r"<!-- home-introduction:start -->(.*?)<!-- home-introduction:end -->", home, re.S)
+        if not intro or not intro[1].strip():
+            raise ValueError("Missing home introduction for the space view")
+        source = source.replace("<!-- home-introduction -->", intro[1].strip())
     slots = LogoSlots(source)
     logo = settings.get("logo", {})
     if logo.get("src"):
@@ -375,8 +398,10 @@ def render_public_html(content, settings=None, projects=None):
         if '<html lang="en">' in source:
             footer = footer.replace("コンタクト", "Contact").replace("メールアドレスをコピー", "Copy email address")
         resources = re.search(r'<div class="footer-resources">(.*?)</div>', source, flags=re.S)
-        if resources:
-            footer = footer.replace('<div class="footer-bottom">', f'<div class="footer-resources">{resources[1]}</div>\n      <div class="footer-bottom">')
+        footer_start = source.index('<footer class="site-footer shell" id="contact">')
+        if resources and resources.start() > footer_start:
+            source = source[:resources.start()] + source[resources.end():]
+            source = source.replace('</main>', resources[0] + '\n</main>', 1)
         source = re.sub(r'<footer class="site-footer shell" id="contact">.*?</footer>', lambda _: footer, source, flags=re.S)
     if "<!-- idea-designs-share -->" in source:
         source = source.replace("<!-- idea-designs-share -->", share_metadata(f"{IDEA_DESIGNS}/index.html"))

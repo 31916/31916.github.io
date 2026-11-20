@@ -1,0 +1,21 @@
+.space-view-link {
+  grid-column: 2;
+  justify-self: start;
+  display: inline-flex;
+  align-items: center;
+  gap: .625rem;
+  min-height: 2.75rem;
+  margin-top: 1rem;
+  padding: .5rem 1rem;
+  border: 1px solid var(--accent);
+  border-radius: 2rem;
+  color: var(--accent);
+  font-size: .9375rem;
+  font-weight: 500;
+  text-decoration: none;
+}
+.space-view-link:hover { background: var(--mist); }
+.space-view-link svg { width: 1.5rem; height: 1.5rem; fill: none; stroke: currentColor; stroke-width: 1.2; }
+@media (max-width: 700px) {
+  .space-view-link { grid-column: 1; justify-self: center; margin-top: 0; }
+}

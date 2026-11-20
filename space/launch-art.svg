@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 480 200" width="1440" height="600">
+  <defs>
+    <g id="gantry" stroke-linejoin="round">
+      <!-- The counterweighted service arm leaves the rocket silhouette open. -->
+      <g fill="none" stroke="#687e88">
+        <path d="M39 0v-140h20V0M40-138l18 24-18 24 18 24-18 24 18 24-14 18" stroke-width="3"/>
+        <path d="M57-137l-17 23 18 24-18 24 18 24-18 24 13 17" stroke-width="1.4"/>
+        <path d="M38-115h22m-22 24h22m-22 25h22m-22 24h22m-22 24h22" stroke-width="2.5"/>
+      </g>
+      <path d="M40 0v-140m17 0V0" fill="none" stroke="#aec4d4" stroke-width="2"/>
+      <g fill="none" stroke="#66767a" stroke-width="1.15">
+        <path d="M62-2v-128h6V-2M62-123h6m-6 9h6m-6 9h6m-6 9h6m-6 9h6m-6 9h6m-6 9h6m-6 9h6m-6 9h6m-6 9h6m-6 9h6m-6 9h6m-6 9h6m-6 9h6"/>
+        <path d="M19-126v-5h29m-21 0v5m12-5v5M49-143l-26 17"/>
+      </g>
+      <path d="M17-126h45v4H22z" fill="#66767a"/>
+      <path d="M30-122h6l7 9h-4z" fill="#aec4d4"/>
+      <path d="M34-145h27v8H34z" fill="#aec4d4" stroke="#52626a" stroke-width="1"/>
+      <path d="M34-138h27v2.5H34z" fill="#52626a"/>
+      <path d="M57-144h3v5h-3zM53-144h2v5h-2z" fill="#687e88"/>
+      <path d="M35-146v-6m22 6v-6m-22 1h22" fill="none" stroke="#687e88" stroke-width="1"/>
+      <path d="M47-146v-11" stroke="#52626a" stroke-width="1.4"/>
+      <circle cx="47" cy="-157" r="1.8" fill="#790d16"/>
+      <path d="M35-70h27v3H35zM34-22h28v3H34z" fill="#52626a"/>
+      <path d="M-19 0h88v5H-19z" fill="#aec4d4" stroke="#52626a" stroke-width="1.3"/>
+      <path d="M-17 5h9l-4 4h-5zM37 5h27v4H40z" fill="#52626a"/>
+      <path d="M34-2l3-7h5l3 7zm20 0 3-7h5l3 7z" fill="#52626a"/>
+      <path d="M-15 2h9m41 0h6m4 0h6" fill="none" stroke="#f5efe1" stroke-width="1.2"/>
+    </g>
+
+    <g id="engine" stroke-linejoin="round">
+      <!-- The bell, swept fins and ribbed skirt form the first assembly. -->
+      <path d="M-7-16H7L11-2Q0 .6-11-2z" fill="#53636b" stroke="#30241f" stroke-width="1.3"/>
+      <path d="M-4-12l-2 9m7-9 1 9m2-9 2 9" fill="none" stroke="#aec4d4" stroke-width="1.2"/>
+      <path d="M-10-2q10 2 20 0" fill="none" stroke="#30241f" stroke-width="2.1"/>
+      <path d="M-12-44l-13 22-3 20 15-10 5-19zm24 0 13 22 3 20-15-10-5-19z"
+            fill="#790d16" stroke="#30241f" stroke-width="1.35"/>
+      <path d="M-13-39l-10 19-2 11 7-9zm26 0 9 19 2 10-7-10z" fill="#b66d68"/>
+      <path d="M-17-56h34v20q0 11-7 21H-10q-7-10-7-21z" fill="#e5d3af" stroke="#30241f" stroke-width="1.5"/>
+      <path d="M6-55h10v19q0 10-6 20H3q5-18 3-39z" fill="#aec4d4"/>
+      <path d="M-14-55h4v22l3 14-5-6-2-9z" fill="#f5efe1"/>
+      <path d="M-17-50h34v9h-34z" fill="#790d16"/>
+      <path d="M-16-49h5v7h-5z" fill="#a75b59"/>
+      <path d="M-15-37l2 11m3-11 1 12m3-12 1 12m3-12v12m3-12v12m4-12-1 12m5-12-2 11"
+            fill="none" stroke="#776d60" stroke-width="1"/>
+      <path d="M-11-19h22l-1 5h-20z" fill="#52626a" stroke="#30241f" stroke-width="1"/>
+      <path d="M-2-30q3-5 4 1l1 23-3 4-2-7z" fill="#790d16" stroke="#30241f" stroke-width="1"/>
+      <path d="M-16-54.4h32" stroke="#f5efe1" stroke-width="1.1"/>
+    </g>
+
+    <g id="body-stage" stroke-linejoin="round">
+      <path d="M-14-108h28q3 7 3 16v36h-34v-36q0-9 3-16z"
+            fill="#f5efe1" stroke="#30241f" stroke-width="1.5"/>
+      <path d="M5-107h8q3 7 3 16v34H6q3-21-1-50z" fill="#aec4d4"/>
+      <path d="M-13-105h3l-2 12v27h-3v-27z" fill="#e5d3af"/>
+      <path d="M-15-99h30" stroke="#9e9280" stroke-width=".9"/>
+      <circle cx="-.5" cy="-86" r="8.2" fill="#e5d3af" stroke="#30241f" stroke-width="1.3"/>
+      <circle cx="-.5" cy="-86" r="5.9" fill="#4b606a" stroke="#30241f" stroke-width=".9"/>
+      <path d="M-5-85a4.6 4.6 0 0 1 6.8-5.1L-5-84z" fill="#aec4d4"/>
+      <path d="M-17-70h34v5h-34z" fill="#790d16"/>
+      <path d="M-17-64h34v2h-34z" fill="#790d16"/>
+      <path d="M-16-58.5h32" stroke="#8a8073" stroke-width="1"/>
+      <path d="M-14-82v6m27-7v8" stroke="#968f81" stroke-width="1" fill="none"/>
+    </g>
+
+    <g id="nose" stroke-linejoin="round">
+      <path d="M0-146q12 18 14 34v4h-28v-4q2-16 14-34z" fill="#790d16" stroke="#30241f" stroke-width="1.5"/>
+      <path d="M0-141q-5 13-6.4 23h-3.9Q-8-130 0-141z" fill="#be7971"/>
+      <path d="M3-138q7 13 9 24h-4q-1-13-5-24z" fill="#63131d"/>
+      <path d="M-13.3-114h26.6v4.4h-26.6z" fill="#e5d3af"/>
+      <path d="M6-114h7.3v4.4H7z" fill="#aec4d4"/>
+      <path d="M-13-111h26" stroke="#a89478" stroke-width=".8"/>
+    </g>
+
+    <g id="plume">
+      <path d="M-8 0q-3 8 0 20l2-5q-1 16 5 33l2-9 3 15q4-14 2-29l3 5q3-18-1-30z" fill="#a95d55"/>
+      <path d="M-6 0q-2 8 1 17l1-5q0 17 5 30l1-14 2 4q3-18 2-32z" fill="#e5d3af"/>
+      <path d="M-4 0q-1 12 4 21l1-6 1 2q3-10 2-17z" fill="#f5efe1"/>
+    </g>
+
+    <g id="belt-wheel">
+      <circle r="9.8" fill="#53636b" stroke="#30241f" stroke-width="1.35"/>
+      <circle r="7.4" fill="#aec4d4"/>
+      <path d="M0-6.2v3.4m5.4 5.9-3-1.7m-7.8 1.7 3-1.7" fill="none" stroke="#53636b" stroke-width="2.25" stroke-linecap="round"/>
+      <circle r="2" fill="#30241f"/>
+    </g>
+  </defs>
+  <use xlink:href="#engine" x="42" y="160"/>
+  <use xlink:href="#body-stage" x="116" y="160"/>
+  <use xlink:href="#nose" x="186" y="160"/>
+  <use xlink:href="#plume" x="250" y="10"/>
+  <use xlink:href="#gantry" x="304" y="170"/>
+  <use xlink:href="#belt-wheel" x="457" y="26"/>
+</svg>
