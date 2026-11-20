@@ -1,6 +1,6 @@
 /* 32px images and hotspots from the Number Cursors 4 Windows release. */
 :root {
-  cursor: url("/assets/cursors/arrow.png") 4 4, auto;
+  cursor: url("/assets/cursors/arrow.png?v=4") 4 4, auto;
 }
 
 :where(p, h1, h2, h3, h4, h5, h6, li, dt, dd, th, td, caption, figcaption, pre, code, textarea) {
