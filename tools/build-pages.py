@@ -236,6 +236,9 @@ def load_projects(settings=None):
         image = project.get("image")
         if not isinstance(image, dict) or not isinstance(image.get("alt"), str) or not image["alt"].strip():
             raise ValueError(f"Project {identifier} needs an image with alt text")
+        version = image.get("version")
+        if version is not None and (not isinstance(version, str) or not re.fullmatch(r"[a-z0-9][a-z0-9-]*", version)):
+            raise ValueError(f"Project {identifier} has an invalid image version")
         for dimension in ("width", "height"):
             if type(image.get(dimension)) is not int or image[dimension] <= 0:
                 raise ValueError(f"Project {identifier} image {dimension} must be a positive integer")
@@ -256,8 +259,9 @@ def load_projects(settings=None):
 
 def project_image(project):
     image = project["image"]
+    source = image["src"] + ("?v=" + image["version"] if image.get("version") else "")
     return (
-        f'<img src="{escape(image["src"], quote=True)}" '
+        f'<img src="{escape(source, quote=True)}" '
         f'width="{image["width"]}" height="{image["height"]}" '
         f'loading="lazy" alt="{escape(image["alt"], quote=True)}" />'
     )
@@ -274,36 +278,38 @@ def render_project_filters(settings):
     return "\n".join(buttons)
 
 
+def render_project_card(project, category, label):
+    """One card layout for every work and post: image, caption, arrow, description."""
+    target = '' if project["category"] == "post" else ' target="_blank" rel="noopener"'
+    image_class = "project-image"
+    if project["image"].get("class"):
+        image_class += " " + project["image"]["class"]
+    return (
+        f'<article class="project-card" data-category="{category}">\n'
+        f'  <a class="project-link" href="{escape(project["href"], quote=True)}"{target}>\n'
+        f'    <div class="{image_class}">{project_image(project)}</div>\n'
+        '    <div class="project-caption">\n'
+        '      <div>\n'
+        f'        <p class="project-type">{escape(label)} <span>{escape(project["tech"])}</span></p>\n'
+        f'        <h3>{escape(project["title"])}</h3>\n'
+        '      </div>\n'
+        '      <svg class="link-arrow project-arrow" aria-hidden="true"><use href="/assets/art/link-arrow.svg#arrow"></use></svg>\n'
+        '    </div>\n'
+        f'    <p class="project-description">{escape(project["description"])}</p>\n'
+        '  </a>\n'
+        '</article>'
+    )
+
+
 def render_project_catalog(settings, *, posts_only=False):
-    """Use the same linked card and arrow in the project and post catalogs."""
+    """Choose entries and labels; visual markup always comes from the shared card."""
     cards = []
     for project in settings["projects"]:
-        is_post = project["category"] == "post"
-        if posts_only and not is_post:
+        if posts_only and project["category"] != "post":
             continue
         category = project.get("topic", "technology") if posts_only else project["category"]
-        target = '' if is_post else ' target="_blank" rel="noopener"'
-        link_hint = (
-            '      <svg class="link-arrow project-arrow" aria-hidden="true"><use href="/assets/art/link-arrow.svg#arrow"></use></svg>\n'
-        )
-        image_class = "project-image"
-        if project["image"].get("class"):
-            image_class += " " + project["image"]["class"]
-        cards.append(
-            f'<article class="project-card" data-category="{category}">\n'
-            f'  <a class="project-link" href="{escape(project["href"], quote=True)}"{target}>\n'
-            f'    <div class="{image_class}">{project_image(project)}</div>\n'
-            '    <div class="project-caption">\n'
-            '      <div>\n'
-            f'        <p class="project-type">{escape(project["type"])} <span>{escape(project["tech"])}</span></p>\n'
-            f'        <h3>{escape(project["title"])}</h3>\n'
-            '      </div>\n'
-            f'{link_hint}'
-            '    </div>\n'
-            f'    <p class="project-description">{escape(project["description"])}</p>\n'
-            '  </a>\n'
-            '</article>'
-        )
+        label = project["type"] if posts_only else PROJECT_CATEGORIES[project["category"]]
+        cards.append(render_project_card(project, category, label))
     return "\n".join(cards)
 
 

@@ -1,97 +1,111 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-labelledby="thumbnail-title thumbnail-description">
-  <title id="thumbnail-title">応募情報から履歴書を作成し、Gmailで送付する</title>
-  <desc id="thumbnail-description">Googleスプレッドシート、中央のGmail、Googleドキュメントと履歴書のアイコンを矢印でつないだ概念図。</desc>
-  <metadata><![CDATA[Icon sources for google-forms-profile.svg
+  <title id="thumbnail-title">履歴書作成を自動化</title>
+  <desc id="thumbnail-description">Googleフォームとスプレッドシートで回答を受け取り、Googleドライブとドキュメントで履歴書を作成・保存し、最後にGmailで送信する3段階の流れ。自動化を大きく強調したサムネイル。</desc>
+  <metadata>Icon sources for google-forms-profile.svg
 
-The thumbnail is an original layout assembled from the following real source icons.
-No AI-generated image or simulated application screenshot is used.
+Original thumbnail layout, typography and process arrows by 31916.
+Five real Google product logos are embedded as SVG paths. Logos retain their
+source shapes and colors; only layout and scale are changed. No application
+screenshot is imitated or generated. The 2020 logo set matches the existing
+Sheets, Docs and Gmail materials; it is not described as the latest logo set.
+Google retains its relevant trademark rights. This is an independent tutorial.
 
-Google Sheets logo (Google):
-https://commons.wikimedia.org/wiki/File:Google_Sheets_2020_Logo.svg
+Google Forms (Google)
+Source and licensing: https://commons.wikimedia.org/wiki/File:Google_Forms_2020_Logo.svg
+Original SVG: https://upload.wikimedia.org/wikipedia/commons/5/5b/Google_Forms_2020_Logo.svg
+Commons classification: PD-textlogo
+Original SHA-256: 3389fcdcdca7e59939d354c8fc2c9295cd8f8e035d63c09df17cfa1ec43b4481
+
+Google Sheets (Google)
+Source and licensing: https://commons.wikimedia.org/wiki/File:Google_Sheets_2020_Logo.svg
 Original SVG: https://upload.wikimedia.org/wikipedia/commons/a/ae/Google_Sheets_2020_Logo.svg
-Wikimedia Commons identifies this simple-geometric logo as public domain (PD-shape).
+Commons classification: PD-shape
+Original SHA-256: 9103d588a7ded0f124aa8e5406fef9c23c8f7d8129cad6970ba280b4c38ed9b8
 
-Gmail logo (Google):
-https://commons.wikimedia.org/wiki/File:Gmail_icon_(2020).svg
-Original SVG: https://upload.wikimedia.org/wikipedia/commons/7/7e/Gmail_icon_%282020%29.svg
-Wikimedia Commons identifies this logo as public domain (PD-textlogo).
+Google Drive (Google)
+Source and licensing: https://commons.wikimedia.org/wiki/File:Google_Drive_icon_(2020).svg
+Original SVG: https://upload.wikimedia.org/wikipedia/commons/1/12/Google_Drive_icon_%282020%29.svg
+Commons classification: PD-textlogo
+Original SHA-256: 3d14c519af7b2252c512d0113759c2ff5ea22ff99bf52de0e4421af5b87c3ad4
 
-Google Docs logo (Google):
-https://commons.wikimedia.org/wiki/File:Google_Docs_2020_Logo.svg
+Google Docs (Google)
+Source and licensing: https://commons.wikimedia.org/wiki/File:Google_Docs_2020_Logo.svg
 Original SVG: https://upload.wikimedia.org/wikipedia/commons/6/66/Google_Docs_2020_Logo.svg
-Wikimedia Commons identifies this logo as public domain (PD-textlogo / PD-shape).
+Commons classification: PD-textlogo / PD-shape
+Original SHA-256: d733975d6599ae6409d361044f4179abdff55edaebb3dfb05a78602d3797aa09
 
-Google product logos are used to identify the services discussed. Google retains
-its relevant trademark rights. This is an independently authored tutorial.
+Gmail (Google)
+Source and licensing: https://commons.wikimedia.org/wiki/File:Gmail_icon_(2020).svg
+Original SVG: https://upload.wikimedia.org/wikipedia/commons/7/7e/Gmail_icon_%282020%29.svg
+Commons classification: PD-textlogo
+Original SHA-256: de129dff939c341be6bb561765719c95362f021db936e88a7455762e6887fb05
 
-Resume icon: Bootstrap Icons, file-earmark-person.
-https://icons.getbootstrap.com/icons/file-earmark-person/
-https://github.com/twbs/icons/blob/main/icons/file-earmark-person.svg
-The source icon is tagged cv/resume by Bootstrap Icons and licensed under MIT.
-Only scaling, position and inherited foreground color are changed.
-
-The MIT License (MIT)
-
-Copyright (c) 2019-2024 The Bootstrap Authors
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
-
-Source SVG SHA-256 values:
-sheets.svg 9103d588a7ded0f124aa8e5406fef9c23c8f7d8129cad6970ba280b4c38ed9b8
-gmail.svg de129dff939c341be6bb561765719c95362f021db936e88a7455762e6887fb05
-docs.svg d733975d6599ae6409d361044f4179abdff55edaebb3dfb05a78602d3797aa09
-resume.svg cab641b96335680f4a142c90d3941a497ba76e320e9a596e675f88bb93e8bb8b
-]]></metadata>
-  <defs>
-    <marker id="flow-arrow" viewBox="0 0 16 16" refX="13" refY="8" markerWidth="15" markerHeight="15" orient="auto-start-reverse" markerUnits="userSpaceOnUse">
-      <path d="M2 2 13 8 2 14" fill="none" stroke="#66574e" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-    </marker>
-  </defs>
-  <rect width="1200" height="630" fill="#f5efe1"/>
-  <g font-family="Noto Sans JP, Noto Sans CJK JP, sans-serif" fill="#30241f">
-    <text x="68" y="72" fill="#790d16" font-size="23" font-weight="500" letter-spacing="1">Google Apps Script</text>
-    <text x="68" y="137" font-size="44" font-weight="700" letter-spacing="-1">応募情報を履歴書にまとめて、メール送付。</text>
-    <rect x="58" y="184" width="1084" height="344" rx="18" fill="#fffdf8" stroke="#e5d3af" stroke-width="2"/>
-    <path d="M346 330h104M720 330h76" fill="none" stroke="#66574e" stroke-width="5" stroke-linecap="round" marker-end="url(#flow-arrow)"/>
-    <svg x="162" y="225" width="128" height="176" viewBox="0 0 64 88"><path xmlns="http://www.w3.org/2000/svg" d="M 42,0 64,22 53,24 42,22 40,11 Z" fill="#188038" />
-  <path xmlns="http://www.w3.org/2000/svg" d="M 42,22 V 0 H 6 C 2.685,0 0,2.685 0,6 v 76 c 0,3.315 2.685,6 6,6 h 52 c 3.315,0 6,-2.685 6,-6 V 22 Z" fill="#34a853" />
-  <path xmlns="http://www.w3.org/2000/svg" d="M 12,34 V 63 H 52 V 34 Z M 29.5,58 H 17 v -7 h 12.5 z m 0,-12 H 17 V 39 H 29.5 Z M 47,58 H 34.5 V 51 H 47 Z M 47,46 H 34.5 V 39 H 47 Z" fill="#fff" />
+Design-method reference:
+アトオシとデザイン — Illustratorでバナーデザイン。サムネイルデザイン。プロのすべての手順。5作例のコツ。表現のつくりわけ。
+https://www.youtube.com/watch?v=gdJ40oe0vhs
+The primary/secondary text hierarchy and purpose-appropriate type and color
+were studied. The tutorial&#x27;s images, sample layouts and lettering are not copied.
+</metadata>
+  <rect width="1200" height="630" fill="#5f1019"/>
+  <g font-family="Noto Sans CJK JP, Noto Sans JP, sans-serif">
+    <text x="52" y="77" font-size="40" font-weight="700" fill="#fffdf8">Googleフォームの回答から</text>
+    <rect x="851" y="29" width="299" height="58" rx="10" fill="#fffdf8"/>
+    <text x="1000.5" y="69" text-anchor="middle" font-size="29" font-weight="700" fill="#5f1019">無料テンプレート</text>
+    <text x="48" y="246" font-size="85" font-weight="900" letter-spacing="-2" fill="#fffdf8">履歴書作成を</text>
+    <text x="1148" y="249" text-anchor="end" font-size="155" font-weight="900" letter-spacing="-5" fill="#ffe16b">自動化</text>
+    <path d="M699 280h436" fill="none" stroke="#ffe16b" stroke-width="6"/>
+    <rect x="48" y="325" width="312" height="246" rx="18" fill="#fffdf8"/>
+    <rect x="444" y="325" width="312" height="246" rx="18" fill="#fffdf8"/>
+    <rect x="840" y="325" width="312" height="246" rx="18" fill="#fffdf8"/>
+    <g fill="#ffe16b">
+      <path d="M380 430h20v-19l26 30-26 30v-19h-20z"/>
+      <path d="M776 430h20v-19l26 30-26 30v-19h-20z"/>
+    </g>
+    <g fill="#5f1019" font-size="36" font-weight="700" text-anchor="middle">
+      <text x="204" y="371">回答を入力</text>
+      <text x="600" y="371">作成・保存</text>
+      <text x="996" y="371">メール送信</text>
+    </g>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 88" x="96" y="391" width="80" height="110">
+  <path d="m 41.999971,21.999985 12.06499,2.279998 9.934995,-2.279998 L 41.999971,0 38.964972,10.429993 Z" fill="#56368a" />
+  <path d="M 41.999971,21.999985 V 0 H 5.9999959 C 2.6849982,0 0,2.6849982 0,5.9999959 V 81.999944 c 0,3.314998 2.6849982,5.999996 5.9999959,5.999996 H 57.99996 c 3.314998,0 5.999996,-2.684998 5.999996,-5.999996 V 21.999985 Z" fill="#7248b9" />
+  <path d="m 16.999988,63.499958 c -1.654999,0 -2.999997,-1.345 -2.999997,-2.999999 0,-1.655 1.344998,-2.999997 2.999997,-2.999997 1.654998,0 2.999998,1.344997 2.999998,2.999997 0,1.654999 -1.345,2.999999 -2.999998,2.999999 z m 0,-11.999993 c -1.654999,0 -2.999997,-1.344999 -2.999997,-2.999998 0,-1.654999 1.344998,-2.999997 2.999997,-2.999997 1.654998,0 2.999998,1.344998 2.999998,2.999997 0,1.654999 -1.345,2.999998 -2.999998,2.999998 z m 0,-11.999991 c -1.654999,0 -2.999997,-1.345 -2.999997,-2.999998 0,-1.654999 1.344998,-2.999998 2.999997,-2.999998 1.654998,0 2.999998,1.344999 2.999998,2.999998 0,1.654998 -1.345,2.999998 -2.999998,2.999998 z M 49.999965,62.999957 H 24.999982 V 57.99996 h 24.999983 z m 0,-11.999992 H 24.999982 v -4.999997 h 24.999983 z m 0,-11.999992 H 24.999982 v -4.999996 h 24.999983 z" fill="#fff" />
 </svg>
-    <svg x="488" y="257" width="184" height="138" viewBox="52 42 88 66"><path xmlns="http://www.w3.org/2000/svg" fill="#4285f4" d="M58 108h14V74L52 59v43c0 3.32 2.69 6 6 6" />
-<path xmlns="http://www.w3.org/2000/svg" fill="#34a853" d="M120 108h14c3.32 0 6-2.69 6-6V59l-20 15" />
-<path xmlns="http://www.w3.org/2000/svg" fill="#fbbc04" d="M120 48v26l20-15v-8c0-7.42-8.47-11.65-14.4-7.2" />
-<path xmlns="http://www.w3.org/2000/svg" fill="#ea4335" d="M72 74V48l24 18 24-18v26L96 92" />
-<path xmlns="http://www.w3.org/2000/svg" fill="#c5221f" d="M52 51v8l20 15V48l-5.6-4.2c-5.94-4.45-14.4-.22-14.4 7.2" />
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 88" x="232" y="391" width="80" height="110">
+  <path d="M 42,0 64,22 53,24 42,22 40,11 Z" fill="#188038" />
+  <path d="M 42,22 V 0 H 6 C 2.685,0 0,2.685 0,6 v 76 c 0,3.315 2.685,6 6,6 h 52 c 3.315,0 6,-2.685 6,-6 V 22 Z" fill="#34a853" />
+  <path d="M 12,34 V 63 H 52 V 34 Z M 29.5,58 H 17 v -7 h 12.5 z m 0,-12 H 17 V 39 H 29.5 Z M 47,58 H 34.5 V 51 H 47 Z M 47,46 H 34.5 V 39 H 47 Z" fill="#fff" />
 </svg>
-    <svg x="818" y="225" width="128" height="176" viewBox="0 0 64 88"><style>.st0{fill:#3086F6}.st1{fill:#0C67D6}.st2{fill:#FDFFFF}</style><g xmlns="http://www.w3.org/2000/svg" id="Layer_5">
-	<path class="st0" d="M58,88H6c-3.3,0-6-2.7-6-6V6c0-3.3,2.7-6,6-6h36l22,22v60C64,85.3,61.3,88,58,88z" />
-	<path class="st1" d="M42,0l22,22H42V0z" />
-	<path class="st2" d="M50,39H14v-5h36V39z M50,46H14v5h36V46z M40,58H14v5h26V58z" />
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 87.3 78" x="486" y="396" width="102" height="102">
+	<path d="m6.6 66.85 3.85 6.65c.8 1.4 1.95 2.5 3.3 3.3l13.75-23.8h-27.5c0 1.55.4 3.1 1.2 4.5z" fill="#0066da" />
+	<path d="m43.65 25-13.75-23.8c-1.35.8-2.5 1.9-3.3 3.3l-25.4 44a9.06 9.06 0 0 0 -1.2 4.5h27.5z" fill="#00ac47" />
+	<path d="m73.55 76.8c1.35-.8 2.5-1.9 3.3-3.3l1.6-2.75 7.65-13.25c.8-1.4 1.2-2.95 1.2-4.5h-27.502l5.852 11.5z" fill="#ea4335" />
+	<path d="m43.65 25 13.75-23.8c-1.35-.8-2.9-1.2-4.5-1.2h-18.5c-1.6 0-3.15.45-4.5 1.2z" fill="#00832d" />
+	<path d="m59.8 53h-32.3l-13.75 23.8c1.35.8 2.9 1.2 4.5 1.2h50.8c1.6 0 3.15-.45 4.5-1.2z" fill="#2684fc" />
+	<path d="m73.4 26.5-12.7-22c-.8-1.4-1.95-2.5-3.3-3.3l-13.75 23.8 16.15 28h27.45c0-1.55-.4-3.1-1.2-4.5z" fill="#ffba00" />
+</svg>
+    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" x="626" y="391" viewBox="0 0 64 88" style="enable-background:new 0 0 64 88;" xml:space="preserve" width="80" height="110">
+<g>
+	<path d="M58,88H6c-3.3,0-6-2.7-6-6V6c0-3.3,2.7-6,6-6h36l22,22v60C64,85.3,61.3,88,58,88z" fill="#3086F6" />
+	<path d="M42,0l22,22H42V0z" fill="#0C67D6" />
+	<path d="M50,39H14v-5h36V39z M50,46H14v5h36V46z M40,58H14v5h26V58z" fill="#FDFFFF" />
 </g>
 </svg>
-    <svg x="985" y="232" width="128" height="176" viewBox="0 0 16 16" fill="#30241f"><path xmlns="http://www.w3.org/2000/svg" d="M11 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
-  <path xmlns="http://www.w3.org/2000/svg" d="M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2M9.5 3A1.5 1.5 0 0 0 11 4.5h2v9.255S12 12 8 12s-5 1.755-5 1.755V2a1 1 0 0 1 1-1h5.5z" />
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="52 42 88 66" x="920" y="391" width="152" height="114">
+<path fill="#4285f4" d="M58 108h14V74L52 59v43c0 3.32 2.69 6 6 6" />
+<path fill="#34a853" d="M120 108h14c3.32 0 6-2.69 6-6V59l-20 15" />
+<path fill="#fbbc04" d="M120 48v26l20-15v-8c0-7.42-8.47-11.65-14.4-7.2" />
+<path fill="#ea4335" d="M72 74V48l24 18 24-18v26L96 92" />
+<path fill="#c5221f" d="M52 51v8l20 15V48l-5.6-4.2c-5.94-4.45-14.4-.22-14.4 7.2" />
 </svg>
-    <text x="226" y="464" text-anchor="middle" font-size="27" font-weight="600">Google Sheets</text>
-    <text x="580" y="464" text-anchor="middle" font-size="27" font-weight="600">Gmail</text>
-    <text x="874" y="464" text-anchor="middle" font-size="26" font-weight="600">Google Docs</text>
-    <text x="1041" y="464" text-anchor="middle" font-size="27" font-weight="600">履歴書</text>
-    <text x="68" y="584" fill="#66574e" font-size="25">フォーム回答の整理・書類の自動作成・コピーのメール送付</text>
+    <g fill="#8b7a70" font-size="32" font-weight="700" text-anchor="middle">
+      <text x="204" y="463">＋</text><text x="604" y="463">＋</text>
+    </g>
+    <g fill="#30241f" font-size="28" font-weight="700" text-anchor="middle">
+      <text x="204" y="547">Forms ＋ Sheets</text>
+      <text x="600" y="547">Drive ＋ Docs</text>
+      <text x="996" y="547">Gmail</text>
+    </g>
+    <text x="600" y="613" text-anchor="middle" font-size="29" font-weight="700" fill="#fffdf8">履歴書・PDFの保存とメール送信まで</text>
   </g>
 </svg>

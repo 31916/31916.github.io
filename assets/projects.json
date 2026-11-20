@@ -75,7 +75,8 @@
         "src": "/assets/art/google-forms-profile.svg",
         "width": 1200,
         "height": 630,
-        "alt": "GoogleスプレッドシートからGmailを経由する矢印と、Googleドキュメント・履歴書のアイコン"
+        "alt": "履歴書作成の自動化。Googleフォーム・スプレッドシートからDrive・ドキュメントを経由し、Gmailで送信する流れ",
+        "version": "20261121-automation"
       },
       "topic": "technology"
     }
