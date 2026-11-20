@@ -136,7 +136,7 @@ async function loadUniverse() {
     canvas, sections: sectionInfo,
     getState: () => ({ paused: reducedMotion.matches, selected, entered, reduced: reducedMotion.matches }),
     onOpen: openSection,
-    onTop: () => location.assign(document.querySelector('#return-top').href),
+    onTop: () => openSection('introduction', document.querySelector('#open-introduction')),
     onFallback: showFallback,
   });
 }
