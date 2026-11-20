@@ -603,7 +603,7 @@ summary:focus-visible {
     grid-column: 1 / -1;
     grid-row: 2;
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 0.4375rem;
   }
   .site-header nav a {
@@ -612,6 +612,9 @@ summary:focus-visible {
     padding: 0.5rem 0.3125rem;
     text-align: center;
     overflow-wrap: anywhere;
+  }
+  .site-header nav a::after {
+    display: none;
   }
 }
 @media (max-width: 380px) {

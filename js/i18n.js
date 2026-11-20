@@ -55,6 +55,7 @@
   const portfolioPaths = new Set([
     "/",
     "/projects/",
+    "/posts/",
     "/resume/",
     "/about/",
     "/hobbies/",
@@ -135,7 +136,7 @@
       translate("{count}件の制作物を表示").replace("{count}", String(count)),
   };
 
-  fetch("/assets/translations.json?v=20261118-remove-repo-note")
+  fetch("/assets/translations.json?v=20261121-posts")
     .then((response) => {
       if (!response.ok) throw new Error("Translations unavailable");
       return response.json();

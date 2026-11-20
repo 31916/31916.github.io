@@ -5,7 +5,9 @@ Personal portfolio at **https://31916.ch/**. Plain HTML, CSS, JavaScript and ori
 ## Pages
 
 - `index.html`: a home with an introduction and contact links to GitHub and X.
-- `projects/index.html` lists projects with Software, Research and Idea Designs filters.
+- `projects/index.html` lists projects with Software, Research, Idea Designs and Posts filters. Technical posts also appear in this catalog.
+- `posts/index.html` is the independent Posts navigation page, with a Technical Posts section. Its reading list uses the same catalog entries.
+- `google-forms-profile/` explains applicant-profile automation with Google Apps Script and provides a public sample. Its search indexing remains disabled.
 - `resume/index.html`: separate education and work timelines, a qualifications list, and a technology stack with icons.
 - `about/index.html`: compatibility redirect to Resume.
 - `hobbies/index.html`: sports with experience, clubs and results, games, anime and manga. Styles are in `css/hobbies.css`.
@@ -20,7 +22,7 @@ The home body fills the viewport when its content fits and scrolls naturally on 
 
 ## Editing the project catalog
 
-To add a project to `assets/projects.json`, copy a catalog entry, assign a unique `id`, and update its title, link and image. Set `category` to `software`, `research` or `idea-design`. Add translations for new visible text and image descriptions in `assets/translations.json`. The build validates the catalog, renders the project listing into HTML, and automatically includes local project images.
+To add a project to `assets/projects.json`, copy a catalog entry, assign a unique `id`, and update its title, link and image. Set `category` to `software`, `research`, `idea-design` or `post`. Entries in `post` also populate the Posts page; use `type` to label their subject, such as technical posts. Add translations for new visible text and image descriptions in `assets/translations.json`. The build validates the catalog, renders both listings into HTML, and automatically includes local project images. Page-specific catalog and post styles are in `css/projects.css`.
 
 The checked-in HTML includes the current cards for direct preview. After editing the catalog, preview the generated `tools/build-pages.py` output to see the new selection; deployment always uses the catalog. On Windows, extract current paths only for preview, excluding the case-sensitive `IMELayOutRouter/` aliases to avoid overwriting the current product directory.
 

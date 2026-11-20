@@ -62,6 +62,21 @@
         "alt": "斜めに傾いた数字カーソル「4」",
         "class": "cursor-art-image"
       }
+    },
+    {
+      "id": "google-forms-profile",
+      "category": "post",
+      "type": "技術投稿",
+      "tech": "Google Apps Script",
+      "title": "Googleフォーム応募情報の自動整理",
+      "description": "応募情報を履歴書風の資料へ自動整理する仕組みを開発しました。開発背景と、公開用サンプルによる導入手順を紹介します。",
+      "href": "/google-forms-profile/",
+      "image": {
+        "src": "/assets/art/google-forms-profile.svg",
+        "width": 1200,
+        "height": 630,
+        "alt": "フォームの回答一覧から、応募者ごとのプロフィール資料を作成する仕組みの概念図"
+      }
     }
   ]
 }

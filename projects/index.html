@@ -7,13 +7,13 @@
     <title>制作物 — Harry / 31916</title>
     <meta
       name="description"
-      content="IMELayoutRouter、Number Cursors 4、日本手話の手形認識、ひもほどき。Harry / 31916の制作物・研究一覧。"
+      content="Harry / 31916の制作物・研究・投稿。ソフトウェアや研究に加え、開発背景と実装方法をまとめた技術投稿を紹介します。"
     />
     <meta name="author" content="31916" />
     <meta property="og:title" content="制作物 — Harry / 31916" />
     <meta
       property="og:description"
-      content="IMELayoutRouter、Number Cursors 4、日本手話の手形認識、ひもほどき。Harry / 31916の制作物・研究一覧。"
+      content="Harry / 31916の制作物・研究・投稿。ソフトウェアや研究に加え、開発背景と実装方法をまとめた技術投稿を紹介します。"
     />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://31916.ch/projects/" />
@@ -25,10 +25,11 @@
       href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400..600&family=Noto+Sans+JP:wght@400..600&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="/css/styles.css?v=20261119-project-width" />
+    <link rel="stylesheet" href="/css/styles.css?v=20261121-posts" />
     <link rel="stylesheet" href="/css/cursors.css?v=3" />
+    <link rel="stylesheet" href="/css/projects.css?v=20261121-posts" />
     <script src="/js/scripts.js?v=20261111-copy-reset" defer></script>
-    <script src="/js/i18n.js?v=20261118-remove-repo-note" defer></script>
+    <script src="/js/i18n.js?v=20261121-posts" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main">本文へ移動</a>
@@ -44,7 +45,7 @@
       /></a>
       <div class="header-tools">
         <nav aria-label="メインナビゲーション">
-          <a href="/projects/">制作物</a><a href="/resume/">履歴書</a
+          <a href="/projects/">制作物</a><a href="/posts/">投稿</a><a href="/resume/">履歴書</a
           ><a href="/hobbies/">趣味</a>
         </nav>
         <label class="language-picker" hidden>
@@ -72,6 +73,7 @@
             <button data-filter="software" type="button" aria-pressed="false"><span>ソフトウェア</span><span>（2）</span></button>
             <button data-filter="research" type="button" aria-pressed="false"><span>研究</span><span>（1）</span></button>
             <button data-filter="idea-design" type="button" aria-pressed="false"><span>アイデアデザイン</span><span>（1）</span></button>
+            <button data-filter="post" type="button" aria-pressed="false"><span>投稿</span><span>（1）</span></button>
             <!-- project-filters:end -->
           </div>
           <p
@@ -81,7 +83,7 @@
             role="status"
             aria-live="polite"
           >
-            4件の制作物を表示
+            5件の制作物を表示
           </p>
           <div class="project-grid" data-project-catalog>
             <!-- project-catalog:start -->
@@ -195,6 +197,19 @@
                   <svg class="link-arrow project-arrow" aria-hidden="true"><use href="/assets/art/link-arrow.svg#arrow"></use></svg>
                 </div>
                 <p class="project-description">マウスカーソルが数字の4に似ていると思い、デザインしてみました。</p>
+              </a>
+            </article>
+            <article class="project-card project-post-card" data-category="post">
+              <a class="project-link" href="/google-forms-profile/">
+                <div class="project-image"><img src="/assets/art/google-forms-profile.svg" width="1200" height="630" loading="lazy" alt="フォームの回答一覧から、応募者ごとのプロフィール資料を作成する仕組みの概念図" /></div>
+                <div class="project-caption">
+                  <div>
+                    <p class="project-type">技術投稿 <span>Google Apps Script</span></p>
+                    <h3>Googleフォーム応募情報の自動整理</h3>
+                  </div>
+                </div>
+                <p class="project-description">応募情報を履歴書風の資料へ自動整理する仕組みを開発しました。開発背景と、公開用サンプルによる導入手順を紹介します。</p>
+                <p class="project-read-label">投稿を読む</p>
               </a>
             </article>
             <!-- project-catalog:end -->

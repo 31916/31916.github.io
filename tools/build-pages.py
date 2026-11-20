@@ -24,14 +24,15 @@ PROJECT_CATEGORIES = {
     "software": "ソフトウェア",
     "research": "研究",
     "idea-design": "アイデアデザイン",
+    "post": "投稿",
 }
 PUBLIC = (
     "CNAME", "index.html", "404.html", "robots.txt", "sitemap.xml",
     "google97bf67731c686ec9.html",  # Search Console ownership verification.
-    "about/index.html", "resume/index.html", "projects/index.html", "hobbies/index.html",
+    "about/index.html", "resume/index.html", "projects/index.html", "posts/index.html", "hobbies/index.html",
     "google-forms-profile/index.html", "google-forms-profile/style.css",
     "google-forms-profile/article.js", "google-forms-profile/sample.gs",
-    "css/styles.css", "js/scripts.js", "css/resume.css",
+    "css/styles.css", "js/scripts.js", "css/resume.css", "css/projects.css",
     "css/home.css", "css/hobbies.css", "assets/projects.json",
     "css/cursors.css", "assets/cursors/arrow.png", "assets/cursors/hand.png", "assets/cursors/text.png",
     "assets/identity.json",
@@ -196,7 +197,7 @@ def load_projects(settings=None):
             if not isinstance(project.get(field), str) or not project[field].strip():
                 raise ValueError(f"Project {identifier} needs nonempty {field}")
         if project.get("category") not in PROJECT_CATEGORIES:
-            raise ValueError(f"Project {identifier} category must be software, research, or idea-design")
+            raise ValueError(f"Project {identifier} category must be one of {', '.join(PROJECT_CATEGORIES)}")
         href = project["href"]
         if not (href.startswith("https://") or (href.startswith("/") and not href.startswith("//"))):
             raise ValueError(f"Project {identifier} href must be HTTPS or a site-relative path")
@@ -247,25 +248,51 @@ def render_project_catalog(settings):
     """Use the existing project-page markup and styling for every catalog entry."""
     cards = []
     for project in settings["projects"]:
+        is_post = project["category"] == "post"
+        card_class = "project-card project-post-card" if is_post else "project-card"
+        target = '' if is_post else ' target="_blank" rel="noopener"'
+        link_hint = (
+            '' if is_post else
+            '      <svg class="link-arrow project-arrow" aria-hidden="true"><use href="/assets/art/link-arrow.svg#arrow"></use></svg>\n'
+        )
+        read_label = '    <p class="project-read-label">投稿を読む</p>\n' if is_post else ''
         image_class = "project-image"
         if project["image"].get("class"):
             image_class += " " + project["image"]["class"]
         cards.append(
-            f'<article class="project-card" data-category="{project["category"]}">\n'
-            f'  <a class="project-link" href="{escape(project["href"], quote=True)}" target="_blank" rel="noopener">\n'
+            f'<article class="{card_class}" data-category="{project["category"]}">\n'
+            f'  <a class="project-link" href="{escape(project["href"], quote=True)}"{target}>\n'
             f'    <div class="{image_class}">{project_image(project)}</div>\n'
             '    <div class="project-caption">\n'
             '      <div>\n'
             f'        <p class="project-type">{escape(project["type"])} <span>{escape(project["tech"])}</span></p>\n'
             f'        <h3>{escape(project["title"])}</h3>\n'
             '      </div>\n'
-            '      <svg class="link-arrow project-arrow" aria-hidden="true"><use href="/assets/art/link-arrow.svg#arrow"></use></svg>\n'
+            f'{link_hint}'
             '    </div>\n'
             f'    <p class="project-description">{escape(project["description"])}</p>\n'
+            f'{read_label}'
             '  </a>\n'
             '</article>'
         )
     return "\n".join(cards)
+
+
+def render_post_list(settings):
+    """Give posts a dedicated reading list while reusing their catalog entries."""
+    posts = []
+    for project in settings["projects"]:
+        if project["category"] != "post":
+            continue
+        posts.append(
+            '<article class="post-entry">\n'
+            f'  <p class="post-entry-type">{escape(project["type"])} <span>{escape(project["tech"])}</span></p>\n'
+            f'  <h3><a href="{escape(project["href"], quote=True)}">{escape(project["title"])}</a></h3>\n'
+            f'  <p class="post-entry-description">{escape(project["description"])}</p>\n'
+            f'  <a class="post-entry-read" href="{escape(project["href"], quote=True)}">投稿を読む</a>\n'
+            '</article>'
+        )
+    return "\n".join(posts)
 
 
 def replace_project_slot(source, name, markup):
@@ -304,10 +331,11 @@ def render_public_html(content, settings=None, projects=None):
         markup = "31916<span>.</span>"
     for start, end in reversed(slots.ranges):
         source = source[:start] + markup + source[end:]
-    if "<!-- project-filters:" in source or "<!-- project-catalog:" in source:
+    if any(f"<!-- {slot}:" in source for slot in ("project-filters", "project-catalog", "post-list")):
         projects = load_projects(projects)
         source = replace_project_slot(source, "project-filters", render_project_filters(projects))
         source = replace_project_slot(source, "project-catalog", render_project_catalog(projects))
+        source = replace_project_slot(source, "post-list", render_post_list(projects))
     if "<!-- idea-designs-share -->" in source:
         source = source.replace("<!-- idea-designs-share -->", share_metadata(f"{IDEA_DESIGNS}/index.html"))
     return source.encode("utf-8")
