@@ -77,13 +77,14 @@ const frameStyles = `
   html { background: transparent !important; font-size: 16px !important; scrollbar-color: #637c72 transparent; }
   body { background: transparent !important; color: var(--ink) !important; display: block !important; min-height: 0 !important; }
   .site-header, .site-footer, body > .skip-link, main > h1 { display: none !important; }
-  main.shell { width: 100% !important; max-width: none !important; padding: 28px !important; margin: 0 !important; }
+  main { width: 100% !important; max-width: none !important; padding: 28px !important; margin: 0 !important; }
+  main > .shell { width: 100% !important; max-width: none !important; margin: 0 !important; }
   a { color: var(--accent); }
   .project-card { background: #b1d4c306 !important; border-color: #99b8aa28 !important; }
   .project-card:hover { background: #b1d4c30e !important; }
   .project-card img { border-radius: 8px; }
   .tech-stack img:is([src='/assets/tech/github.svg'], [src='/assets/tech/linux.svg']) { background: #f4f0dd; border-radius: 4px; padding: 3px; }
-  @media (max-width: 500px) { main.shell { padding: 22px !important; } }
+  @media (max-width: 500px) { main { padding: 22px !important; } }
 `;
 
 frame.addEventListener('load', () => {
@@ -95,7 +96,7 @@ frame.addEventListener('load', () => {
     doc.head.append(style);
     const contentWidth = getComputedStyle(doc.documentElement).getPropertyValue('--width').trim();
     if (contentWidth) document.documentElement.style.setProperty('--panel-content-width', contentWidth);
-    document.documentElement.style.setProperty('--panel-scrollbar', `${doc.defaultView.innerWidth - doc.documentElement.clientWidth}px`);
+    document.documentElement.style.setProperty('--panel-scrollbar', `${frame.clientWidth - doc.documentElement.getBoundingClientRect().width}px`);
     doc.querySelectorAll('a[href]').forEach(link => {
       const url = new URL(link.href);
       if (url.protocol === 'http:' || url.protocol === 'https:') {
