@@ -205,15 +205,15 @@ export function createSolarSystem(scene) {
     heliocentricPosition(uranusOrbit, seconds, observer);
     sunDirection.copy(observer).negate().applyQuaternion(skyRotation).normalize();
     for (const { planet, group, position, spin, ring, uniforms } of objects) {
-      if (planet !== sun) heliocentricPosition(planet, seconds, position);
-      direction.subVectors(position, observer).applyQuaternion(skyRotation);
-      const distance = direction.length();
-      direction.divideScalar(distance);
       const opacity = uniforms.opacity.value;
       // Visibility follows exploration in every direction. Three.js handles the view frustum.
       uniforms.opacity.value = THREE.MathUtils.lerp(opacity, Number(explored), 1 - Math.exp(-delta * 4.5));
       group.visible = uniforms.opacity.value > .006;
       if (!group.visible) continue;
+      if (planet !== sun) heliocentricPosition(planet, seconds, position);
+      direction.subVectors(position, observer).applyQuaternion(skyRotation);
+      const distance = direction.length();
+      direction.divideScalar(distance);
       group.position.copy(camera.position).addScaledVector(direction, skyDistance);
       group.scale.setScalar(skyDistance * Math.tan(angularMagnification * angularRadius(planet.radius, distance)));
       spin.rotation.y = (rotationInTurns(planet, seconds) % 1) * Math.PI * 2;

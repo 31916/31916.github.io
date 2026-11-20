@@ -2,11 +2,10 @@ import * as THREE from 'three';
 import { EffectComposer } from './vendor/addons/postprocessing/EffectComposer.js';
 import { RenderPass } from './vendor/addons/postprocessing/RenderPass.js';
 import { UnrealBloomPass } from './vendor/addons/postprocessing/UnrealBloomPass.js';
-import { ShaderPass } from './vendor/addons/postprocessing/ShaderPass.js';
 import { OutputPass } from './vendor/addons/postprocessing/OutputPass.js';
-import { createCelestialEffects } from './celestial.js';
+import { createCelestialEffects } from './celestial.js?v=20261121-posts-performance';
 import { ViewControls } from './view-controls.js';
-import { createSolarSystem, loadSolarModels } from './solar-system.js';
+import { createSolarSystem, loadSolarModels } from './solar-system.js?v=20261121-posts-performance';
 
 const RADIUS = 2.2;
 const ORBIT = RADIUS * 51149 / 25559;
@@ -385,7 +384,7 @@ export async function createUniverse({ canvas, sections, getState, onOpen, onTop
 
   const renderTarget = new THREE.WebGLRenderTarget(1, 1, { type: THREE.HalfFloatType, samples: innerWidth <= 700 ? 2 : 4 });
   const composer = new EffectComposer(renderer, renderTarget);
-  // The final two passes always swap back. The write buffer holds only the full-screen color pass.
+  // The final pass writes directly to the canvas. Its scratch buffer needs no depth or MSAA.
   composer.writeBuffer.samples = 0;
   composer.writeBuffer.depthBuffer = false;
   composer.addPass(new RenderPass(scene, camera));
@@ -399,13 +398,20 @@ export async function createUniverse({ canvas, sections, getState, onOpen, onTop
   streakPass.clear = false;
   streakPass.enabled = false;
   composer.addPass(streakPass);
-  const finish = new ShaderPass({
-    uniforms: { tDiffuse: { value: null }, resolution: { value: new THREE.Vector2() } },
-    vertexShader: `varying vec2 vUv; void main() { vUv = uv; gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.); }`,
-    fragmentShader: `uniform sampler2D tDiffuse; uniform vec2 resolution; varying vec2 vUv; void main() { vec3 color = texture2D(tDiffuse, vUv).rgb; vec2 p = vUv - .5; float vignette = 1. - .22 * dot(p, p); color *= vignette; float grain = fract(sin(dot(vUv * resolution, vec2(12.9898,78.233))) * 43758.5453); color += (grain - .5) * .00065; gl_FragColor = vec4(color, 1.); }`,
-  });
+  const finish = new OutputPass();
+  finish.needsSwap = false;
+  finish.uniforms.resolution = { value: new THREE.Vector2() };
+  finish.material.fragmentShader = finish.material.fragmentShader
+    .replace('uniform sampler2D tDiffuse;', 'uniform sampler2D tDiffuse; uniform vec2 resolution;')
+    .replace('gl_FragColor = texture2D( tDiffuse, vUv );', `
+      gl_FragColor = texture2D(tDiffuse, vUv);
+      vec2 p = vUv - .5;
+      gl_FragColor.rgb *= 1. - .22 * dot(p, p);
+      float grain = fract(sin(dot(vUv * resolution, vec2(12.9898, 78.233))) * 43758.5453);
+      gl_FragColor.rgb += (grain - .5) * .00065;
+      gl_FragColor.a = 1.;
+    `);
   composer.addPass(finish);
-  composer.addPass(new OutputPass());
 
   let width = 0, height = 0, mobile = innerWidth <= 700, resizePending = false;
   let elapsed = 0, lastTime = 0, firstTime = null, hasEntered = false;
@@ -590,7 +596,6 @@ export async function createUniverse({ canvas, sections, getState, onOpen, onTop
       const moonY = centerY * (1 - projected.y * projection[5] / depth);
       const inDepth = -projected.z >= camera.near && -projected.z <= camera.far;
       const edgeDistance = Math.min(moonX, width - moonX, moonY, height - moonY);
-      const outside = !inDepth || edgeDistance < 0;
       const { halfWidth, halfHeight } = moon;
       const insetX = Math.min(centerX, halfWidth + 6);
       const insetY = Math.min(centerY, halfHeight + 6);
@@ -604,7 +609,7 @@ export async function createUniverse({ canvas, sections, getState, onOpen, onTop
       const step = Math.min(inDepth ? 1 : Infinity, stepX, stepY);
       const pin = step < 1 || !inDepth ? (stepX < stepY ? 'x' : 'y') : null;
       const x = centerX + dx * step, y = centerY + dy * step;
-      return { moon, moonX, moonY, x, y, baseX: x, baseY: y, halfWidth, halfHeight, rangeX, rangeY, pin, outside };
+      return { moon, x, y, baseX: x, baseY: y, halfWidth, halfHeight, rangeX, rangeY, pin };
     });
     const menu = {
       x: languageBounds.x + languageBounds.width / 2,
@@ -637,14 +642,13 @@ export async function createUniverse({ canvas, sections, getState, onOpen, onTop
       }
     }
     const easing = reduced ? 1 : 1 - Math.exp(-16 * dt);
-    for (const { moon, moonX, moonY, x: targetX, y: targetY, baseX, baseY, rangeX, rangeY, pin, outside } of layout) {
+    for (const { moon, x: targetX, y: targetY, baseX, baseY, rangeX, rangeY, pin } of layout) {
       const nudge = moon.labelNudge;
       nudge.x = pin === 'x' ? 0 : THREE.MathUtils.lerp(nudge.x, targetX - baseX, easing);
       nudge.y = pin === 'y' ? 0 : THREE.MathUtils.lerp(nudge.y, targetY - baseY, easing);
       const x = clamp(baseX + nudge.x, ...rangeX), y = clamp(baseY + nudge.y, ...rangeY);
       moon.button.style.left = `${x.toFixed(2)}px`;
       moon.button.style.top = `${y.toFixed(2)}px`;
-      moon.button.dataset.outside = String(outside);
     }
   }
 
@@ -652,6 +656,11 @@ export async function createUniverse({ canvas, sections, getState, onOpen, onTop
     if (!visible) return;
     const state = getState();
     if (!state.entered && document.body.classList.contains('ready')) return;
+    // The moons are paused while reading. Keep drawing until the view and impact fade settle.
+    if (state.selected && viewReturnStart === null && !resizePending && !effects.needsFrame) {
+      lastTime = milliseconds / 1000;
+      return;
+    }
     const now = milliseconds / 1000;
     if (firstTime === null) firstTime = now;
     if (state.entered && !hasEntered) { hasEntered = true; firstTime = now; lastTime = now; }
@@ -677,7 +686,7 @@ export async function createUniverse({ canvas, sections, getState, onOpen, onTop
     pebbles.rotation.z = elapsed * .048;
     planetUniforms.time.value = elapsed;
     system.updateMatrixWorld(true);
-    for (const moon of moons) moon.mesh.getWorldPosition(moon.world);
+    for (const moon of moons) moon.world.setFromMatrixPosition(moon.mesh.matrixWorld);
 
     if (viewReturnStart !== null) {
       const progress = state.reduced ? 1 : Math.min(1, (milliseconds - viewReturnStart) / 650);

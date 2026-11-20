@@ -211,6 +211,7 @@ export function createCelestialEffects({ system, streakScene, orbitalPlane, moon
 
   return {
     get streakVisible() { return trail.visible; },
+    get needsFrame() { return flash.intensity > .001 || performance.now() - lastImpact < recoveryTime; },
     resize(height) {
       trailMaterial.uniforms.viewportHeight.value = height;
       streakScene.position.copy(system.position);

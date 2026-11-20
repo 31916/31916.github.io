@@ -1,10 +1,10 @@
-import { initializeLanguage, getLanguage, translate } from './language.js?v=20261121-intro-contact';
+import { initializeLanguage, getLanguage, translate } from './language.js?v=20261121-posts-performance';
 
 const sectionInfo = {
   projects: { title: '制作物', path: '/projects/', size: .31, color: '#cbbc99' },
-  resume: { title: '履歴書', path: '/resume/', size: .29, color: '#a5b6ce' },
-  hobbies: { title: '趣味', path: '/hobbies/', size: .28, color: '#b28d8e' },
-  contact: { title: 'コンタクト', path: '/', size: .27, color: '#b1bca7' },
+  posts: { title: '投稿', path: '/posts/', size: .29, color: '#a5b6ce' },
+  resume: { title: '履歴書', path: '/resume/', size: .28, color: '#b28d8e' },
+  hobbies: { title: '趣味', path: '/hobbies/', size: .27, color: '#b1bca7' },
 };
 Object.values(sectionInfo).forEach((section, index) => { section.phase = 1.25 + index * Math.PI / 2; });
 const canvas = document.querySelector('#universe');
@@ -36,7 +36,7 @@ function refreshPanel(reload = false) {
   }
   const info = sectionInfo[selected], url = sectionURL(selected);
   document.querySelector('#panel-title').textContent = translate(info.title);
-  document.querySelector('.full-page-link').href = url + (selected === 'contact' ? '#contact' : '');
+  fullPageLink.href = url;
   frame.title = translate(info.title);
   if (reload) { frame.classList.remove('loaded'); frame.src = url; }
 }
@@ -74,29 +74,22 @@ dialog.addEventListener('cancel', event => {
 const frameStyles = `
   :root { color-scheme: dark; --paper: #0b121c; --ink: #f4f0dd; --muted: #a9bcb9; --sand: #1c2b3c; --mist: #24384b; --accent: #b7d3cb; --line: #91a6bc35; --sans: 'Noto Sans JP', 'Yu Gothic', sans-serif; background: transparent !important; }
   html { background: transparent !important; font-size: 16px !important; scrollbar-color: #637c72 transparent; }
-  body, body.home-page { background: transparent !important; color: var(--ink) !important; display: block !important; min-height: 0 !important; }
-  .site-header, .site-footer, body > .skip-link, main > h1, .home-intro { display: none !important; }
-  main.shell, main.home-main, main.resume-page { width: 100% !important; max-width: none !important; padding: 28px !important; margin: 0 !important; }
+  body { background: transparent !important; color: var(--ink) !important; display: block !important; min-height: 0 !important; }
+  .site-header, .site-footer, body > .skip-link, main > h1 { display: none !important; }
+  main.shell { width: 100% !important; max-width: none !important; padding: 28px !important; margin: 0 !important; }
   a { color: var(--accent); }
   .project-card { background: #b1d4c306 !important; border-color: #99b8aa28 !important; }
   .project-card:hover { background: #b1d4c30e !important; }
   .project-card img { border-radius: 8px; }
-  .project-filter, .filter-button, .filter { border-color: #99b8aa38; }
   .resume-content { max-width: none !important; }
   .tech-stack img:is([src='/assets/tech/github.svg'], [src='/assets/tech/linux.svg']) { background: #f4f0dd; border-radius: 4px; padding: 3px; }
-  .hobby-section { border-color: var(--line) !important; }
-  body.contact-panel-page { display: grid !important; place-items: center; min-height: 100dvh !important; padding: 12px; }
-  .contact-panel-page main { display: none !important; }
-  .contact-panel-page .site-footer { display: grid !important; width: 100%; margin: 0; padding: 0; border: 0; }
-  .contact-panel-page .footer-label { display: none; }
-  @media (max-width: 500px) { main.shell, main.home-main, main.resume-page { padding: 22px !important; } }
+  @media (max-width: 500px) { main.shell { padding: 22px !important; } }
 `;
 
 frame.addEventListener('load', () => {
   try {
     const doc = frame.contentDocument;
     if (!doc?.querySelector('main')) throw new Error('Content is unavailable');
-    doc.body.classList.toggle('contact-panel-page', selected === 'contact');
     const style = doc.createElement('style');
     style.textContent = frameStyles;
     doc.head.append(style);
@@ -138,7 +131,7 @@ function showFallback() {
   document.querySelector('#render-status').textContent = translate('この環境では3Dを表示できません。各項目はそのまま開けます。');
 }
 async function loadUniverse() {
-  const [{ createUniverse }] = await Promise.all([import('./universe.js'), initializeLanguage()]);
+  const [{ createUniverse }] = await Promise.all([import('./universe.js?v=20261121-posts-performance'), initializeLanguage()]);
   universe = await createUniverse({
     canvas, sections: sectionInfo,
     getState: () => ({ paused: reducedMotion.matches, selected, entered, reduced: reducedMotion.matches }),
