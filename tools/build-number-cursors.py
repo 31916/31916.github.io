@@ -155,7 +155,7 @@ def png(size, frames):
             + chunk(b"IDAT", zlib.compress(rows, 9)) + chunk(b"IEND", b""))
 
 
-def cape(cursors):
+def cape(cursors, *, theme_name=NAME, theme_identifier="ch.31916.number-cursors-4"):
     entries = {}
     for name in sorted(MAC_GRAPHICS.keys() | MAC_ROLES.keys()):
         frames = cursors[name]
@@ -176,8 +176,8 @@ def cape(cursors):
         for identifier in MAC_ROLES.get(name, ()):
             entries[f"com.apple.cursor.{identifier}"] = entry
     return plistlib.dumps({
-        "Author": "31916", "CapeName": NAME, "CapeVersion": 1.0, "Cloud": False,
-        "HiDPI": True, "Identifier": "ch.31916.number-cursors-4", "MinimumVersion": 2.0,
+        "Author": "31916", "CapeName": theme_name, "CapeVersion": 1.0, "Cloud": False,
+        "HiDPI": True, "Identifier": theme_identifier, "MinimumVersion": 2.0,
         "Version": 2.0, "Cursors": entries,
     }, fmt=plistlib.FMT_BINARY)
 
@@ -222,11 +222,24 @@ def scalable(frames):
     return files
 
 
-def write_linux(archive, cursors):
-    theme = f"Linux/{STEM}"
-    archive.writestr("Linux/install.sh", (NUMBER_CURSORS / "linux-install.sh").read_bytes())
-    archive.writestr("Linux/README.txt", (NUMBER_CURSORS / "Linux-README.txt").read_bytes())
-    archive.writestr(f"{theme}/index.theme", f"[Icon Theme]\nName={NAME}\nComment=Number cursors by 31916\nInherits=Adwaita\n")
+def variant_text(text, outlined):
+    if not outlined:
+        return text
+    return (text.replace(STEM, f"{STEM}_Outlined")
+            .replace(NAME, f"{NAME} (Outlined)")
+            .replace("Number Cursors v4 (#CCCCCC)", "Number Cursors v4 (Outlined, #CCCCCC)")
+            .replace("NumberCursors\\CCCCCC-v4", "NumberCursors\\CCCCCC-v4-outlined")
+            .replace("The light-gray lines have no outline or fill.",
+                     "All light-gray lines retain their original color, with a #34393D outline\nand filled enclosed gaps."))
+
+
+def write_linux(archive, cursors, *, outlined=False):
+    theme = f"Linux/{STEM}{'_Outlined' if outlined else ''}"
+    for source, target in (("linux-install.sh", "install.sh"), ("Linux-README.txt", "README.txt")):
+        text = variant_text((NUMBER_CURSORS / source).read_text(), outlined)
+        archive.writestr(f"Linux/{target}", text)
+    name = f"{NAME} (Outlined)" if outlined else NAME
+    archive.writestr(f"{theme}/index.theme", f"[Icon Theme]\nName={name}\nComment=Number cursors by 31916\nInherits=Adwaita\n")
     for name, aliases in LINUX_NAMES.items():
         bitmap = xcursor(cursors[name])
         svg_files = scalable(cursors[name])
@@ -238,18 +251,24 @@ def write_linux(archive, cursors):
                     archive.writestr(f"{theme}/cursors_scalable/{alias}/{filename}", content)
 
 
-def build(windows_zip):
+def build(windows_zip, *, outlined=False):
     windows_files, cursors = read_windows(windows_zip)
-    windows_files[PurePosixPath("README.txt")] = (NUMBER_CURSORS / "README.txt").read_bytes()
-    target = DOWNLOADS / f"{STEM}.zip"
+    windows_files[PurePosixPath("README.txt")] = variant_text(
+        (NUMBER_CURSORS / "README.txt").read_text(), outlined).encode()
+    script = PurePosixPath("Register-Scheme.ps1")
+    windows_files[script] = variant_text(windows_files[script].decode("utf-8-sig"), outlined).encode("utf-8-sig")
+    stem = f"{STEM}_Outlined" if outlined else STEM
+    name = f"{NAME} (Outlined)" if outlined else NAME
+    identifier = "ch.31916.number-cursors-4" + ("-outlined" if outlined else "")
+    target = DOWNLOADS / f"{stem}.zip"
     with NamedTemporaryFile(dir=DOWNLOADS, suffix=".zip", delete=False) as temporary:
         pending = Path(temporary.name)
     try:
         with ZipFile(pending, "w", compression=ZIP_DEFLATED, compresslevel=9) as archive:
             for path, data in windows_files.items():
                 archive.writestr(f"Windows/{path}", data)
-            archive.writestr(f"macOS/{STEM}.cape", cape(cursors))
-            write_linux(archive, cursors)
+            archive.writestr(f"macOS/{stem}.cape", cape(cursors, theme_name=name, theme_identifier=identifier))
+            write_linux(archive, cursors, outlined=outlined)
         pending.replace(target)
     finally:
         pending.unlink(missing_ok=True)
@@ -259,4 +278,6 @@ def build(windows_zip):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("windows_zip", type=Path, help="ZIP containing the Windows scheme and cursor files")
-    print(build(parser.parse_args().windows_zip))
+    parser.add_argument("--outlined", action="store_true", help="Package an outlined source as a separate theme")
+    arguments = parser.parse_args()
+    print(build(arguments.windows_zip, outlined=arguments.outlined))

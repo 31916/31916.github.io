@@ -5,7 +5,7 @@ The set includes 17 cursors in #CCCCCC on transparent backgrounds, with
 and their actual size at 32 px. The wait-preview.png and working-preview.png
 files show the animation frames.
 
-Normal Select uses a #34393D outline and filled gaps around its #CCCCCC lines.
+The light-gray lines have no outline or fill.
 
 Install the full scheme
 
@@ -26,7 +26,7 @@ In the Pointers tab, select a role and click Browse. Choose the matching
 file from the cursors folder and click Apply when finished.
 
 Windows role             File              Design
-Normal Select            Arrow.cur         Angled 4 with a dark outline and filled gaps
+Normal Select            Arrow.cur         Angled 4
 Help Select              Help.cur          Angled 4 with a thin 2
 Working in Background    AppStarting.ani   Angled 4 with a small rotating 6 and 9
 Busy                     Wait.ani          Rotating 6 and 9

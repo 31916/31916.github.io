@@ -46,7 +46,27 @@
   window.addEventListener("pointerup", releasePointer);
   window.addEventListener("pointercancel", releasePointer);
   document.addEventListener("visibilitychange", schedule);
-  comparison.addEventListener("load", schedule, { once: true });
+  comparison.addEventListener("load", schedule);
+
+  const variants = document.querySelector(".preview-variants");
+  variants.hidden = false;
+  for (const button of variants.querySelectorAll("button")) {
+    button.addEventListener("click", () => {
+      const outlined = button.dataset.variant === "outlined";
+      for (const option of variants.querySelectorAll("button")) {
+        option.setAttribute("aria-pressed", String(option === button));
+      }
+      for (const artwork of [front, back]) {
+        const img = artwork.querySelector("img");
+        img.src = outlined ? img.dataset.outlinedSrc : img.dataset.plainSrc;
+        img.alt = outlined ? img.dataset.outlinedAlt : img.dataset.plainAlt;
+      }
+      rotor.classList.remove("is-flipped");
+      front.inert = false;
+      back.inert = true;
+      schedule();
+    });
+  }
   schedule();
 })();
 

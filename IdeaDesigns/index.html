@@ -21,9 +21,9 @@
   <meta name="twitter:image" content="https://31916.ch/IdeaDesigns/social-d.png">
   <meta name="twitter:image:alt" content="The white Idea Designs D on a black background">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="style.css?v=20261121-filled-four">
-  <link rel="stylesheet" href="/css/cursors.css?v=4">
-  <script src="preview.js?v=20261106-release-share" defer></script>
+  <link rel="stylesheet" href="style.css?v=20261121-two-variants">
+  <link rel="stylesheet" href="/css/cursors.css?v=5">
+  <script src="preview.js?v=20261121-two-variants" defer></script>
   <meta name="theme-color" content="#ffffff">
   <link rel="stylesheet" href="/css/footer.css?v=20261121-one-row-footer">
   <script src="/js/scripts.js?v=20261121-responsive" defer></script>
@@ -44,16 +44,16 @@
           <div class="artwork-stage">
             <div class="artwork-rotor">
               <div class="artwork">
-                <img src="number-cursors-filled.svg" width="640" height="640" alt="A tilted numeral 4 with light-gray lines, a dark outline and dark-filled gaps on black.">
+                <img src="number-cursors-plain.svg" data-plain-src="number-cursors-plain.svg" data-outlined-src="number-cursors-filled.svg" width="640" height="640" alt="A tilted numeral 4 with light-gray lines on black, without an outline." data-plain-alt="A tilted numeral 4 with light-gray lines on black, without an outline." data-outlined-alt="A tilted numeral 4 with light-gray lines, a dark outline and dark-filled gaps on black.">
               </div>
               <div class="artwork artwork-back" inert>
-                <img src="cursor-comparison-filled.png" width="1600" height="1600" alt="All 17 cursor roles. Each pair shows Windows Aero on the left and Number Cursors 4 on the right.">
+                <img src="cursor-comparison-plain.png" data-plain-src="cursor-comparison-plain.png" data-outlined-src="cursor-comparison-outlined.png" width="1600" height="1600" alt="All 17 cursor roles without outlines. Each pair shows Windows Aero on the left and Number Cursors 4 on the right." data-plain-alt="All 17 cursor roles without outlines. Each pair shows Windows Aero on the left and Number Cursors 4 on the right." data-outlined-alt="All 17 cursor roles with dark outlines and filled gaps. Each pair shows Windows Aero on the left and Number Cursors 4 on the right.">
               </div>
             </div>
           </div>
           <noscript>
             <div class="artwork">
-              <img src="cursor-comparison-filled.png" width="1600" height="1600" alt="All 17 cursor roles. Each pair shows Windows Aero on the left and Number Cursors 4 on the right.">
+              <img src="cursor-comparison-plain.png" width="1600" height="1600" alt="All 17 cursor roles. Each pair shows Windows Aero on the left and Number Cursors 4 on the right.">
             </div>
           </noscript>
         </figure>
@@ -70,8 +70,15 @@
           </div>
           <h2 id="cursor-title">Number Cursors 4</h2>
           <div id="downloads">
-            <a class="download" href="/NumberCursors/downloads/Number_Cursors_4.zip" download aria-label="Download Number Cursors 4 for Windows, macOS, and Linux (ZIP)">
-              <span>ZIP</span><span aria-hidden="true">↓</span>
+            <div class="preview-variants" role="group" aria-label="Preview style" hidden>
+              <button type="button" data-variant="plain" aria-pressed="true">Without outline</button>
+              <button type="button" data-variant="outlined" aria-pressed="false">Outlined</button>
+            </div>
+            <a class="download" href="/NumberCursors/downloads/Number_Cursors_4.zip" download aria-label="Download Number Cursors 4 without outlines for Windows, macOS, and Linux (ZIP)">
+              <span>Without outline</span><span>ZIP</span>
+            </a>
+            <a class="download" href="/NumberCursors/downloads/Number_Cursors_4_Outlined.zip" download aria-label="Download Number Cursors 4 with outlines for Windows, macOS, and Linux (ZIP)">
+              <span>Outlined</span><span>ZIP</span>
             </a>
             <div class="instructions" id="setup">
               <details name="platform-setup">
@@ -86,22 +93,22 @@
                     </div>
                     <p id="copy-windows-status" role="status"></p>
                   </li>
-                  <li>In <code>main.cpl</code> → Pointers, apply <strong>Number Cursors v4 (#CCCCCC)</strong>.</li>
+                  <li>In <code>main.cpl</code> → Pointers, apply <strong>Number Cursors v4 (#CCCCCC)</strong> or <strong>Number Cursors v4 (Outlined, #CCCCCC)</strong>, matching your download.</li>
                 </ol>
               </details>
               <details name="platform-setup">
                 <summary>macOS</summary>
                 <ol>
                   <li>Open the <a href="https://github.com/sdmj76/Mousecape-swiftUI/releases/latest">latest Mousecape-swiftUI release</a>. Under Assets, download <code>Mousecape_swiftUI_*.zip</code>, extract it, and move <code>Mousecape.app</code> to Applications (macOS 15 or later).</li>
-                  <li>Extract the ZIP and import <code>macOS/Number_Cursors_4.cape</code> in Mousecape.</li>
-                  <li>Select <strong>Number Cursors 4</strong> and click Apply.</li>
+                  <li>Extract the ZIP and import the <code>.cape</code> file from its <code>macOS</code> folder in Mousecape.</li>
+                  <li>Select <strong>Number Cursors 4</strong> or <strong>Number Cursors 4 (Outlined)</strong>, matching your download, and click Apply.</li>
                 </ol>
               </details>
               <details name="platform-setup">
                 <summary>Linux</summary>
                 <ol>
                   <li>Extract the complete ZIP. Open its <code>Linux</code> folder in a terminal and run <code>sh install.sh</code>. Run it again to install an update.</li>
-                  <li>The installer applies the theme in GNOME. In KDE Plasma, open System Settings → Cursors and apply <strong>Number Cursors 4</strong>.</li>
+                  <li>The installer applies the theme in GNOME. In KDE Plasma, open System Settings → Cursors and apply <strong>Number Cursors 4</strong> or <strong>Number Cursors 4 (Outlined)</strong>, matching your download.</li>
                   <li>Fully quit and reopen applications to reload the theme. After an OS upgrade, log out and back in to restart the desktop.</li>
                   <li>If GNOME Settings still uses the standard cursor in an older Wayland session, fully close Settings and run <code>GDK_BACKEND=x11 gnome-control-center</code>. See <code>Linux/README.txt</code> for details.</li>
                 </ol>

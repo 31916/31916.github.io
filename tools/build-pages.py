@@ -111,6 +111,8 @@ PUBLIC = (
     f"{IDEA_DESIGNS}/social-d.png",
     f"{IDEA_DESIGNS}/sitemap.xml", f"{IDEA_DESIGNS}/number-cursors.svg",
     f"{IDEA_DESIGNS}/number-cursors-filled.svg", f"{IDEA_DESIGNS}/cursor-comparison-filled.png",
+    f"{IDEA_DESIGNS}/number-cursors-plain.svg", f"{IDEA_DESIGNS}/cursor-comparison-plain.png",
+    f"{IDEA_DESIGNS}/cursor-comparison-outlined.png",
     f"{IDEA_DESIGNS}/cursor-comparison-v2.png", f"{IDEA_DESIGNS}/cursor-comparison-v3.png",
     f"{IDEA_DESIGNS}/cursor-comparison-v4.png", f"{IDEA_DESIGNS}/preview.js",
     "NumberCursors/index.html", "NumberCursors/en.html",
@@ -119,6 +121,7 @@ PUBLIC = (
     "NumberCursors/downloads/NumberCursors-1.0.0.zip",
     "NumberCursors/downloads/NumberCursors-v4.zip",
     "NumberCursors/downloads/Number_Cursors_4.zip",
+    "NumberCursors/downloads/Number_Cursors_4_Outlined.zip",
     "NumberCursors/downloads/NumberCursor-4.cur",
     "NumberCursors/downloads/SHA256SUMS.txt",
     "assets/art/number-cursors.png",
@@ -190,7 +193,7 @@ def redirect(page):
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>IMELayoutRouter</title>
   <link rel="canonical" href="https://31916.ch{target}">
-  <link rel="stylesheet" href="/css/cursors.css?v=4">
+  <link rel="stylesheet" href="/css/cursors.css?v=5">
   {sharing}
   <script>location.replace("{target}" + location.search + location.hash);</script>
   <meta http-equiv="refresh" content="0; url={target}">

@@ -7,10 +7,6 @@
     </clipPath>
   </defs>
   <rect width="640" height="640" rx="128" fill="#111"/>
-  <g transform="translate(119 135) scale(8) rotate(-60) translate(-36.4 -5)">
-    <use href="#four" fill="#34393d" stroke="#34393d" stroke-width="4" stroke-linejoin="round"/>
-    <path d="M24.8 24.5l-14.3 18h14.3z" fill="#34393d"/>
-  </g>
   <g transform="translate(119 135) scale(8) rotate(-60) translate(-36.4 -5)" clip-path="url(#outline)">
     <g clip-path="url(#adjusted-slots)">
       <path d="M0 13.644h64v1.8H0z M0 18.528H64V25.212H0Z M0 28.296h64v1.8H0z M0 33.18h64v1.8H0z M0 38.064h64v1.8H0z M0 42.948H64V49.632H0Z M0 52.716H64V60H0Z" fill="#ccc"/>
