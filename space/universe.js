@@ -5,7 +5,8 @@ import { UnrealBloomPass } from './vendor/addons/postprocessing/UnrealBloomPass.
 import { OutputPass } from './vendor/addons/postprocessing/OutputPass.js';
 import { createCelestialEffects } from './celestial.js?v=20261121-posts-performance';
 import { ViewControls } from './view-controls.js';
-import { createSolarSystem, loadSolarModels } from './solar-system.js?v=20261121-posts-performance';
+import { createSolarSystem, loadSolarModels } from './solar-system.js?v=20261121-startup';
+import { sceneAssetsReady } from './scene-assets.js?v=20261121-startup';
 
 const RADIUS = 2.2;
 const ORBIT = RADIUS * 51149 / 25559;
@@ -52,13 +53,17 @@ export async function createUniverse({ canvas, sections, getState, onOpen, onTop
   renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 
   const loader = new THREE.TextureLoader();
+  const assets = await sceneAssetsReady;
   async function texture(name, color = false, atlas = false) {
     const url = `/space/textures/${name}`;
-    let bitmap;
-    if (typeof createImageBitmap === 'function') {
+    let blob = assets?.blob(name);
+    if (!blob) {
       const response = await fetch(url);
       if (!response.ok) throw new Error(`Could not load texture ${name}`);
-      const blob = await response.blob();
+      blob = await response.blob();
+    }
+    let bitmap;
+    if (typeof createImageBitmap === 'function') {
       // Prepare the bitmap before WebGL's first synchronous texture upload.
       bitmap = await createImageBitmap(blob, {
         imageOrientation: atlas ? 'from-image' : 'flipY',
@@ -66,7 +71,13 @@ export async function createUniverse({ canvas, sections, getState, onOpen, onTop
         colorSpaceConversion: 'none',
       }).catch(() => null);
     }
-    const map = bitmap ? new THREE.Texture(bitmap) : await loader.loadAsync(url);
+    let map;
+    if (bitmap) map = new THREE.Texture(bitmap);
+    else {
+      const objectURL = URL.createObjectURL(blob);
+      try { map = await loader.loadAsync(objectURL); }
+      finally { URL.revokeObjectURL(objectURL); }
+    }
     map.colorSpace = color ? THREE.SRGBColorSpace : THREE.NoColorSpace;
     map.anisotropy = Math.min(renderer.capabilities.getMaxAnisotropy(), 8);
     map.flipY = !atlas && !bitmap;
@@ -75,9 +86,10 @@ export async function createUniverse({ canvas, sections, getState, onOpen, onTop
     return map;
   }
   const [clouds, space, solarModels, ...moonMaps] = await Promise.all([
-    texture('uranus-clouds.webp', true), texture('deep-space.webp', true), loadSolarModels(texture),
+    texture('uranus-clouds.webp', true), texture('deep-space.webp', true), loadSolarModels(texture, assets),
     ...[0, 1, 2, 3].flatMap(index => [texture(`moon-${index}-color.webp`, true), texture(`moon-${index}-normal.webp`), texture(`moon-${index}-height.webp`)]),
   ]);
+  assets?.release();
 
   const scene = new THREE.Scene();
   scene.background = new THREE.Color('#10181b');

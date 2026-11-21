@@ -6,6 +6,7 @@ but are not served as website content.
 """
 
 import base64
+import gzip
 import io
 import json
 import re
@@ -32,7 +33,7 @@ POST_CATEGORIES = {
     "qualifications": "資格",
 }
 SPACE_FILES = (
-    "index.html", "simple-view.css", "simple-view.js", "space.css", "space.js",
+    "index.html", "simple-view.css", "simple-view.js", "space.css", "space.js", "scene-assets.js",
     "launch-scene.js", "launch-art.svg", "universe.js", "language.js", "view-controls.js",
     "celestial.js", "solar-system.js", "solar-orbits.js", "ASSETS.md",
     "vendor/three.module.min.js", "vendor/THREE-LICENSE.txt",
@@ -433,11 +434,30 @@ def render_public_html(content, settings=None, projects=None):
     return inline_cursor_styles(source).encode("utf-8")
 
 
+def pack_scene_assets():
+    """Group the original scene files in one losslessly compressed download."""
+    manifest = {}
+    payload = bytearray()
+    for name in SPACE_FILES:
+        if not name.startswith("textures/"):
+            continue
+        content = (ROOT / "space" / name).read_bytes()
+        manifest[name.removeprefix("textures/")] = [len(payload), len(content)]
+        payload.extend(content)
+    header = json.dumps(manifest, separators=(",", ":")).encode("utf-8")
+    return gzip.compress(len(header).to_bytes(4, "little") + header + payload, mtime=0)
+
+
 def build(destination):
     settings = json.loads((ROOT / "assets/identity.json").read_text(encoding="utf-8"))
     projects = load_projects()
     project_images = tuple(project["image"]["src"].lstrip("/") for project in projects["projects"])
     with tarfile.open(destination, "w") as archive:
+        packed_assets = pack_scene_assets()
+        info = tarfile.TarInfo("space/scene-assets.gz")
+        info.size = len(packed_assets)
+        info.mode = 0o644
+        archive.addfile(info, io.BytesIO(packed_assets))
         for name in dict.fromkeys(PUBLIC + identity_assets(settings) + project_images):
             if not (ROOT / name).is_file() or (ROOT / name).is_symlink():
                 raise ValueError(f"Expected a regular public file: {name}")

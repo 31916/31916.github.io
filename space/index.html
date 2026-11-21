@@ -11,8 +11,17 @@
     <link rel="stylesheet" href="/space/space.css?v=20261121-mobile-wrap" />
     <link rel="stylesheet" href="/css/cursors.css?v=5" />
     <script type="importmap">{"imports":{"three":"/space/vendor/three.module.min.js"}}</script>
+    <script>
+      if (typeof DecompressionStream === 'function') {
+        const assets = document.createElement('link');
+        Object.assign(assets, { rel: 'preload', as: 'fetch', href: '/space/scene-assets.gz?v=20261121-startup', crossOrigin: 'anonymous' });
+        document.head.append(assets);
+      }
+    </script>
+    <link rel="preload" href="/space/launch-art.svg" as="image" />
+    <link rel="modulepreload" href="/space/universe.js?v=20261121-startup" />
     <script src="/js/scripts.js?v=20261121-responsive" defer></script>
-    <script type="module" src="/space/space.js?v=20261121-work-categories"></script>
+    <script type="module" src="/space/space.js?v=20261121-startup"></script>
   </head>
   <body>
     <canvas id="universe" aria-hidden="true"></canvas>

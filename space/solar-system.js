@@ -25,10 +25,13 @@ const modelOrientation = { Neptune: Math.PI / 2, Sun: Math.PI / 2 };
 const xAxis = new THREE.Vector3(1, 0, 0);
 const yAxis = new THREE.Vector3(0, 1, 0);
 
-async function loadGeometry(name) {
-  const response = await fetch(`/space/textures/solar/${name}.bin`);
-  if (!response.ok) throw new Error(`Could not load the ${name} model`);
-  const bytes = await response.arrayBuffer();
+async function loadGeometry(name, assets) {
+  let bytes = assets?.buffer(`solar/${name}.bin`);
+  if (!bytes) {
+    const response = await fetch(`/space/textures/solar/${name}.bin`);
+    if (!response.ok) throw new Error(`Could not load the ${name} model`);
+    bytes = await response.arrayBuffer();
+  }
   const [vertices, indices] = new Uint32Array(bytes, 0, 2);
   // Vertices retain the source glTF's face UVs. A spherical UV projection would
   // sample white gaps in the cube atlases.
@@ -41,14 +44,14 @@ async function loadGeometry(name) {
   return geometry;
 }
 
-export async function loadSolarModels(texture) {
+export async function loadSolarModels(texture, assets) {
   const models = bodies.map(async planet => {
     const file = planet.name.toLowerCase();
     const surfaceTask = texture(`solar/${file}.webp`, true, planet !== earth);
     const geometryTask = planet === earth
       // SphereGeometry's UVs follow Blue Marble's linear longitude and latitude.
       ? new THREE.SphereGeometry(1, 96, 64).scale(1, earth.flattening, 1)
-      : loadGeometry(file);
+      : loadGeometry(file, assets);
     const [geometry, surface] = await Promise.all([geometryTask, surfaceTask]);
     return { planet, geometry, surface };
   });

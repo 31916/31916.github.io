@@ -123,19 +123,19 @@ function reveal() {
   entered = true;
   document.body.classList.add('scene-visible');
   document.querySelector('#loading-screen').setAttribute('aria-hidden', 'true');
+  document.querySelector('.masthead').inert = false;
+  document.querySelector('#main').inert = false;
+  document.body.classList.add('scene-interactive');
   setTimeout(() => {
     document.querySelector('#loading-screen').remove();
-    document.querySelector('.masthead').inert = false;
-    document.querySelector('#main').inert = false;
-    document.body.classList.add('scene-interactive');
-  }, reducedMotion.matches ? 0 : 2200);
+  }, reducedMotion.matches ? 0 : 1600);
 }
 function showFallback() {
   document.body.classList.add('fallback');
   document.querySelector('#render-status').textContent = translate('この環境では3Dを表示できません。各項目はそのまま開けます。');
 }
 async function loadUniverse() {
-  const [{ createUniverse }] = await Promise.all([import('./universe.js?v=20261121-panel-layout'), initializeLanguage()]);
+  const [{ createUniverse }] = await Promise.all([import('./universe.js?v=20261121-startup'), initializeLanguage()]);
   universe = await createUniverse({
     canvas, sections: sectionInfo,
     getState: () => ({ paused: reducedMotion.matches, selected, entered, reduced: reducedMotion.matches }),
