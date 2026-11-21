@@ -22,6 +22,8 @@ Public Japanese page links omit `lang=ja` and cache versions. English and German
 
 The home body fills the viewport when its content fits and scrolls naturally on smaller screens. The home header uses the same shared styles as every other portfolio page. Check the home at phone portrait/landscape, tablet and desktop sizes in Japanese, English and German when changing its content.
 
+After the home has loaded and interaction has stopped for 1.5 seconds, it warms the browser's HTTP cache for the Uranus version. Requests run one at a time at low priority, pause between files during interaction or while hidden, and are skipped on reported data-saving or 2G connections. This does not execute the 3D scene. The build generates `space/preload.json` from the current startup references so versioned URLs match those used after navigation. The six-second launch animation and rendering quality are unchanged.
+
 ## Editing the project catalog
 
 To add a project to `assets/projects.json`, copy a catalog entry, assign a unique `id`, and update its title, link and image. Set `category` to `software`, `research`, `idea-design` or `post`. Entries in `post` also populate the Posts page. Set `topic` to `technology`, `languages`, or `qualifications`; filter counts are derived from the catalog. Add translations for new visible text and image descriptions in `assets/translations.json`. The build validates the catalog, renders both listings into HTML, and automatically includes local project images. Page-specific catalog and post styles are in `css/projects.css`.

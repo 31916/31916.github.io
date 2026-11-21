@@ -15,6 +15,7 @@ from html.parser import HTMLParser
 from pathlib import Path
 import sys
 import tarfile
+from urllib.parse import urljoin, urlsplit
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -463,11 +464,46 @@ def pack_scene_assets():
     return packed
 
 
+def space_preload_urls():
+    """Discover the actual startup URLs, including cache versions, without running JS."""
+    head = render_public_html((ROOT / "space/index.html").read_bytes()).decode().split("</head>", 1)[0]
+    imports = json.loads(re.search(r'<script type="importmap">(.*?)</script>', head, re.S)[1])["imports"]
+    urls = [url for url in re.findall(r'(?:src|href)="([^"]+)"', head) if url.startswith("/")]
+    # The launch script is deliberately in the body so the loading canvas already exists.
+    urls.extend(("/space/launch-scene.js", "/space/"))
+    references = re.compile(r'''(?:\bfrom\s+|\bimport\s*(?:\(\s*)?|\bnew\s+URL\(\s*|\bfetch\(\s*)['"]([^'"]+)['"]''')
+    seen = set()
+    index = 0
+    while index < len(urls):
+        url = urls[index]
+        index += 1
+        if url in seen:
+            continue
+        seen.add(url)
+        path = ROOT / urlsplit(url).path.lstrip("/")
+        if path.suffix != ".js":
+            continue
+        source = path.read_text(encoding="utf-8")
+        for reference in references.findall(source):
+            if reference in imports:
+                urls.append(imports[reference])
+            elif reference.startswith(("/", "./", "../")):
+                urls.append(urljoin(url, reference))
+    template = re.search(r'fetch\(`(/space/scene-assets-\$\{index\}\.gz[^`]*)`', (ROOT / "space/scene-assets.js").read_text())[1]
+    packs = [template.replace("${index}", str(index)) for index in range(SCENE_PACK_COUNT)]
+    return list(dict.fromkeys([imports["three"], *packs, *urls]))
+
+
 def build(destination):
     settings = json.loads((ROOT / "assets/identity.json").read_text(encoding="utf-8"))
     projects = load_projects()
     project_images = tuple(project["image"]["src"].lstrip("/") for project in projects["projects"])
     with tarfile.open(destination, "w") as archive:
+        content = json.dumps(space_preload_urls(), separators=(",", ":")).encode("utf-8")
+        info = tarfile.TarInfo("space/preload.json")
+        info.size = len(content)
+        info.mode = 0o644
+        archive.addfile(info, io.BytesIO(content))
         for name, source in PAGE_ALIASES.items():
             content = render_public_html((ROOT / source).read_bytes(), settings, projects)
             info = tarfile.TarInfo(name)

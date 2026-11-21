@@ -6,6 +6,7 @@ import math
 from pathlib import Path
 import runpy
 import unittest
+from urllib.parse import urlsplit
 
 try:
     from PIL import Image
@@ -18,6 +19,24 @@ BUILDER = runpy.run_path(str(ROOT / "tools/build-pages.py"))
 
 
 class SceneAssetsTest(unittest.TestCase):
+    def test_preload_list_only_fetches_published_startup_files(self):
+        urls = BUILDER["space_preload_urls"]()
+        published = set(BUILDER["PUBLIC"]) | set(BUILDER["pack_scene_assets"]())
+        self.assertEqual(len(urls), len(set(urls)))
+        self.assertIn("/space/", urls)
+        self.assertIn("/space/vendor/three.module.min.js", urls)
+        self.assertIn("/space/launch-scene.js", urls)
+        self.assertTrue(any(url.startswith("/space/moon-normal-worker.js?") for url in urls))
+        self.assertEqual(sum(url.startswith("/space/scene-assets-") for url in urls), BUILDER["SCENE_PACK_COUNT"])
+        for url in urls:
+            with self.subTest(url=url):
+                target = urlsplit(url)
+                self.assertFalse(target.netloc or target.scheme)
+                path = target.path.lstrip("/")
+                if path.endswith("/"):
+                    path += "index.html"
+                self.assertIn(path, published)
+
     def test_all_original_files_round_trip(self):
         packs = BUILDER["pack_scene_assets"]()
         self.assertEqual(len(packs), BUILDER["SCENE_PACK_COUNT"])
