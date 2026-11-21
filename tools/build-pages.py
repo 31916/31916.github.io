@@ -22,6 +22,7 @@ CURRENT = "IMELayoutRouter"
 LEGACY = "IMELayOutRouter"
 IDEA_DESIGNS = "IdeaDesigns"
 IMAGE_EXTENSIONS = {".svg", ".png", ".jpg", ".jpeg", ".webp", ".gif", ".avif"}
+SCENE_PACK_COUNT = 6
 PROJECT_CATEGORIES = {
     "software": "ソフトウェア",
     "research": "研究",
@@ -435,17 +436,24 @@ def render_public_html(content, settings=None, projects=None):
 
 
 def pack_scene_assets():
-    """Group the original scene files in one losslessly compressed download."""
-    manifest = {}
-    payload = bytearray()
-    for name in SPACE_FILES:
-        if not name.startswith("textures/"):
-            continue
-        content = (ROOT / "space" / name).read_bytes()
-        manifest[name.removeprefix("textures/")] = [len(payload), len(content)]
-        payload.extend(content)
-    header = json.dumps(manifest, separators=(",", ":")).encode("utf-8")
-    return gzip.compress(len(header).to_bytes(4, "little") + header + payload, mtime=0)
+    """Balance original files across parallel, losslessly compressed downloads."""
+    files = [(name, (ROOT / "space" / name).read_bytes()) for name in SPACE_FILES if name.startswith("textures/")]
+    groups = [[] for _ in range(SCENE_PACK_COUNT)]
+    sizes = [0] * SCENE_PACK_COUNT
+    for name, content in sorted(files, key=lambda item: len(item[1]), reverse=True):
+        group = min(range(SCENE_PACK_COUNT), key=sizes.__getitem__)
+        groups[group].append((name, content))
+        sizes[group] += len(content)
+    packed = {}
+    for index, files in enumerate(groups):
+        manifest = {}
+        payload = bytearray()
+        for name, content in files:
+            manifest[name.removeprefix("textures/")] = [len(payload), len(content)]
+            payload.extend(content)
+        header = json.dumps(manifest, separators=(",", ":")).encode("utf-8")
+        packed[f"space/scene-assets-{index}.gz"] = gzip.compress(len(header).to_bytes(4, "little") + header + payload, mtime=0)
+    return packed
 
 
 def build(destination):
@@ -453,11 +461,11 @@ def build(destination):
     projects = load_projects()
     project_images = tuple(project["image"]["src"].lstrip("/") for project in projects["projects"])
     with tarfile.open(destination, "w") as archive:
-        packed_assets = pack_scene_assets()
-        info = tarfile.TarInfo("space/scene-assets.gz")
-        info.size = len(packed_assets)
-        info.mode = 0o644
-        archive.addfile(info, io.BytesIO(packed_assets))
+        for name, content in pack_scene_assets().items():
+            info = tarfile.TarInfo(name)
+            info.size = len(content)
+            info.mode = 0o644
+            archive.addfile(info, io.BytesIO(content))
         for name in dict.fromkeys(PUBLIC + identity_assets(settings) + project_images):
             if not (ROOT / name).is_file() or (ROOT / name).is_symlink():
                 raise ValueError(f"Expected a regular public file: {name}")

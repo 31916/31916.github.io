@@ -5,8 +5,8 @@ import { UnrealBloomPass } from './vendor/addons/postprocessing/UnrealBloomPass.
 import { OutputPass } from './vendor/addons/postprocessing/OutputPass.js';
 import { createCelestialEffects } from './celestial.js?v=20261121-posts-performance';
 import { ViewControls } from './view-controls.js';
-import { createSolarSystem, loadSolarModels } from './solar-system.js?v=20261121-startup';
-import { sceneAssetsReady } from './scene-assets.js?v=20261121-startup';
+import { createSolarSystem, loadSolarModels } from './solar-system.js?v=20261121-startup2';
+import { sceneAssetsReady } from './scene-assets.js?v=20261121-startup2';
 
 const RADIUS = 2.2;
 const ORBIT = RADIUS * 51149 / 25559;
