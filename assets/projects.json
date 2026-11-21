@@ -65,8 +65,8 @@
     },
     {
       "id": "google-forms-profile",
-      "category": "post",
-      "type": "IT・技術",
+      "category": "software",
+      "type": "ソフトウェア",
       "tech": "Google Apps Script",
       "title": "Googleフォームで履歴書を自動作成し、メールで送る方法",
       "description": "フォームの応募情報から履歴書とPDFを自動作成し、Gmailでコピーを送信。無料テンプレートと実際の画面で、導入手順を紹介します。",

@@ -21,7 +21,7 @@ let universe;
 
 function sectionURL(id) {
   const info = sectionInfo[id];
-  return info.path + '?lang=' + getLanguage() + '&v=20261121-resume-transfer';
+  return info.path + '?lang=' + getLanguage() + '&v=20261121-work-categories';
 }
 function refreshPanel(reload = false) {
   if (!selected) return;

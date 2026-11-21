@@ -25,7 +25,6 @@ PROJECT_CATEGORIES = {
     "software": "ソフトウェア",
     "research": "研究",
     "idea-design": "アイデアデザイン",
-    "post": "投稿",
 }
 POST_CATEGORIES = {
     "technology": "IT・技術",
@@ -248,7 +247,7 @@ def load_projects(settings=None):
                 raise ValueError(f"Project {identifier} needs nonempty {field}")
         if project.get("category") not in PROJECT_CATEGORIES:
             raise ValueError(f"Project {identifier} category must be one of {', '.join(PROJECT_CATEGORIES)}")
-        if project["category"] == "post" and project.get("topic", "technology") not in POST_CATEGORIES:
+        if "topic" in project and project["topic"] not in POST_CATEGORIES:
             raise ValueError(f"Post {identifier} has an unknown topic")
         href = project["href"]
         if not (href.startswith("https://") or (href.startswith("/") and not href.startswith("//"))):
@@ -302,7 +301,7 @@ def render_project_filters(settings):
 
 def render_project_card(project, category, label):
     """One card layout for every work and post: image, caption, arrow, description."""
-    target = '' if project["category"] == "post" else ' target="_blank" rel="noopener"'
+    target = '' if "topic" in project else ' target="_blank" rel="noopener"'
     image_class = "project-image"
     if project["image"].get("class"):
         image_class += " " + project["image"]["class"]
@@ -327,10 +326,10 @@ def render_project_catalog(settings, *, posts_only=False):
     """Choose entries and labels; visual markup always comes from the shared card."""
     cards = []
     for project in settings["projects"]:
-        if posts_only and project["category"] != "post":
+        if posts_only and "topic" not in project:
             continue
-        category = project.get("topic", "technology") if posts_only else project["category"]
-        label = project["type"] if posts_only else PROJECT_CATEGORIES[project["category"]]
+        category = project["topic"] if posts_only else project["category"]
+        label = POST_CATEGORIES[project["topic"]] if posts_only else PROJECT_CATEGORIES[project["category"]]
         cards.append(render_project_card(project, category, label))
     return "\n".join(cards)
 
@@ -340,7 +339,7 @@ def render_post_list(settings):
 
 
 def render_post_filters(settings):
-    topics = [project.get("topic", "technology") for project in settings["projects"] if project["category"] == "post"]
+    topics = [project["topic"] for project in settings["projects"] if "topic" in project]
     buttons = ['<button data-filter="all" type="button" aria-pressed="true">すべて</button>']
     for category, label in POST_CATEGORIES.items():
         buttons.append(
