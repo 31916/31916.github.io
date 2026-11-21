@@ -239,3 +239,54 @@ html:lang(de) .hobby-section-content {
     padding-top: 1.75rem;
   }
 }
+@media (max-width: 600px) {
+  .club-history table,
+  .club-history tbody {
+    display: block;
+  }
+  .club-history caption {
+    display: block;
+  }
+  .club-history thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+  }
+  .club-history tbody tr {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 0.125rem 0.75rem;
+  }
+  .club-history tbody tr + tr {
+    margin-top: 1rem;
+  }
+  .club-history td,
+  .club-history tbody tr + tr td {
+    padding: 0;
+  }
+  .club-history td:nth-child(2) {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
+  .club-history td:last-child {
+    grid-column: 2;
+    grid-row: 1;
+  }
+  .tournament-meta,
+  html:is(:lang(en), :lang(de)) .tournament-meta {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .interest-list a {
+    word-break: keep-all;
+    overflow-wrap: anywhere;
+  }
+  .interest-list > li,
+  .tournament-name {
+    text-wrap: pretty;
+  }
+  .interest-series span {
+    display: inline-block;
+  }
+}

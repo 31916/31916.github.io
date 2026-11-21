@@ -21,7 +21,7 @@ let universe;
 
 function sectionURL(id) {
   const info = sectionInfo[id];
-  return info.path + '?lang=' + getLanguage();
+  return info.path + '?lang=' + getLanguage() + '&v=20261121-mobile-wrap';
 }
 function refreshPanel(reload = false) {
   if (!selected) return;
