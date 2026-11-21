@@ -1,4 +1,4 @@
-import { initializeLanguage, getLanguage, translate } from './language.js?v=20261121-posts-performance';
+import { initializeLanguage, getLanguage, translate } from './language.js?v=20261121-clean-urls';
 
 const sectionInfo = {
   projects: { title: '制作物', path: '/projects/', size: .31, color: '#cbbc99' },
@@ -21,7 +21,7 @@ let universe;
 
 function sectionURL(id) {
   const info = sectionInfo[id];
-  return info.path + '?lang=' + getLanguage() + '&v=20261121-work-categories';
+  return info.path + (getLanguage() === 'ja' ? '' : '?lang=' + getLanguage());
 }
 function refreshPanel(reload = false) {
   if (!selected) return;
@@ -113,8 +113,8 @@ frame.addEventListener('load', () => {
 
 document.addEventListener('portfolio:languagechange', () => {
   const language = getLanguage();
-  simpleLink.href = `/?lang=${language}`;
-  document.querySelector('#return-top').href = `/?lang=${language}`;
+  simpleLink.href = '/' + (language === 'ja' ? '' : `?lang=${language}`);
+  document.querySelector('#return-top').href = simpleLink.href;
   document.querySelector('#contact .footer-bottom a').href = simpleLink.href;
   refreshPanel(true);
 });

@@ -7,16 +7,18 @@ Personal portfolio at **https://31916.ch/**. Plain HTML, CSS, JavaScript and ori
 - `index.html`: a home with an introduction and contact links to GitHub and X.
 - `projects/index.html` lists projects with Software, Research, Idea Designs and Posts filters. Technical posts also appear in this catalog.
 - `posts/index.html` is the independent Posts navigation page, with IT & technology, Languages and Qualifications filters. It uses the same linked cards and arrows as Projects, without a visible introduction block.
-- `google-forms-profile/` explains applicant-profile automation with Google Apps Script, links to copyable native Google templates, and provides `setup.gs`. Actual screenshots cover setup, generated documents, PDF output and Gmail delivery. Its search indexing remains disabled.
+- `google-forms-profile/` publishes at `/automation/` and explains applicant-profile automation with Google Apps Script, links to copyable native Google templates, and provides `setup.gs`. Actual screenshots cover setup, generated documents, PDF output and Gmail delivery. Its search indexing remains disabled.
 - `resume/index.html`: separate education and work timelines, a qualifications list, and a technology stack with icons.
 - `about/index.html`: compatibility redirect to Resume.
 - `hobbies/index.html`: sports with experience, clubs and results, games, anime and manga. Styles are in `css/hobbies.css`.
-- `IMELayoutRouter/`: existing product website and installer distribution.
-- `IdeaDesigns/` hosts Idea Designs in English. Add each release as its own article with a unique, stable ID. Its Share button uses that ID as the link fragment. `Design/` and `Design/en.html` redirect to Idea Designs.
+- `IMELayoutRouter/`: product website sources, published at `/ime/` and `/ime/en/`, and installer distribution.
+- `IdeaDesigns/` publishes Idea Designs in English at `/design/`. Add each release as its own article with a unique, stable ID. Its Share button uses that ID as the link fragment. `Design/` and `Design/en.html` redirect to `/design/`.
 - `NumberCursors/`: cursor release assets and redirects from the original download pages.
 - `404.html`: missing-page recovery.
 
 Shared portfolio styles are in `css/styles.css`; navigation and project filters are in `js/scripts.js`. Resume adds `css/resume.css`. Header markup is static in each page. The build renders `assets/footer.html` into every active portfolio and product page; `css/footer.css` keeps contact information and copyright in the normal document flow. Update the stylesheet/script version query in each page when changing these files.
+
+Public Japanese page links omit `lang=ja` and cache versions. English and German portfolio links retain `?lang=en` and `?lang=de`. The build publishes the short product routes from the existing source files; shared navigation normalizes old page addresses while preserving fragments and meaningful parameters. Existing installer URLs remain available without duplicating the installer files for the new page routes.
 
 The home body fills the viewport when its content fits and scrolls naturally on smaller screens. The home header uses the same shared styles as every other portfolio page. Check the home at phone portrait/landscape, tablet and desktop sizes in Japanese, English and German when changing its content.
 
@@ -26,7 +28,7 @@ To add a project to `assets/projects.json`, copy a catalog entry, assign a uniqu
 
 The checked-in HTML includes the current cards for direct preview. After editing the catalog, preview the generated `tools/build-pages.py` output to see the new selection; deployment always uses the catalog. On Windows, extract current paths only for preview, excluding the case-sensitive `IMELayOutRouter/` aliases to avoid overwriting the current product directory.
 
-The IMELayoutRouter project card uses the existing, uncropped `IMELayoutRouter/social-ja-v2.png` social image and links to `/IMELayoutRouter/`. Product files and downloads remain maintained separately.
+The IMELayoutRouter project card uses the existing, uncropped `IMELayoutRouter/social-ja-v2.png` social image and links to `/ime/`. Product files and downloads remain maintained separately.
 
 ## Changing identity images
 

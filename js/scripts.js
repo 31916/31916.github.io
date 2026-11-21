@@ -1,5 +1,31 @@
 "use strict";
 
+const pageAliases = {
+  "/IMELayoutRouter/": "/ime/",
+  "/IMELayoutRouter/en.html": "/ime/en/",
+  "/IMELayOutRouter/": "/ime/",
+  "/IMELayOutRouter/en.html": "/ime/en/",
+  "/IdeaDesigns/": "/design/",
+  "/google-forms-profile/": "/automation/",
+};
+const cleanPagePaths = new Set([
+  "/", "/projects/", "/posts/", "/resume/", "/hobbies/", "/space/", "/404.html",
+  ...Object.values(pageAliases),
+]);
+const cleanPageURL = new URL(location.href);
+const indexPath = cleanPageURL.pathname.replace(/\/index\.html$/, "/");
+const cleanPath = pageAliases[indexPath] ?? indexPath;
+if (cleanPagePaths.has(cleanPath)) {
+  cleanPageURL.pathname = cleanPath;
+  cleanPageURL.searchParams.delete("v");
+  if (cleanPageURL.searchParams.get("lang") === "ja") {
+    try { localStorage.setItem("31916-language", "ja"); } catch { /* URL cleanup also works without storage. */ }
+    cleanPageURL.searchParams.delete("lang");
+  }
+  if (!document.getElementById("site-language")) cleanPageURL.searchParams.delete("lang");
+  if (cleanPageURL.href !== location.href) history.replaceState(history.state, "", cleanPageURL);
+}
+
 const siteHeader = document.querySelector(".site-header");
 if (siteHeader) {
   const updateHeaderHeight = () => {
@@ -17,7 +43,7 @@ document.querySelectorAll("[data-year]").forEach((node) => {
 });
 
 document.querySelectorAll(".site-header nav a").forEach((link) => {
-  const path = window.location.pathname.startsWith("/google-forms-profile/") ? "/posts/" : window.location.pathname;
+  const path = window.location.pathname.startsWith("/automation/") ? "/posts/" : window.location.pathname;
   if (link.getAttribute("href") === path) {
     link.setAttribute("aria-current", "page");
   }

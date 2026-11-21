@@ -23,6 +23,12 @@ LEGACY = "IMELayOutRouter"
 IDEA_DESIGNS = "IdeaDesigns"
 IMAGE_EXTENSIONS = {".svg", ".png", ".jpg", ".jpeg", ".webp", ".gif", ".avif"}
 SCENE_PACK_COUNT = 6
+PAGE_ALIASES = {
+    "ime/index.html": f"{CURRENT}/index.html",
+    "ime/en/index.html": f"{CURRENT}/en.html",
+    "design/index.html": f"{IDEA_DESIGNS}/index.html",
+    "automation/index.html": "google-forms-profile/index.html",
+}
 PROJECT_CATEGORIES = {
     "software": "ソフトウェア",
     "research": "研究",
@@ -185,7 +191,7 @@ def share_metadata(page):
 
 
 def redirect(page):
-    target = f"/{CURRENT}/" + ("en.html" if page == "en.html" else "")
+    target = "/ime/" + ("en/" if page == "en.html" else "")
     language = "en" if page == "en.html" else "ja"
     sharing = share_metadata(f"{CURRENT}/{page}")
     return inline_cursor_styles(f'''<!doctype html>
@@ -462,6 +468,12 @@ def build(destination):
     projects = load_projects()
     project_images = tuple(project["image"]["src"].lstrip("/") for project in projects["projects"])
     with tarfile.open(destination, "w") as archive:
+        for name, source in PAGE_ALIASES.items():
+            content = render_public_html((ROOT / source).read_bytes(), settings, projects)
+            info = tarfile.TarInfo(name)
+            info.size = len(content)
+            info.mode = 0o644
+            archive.addfile(info, io.BytesIO(content))
         for name, content in pack_scene_assets().items():
             info = tarfile.TarInfo(name)
             info.size = len(content)

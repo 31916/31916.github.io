@@ -67,7 +67,9 @@ export async function initializeLanguage() {
     if (remember) {
       try { localStorage.setItem(storageKey, next); } catch { /* URL selection remains available. */ }
       const url = new URL(location.href);
-      url.searchParams.set('lang', next);
+      url.searchParams.delete('v');
+      if (next === 'ja') url.searchParams.delete('lang');
+      else url.searchParams.set('lang', next);
       history.replaceState(history.state, '', url);
     }
     document.dispatchEvent(new CustomEvent('portfolio:languagechange', { detail: { language: next } }));

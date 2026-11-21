@@ -7,7 +7,7 @@
       "tech": "Windows / C#",
       "title": "IMELayoutRouter",
       "description": "IMEで英数字を入力するときに、使い慣れたキーボード配列で打てるようにするWindows用ソフトです。",
-      "href": "/IMELayoutRouter/",
+      "href": "/ime/",
       "image": {
         "src": "/IMELayoutRouter/social-ja-v2.png",
         "width": 1200,
@@ -54,7 +54,7 @@
       "tech": "Windows, macOS & Linux",
       "title": "Number Cursors 4",
       "description": "マウスカーソルが数字の4に似ていると思い、デザインしてみました。",
-      "href": "/IdeaDesigns/",
+      "href": "/design/",
       "image": {
         "src": "/IdeaDesigns/number-cursors.svg",
         "width": 640,
@@ -70,7 +70,7 @@
       "tech": "Google Apps Script",
       "title": "Googleフォームで履歴書を自動作成し、メールで送る方法",
       "description": "フォームの応募情報から履歴書とPDFを自動作成し、Gmailでコピーを送信。無料テンプレートと実際の画面で、導入手順を紹介します。",
-      "href": "/google-forms-profile/",
+      "href": "/automation/",
       "image": {
         "src": "/assets/art/google-forms-profile.svg",
         "width": 1200,

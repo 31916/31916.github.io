@@ -101,12 +101,14 @@
       const url = new URL(source, location.href);
       if (url.origin !== location.origin) return;
       if (portfolioPaths.has(url.pathname)) {
-        url.searchParams.set("lang", language);
+        url.searchParams.delete("v");
+        if (language === "ja") url.searchParams.delete("lang");
+        else url.searchParams.set("lang", language);
         node.setAttribute("href", url.pathname + url.search + url.hash);
-      } else if (source === "/IMELayoutRouter/") {
+      } else if (source === "/ime/" || source === "/IMELayoutRouter/") {
         node.setAttribute(
           "href",
-          language === "ja" ? source : "/IMELayoutRouter/en.html",
+          language === "ja" ? "/ime/" : "/ime/en/",
         );
       }
     });
@@ -122,7 +124,8 @@
         /* Optional persistence. */
       }
       const url = new URL(location.href);
-      url.searchParams.set("lang", language);
+      if (language === "ja") url.searchParams.delete("lang");
+      else url.searchParams.set("lang", language);
       history.replaceState(history.state, "", url);
     }
     document.dispatchEvent(
