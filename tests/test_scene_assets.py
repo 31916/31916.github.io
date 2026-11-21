@@ -2,9 +2,15 @@
 
 import gzip
 import json
+import math
 from pathlib import Path
 import runpy
 import unittest
+
+try:
+    from PIL import Image
+except ImportError:
+    Image = None
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -31,9 +37,26 @@ class SceneAssetsTest(unittest.TestCase):
                     )
         expected = {
             name.removeprefix("textures/")
-            for name in BUILDER["SPACE_FILES"] if name.startswith("textures/")
+            for name in BUILDER["SPACE_FILES"] if name.startswith("textures/") and not name.endswith("-normal.webp")
         }
         self.assertEqual(actual, expected)
+
+    @unittest.skipUnless(Image, "Pillow is required to compare decoded texture pixels")
+    def test_height_maps_reproduce_original_normals(self):
+        for index in range(4):
+            with self.subTest(moon=index):
+                with Image.open(ROOT / f"space/textures/moon-{index}-height.webp") as image:
+                    width, height = image.size
+                    terrain = image.convert("L").tobytes()
+                normals = bytearray()
+                for y in range(height):
+                    for x in range(width):
+                        dx = (terrain[y * width + (x - 1) % width] - terrain[y * width + (x + 1) % width]) / 255 * 5
+                        dy = (terrain[max(0, y - 1) * width + x] - terrain[min(height - 1, y + 1) * width + x]) / 255 * 5
+                        length = math.sqrt(dx * dx + dy * dy + 1)
+                        normals.extend(round(127.5 + 127.5 * component / length) for component in (dx, dy, 1))
+                with Image.open(ROOT / f"space/textures/moon-{index}-normal.webp") as image:
+                    self.assertEqual(normals, image.convert("RGB").tobytes())
 
 
 if __name__ == "__main__":

@@ -6,7 +6,7 @@ export const sceneAssetsReady = typeof DecompressionStream === 'function'
   : Promise.resolve(null);
 
 async function loadPack(index, signal) {
-  const response = await fetch(`/space/scene-assets-${index}.gz?v=20261121-startup2`, { signal });
+  const response = await fetch(`/space/scene-assets-${index}.gz?v=20261121-startup3`, { signal });
   if (!response.ok) throw new Error(`Could not load scene assets: ${response.status}`);
   const stream = response.body.pipeThrough(new DecompressionStream('gzip'));
   const bytes = await new Response(stream).arrayBuffer();

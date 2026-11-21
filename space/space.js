@@ -135,7 +135,7 @@ function showFallback() {
   document.querySelector('#render-status').textContent = translate('この環境では3Dを表示できません。各項目はそのまま開けます。');
 }
 async function loadUniverse() {
-  const [{ createUniverse }] = await Promise.all([import('./universe.js?v=20261121-startup2'), initializeLanguage()]);
+  const [{ createUniverse }] = await Promise.all([import('./universe.js?v=20261121-startup3'), initializeLanguage()]);
   universe = await createUniverse({
     canvas, sections: sectionInfo,
     getState: () => ({ paused: reducedMotion.matches, selected, entered, reduced: reducedMotion.matches }),

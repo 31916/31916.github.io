@@ -5,8 +5,8 @@ import { UnrealBloomPass } from './vendor/addons/postprocessing/UnrealBloomPass.
 import { OutputPass } from './vendor/addons/postprocessing/OutputPass.js';
 import { createCelestialEffects } from './celestial.js?v=20261121-posts-performance';
 import { ViewControls } from './view-controls.js';
-import { createSolarSystem, loadSolarModels } from './solar-system.js?v=20261121-startup2';
-import { sceneAssetsReady } from './scene-assets.js?v=20261121-startup2';
+import { createSolarSystem, loadSolarModels } from './solar-system.js?v=20261121-startup3';
+import { sceneAssetsReady } from './scene-assets.js?v=20261121-startup3';
 
 const RADIUS = 2.2;
 const ORBIT = RADIUS * 51149 / 25559;
@@ -53,6 +53,28 @@ export async function createUniverse({ canvas, sections, getState, onOpen, onTop
   renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 
   const loader = new THREE.TextureLoader();
+  let normalWorker, normalJob = 0;
+  const normalJobs = new Map();
+  function disposeNormals() {
+    normalWorker?.terminate();
+    normalWorker = null;
+    for (const job of normalJobs.values()) job.reject(new Error('Normal map worker unavailable'));
+    normalJobs.clear();
+  }
+  if (typeof Worker === 'function' && typeof OffscreenCanvas === 'function' &&
+      typeof createImageBitmap === 'function' && typeof DecompressionStream === 'function') {
+    try {
+      normalWorker = new Worker(new URL('./moon-normal-worker.js?v=20261121-startup3', import.meta.url), { type: 'module' });
+      normalWorker.onmessage = ({ data }) => {
+        const job = normalJobs.get(data.id);
+        if (!job) return;
+        normalJobs.delete(data.id);
+        if (data.error) job.reject(new Error(data.error));
+        else job.resolve(data);
+      };
+      normalWorker.onerror = event => { event.preventDefault(); disposeNormals(); };
+    } catch { normalWorker = null; }
+  }
   const assets = await sceneAssetsReady;
   async function texture(name, color = false, atlas = false) {
     const url = `/space/textures/${name}`;
@@ -85,10 +107,32 @@ export async function createUniverse({ canvas, sections, getState, onOpen, onTop
     if (bitmap) map.needsUpdate = true;
     return map;
   }
+  async function moonNormal(index) {
+    const name = `moon-${index}-normal.webp`;
+    if (!assets || !normalWorker) return texture(name);
+    try {
+      const blob = assets.blob(`moon-${index}-height.webp`);
+      if (!blob) return texture(name);
+      const data = await new Promise((resolve, reject) => {
+        const id = ++normalJob;
+        normalJobs.set(id, { resolve, reject });
+        normalWorker.postMessage({ id, blob });
+      });
+      const map = new THREE.DataTexture(new Uint8Array(data.pixels), data.width, data.height);
+      map.magFilter = THREE.LinearFilter;
+      map.minFilter = THREE.LinearMipmapLinearFilter;
+      map.generateMipmaps = true;
+      map.wrapS = THREE.RepeatWrapping;
+      map.anisotropy = Math.min(renderer.capabilities.getMaxAnisotropy(), 8);
+      map.needsUpdate = true;
+      return map;
+    } catch { return texture(name); }
+  }
   const [clouds, space, solarModels, ...moonMaps] = await Promise.all([
     texture('uranus-clouds.webp', true), texture('deep-space.webp', true), loadSolarModels(texture, assets),
-    ...[0, 1, 2, 3].flatMap(index => [texture(`moon-${index}-color.webp`, true), texture(`moon-${index}-normal.webp`), texture(`moon-${index}-height.webp`)]),
+    ...[0, 1, 2, 3].flatMap(index => [texture(`moon-${index}-color.webp`, true), moonNormal(index), texture(`moon-${index}-height.webp`)]),
   ]);
+  disposeNormals();
   assets?.release();
 
   const scene = new THREE.Scene();

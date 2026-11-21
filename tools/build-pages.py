@@ -34,7 +34,7 @@ POST_CATEGORIES = {
     "qualifications": "資格",
 }
 SPACE_FILES = (
-    "index.html", "simple-view.css", "simple-view.js", "space.css", "space.js", "scene-assets.js",
+    "index.html", "simple-view.css", "simple-view.js", "space.css", "space.js", "scene-assets.js", "moon-normal-worker.js",
     "launch-scene.js", "launch-art.svg", "universe.js", "language.js", "view-controls.js",
     "celestial.js", "solar-system.js", "solar-orbits.js", "ASSETS.md",
     "vendor/three.module.min.js", "vendor/THREE-LICENSE.txt",
@@ -437,7 +437,8 @@ def render_public_html(content, settings=None, projects=None):
 
 def pack_scene_assets():
     """Balance original files across parallel, losslessly compressed downloads."""
-    files = [(name, (ROOT / "space" / name).read_bytes()) for name in SPACE_FILES if name.startswith("textures/")]
+    files = [(name, (ROOT / "space" / name).read_bytes()) for name in SPACE_FILES
+             if name.startswith("textures/") and not name.endswith("-normal.webp")]
     groups = [[] for _ in range(SCENE_PACK_COUNT)]
     sizes = [0] * SCENE_PACK_COUNT
     for name, content in sorted(files, key=lambda item: len(item[1]), reverse=True):
