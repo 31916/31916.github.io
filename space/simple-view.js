@@ -3,7 +3,7 @@ const query = new URLSearchParams(location.search);
 
 if (query.get('view') === 'space') {
   const destination = new URL('/space/', location.origin);
-  destination.searchParams.set('v', '20261121-mobile-wrap');
+  destination.searchParams.set('v', '20261121-resume-transfer');
   const language = query.get('lang');
   if (Object.hasOwn(labels, language)) destination.searchParams.set('lang', language);
   destination.hash = location.hash;
@@ -13,7 +13,7 @@ if (query.get('view') === 'space') {
   function updateLink() {
     const language = document.documentElement.lang;
     link.querySelector('span').textContent = labels[language] ?? labels.ja;
-    link.href = `/space/?lang=${language}&v=20261121-mobile-wrap`;
+    link.href = `/space/?lang=${language}&v=20261121-resume-transfer`;
   }
   document.addEventListener('portfolio:languagechange', updateLink);
   updateLink();

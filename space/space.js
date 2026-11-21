@@ -21,7 +21,7 @@ let universe;
 
 function sectionURL(id) {
   const info = sectionInfo[id];
-  return info.path + '?lang=' + getLanguage() + '&v=20261121-mobile-wrap';
+  return info.path + '?lang=' + getLanguage() + '&v=20261121-resume-transfer';
 }
 function refreshPanel(reload = false) {
   if (!selected) return;
