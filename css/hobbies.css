@@ -65,31 +65,6 @@
 .club-disclosure {
   width: min(100%, 33.75rem);
 }
-.hobby-disclosure > summary {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  list-style: none;
-}
-.hobby-disclosure > summary::-webkit-details-marker {
-  display: none;
-}
-.hobby-disclosure > summary::marker {
-  content: "";
-}
-.hobby-disclosure > summary svg {
-  width: 1rem;
-  height: 1rem;
-  flex: 0 0 auto;
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 1.5;
-  transition: transform 180ms ease;
-}
-.hobby-disclosure[open] > summary svg {
-  transform: rotate(180deg);
-}
 .sport-disclosure > summary {
   justify-content: flex-start;
   gap: 0.5rem;

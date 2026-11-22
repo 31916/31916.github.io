@@ -14,6 +14,16 @@
   font-weight: 500;
   letter-spacing: 0.04em;
 }
+.resume-disclosure > summary {
+  justify-content: flex-start;
+  gap: 0.5rem;
+}
+.resume-disclosure > summary .resume-section-heading {
+  margin-bottom: 0;
+}
+.resume-disclosure[open] > summary {
+  margin-bottom: 1.75rem;
+}
 .resume-timeline {
   margin: 0;
   padding: 0;
@@ -148,6 +158,9 @@ html:lang(de) .qualification-entry > a {
   }
   .resume-section-heading {
     font-size: 1.125rem;
+    margin-bottom: 1.375rem;
+  }
+  .resume-disclosure[open] > summary {
     margin-bottom: 1.375rem;
   }
   .resume-event {

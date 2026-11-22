@@ -22,8 +22,8 @@
       href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400..600&family=Noto+Sans+JP:wght@400..600&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="/css/styles.css?v=20261121-responsive" />
-    <link rel="stylesheet" href="/css/resume.css?v=20261121-responsive" />
+    <link rel="stylesheet" href="/css/styles.css?v=20261122-disclosures" />
+    <link rel="stylesheet" href="/css/resume.css?v=20261122-education" />
     <link rel="stylesheet" href="/css/cursors.css?v=5" />
     <script src="/js/scripts.js?v=20261121-clean-urls" defer></script>
     <script src="/js/i18n.js?v=20261121-clean-urls" defer></script>
@@ -66,10 +66,42 @@
       <div class="resume-content">
         <section
           class="resume-section"
+          id="experience"
+          aria-labelledby="experience-heading"
+        >
+          <h2 class="resume-section-heading" id="experience-heading">経歴</h2>
+          <ol class="resume-timeline">
+            <li class="resume-event">
+              <time class="resume-date" datetime="2027-04">2027年4月</time>
+              <p class="resume-event-name">
+                <a class="resume-inline-link" href="https://corporate.bosch.co.jp/" target="_blank" rel="noopener noreferrer">ボッシュ株式会社（日本法人） 入社予定</a>
+              </p>
+            </li>
+            <li class="resume-event">
+              <time class="resume-date" datetime="2025-06">2025年6月</time>
+              <p class="resume-event-name">
+                <a class="resume-inline-link" href="https://lasteforce.com/company.html#company-member" target="_blank" rel="noopener noreferrer">株式会社ラスタ インターン採用（在籍中）</a>
+              </p>
+            </li>
+            <li class="resume-event">
+              <time class="resume-date" datetime="2025-03">2025年3月</time>
+              <p class="resume-event-name">
+                <a class="resume-inline-link" href="https://clan-entertainment.com/" target="_blank" rel="noopener noreferrer">株式会社ClaN Entertainment グローバル事業部 インターン採用（在籍中）</a>
+              </p>
+            </li>
+          </ol>
+        </section>
+        <details
+          class="resume-section resume-disclosure"
           id="education"
           aria-labelledby="education-heading"
         >
-          <h2 class="resume-section-heading" id="education-heading">学歴</h2>
+          <summary>
+            <h2 class="resume-section-heading" id="education-heading">学歴</h2>
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="m6 9 6 6 6-6" />
+            </svg>
+          </summary>
           <ol class="resume-timeline">
             <li class="resume-event">
               <time class="resume-date" datetime="2027-03">2027年3月</time>
@@ -102,34 +134,7 @@
               </p>
             </li>
           </ol>
-        </section>
-        <section
-          class="resume-section"
-          id="experience"
-          aria-labelledby="experience-heading"
-        >
-          <h2 class="resume-section-heading" id="experience-heading">経歴</h2>
-          <ol class="resume-timeline">
-            <li class="resume-event">
-              <time class="resume-date" datetime="2027-04">2027年4月</time>
-              <p class="resume-event-name">
-                <a class="resume-inline-link" href="https://corporate.bosch.co.jp/" target="_blank" rel="noopener noreferrer">ボッシュ株式会社（日本法人） 入社予定</a>
-              </p>
-            </li>
-            <li class="resume-event">
-              <time class="resume-date" datetime="2025-06">2025年6月</time>
-              <p class="resume-event-name">
-                <a class="resume-inline-link" href="https://lasteforce.com/company.html#company-member" target="_blank" rel="noopener noreferrer">株式会社ラスタ インターン採用（在籍中）</a>
-              </p>
-            </li>
-            <li class="resume-event">
-              <time class="resume-date" datetime="2025-03">2025年3月</time>
-              <p class="resume-event-name">
-                <a class="resume-inline-link" href="https://clan-entertainment.com/" target="_blank" rel="noopener noreferrer">株式会社ClaN Entertainment グローバル事業部 インターン採用（在籍中）</a>
-              </p>
-            </li>
-          </ol>
-        </section>
+        </details>
         <section
           class="resume-section"
           id="languages"
