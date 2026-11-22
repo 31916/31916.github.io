@@ -475,16 +475,12 @@ export async function createUniverse({ canvas, sections, getState, onOpen, onTop
   const dragSurface = document.body;
   const dragStart = new THREE.Vector2();
   let dragged = false, pressedSatellite = null;
-  let viewReturnStart = null;
-  const returnOrientation = new THREE.Quaternion();
-  const homeOrientation = new THREE.Quaternion();
-  const homeLookMatrix = new THREE.Matrix4();
   const upright = new THREE.Vector3(0, 1, 0);
 
   // Filter UI controls before the scene receives the bubbling pointer event.
   dragSurface.addEventListener('pointerdown', event => {
     const state = getState();
-    controls.enabled = state.entered && !state.selected && viewReturnStart === null &&
+    controls.enabled = state.entered && !state.selected &&
       !event.target.closest('a, select, input, textarea, label, dialog, button:not(.satellite)');
     if (!event.isPrimary) { dragged = true; return; }
     dragged = false;
@@ -525,16 +521,6 @@ export async function createUniverse({ canvas, sections, getState, onOpen, onTop
     userControlled = true; interacting = true;
   });
   controls.addEventListener('end', () => { interacting = false; });
-
-  function resetView() {
-    returnOrientation.copy(camera.quaternion);
-    controls.clearInertia();
-    controls.enabled = false;
-    userControlled = false;
-    interacting = false;
-    viewReturnStart = performance.now();
-    resizePending = true;
-  }
 
   const fitCamera = new THREE.PerspectiveCamera();
   const fitPoint = new THREE.Vector3();
@@ -606,9 +592,13 @@ export async function createUniverse({ canvas, sections, getState, onOpen, onTop
     atmosphereUniforms.radius.value = RADIUS * system.scale.x;
     atmosphereUniforms.moonRadii.value.set(moons.map(moon => moon.size * system.scale.x));
     sunlight.target.position.copy(center);
-    if (userControlled || viewReturnStart !== null) camera.position.setLength(controls.distance);
-    else { camera.position.copy(homeCamera); camera.up.copy(upright); }
-    camera.lookAt(homeLook);
+    if (userControlled || hasEntered) {
+      camera.position.set(0, 0, controls.distance).applyQuaternion(camera.quaternion);
+    } else {
+      camera.position.copy(homeCamera);
+      camera.up.copy(upright);
+      camera.lookAt(homeLook);
+    }
   }
   resize();
   // Resize the canvas only when a new frame is about to be drawn.
@@ -719,8 +709,8 @@ export async function createUniverse({ canvas, sections, getState, onOpen, onTop
     if (!visible) return;
     const state = getState();
     if (!state.entered && document.body.classList.contains('ready')) return;
-    // The moons are paused while reading. Keep drawing until the view and impact fade settle.
-    if (state.selected && viewReturnStart === null && !resizePending && !effects.needsFrame) {
+    // The moons are paused while reading. Keep drawing until layout and impact fade settle.
+    if (state.selected && !resizePending && !effects.needsFrame) {
       lastTime = milliseconds / 1000;
       return;
     }
@@ -751,22 +741,7 @@ export async function createUniverse({ canvas, sections, getState, onOpen, onTop
     system.updateMatrixWorld(true);
     for (const moon of moons) moon.world.setFromMatrixPosition(moon.mesh.matrixWorld);
 
-    if (viewReturnStart !== null) {
-      const progress = state.reduced ? 1 : Math.min(1, (milliseconds - viewReturnStart) / 650);
-      const eased = progress * progress * (3 - 2 * progress);
-      homeLookMatrix.lookAt(homeCamera, homeLook, upright);
-      homeOrientation.setFromRotationMatrix(homeLookMatrix);
-      camera.quaternion.slerpQuaternions(returnOrientation, homeOrientation, eased);
-      camera.position.set(0, 0, homeCamera.length()).applyQuaternion(camera.quaternion);
-      camera.up.copy(upright).applyQuaternion(camera.quaternion);
-      if (progress === 1) {
-        camera.position.copy(homeCamera);
-        camera.up.copy(upright);
-        camera.lookAt(homeLook);
-        viewReturnStart = null;
-      }
-    }
-    controls.enabled = state.entered && !state.selected && viewReturnStart === null;
+    controls.enabled = state.entered && !state.selected;
     if (controls.enabled && userControlled) controls.update(dt);
     camera.updateMatrixWorld();
     solarSky.update(state.paused ? 0 : now - firstTime, camera, controls.enabled && userControlled, dt);
@@ -786,5 +761,11 @@ export async function createUniverse({ canvas, sections, getState, onOpen, onTop
   renderer.setRenderTarget(null);
   draw(performance.now());
   renderer.setAnimationLoop(draw);
-  return { resetView };
+  return {
+    stopMotion() {
+      controls.clearInertia();
+      controls.enabled = false;
+      interacting = false;
+    },
+  };
 }

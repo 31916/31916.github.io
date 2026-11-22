@@ -48,7 +48,7 @@ function openSection(id, trigger) {
   refreshPanel(true);
   document.body.classList.add('panel-open');
   dialog.showModal();
-  universe?.resetView();
+  universe?.stopMotion();
 }
 for (const button of document.querySelectorAll('[data-section]')) {
   button.addEventListener('click', () => openSection(button.dataset.section, button));
@@ -58,7 +58,6 @@ function closeSection() {
   dialog.close();
   selected = null;
   document.body.classList.remove('panel-open');
-  universe?.resetView();
   lastTrigger?.focus({ preventScroll: true });
 }
 document.querySelector('.close-panel').addEventListener('click', closeSection);
@@ -135,7 +134,7 @@ function showFallback() {
   document.querySelector('#render-status').textContent = translate('この環境では3Dを表示できません。各項目はそのまま開けます。');
 }
 async function loadUniverse() {
-  const [{ createUniverse }] = await Promise.all([import('./universe.js?v=20261121-startup3'), initializeLanguage()]);
+  const [{ createUniverse }] = await Promise.all([import('./universe.js?v=20261122-keep-view'), initializeLanguage()]);
   universe = await createUniverse({
     canvas, sections: sectionInfo,
     getState: () => ({ paused: reducedMotion.matches, selected, entered, reduced: reducedMotion.matches }),
