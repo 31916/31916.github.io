@@ -55,7 +55,6 @@ export class ViewControls extends EventDispatcher {
     const fraction = 1 - Math.pow(1 - this.dampingFactor, delta * 60);
     this.angles.set(this.pending.y * fraction, this.pending.x * fraction, 0, 'YXZ');
     this.rotation.setFromEuler(this.angles);
-    // Local quaternion rotations have no pole or turn limit.
     this.camera.quaternion.multiply(this.rotation).normalize();
     this.camera.position.set(0, 0, this.distance).applyQuaternion(this.camera.quaternion);
     this.camera.up.set(0, 1, 0).applyQuaternion(this.camera.quaternion);

@@ -1,8 +1,8 @@
 .posts-page { padding-block: 2.5rem 0; }
 .posts-page > .page-content { padding-top: 0; }
 .posts-empty { padding-block: 3rem; color: var(--muted); border-block: 1px solid var(--line); }
-@media (max-width: 600px) { .posts-page { padding-top: 1.5rem; } }
 @media (max-width: 600px) {
+  .posts-page { padding-top: 1.5rem; }
   .posts-page .filter-bar { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 .posts-page .project-grid { grid-template-columns: minmax(0, 1fr); }

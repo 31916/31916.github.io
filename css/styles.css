@@ -144,13 +144,11 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   .project-card { break-inside: avoid; }
 }
 
-/* Header logos are rendered from assets/identity.json during the build. */
 .wordmark img {
   display: block;
   width: 7.5rem;
   height: 3rem;
   object-fit: contain;
-  /* Match the 404 stroke weight while retaining the supplied glyph shapes. */
   filter:
     drop-shadow(0.046875rem 0 rgb(37 43 46 / 10%))
     drop-shadow(-0.046875rem 0 rgb(37 43 46 / 10%));
@@ -159,7 +157,6 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   .wordmark:has(> img[src="/assets/identity/31916-transparent.png"]) {
     position: relative;
   }
-  /* The transparent gap separates the digits from the dot. */
   .wordmark > img[src="/assets/identity/31916-transparent.png"] {
     clip-path: inset(0 12.5% 0 0);
   }

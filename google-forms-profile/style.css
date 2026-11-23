@@ -4,13 +4,6 @@
 .guide-back-link { display: inline-flex; align-items: center; min-height: 2.75rem; margin-bottom: 1rem; color: var(--muted); font-size: .875rem; }
 .guide-hero h1 { margin-block: 1rem 1.25rem; font-size: clamp(1.75rem, 3.2vw, 2.5rem); font-weight: 600; line-height: 1.55; letter-spacing: -.025em; text-wrap: pretty; }
 .guide-summary { max-width: 44rem; font-size: 1rem; }
-.guide-meta { display: flex; flex-wrap: wrap; gap: .25rem 1rem; margin-top: 1.25rem; color: var(--muted); font-size: .875rem; }
-.guide-start { display: grid; gap: 1rem; padding-block: 1.5rem; border-block: 1px solid var(--line); }
-.guide-start > p { font-weight: 600; }
-.guide-start ol { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .75rem 1.5rem; margin: 0; padding-left: 1.5rem; font-size: .875rem; line-height: 1.8; }
-.guide-start li { padding-left: .25rem; }
-.guide-start li::marker { color: var(--accent); }
-.guide-start > a { display: inline-flex; align-items: center; min-height: 2.75rem; justify-self: start; color: var(--accent); }
 .guide-layout { display: grid; grid-template-columns: minmax(0, 1fr); gap: 0; align-items: start; }
 .guide-toc { min-width: 0; border-bottom: 1px solid var(--line); padding-block: 1rem; }
 .guide-contents summary { display: flex; align-items: center; justify-content: space-between; min-height: 2.75rem; font-size: 1rem; cursor: pointer; list-style: none; }
@@ -76,7 +69,6 @@
   .guide-section { scroll-margin-top: calc(var(--header-height, 7rem) + 1rem); }
 }
 @media (max-width: 600px) {
-  .guide-start ol { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .guide-toc ol { grid-template-columns: minmax(0, 1fr); }
   .guide-section { padding-block: 2rem; }
   .guide-flow { grid-template-columns: 1fr; }
@@ -95,7 +87,7 @@
   .image-viewer-content img { max-height: calc(100dvh - 10rem); }
 }
 @media print {
-  .guide-toc, .guide-start, .guide-image-action, .image-viewer { display: none; }
+  .guide-toc, .guide-image-action, .image-viewer { display: none; }
   .guide-page { padding: 0; }
   .guide-layout { display: block; }
   .guide-article, .guide-hero { max-width: 100%; }

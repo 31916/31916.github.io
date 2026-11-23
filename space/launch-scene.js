@@ -9,7 +9,7 @@
     return;
   }
 
-  const paper = '#f5efe1', sand = '#e5d3af', mist = '#aec4d4', wine = '#790d16', ink = '#30241f';
+  const paper = '#f5efe1', sand = '#e5d3af', mist = '#aec4d4', ink = '#30241f';
   const atlas = new Image();
   const sprites = {
     // Source rectangle in the SVG viewBox, then original drawing origin.
@@ -50,7 +50,6 @@
     ctx.drawImage(atlas, sx * 3, sy * 3, width * 3, height * 3,
       x + sx - ox, y + sy - oy, width, height);
   }
-  // Fixed grain, printed once. Randomness never changes between frames.
   function randomSource(seed) {
     return () => ((seed = (Math.imul(1664525, seed) + 1013904223) >>> 0) / 4294967296);
   }
@@ -82,7 +81,6 @@
     const c = plate.getContext('2d');
     c.setTransform(density, 0, 0, density, 0, 0);
     const horizon = deck - 16;
-    // Low sun with horizontal paper knockouts, like a three-ink travel print.
     const sunX = w * .293, sunY = Math.min(h * .32, deck - 187);
     const radius = Math.min(w * .070, h * .102);
     c.save(); c.beginPath(); c.arc(sunX, sunY, radius, 0, tau); c.clip();
@@ -93,7 +91,6 @@
     c.restore();
     cloudLine(c, w * .16, sunY + radius * 1.35, Math.min(87, w * .12));
     cloudLine(c, w * .65, sunY + radius * .1, Math.min(115, w * .14));
-    // Distant ranges share a horizon but have different silhouettes and inks.
     const ridge = (outline, color) => polygon(c, [
       [0, ground], ...outline.map(([x, y]) => [w * x, horizon - y]), [w, ground]
     ], color);
@@ -105,7 +102,6 @@
       [.52, 25], [.59, 17], [.64, 23], [.69, 17], [.76, 24], [.83, 31], [.89, 26], [.95, 30], [1, 20]], '#e1cfad');
     ridge([[0, 9], [.09, 12], [.17, 6], [.25, 11], [.34, 8], [.42, 13], [.53, 10],
       [.64, 16], [.73, 9], [.86, 13], [.94, 11], [1, 13]], '#c6bcaa');
-    // Low service buildings set the scale behind the moving line.
     for (const [x, size] of [[.035, .57], [.55, .42], [.91, .45]]) {
       c.save(); c.translate(w * x, horizon - 6); c.scale(size, size);
       polygon(c, [[0, 0], [0, -13], [8, -13], [8, -16], [34, -16], [43, -9], [75, -9], [75, 0]], '#999e98');
@@ -125,7 +121,6 @@
     const cw = Math.max(1, canvas.clientWidth), ch = Math.max(1, canvas.clientHeight);
     const dpr = Math.min(window.devicePixelRatio || 1, 2);
     canvas.width = Math.round(cw * dpr); canvas.height = Math.round(ch * dpr);
-    // A portrait scene keeps all four stations. Its rocket retains a readable silhouette.
     unit = Math.min(cw / (cw < ch ? 448 : 730), ch / 414);
     w = cw / unit; h = ch / unit; density = unit * dpr;
     deck = h * (cw < ch ? .705 : .742);
@@ -137,7 +132,6 @@
     const xEnd = w * .80 + 8, beltY = deck + 9;
     const braceTop = beltY + 16, braceBottom = ground - 3;
     const spacing = Math.max(62, xEnd / Math.ceil(xEnd / 94));
-    // Foundations and triangulated steel legs support the conveyor and gantry.
     for (let x = 14; x < xEnd; x += spacing) {
       const right = Math.min(x + spacing - 3, xEnd);
       lines(ctx, [[x, braceBottom], [x, braceTop], [right, braceBottom], [right, braceTop]], '#75858a', 2.15);
@@ -148,7 +142,6 @@
     rect(ctx, xEnd - 24, braceTop - 2, 88, 5, '#8c999b');
     rect(ctx, xEnd + 28, beltY - 3, 30, ground - beltY + 3, '#b7a98f');
     polygon(ctx, [[xEnd + 60, ground], [xEnd + 78, ground], [xEnd + 63, beltY - 2], [xEnd + 56, beltY - 2]], '#c9b99c');
-    // Closed belt: the tread and bottom return travel in opposite directions.
     ctx.beginPath(); ctx.roundRect(-24, beltY - 1, xEnd + 37, 21, 10);
     ctx.fillStyle = '#53636a'; ctx.fill();
     rect(ctx, -4, beltY + 3, xEnd + 6, 12.5, '#9fafb4');
@@ -179,7 +172,6 @@
       if (t < stage.start) continue;
       const p = ramp(t, stage.start, stage.land);
       const age = t - stage.land;
-      // Align the incoming part vertically over its station while the base approaches.
       const sx = p < 1 ? w * stage.station : x;
       const settle = age >= 0 && age < .16 ? -Math.sin(Math.PI * age / .16) * (1 - age / .16) * 5 : 0;
       const sy = deck - lift - (1 - p * p) * (deck + stage.seam + 3) + settle;
@@ -197,7 +189,6 @@
   function exhaust(t, x, lift) {
     const burn = ramp(t, 4.69, 4.97);
     if (!burn) return;
-    // Two curving banks of exhaust roll out from under the launch shoe.
     const age = t - 4.69;
     ctx.save();
     for (let i = 0; i < 30; i++) {
@@ -218,7 +209,6 @@
   }
 
   function paint(time) {
-    // Reduced motion shows the assembly as a sequence of still illustrations.
     const t = reduced.matches ? (time < 1.55 ? .81 : time < 2.95 ? 2.08 : time < 4.40 ? 3.4 : time < 5.85 ? 4.64 : 6) : time;
     const flight = ramp(t, 4.99, 5.96);
     const pan = (h - deck + 186) * ease(ramp(t, 5.23, 5.95));
@@ -244,7 +234,6 @@
     ctx.drawImage(plate, 0, 0, w, h);
     ctx.globalAlpha = 1;
     drawBelt(t * 36 + x - w * .2);
-    // The transport cradle stays behind when the rocket clears the pad.
     polygon(ctx, [[x - 28, deck + .5], [x + 28, deck + .5], [x + 25, deck + 6], [x - 25, deck + 6]], '#53636b');
     rect(ctx, x - 22, deck + 1, 44, 1.9, mist);
     for (const offset of [-18, 18]) circle(ctx, x + offset, deck + 6.3, 2.9, ink);

@@ -146,7 +146,6 @@ export function createSolarSystem(scene) {
   const direction = new THREE.Vector3();
   const skyRotation = new THREE.Quaternion();
   const sunDirection = new THREE.Vector3();
-  // Frame a possible encounter with Jupiter, just above the resting view.
   const encounterTime = 75;
   const encounter = heliocentricPosition(jupiter, encounterTime).sub(heliocentricPosition(uranusOrbit, encounterTime));
   const yaw = new THREE.Quaternion().setFromAxisAngle(yAxis, Math.atan2(encounter.x, -encounter.z));
@@ -209,7 +208,6 @@ export function createSolarSystem(scene) {
     sunDirection.copy(observer).negate().applyQuaternion(skyRotation).normalize();
     for (const { planet, group, position, spin, ring, uniforms } of objects) {
       const opacity = uniforms.opacity.value;
-      // Visibility follows exploration in every direction. Three.js handles the view frustum.
       uniforms.opacity.value = THREE.MathUtils.lerp(opacity, Number(explored), 1 - Math.exp(-delta * 4.5));
       group.visible = uniforms.opacity.value > .006;
       if (!group.visible) continue;

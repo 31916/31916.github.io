@@ -60,7 +60,6 @@ footer p { margin: 5px 0; }
   footer { position: static; }
 }
 
-/* Keep the shared contact footer in the normal page flow. */
 body { height: auto; min-height: calc(100dvh - 16px); display: flex; flex-direction: column; }
 main { display: block; flex: 1 0 auto; }
 #history { display: block; }

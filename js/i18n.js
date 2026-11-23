@@ -75,9 +75,7 @@
     try {
       const saved = localStorage.getItem(storageKey);
       if (languages.includes(saved)) return saved;
-    } catch {
-      /* Storage may be disabled; URL selection still works. */
-    }
+    } catch {}
     return "ja";
   }
 
@@ -120,9 +118,7 @@
     if (remember) {
       try {
         localStorage.setItem(storageKey, language);
-      } catch {
-        /* Optional persistence. */
-      }
+      } catch {}
       const url = new URL(location.href);
       if (language === "ja") url.searchParams.delete("lang");
       else url.searchParams.set("lang", language);
@@ -154,7 +150,5 @@
       );
       applyLanguage(readPreference());
     })
-    .catch(() => {
-      /* Keep the complete Japanese HTML if translation loading fails. */
-    });
+    .catch(() => {});
 })();

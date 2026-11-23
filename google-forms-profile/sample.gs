@@ -14,7 +14,6 @@ function onFormSubmit(e) {
     .getDisplayValues()[0];
   const rowData = e.values;
 
-  // キーワードに該当する質問を探し、回答を取得する
   function getPartial(keyword) {
     const matches = [];
 
@@ -45,7 +44,6 @@ function onFormSubmit(e) {
     return getPartial(field.keyword);
   });
 
-  // 先頭行をヘッダーとして、回答行からファイル名を作る
   const numberStr = String(e.range.getRow() - 1).padStart(3, '0');
 
   const copiedFile = DriveApp.getFileById(TEMPLATE_DOC_ID).makeCopy(

@@ -55,7 +55,7 @@ export async function initializeLanguage() {
   try {
     const response = await fetch('/assets/translations.json');
     if (response.ok) messages = await response.json();
-  } catch { /* The complete Japanese source remains available offline. */ }
+  } catch {}
   for (const lang of ['en', 'de']) messages[lang] = { ...messages[lang], ...additions[lang] };
   function apply(next, remember = false) {
     if (!supported.includes(next)) return;
@@ -65,7 +65,7 @@ export async function initializeLanguage() {
     attributes.forEach(({ node, name, source }) => node.setAttribute(name, translate(source)));
     document.querySelectorAll('[data-language-select]').forEach(selector => { selector.value = next; });
     if (remember) {
-      try { localStorage.setItem(storageKey, next); } catch { /* URL selection remains available. */ }
+      try { localStorage.setItem(storageKey, next); } catch {}
       const url = new URL(location.href);
       url.searchParams.delete('v');
       if (next === 'ja') url.searchParams.delete('lang');
@@ -77,7 +77,7 @@ export async function initializeLanguage() {
   function preference() {
     const requested = new URL(location.href).searchParams.get('lang');
     if (supported.includes(requested)) return requested;
-    try { const saved = localStorage.getItem(storageKey); if (supported.includes(saved)) return saved; } catch { /* Optional persistence. */ }
+    try { const saved = localStorage.getItem(storageKey); if (supported.includes(saved)) return saved; } catch {}
     return 'ja';
   }
   document.querySelectorAll('[data-language-select]').forEach(selector => selector.addEventListener('change', event => apply(event.target.value, true)));

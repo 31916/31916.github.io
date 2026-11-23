@@ -65,10 +65,6 @@ export function createCelestialEffects({ system, streakScene, orbitalPlane, moon
     const distance = Math.max(position.length(), radius * .8);
     return target.copy(position).multiplyScalar(-gravity / distance ** 3);
   }
-  function event(name) {
-    document.body.dataset.celestialEvent = name;
-    document.body.dataset.celestialEventCount = String(Number(document.body.dataset.celestialEventCount || 0) + 1);
-  }
   function rockMesh(position, size) {
     const mesh = new THREE.Mesh(rockGeometry, rockMaterial.clone());
     mesh.scale.setScalar(size);
@@ -117,7 +113,6 @@ export function createCelestialEffects({ system, streakScene, orbitalPlane, moon
     trail.rotation.z = Math.atan2(streakVelocity.y, streakVelocity.x);
     streakBorn = time;
     trail.visible = true;
-    event('streak');
   }
   function backgroundCollision() {
     const target = new THREE.Vector3(-4.5, 3.0 + random() * .8, -4.5);
@@ -150,7 +145,6 @@ export function createCelestialEffects({ system, streakScene, orbitalPlane, moon
     uniforms.impactDirection.value.copy(impactPoint).normalize();
     debris(impactPoint, time, now, true);
     kickMoons(impactPoint);
-    event('planet-impact');
   }
 
   function updateEvents(time, delta, now) {
@@ -179,7 +173,6 @@ export function createCelestialEffects({ system, streakScene, orbitalPlane, moon
         debris(impactPoint, time, now);
         a.dead = b.dead = true;
         pairs.splice(i, 1);
-        event('rock-collision');
       }
     }
     for (let i = rocks.length - 1; i >= 0; i--) if (rocks[i].dead) {

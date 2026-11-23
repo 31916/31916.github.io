@@ -19,7 +19,7 @@ if (cleanPagePaths.has(cleanPath)) {
   cleanPageURL.pathname = cleanPath;
   cleanPageURL.searchParams.delete("v");
   if (cleanPageURL.searchParams.get("lang") === "ja") {
-    try { localStorage.setItem("31916-language", "ja"); } catch { /* URL cleanup also works without storage. */ }
+    try { localStorage.setItem("31916-language", "ja"); } catch {}
     cleanPageURL.searchParams.delete("lang");
   }
   if (!document.getElementById("site-language")) cleanPageURL.searchParams.delete("lang");

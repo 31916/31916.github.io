@@ -3,7 +3,7 @@ import { EffectComposer } from './vendor/addons/postprocessing/EffectComposer.js
 import { RenderPass } from './vendor/addons/postprocessing/RenderPass.js';
 import { UnrealBloomPass } from './vendor/addons/postprocessing/UnrealBloomPass.js';
 import { OutputPass } from './vendor/addons/postprocessing/OutputPass.js';
-import { createCelestialEffects } from './celestial.js?v=20261121-posts-performance';
+import { createCelestialEffects } from './celestial.js?v=20261124-cleanup';
 import { ViewControls } from './view-controls.js';
 import { createSolarSystem, loadSolarModels } from './solar-system.js?v=20261121-startup3';
 import { sceneAssetsReady } from './scene-assets.js?v=20261121-startup3';
@@ -254,7 +254,6 @@ export async function createUniverse({ canvas, sections, getState, onOpen, onTop
   planetAxis.add(planet);
   system.add(planetAxis);
 
-  // A single plane owns both the visible rings and the satellites' circular orbits.
   const orbitalPlane = new THREE.Group();
   orbitalPlane.quaternion.setFromUnitVectors(new THREE.Vector3(0, 0, 1), AXIS);
   system.add(orbitalPlane);
@@ -306,7 +305,6 @@ export async function createUniverse({ canvas, sections, getState, onOpen, onTop
   ringDust.renderOrder = 21;
   orbitalPlane.add(ringDust);
 
-  // Instanced solid geometry stays detailed when the camera approaches the rings.
   const rubbleMaterial = new THREE.MeshStandardMaterial({ color: '#8e9892', normalMap: moonMaps[1], roughness: .96 });
   const rubble = new THREE.InstancedMesh(new THREE.IcosahedronGeometry(1, 0), rubbleMaterial, 8192);
   const pebbles = new THREE.InstancedMesh(new THREE.IcosahedronGeometry(1, 2), rubbleMaterial, 128);
@@ -477,7 +475,6 @@ export async function createUniverse({ canvas, sections, getState, onOpen, onTop
   let dragged = false, pressedSatellite = null;
   const upright = new THREE.Vector3(0, 1, 0);
 
-  // Filter UI controls before the scene receives the bubbling pointer event.
   dragSurface.addEventListener('pointerdown', event => {
     const state = getState();
     controls.enabled = state.entered && !state.selected &&
@@ -601,7 +598,6 @@ export async function createUniverse({ canvas, sections, getState, onOpen, onTop
     }
   }
   resize();
-  // Resize the canvas only when a new frame is about to be drawn.
   const scheduleResize = () => { resizePending = true; };
   addEventListener('resize', scheduleResize);
   document.addEventListener('fullscreenchange', scheduleResize);
