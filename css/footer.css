@@ -48,6 +48,9 @@
   .footer-socials { gap: .25rem; }
   .footer-socials .social-icon { width: 1.5rem; height: 1.5rem; }
 }
+@media screen and (max-width: 700px) {
+  body > .site-footer { padding-bottom: max(4rem, env(safe-area-inset-bottom)); }
+}
 @media print { .copy-email { display: none; } }
 
 .site-footer a { color: inherit; }
