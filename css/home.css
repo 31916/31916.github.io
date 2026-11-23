@@ -8,10 +8,16 @@
 .home-intro p { font-size: 1rem; line-height: 1.95; }
 .home-intro p + p { margin-top: .5rem; }
 @media (max-width: 700px) {
-  .home-intro { grid-template-columns: minmax(0, 1fr); gap: 1.5rem; }
-  .home-intro-hero { display: grid; justify-items: center; gap: 1.25rem; }
+  .home-main { flex: 0 0 auto; padding-block: 1rem; }
+  .home-intro { grid-template-columns: minmax(0, 1fr); gap: .5rem; }
+  .home-intro-hero { display: grid; justify-items: center; gap: .75rem; }
   .home-intro-icon { grid-row: auto; width: 8rem; }
   .home-intro h1 { margin: 0; font-size: 1.75rem; text-align: center; }
   html:lang(ja) .home-intro-invitation { display: block; }
+}
+@media (max-width: 700px) and (max-height: 720px) {
+  .home-main { padding-block: .25rem 0; }
+  .home-intro { gap: .25rem; }
+  .home-intro-hero { gap: .5rem; }
 }
 @media print { .home-main { display: block; } }
