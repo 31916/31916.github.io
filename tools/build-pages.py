@@ -87,7 +87,7 @@ PUBLIC = (
     "google-forms-profile/screenshots/previews/09-output-folder.webp",
     "google-forms-profile/screenshots/previews/10-gmail-received.webp",
     "css/styles.css", "css/footer.css", "js/scripts.js", "css/resume.css", "css/projects.css",
-    "css/home.css", "css/hobbies.css", "assets/projects.json",
+    "css/home.css", "css/hobbies.css", "css/mobile-typography.css", "assets/projects.json",
     "css/cursors.css", "assets/cursors/arrow.png", "assets/cursors/hand.png", "assets/cursors/text.png",
     "assets/identity.json",
     "assets/fonts/quicksand-404.woff2", "assets/fonts/OFL-Quicksand.txt",

@@ -73,7 +73,7 @@ dialog.addEventListener('cancel', event => {
 
 const frameStyles = `
   :root { color-scheme: dark; --paper: #0b121c; --ink: #f4f0dd; --muted: #a9bcb9; --sand: #1c2b3c; --mist: #24384b; --accent: #b7d3cb; --line: #91a6bc35; --sans: 'Noto Sans JP', 'Yu Gothic', sans-serif; background: transparent !important; }
-  html { background: transparent !important; font-size: 16px !important; scrollbar-color: #637c72 transparent; }
+  html { background: transparent !important; scrollbar-color: #637c72 transparent; }
   body { background: transparent !important; color: var(--ink) !important; display: block !important; min-height: 0 !important; }
   .site-header, .site-footer, body > .skip-link, main > h1 { display: none !important; }
   main { width: 100% !important; max-width: none !important; padding: 28px !important; margin: 0 !important; }

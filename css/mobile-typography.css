@@ -1,0 +1,66 @@
+@media screen and (max-width: 700px) {
+  html:is(:lang(en), :lang(de)) {
+    font-size: 93.75%;
+  }
+  html:is(:lang(en), :lang(de)) :is(h1, h2, h3) {
+    text-wrap: balance;
+  }
+  html:is(:lang(en), :lang(de)) .site-header nav {
+    grid-template-columns: repeat(4, auto);
+    gap: .25rem;
+  }
+  html:is(:lang(en), :lang(de)) .site-header nav a {
+    min-height: 44px;
+    padding-inline: .1875rem;
+    white-space: nowrap;
+    overflow-wrap: normal;
+  }
+  html:is(:lang(en), :lang(de)) :is(.home-intro-copy, .project-description, .resume-event-name, .resume-list, .hobby-section-content, .interest-list, .tournament-name) {
+    overflow-wrap: break-word;
+    word-break: normal;
+    text-wrap: pretty;
+  }
+  html:lang(de) :is(.project-description, .resume-event-name, .resume-list, .hobby-section-content) {
+    hyphens: auto;
+  }
+  html:is(:lang(en), :lang(de)) .interests-section > h2 {
+    overflow-wrap: normal;
+  }
+  html:is(:lang(en), :lang(de)) :is(.sport-details dd a, .interest-list a) {
+    hyphens: manual;
+    word-break: normal;
+    overflow-wrap: break-word;
+  }
+  html:is(:lang(en), :lang(de)) :is(.resume-event-name, .resume-list, .tech-stack li) {
+    font-size: 1rem;
+  }
+  html:is(:lang(en), :lang(de)) .language-picker select {
+    font-size: .875rem;
+  }
+  html:is(:lang(en), :lang(de)) .scene-welcome {
+    font-size: clamp(1.05rem, 4.6vw, 1.25rem);
+    overflow-wrap: normal;
+  }
+  html:is(:lang(en), :lang(de)) .scene-tools > a {
+    font-size: .875rem;
+  }
+  html:is(:lang(en), :lang(de)) .satellite-label {
+    font-size: .8rem;
+  }
+  html:is(:lang(en), :lang(de)) .satellite-number {
+    font-size: .6875rem;
+  }
+  html:is(:lang(en), :lang(de)) .panel-introduction > p {
+    font-size: 1rem;
+    text-wrap: pretty;
+  }
+  html:is(:lang(en), :lang(de)) .panel-header h2 {
+    font-size: 1.25rem;
+  }
+  html:is(:lang(en), :lang(de)) .close-panel {
+    font-size: .75rem;
+  }
+  html:is(:lang(en), :lang(de)) :is(.render-status, .panel-loading) {
+    font-size: .8125rem;
+  }
+}
