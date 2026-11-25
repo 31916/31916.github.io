@@ -7,9 +7,6 @@
     word-break: normal;
     text-wrap: pretty;
   }
-  html:lang(de) :is(.project-description, .resume-event-name, .resume-list, .hobby-section-content) {
-    hyphens: auto;
-  }
   html:is(:lang(en), :lang(de)) .interests-section > h2 {
     overflow-wrap: normal;
   }
@@ -23,6 +20,9 @@
   }
 }
 @media screen and (min-width: 701px) {
+  html:lang(de) :is(.project-description, .resume-event-name, .resume-list, .hobby-section-content, .qualification-entry > span, .qualification-entry > a) {
+    hyphens: manual;
+  }
   html:is(:lang(en), :lang(de)) :is(.home-intro-copy, .panel-introduction) > p {
     text-wrap: balance;
   }
@@ -32,6 +32,9 @@
   }
 }
 @media screen and (max-width: 700px) {
+  html:lang(de) :is(.project-description, .resume-event-name, .resume-list, .hobby-section-content) {
+    hyphens: auto;
+  }
   html:is(:lang(en), :lang(de)) {
     font-size: 93.75%;
   }
